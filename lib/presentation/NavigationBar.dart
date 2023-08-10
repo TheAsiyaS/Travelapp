@@ -1,0 +1,60 @@
+import 'package:flutter/material.dart';
+import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/presentation/Home/Home.dart';
+import 'package:travelapp/presentation/Hotels/Hotels.dart';
+import 'package:travelapp/presentation/TourGuide/TourGuide.dart';
+import 'package:travelapp/presentation/TravelAgencies/Agencies.dart';
+
+ValueNotifier<int> bottomIndex = ValueNotifier(0); //bottomnavigationBar index
+final navigationScreens = [
+  const Home(),
+  const Hotels(),
+  const Agencies(),
+  const TourGuide()
+];
+
+class NavigationBarScreen extends StatelessWidget {
+  const NavigationBarScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+        valueListenable: bottomIndex,
+        builder: (BuildContext ctx, int newindex, Widget? _) {
+          return Scaffold(
+            bottomNavigationBar: BottomNavigationBar(
+                backgroundColor: kblack,
+                type: BottomNavigationBarType.fixed,
+                selectedItemColor: Colors.white,
+                unselectedItemColor:kSubDominantcolor,
+                elevation: 0,
+                currentIndex: bottomIndex.value,
+                onTap: (index) {
+                  bottomIndex.value = index;
+                },
+                items: const [
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.home,
+                      ),
+                      label: 'Home'),
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.hotel_class_outlined,
+                      ),
+                      label: 'Hotels'),
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.cloud,
+                      ),
+                      label: 'Agencies'),
+                  BottomNavigationBarItem(
+                      icon: Icon(
+                        Icons.menu_book_outlined,
+                      ),
+                      label: 'Guide'),
+                ]),
+            body: navigationScreens[bottomIndex.value],
+          );
+        });
+  }
+}
