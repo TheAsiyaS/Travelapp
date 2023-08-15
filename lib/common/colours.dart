@@ -15,3 +15,4 @@ const kSubIcon = Color.fromARGB(129, 255, 191, 72);
 const kRed = Colors.red;
 const ktransparent = Colors.transparent;
 const kblackdarktrans = Color.fromARGB(194, 0, 0, 0);
+const kamber = Colors.amber;
