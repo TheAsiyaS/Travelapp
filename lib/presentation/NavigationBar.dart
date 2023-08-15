@@ -17,15 +17,18 @@ class NavigationBarScreen extends StatelessWidget {
   const NavigationBarScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    Brightness brightness = MediaQuery.of(context).platformBrightness;
+        bool isDarkMode = brightness == Brightness.dark;
+
     return ValueListenableBuilder(
         valueListenable: bottomIndex,
         builder: (BuildContext ctx, int newindex, Widget? _) {
           return Scaffold(
             bottomNavigationBar: BottomNavigationBar(
-                backgroundColor: kblack,
+                backgroundColor: isDarkMode?kblack:kwhite,
                 type: BottomNavigationBarType.fixed,
-                selectedItemColor: Colors.white,
-                unselectedItemColor:kSubDominantcolor,
+                selectedItemColor: kDominanttextcolor,
+                unselectedItemColor: kSubDominantcolor,
                 elevation: 0,
                 currentIndex: bottomIndex.value,
                 onTap: (index) {
@@ -44,7 +47,7 @@ class NavigationBarScreen extends StatelessWidget {
                       label: 'Hotels'),
                   BottomNavigationBarItem(
                       icon: Icon(
-                        Icons.cloud,
+                        Icons.tour,
                       ),
                       label: 'Agencies'),
                   BottomNavigationBarItem(
