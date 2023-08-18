@@ -121,9 +121,9 @@ class Mostpeoplevisit extends StatelessWidget {
                                   end: Alignment.bottomCenter,
                                   colors: [ktransparent, kblackdarktrans])),
                           child: Column(
-                            children: [ 
+                            children: [
                               Padding(
-                                padding:  EdgeInsets.only(left:size.width/5),
+                                padding: EdgeInsets.only(left: size.width / 5),
                                 child: IconButtonWidget(
                                     onPressFunc: () {},
                                     iconwidget: const Icon(

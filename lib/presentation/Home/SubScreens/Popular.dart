@@ -11,10 +11,10 @@ class Popular extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      body: Column( 
+      body: Column(
         children: [
           SizedBox(
-            height: 100,  
+            height: size.height / 1.5,
             child: ListView.separated(
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
@@ -44,10 +44,11 @@ class Popular extends StatelessWidget {
                                       height: 50,
                                       width: 50,
                                       boxdecoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           image: DecorationImage(
-                                              image:
-                                                  NetworkImage(homeimageurls[index]),
+                                              image: NetworkImage(
+                                                  homeimageurls[index]),
                                               fit: BoxFit.fill)),
                                       childwidget: const Column(
                                         children: [],

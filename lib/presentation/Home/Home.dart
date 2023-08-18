@@ -5,7 +5,7 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Beach.dart';
-import 'package:travelapp/presentation/Home/SubScreens/Caalm.dart';
+import 'package:travelapp/presentation/Home/SubScreens/Calm.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Cheep.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Mostpeoplevisit.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Popular.dart';
@@ -88,7 +88,7 @@ class Home extends StatelessWidget {
                                   )),
                             ),
                             SizedBox(
-                              height: 50,
+                              height: 40 ,
                               width: size.width / 1.3,
                               child: CupertinotextfieldWidget(
                                   placeholderText: 'Search your hapiness......',
