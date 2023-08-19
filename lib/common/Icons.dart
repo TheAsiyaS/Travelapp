@@ -27,3 +27,4 @@ const kmenu = Icons.menu;
 const ksqGrid = CupertinoIcons.square_grid_2x2_fill;
 const kstars = CupertinoIcons.star;
 const kstarsfilled = CupertinoIcons.star_fill;
+const kLocation = Icons.location_on;
