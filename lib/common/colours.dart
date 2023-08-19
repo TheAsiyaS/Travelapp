@@ -16,3 +16,4 @@ const kRed = Colors.red;
 const ktransparent = Colors.transparent;
 const kblackdarktrans = Color.fromARGB(194, 0, 0, 0);
 const kamber = Colors.amber;
+const kDominantTrans = Color.fromARGB(162, 30, 63, 62);
