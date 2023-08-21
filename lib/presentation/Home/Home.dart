@@ -88,7 +88,7 @@ class Home extends StatelessWidget {
                                   )),
                             ),
                             SizedBox(
-                              height: 40 ,
+                              height: 50 ,
                               width: size.width / 1.3,
                               child: CupertinotextfieldWidget(
                                   placeholderText: 'Search your hapiness......',

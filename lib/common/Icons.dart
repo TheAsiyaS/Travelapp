@@ -28,3 +28,5 @@ const ksqGrid = CupertinoIcons.square_grid_2x2_fill;
 const kstars = CupertinoIcons.star;
 const kstarsfilled = CupertinoIcons.star_fill;
 const kLocation = Icons.location_on;
+const klistdash = CupertinoIcons.list_dash;
+const ksave = Icons.bookmark_border;
