@@ -47,6 +47,8 @@ class Mostpeoplevisit extends StatelessWidget {
                                 child: Align(
                                   alignment: Alignment.centerRight,
                                   child: ConatinerwithWidget(
+                                    height: 50,
+                                    width: 50,
                                     containerdecoration: BoxDecoration(
                                         color: kwhite,
                                         borderRadius:

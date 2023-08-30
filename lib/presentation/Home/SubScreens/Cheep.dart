@@ -48,7 +48,8 @@ class Cheep extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Align(
                                 alignment: Alignment.centerRight,
-                                child: ConatinerwithWidget(
+                                child: ConatinerwithWidget(  height: 50,
+                        width: 50,
                                   containerdecoration: BoxDecoration(
                                       color: kwhite,
                                       borderRadius: BorderRadius.circular(15)),

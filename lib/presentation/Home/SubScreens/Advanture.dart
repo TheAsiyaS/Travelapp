@@ -65,7 +65,8 @@ class Adavanture extends StatelessWidget {
                                           fontWeight: FontWeight.bold),
                                     ),
                                     const Spacer(),
-                                    ConatinerwithWidget(
+                                    ConatinerwithWidget(  height: 50,
+                        width: 50,
                                         containerdecoration: BoxDecoration(
                                             color: kwhite,
                                             borderRadius:

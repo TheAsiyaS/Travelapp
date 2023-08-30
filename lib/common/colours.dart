@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
 
 const kDominantcolor = Color.fromARGB(255, 30, 63, 62);
 const kblack = Colors.black;
 const kwhite = Colors.white;
+const klightwhite = Color.fromARGB(164, 255, 255, 255);
 const kblue = Colors.blue;
 const kgrey = Colors.grey;
 const kgreyTransparent = Color.fromARGB(134, 70, 70, 70);
@@ -17,3 +19,5 @@ const ktransparent = Colors.transparent;
 const kblackdarktrans = Color.fromARGB(194, 0, 0, 0);
 const kamber = Colors.amber;
 const kDominantTrans = Color.fromARGB(162, 30, 63, 62);
+const kbottomSubDominant = Color.fromARGB(255, 64, 110, 113);
+

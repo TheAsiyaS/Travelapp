@@ -30,3 +30,4 @@ const kstarsfilled = CupertinoIcons.star_fill;
 const kLocation = Icons.location_on;
 const klistdash = CupertinoIcons.list_dash;
 const ksave = Icons.bookmark_border;
+const kforward = CupertinoIcons.chevron_right_circle_fill ;

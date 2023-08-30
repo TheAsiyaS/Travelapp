@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-
 class ConatinerwithWidget extends StatelessWidget {
   const ConatinerwithWidget({
     super.key,
     required this.containerdecoration,
-    required this.childwidget,
+    required this.childwidget, required this.height, required this.width,
   });
 
   final BoxDecoration containerdecoration;
   final Widget childwidget;
+  final double height;
+  final double width;
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      width: 50,
-      decoration: containerdecoration,
-      child: childwidget
-    );
+        height: height,
+        width: width,
+        decoration: containerdecoration,
+        child: childwidget);
   }
 }

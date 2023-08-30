@@ -51,6 +51,8 @@ class Hotels extends StatelessWidget {
                             style: const TextStyle()),
                       ),
                       ConatinerwithWidget(
+                        height: 50,
+                        width: 50,
                         containerdecoration: BoxDecoration(
                             color: kdominatgrey,
                             borderRadius: BorderRadius.circular(15)),

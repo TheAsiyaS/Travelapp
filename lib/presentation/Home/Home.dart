@@ -37,7 +37,65 @@ class Home extends StatelessWidget {
         ],
       ),
       extendBodyBehindAppBar: true,
-      drawer: const Drawer(),
+      drawer: Drawer(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                color: kbottomSubDominant,
+                height: size.height / 3,
+                width: size.width,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: NetworkImage(
+                          'https://www.guinnessworldrecords.com/Images/Burj-portrait-lagre_tcm25-475749.jpg'),
+                    ),
+                    h10,
+                    Text(
+                      'Username',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    ),
+                    h10,
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: size.height / 2,
+                width: size.width,
+                child: ListView.separated(
+                    itemBuilder: (context, index) {
+                      return const ListTile(
+                        title: Text('Save'),
+                        subtitle: Text('Hotels save '),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const Divider();
+                    },
+                    itemCount: 4),
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                Text(
+                  'Longitude',
+                  style: GoogleFonts.dancingScript(fontSize: 20),
+                ),
+                Container(
+                  height: 70,
+                  width: 70,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('asset/logo.png'),
+                          fit: BoxFit.cover)),
+                ),
+              ]),
+            ],
+          ),
+        ),
+      ),
       body: DefaultTabController(
         length: 6,
         child: SingleChildScrollView(
@@ -53,11 +111,11 @@ class Home extends StatelessWidget {
                         fit: BoxFit.cover,
                         opacity: 80)),
                 child: Container(
-                  decoration:const  BoxDecoration(
+                  decoration: const BoxDecoration(
                       gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [ktransparent, kblackTransparent])),
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [ktransparent, kblackTransparent])),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Column(
@@ -77,6 +135,8 @@ class Home extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             ConatinerwithWidget(
+                                height: 50,
+                        width: 50,
                               containerdecoration: BoxDecoration(
                                   color: kwhite,
                                   borderRadius: BorderRadius.circular(15)),
@@ -88,7 +148,7 @@ class Home extends StatelessWidget {
                                   )),
                             ),
                             SizedBox(
-                              height: 50 ,
+                              height: 50,
                               width: size.width / 1.3,
                               child: CupertinotextfieldWidget(
                                   placeholderText: 'Search your hapiness......',
@@ -143,7 +203,6 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
-           
               SizedBox(
                 height: size.height / 1.5,
                 width: size.width,

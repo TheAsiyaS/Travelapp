@@ -10,7 +10,7 @@ final navigationScreens = [
   const Home(),
   const Hotels(),
   const Agencies(),
-  const TourGuide()
+   SlideshowScreen()
 ];
 
 class NavigationBarScreen extends StatelessWidget {
