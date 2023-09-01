@@ -5,6 +5,7 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
+import 'package:travelapp/widgets/HotelDetailWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
 import 'package:travelapp/widgets/TextButton.dart';
@@ -64,7 +65,7 @@ class Hotels extends StatelessWidget {
                             )),
                       ),
                     ],
-                  ),
+                  ), //https://previews.123rf.com/images/kitleong/kitleong1510/kitleong151000085/46555900-spring-flowers-cherry-tree-blossom-at-mito-ibaraki-near-tokoyo.jpg
                 ),
               ],
             ),
@@ -84,24 +85,37 @@ class Hotels extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 children: List.generate(
                     10,
-                    (index) => Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              height: size.height / 9,
-                              width: size.width / 4,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  image: const DecorationImage(
-                                      image: NetworkImage(
-                                          'https://www.eliaermouhotel.com/uploads/photos/D1024/2019/02/standardroom_1878.jpg'),
-                                      fit: BoxFit.cover)),
-                            ),
-                            const Text('Room Name',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ))
-                          ],
+                    (index) => GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const HotelDetailedWidget(
+                                    url:
+                                        'https://www.connollycove.com/wp-content/uploads/2023/05/people-walking-japan-street-nighttime-2.jpg',
+                                    title: 'Hotel',
+                                    subtitle: 'Hotel sub title',
+                                    price: '\$230',
+                                    rating: '4',
+                                    about: 'dfhdf ndfjhfd djfdhfd dfjgfg')));
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                height: size.height / 9,
+                                width: size.width / 4,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: const DecorationImage(
+                                        image: NetworkImage(
+                                            'https://www.eliaermouhotel.com/uploads/photos/D1024/2019/02/standardroom_1878.jpg'),
+                                        fit: BoxFit.cover)),
+                              ),
+                              const Text('Room Name',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ))
+                            ],
+                          ),
                         )),
               ),
             ),
@@ -177,7 +191,10 @@ class Hotels extends StatelessWidget {
                                       kLocation,
                                       color: kSubDominantcolor,
                                     )),
-                                title: const Text('\$200',style: TextStyle(fontWeight: FontWeight.bold),),
+                                title: const Text(
+                                  '\$200',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
                                 subtitle: const Text('Hotel name '),
                                 trailing: IconButton(
                                     onPressed: () {}, icon: const Icon(ksave)),
