@@ -9,7 +9,8 @@ class CupertinotextfieldWidget extends StatelessWidget {
       required this.prefixWidget,
       required this.suffixWidget,
       required this.keybodtype,
-      required this.obscureText, required this.style});
+      required this.obscureText,
+      required this.style, required this.onchanged, required this.onsubmitted});
   final String placeholderText;
   final TextStyle placeholderStyle;
   final BoxDecoration boxDecoration;
@@ -18,7 +19,8 @@ class CupertinotextfieldWidget extends StatelessWidget {
   final TextInputType keybodtype;
   final bool obscureText;
   final TextStyle style;
-
+  final Function(String) onchanged;
+  final Function(String) onsubmitted;
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
@@ -30,6 +32,8 @@ class CupertinotextfieldWidget extends StatelessWidget {
       keyboardType: keybodtype,
       obscureText: obscureText,
       style: style,
+      onChanged: onchanged,
+      onSubmitted: onsubmitted,
     );
   }
 }

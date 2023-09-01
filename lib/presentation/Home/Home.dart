@@ -10,8 +10,8 @@ import 'package:travelapp/presentation/Home/SubScreens/Cheep.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Mostpeoplevisit.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Popular.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
-import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/IconButton.dart';
+import 'package:travelapp/widgets/onssearchtimescreen.dart';
 
 final List homeimageurls = [
   'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/92/80/ef/caption.jpg?w=300&h=300&s=1',
@@ -135,8 +135,8 @@ class Home extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             ConatinerwithWidget(
-                                height: 50,
-                        width: 50,
+                              height: 50,
+                              width: 50,
                               containerdecoration: BoxDecoration(
                                   color: kwhite,
                                   borderRadius: BorderRadius.circular(15)),
@@ -147,10 +147,33 @@ class Home extends StatelessWidget {
                                     color: kdominatgrey,
                                   )),
                             ),
-                            SizedBox(
-                              height: 50,
-                              width: size.width / 1.3,
-                              child: CupertinotextfieldWidget(
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context)=> const OnsearchtimeScreen()));
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: kwhite,
+                                    borderRadius: BorderRadius.circular(15)),
+                                height: 50,
+                                width: size.width / 1.3,
+                                child: const Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '  Search your hapiness......',
+                                        style: TextStyle(
+                                            color: kdominatgrey, fontSize: 18),
+                                      )
+                                    ]),
+                              ),
+                            ),
+                          ],
+                          /*
+                          CupertinotextfieldWidget(
                                   placeholderText: 'Search your hapiness......',
                                   placeholderStyle:
                                       const TextStyle(color: kdominatgrey),
@@ -162,8 +185,7 @@ class Home extends StatelessWidget {
                                   keybodtype: TextInputType.name,
                                   obscureText: false,
                                   style: const TextStyle()),
-                            ),
-                          ],
+                           */
                         ),
                         h20
                       ],

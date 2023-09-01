@@ -40,6 +40,8 @@ class Hotels extends StatelessWidget {
                         height: 50,
                         width: size.width / 1.3,
                         child: CupertinotextfieldWidget(
+                            onchanged: (value) {},
+                            onsubmitted: (value) {},
                             placeholderText: 'Search your hapiness......',
                             placeholderStyle: const TextStyle(color: kwhite),
                             boxDecoration: BoxDecoration(
