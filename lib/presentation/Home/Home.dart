@@ -41,6 +41,12 @@ class Home extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              //
+              const Text('hello, username'),
+              GridView.count(
+                crossAxisCount: 2,
+                children: List.generate(10, (index) => Container()),
+              ),
               Container(
                 color: kbottomSubDominant,
                 height: size.height / 3,
@@ -149,8 +155,9 @@ class Home extends StatelessWidget {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Navigator.of(context).push(
-                                    MaterialPageRoute(builder: (context)=> const OnsearchtimeScreen()));
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) =>
+                                        const OnsearchtimeScreen()));
                               },
                               child: Container(
                                 decoration: BoxDecoration(

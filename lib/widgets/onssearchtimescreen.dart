@@ -5,6 +5,7 @@ import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/presentation/Home/SearchResult.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/IconButton.dart';
@@ -43,6 +44,8 @@ class OnsearchtimeScreen extends StatelessWidget {
                         onchanged: (value) {},
                         onsubmitted: (value) {
                           log(value);
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const SearchResult()));
                         },
                         placeholderText: 'Search your hapiness......',
                         placeholderStyle: const TextStyle(color: kdominatgrey),
