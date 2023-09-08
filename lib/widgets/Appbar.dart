@@ -1,6 +1,8 @@
+
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/presentation/Hotels/HotelSearchDeatil.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +11,8 @@ import 'package:travelapp/widgets/IconButton.dart';
 class SimpleAppbar extends StatelessWidget {
   const SimpleAppbar({
     super.key,
-    required this.size, required this.id,
+    required this.size,
+    required this.id,
   });
 
   final Size size;
@@ -37,7 +40,13 @@ class SimpleAppbar extends StatelessWidget {
                   width: size.width / 1.3,
                   child: CupertinotextfieldWidget(
                       onchanged: (value) {},
-                      onsubmitted: (value) {},
+                      onsubmitted: (value) {
+                        if (id == 'HotelSearchBar') {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) =>
+                                  const HotelSearchDetailed()));
+                        } else {}
+                      },
                       placeholderText: 'Search your hapiness......',
                       placeholderStyle: const TextStyle(color: kwhite),
                       boxDecoration: BoxDecoration(

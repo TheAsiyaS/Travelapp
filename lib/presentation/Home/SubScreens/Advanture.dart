@@ -3,6 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
+import 'package:travelapp/widgets/SearchItemDetailed.dart';
 
 class Adavanture extends StatelessWidget {
   const Adavanture({super.key});
@@ -38,11 +39,19 @@ class Adavanture extends StatelessWidget {
                         (context, index) {
                       return GestureDetector(
                         onTap: () {
-                          // Navigator.of(context).push(MaterialPageRoute(
-                          //     builder: (context) => PostListPage(
-                          //         posts: snapshot.data!.docs,
-                          //         initialPostIndex: index)
-                          //  ) );
+                        GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SearchItemDetailed(
+                              imageurl: '',
+                              suburls: [],
+                              price: 'price',
+                              title: 'title',
+                              subtitle: 'subtitle',
+                              rating: 'rating',
+                              reviewNo: 'reviewNo',
+                              obj: 'obj')));
+                    
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -82,11 +91,11 @@ class Adavanture extends StatelessWidget {
                           ),
                         ),
                       );
-                    })),
+                    });}),
               ),
             ),
           ),
-        ],
+      )],
       ),
     );
   }

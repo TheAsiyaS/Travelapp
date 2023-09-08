@@ -20,7 +20,7 @@ class Hotels extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(size.height / 7),
-          child: SimpleAppbar(size: size,id: '',)),
+          child: SimpleAppbar(size: size,id: 'HotelSearchBar',)),
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(

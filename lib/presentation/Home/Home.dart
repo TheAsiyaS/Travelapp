@@ -179,20 +179,8 @@ class Home extends StatelessWidget {
                               ),
                             ),
                           ],
-                          /*
-                          CupertinotextfieldWidget(
-                                  placeholderText: 'Search your hapiness......',
-                                  placeholderStyle:
-                                      const TextStyle(color: kdominatgrey),
-                                  boxDecoration: BoxDecoration(
-                                      color: kwhite,
-                                      borderRadius: BorderRadius.circular(15)),
-                                  prefixWidget: w10,
-                                  suffixWidget: h10,
-                                  keybodtype: TextInputType.name,
-                                  obscureText: false,
-                                  style: const TextStyle()),
-                           */
+                         
+                         
                         ),
                         h20
                       ],
