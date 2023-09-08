@@ -7,6 +7,8 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/Appbar.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 
+import '../../widgets/SearchItemDetailed.dart';
+
 class SearchResult extends StatelessWidget {
   const SearchResult({super.key});
 
@@ -29,76 +31,107 @@ class SearchResult extends StatelessWidget {
               10,
               (index) => Stack(
                     children: [
-                      ConatinerwithWidget(
-                          containerdecoration: BoxDecoration(
-                              image: const DecorationImage(
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const SearchItemDetailed(
+                                  imageurl: '',
+                                  suburls: [],
+                                  price: '',
+                                  title: '',
+                                  subtitle: '',
+                                  rating: '',
+                                  reviewNo: '',
+                                  obj: '')));
+                        },
+                        child: ConatinerwithWidget(
+                            containerdecoration: const BoxDecoration(
+                              image: DecorationImage(
                                   image: NetworkImage(
                                       'https://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2017/12/shutterstock_7024083491.jpg'),
                                   fit: BoxFit.cover),
-                              borderRadius: BorderRadius.circular(20)),
-                          childwidget: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                height: size.height / 4,
-                                width: size.width,
-                                decoration: const BoxDecoration(
-                                    color: kDominantTrans,
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(500),
-                                        topRight: Radius.circular(500))),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            SizedBox(
-                                              height: 60,
-                                              width: size.width / 1.5,
-                                              child: const ListTile(
-                                                title: Text(
+                            ),
+                            childwidget: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Container(
+                                  height: size.height / 4,
+                                  width: size.width,
+                                  decoration: const BoxDecoration(
+                                      color: kDominantTrans,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(500),
+                                          topRight: Radius.circular(500))),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsets.only(left: 20),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                const Text(
                                                   'Explore item title',
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 ),
-                                                subtitle: Text(
-                                                    'About the hotel and surrounding areas information here'),
-                                              ),
-                                            ),
-                                            const Padding(
-                                              padding: EdgeInsets.all(8.0),
-                                              child: Text(
-                                                '\$5060',
-                                                style: textstyle,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        RatingBar(
-                                            direction: Axis.vertical,
-                                            itemSize: 15,
-                                            initialRating: 3,
-                                            ratingWidget: RatingWidget(
-                                                full: const Icon(
-                                                  kstarsfilled,
-                                                  color: kamber,
+                                                SizedBox(
+                                                  height: 50,
+                                                  width: size.width / 1.7,
+                                                  child: const Text(
+                                                    'About the hotel and surrounding areas information here',
+                                                    style: subtextstyle,
+                                                    maxLines: 3,
+                                                  ),
                                                 ),
-                                                half: const Icon(kstars),
-                                                empty: const Icon(kstars)),
-                                            onRatingUpdate: (value) {})
-                                      ],
-                                    ),
-                                  ],
+                                                const Text(
+                                                  '\$5060',
+                                                  style: textstyle,
+                                                ),
+                                                const Row(
+                                                  children: [
+                                                    Icon(
+                                                      kLocation,
+                                                      color: kdominatgrey,
+                                                    ),
+                                                    Text(
+                                                      'Location',
+                                                      style: subtextstyle,
+                                                    ),
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          RatingBar(
+                                              direction: Axis.vertical,
+                                              itemSize: 15,
+                                              initialRating: 3,
+                                              ratingWidget: RatingWidget(
+                                                  full: const Icon(
+                                                    kstarsfilled,
+                                                    color: kamber,
+                                                  ),
+                                                  half: const Icon(kstars),
+                                                  empty: const Icon(kstars)),
+                                              onRatingUpdate: (value) {})
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                          height: size.height / 1,
-                          width: size.width),
+                              ],
+                            ),
+                            height: size.height / 1,
+                            width: size.width),
+                      ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -139,4 +172,4 @@ class SearchResult extends StatelessWidget {
                   )),
         ));
   }
-} 
+}
