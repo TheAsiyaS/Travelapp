@@ -20,7 +20,10 @@ class Hotels extends StatelessWidget {
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(size.height / 7),
-          child: SimpleAppbar(size: size,id: 'HotelSearchBar',)),
+          child: SimpleAppbar(
+            size: size,
+            id: 'HotelSearchBar',
+          )),
       body: SafeArea(
           child: SingleChildScrollView(
         child: Column(
@@ -99,58 +102,74 @@ class Hotels extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   children: List.generate(
                       10,
-                      (index) => Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                height: size.height / 5,
-                                width: size.width / 1.5,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: const DecorationImage(
-                                        image: NetworkImage(
-                                            'https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg'),
-                                        fit: BoxFit.cover)),
-                              ),
-                              SizedBox(
-                                height: 30,
-                                width: size.width / 1.5,
-                                child: RatingBar.builder(
-                                  itemSize: 40,
-                                  initialRating: 3,
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemPadding:
-                                      const EdgeInsets.symmetric(horizontal: 1),
-                                  itemBuilder: (context, _) => Transform.scale(
-                                    scale:
-                                        .4, // Adjust this value to reduce the size
-                                    child: const Icon(
-                                      Icons.star,
-                                      color: kamber,
+                      (index) => GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const HotelDetailedWidget(
+                                      url:
+                                          'https://www.connollycove.com/wp-content/uploads/2023/05/people-walking-japan-street-nighttime-2.jpg',
+                                      title: 'Hotel',
+                                      subtitle: 'Hotel sub title',
+                                      price: '\$230',
+                                      rating: '4',
+                                      about: 'dfhdf ndfjhfd djfdhfd dfjgfg')));
+                            },
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  height: size.height / 5,
+                                  width: size.width / 1.5,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: const DecorationImage(
+                                          image: NetworkImage(
+                                              'https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg'),
+                                          fit: BoxFit.cover)),
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                  width: size.width / 1.5,
+                                  child: RatingBar.builder(
+                                    itemSize: 40,
+                                    initialRating: 3,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemPadding: const EdgeInsets.symmetric(
+                                        horizontal: 1),
+                                    itemBuilder: (context, _) =>
+                                        Transform.scale(
+                                      scale:
+                                          .4, // Adjust this value to reduce the size
+                                      child: const Icon(
+                                        Icons.star,
+                                        color: kamber,
+                                      ),
                                     ),
+                                    onRatingUpdate: (double value) {},
                                   ),
-                                  onRatingUpdate: (double value) {},
                                 ),
-                              ),
-                              ListTile(
-                                leading: IconButtonWidget(
-                                    onPressFunc: () {},
-                                    iconwidget: const Icon(
-                                      kLocation,
-                                      color: kSubDominantcolor,
-                                    )),
-                                title: const Text(
-                                  '\$200',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ListTile(
+                                  leading: IconButtonWidget(
+                                      onPressFunc: () {},
+                                      iconwidget: const Icon(
+                                        kLocation,
+                                        color: kSubDominantcolor,
+                                      )),
+                                  title: const Text(
+                                    '\$200',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: const Text('Hotel name '),
+                                  trailing: IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(ksave)),
                                 ),
-                                subtitle: const Text('Hotel name '),
-                                trailing: IconButton(
-                                    onPressed: () {}, icon: const Icon(ksave)),
-                              ),
-                            ],
+                              ],
+                            ),
                           )),
                 ),
               ),
@@ -173,93 +192,106 @@ class Hotels extends StatelessWidget {
               width: size.width,
               child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return Container(
-                    height: size.height / 5,
-                    width: size.width / 1.2,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: OnlyimageBoxWidget(
-                                height: size.height / 6,
-                                width: size.width / 2.5,
-                                boxdecoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: const DecorationImage(
-                                    image: NetworkImage(
-                                        'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/ea/77/6c/7132-hotel.jpg?w=700&h=-1&s=1'),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                                childwidget: h10,
-                              ),
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    'Hotel name',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 25,
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const HotelDetailedWidget(
+                              url:
+                                  'https://www.connollycove.com/wp-content/uploads/2023/05/people-walking-japan-street-nighttime-2.jpg',
+                              title: 'Hotel',
+                              subtitle: 'Hotel sub title',
+                              price: '\$230',
+                              rating: '4',
+                              about: 'dfhdf ndfjhfd djfdhfd dfjgfg')));
+                    },
+                    child: Container(
+                      height: size.height / 5,
+                      width: size.width / 1.2,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: OnlyimageBoxWidget(
+                                  height: size.height / 6,
+                                  width: size.width / 2.5,
+                                  boxdecoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    image: const DecorationImage(
+                                      image: NetworkImage(
+                                          'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/ea/77/6c/7132-hotel.jpg?w=700&h=-1&s=1'),
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: 40,
-                                    width: size.width,
-                                    child: const Center(
-                                      child: Text(
-                                        'Water is an inorganic compound with the chemical formula H₂O. It is a transparent, tasteless, odorless, and nearly colorless chemical substance, and it is the main constituent of Earth\'s hydrosphere and the fluids of all known living organisms',
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(color: kdominatgrey),
+                                  childwidget: h10,
+                                ),
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    const Text(
+                                      'Hotel name',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25,
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 30,
-                                    width: size.width / 1.5,
-                                    child: RatingBar.builder(
-                                      itemSize: 30,
-                                      initialRating: 3,
-                                      minRating: 1,
-                                      direction: Axis.horizontal,
-                                      allowHalfRating: true,
-                                      itemCount: 5,
-                                      itemPadding: const EdgeInsets.symmetric(
-                                          horizontal: 1),
-                                      itemBuilder: (context, _) =>
-                                          Transform.scale(
-                                        scale:
-                                            .4, // Adjust this value to reduce the size
-                                        child: const Icon(
-                                          Icons.star,
-                                          color: kamber,
+                                    SizedBox(
+                                      height: 40,
+                                      width: size.width,
+                                      child: const Center(
+                                        child: Text(
+                                          'Water is an inorganic compound with the chemical formula H₂O. It is a transparent, tasteless, odorless, and nearly colorless chemical substance, and it is the main constituent of Earth\'s hydrosphere and the fluids of all known living organisms',
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(color: kdominatgrey),
                                         ),
                                       ),
-                                      onRatingUpdate: (double value) {},
                                     ),
-                                  ),
-                                  const Text(
-                                    '\$200',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 25,
+                                    SizedBox(
+                                      height: 30,
+                                      width: size.width / 1.5,
+                                      child: RatingBar.builder(
+                                        itemSize: 30,
+                                        initialRating: 3,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemPadding: const EdgeInsets.symmetric(
+                                            horizontal: 1),
+                                        itemBuilder: (context, _) =>
+                                            Transform.scale(
+                                          scale:
+                                              .4, // Adjust this value to reduce the size
+                                          child: const Icon(
+                                            Icons.star,
+                                            color: kamber,
+                                          ),
+                                        ),
+                                        onRatingUpdate: (double value) {},
+                                      ),
                                     ),
-                                  )
-                                ],
+                                    const Text(
+                                      '\$200',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },

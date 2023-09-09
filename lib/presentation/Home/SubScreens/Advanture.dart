@@ -23,42 +23,40 @@ class Adavanture extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 100),
                 child: GridView.custom(
-                    gridDelegate: SliverQuiltedGridDelegate(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 30,
-                      crossAxisSpacing: 20,
-                      repeatPattern: QuiltedGridRepeatPattern.inverted,
-                      pattern: [
-                        const QuiltedGridTile(2, 1),
-                        const QuiltedGridTile(1, 1),
-                        const QuiltedGridTile(1, 1),
-                        const QuiltedGridTile(1, 1),
-                      ],
-                    ),
-                    childrenDelegate: SliverChildBuilderDelegate(childCount: 30,
-                        (context, index) {
-                      return GestureDetector(
+                  gridDelegate: SliverQuiltedGridDelegate(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 30,
+                    crossAxisSpacing: 20,
+                    repeatPattern: QuiltedGridRepeatPattern.inverted,
+                    pattern: [
+                      const QuiltedGridTile(2, 1),
+                      const QuiltedGridTile(1, 1),
+                      const QuiltedGridTile(1, 1),
+                      const QuiltedGridTile(1, 1),
+                    ],
+                  ),
+                  childrenDelegate: SliverChildBuilderDelegate(childCount: 30,
+                      (context, index) {
+                    return GestureDetector(onTap: () {
+                      GestureDetector(
                         onTap: () {
-                        GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const SearchItemDetailed(
-                              imageurl: '',
-                              suburls: [],
-                              price: 'price',
-                              title: 'title',
-                              subtitle: 'subtitle',
-                              rating: 'rating',
-                              reviewNo: 'reviewNo',
-                              obj: 'obj')));
-                    
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const SearchItemDetailed(
+                                  imageurl: '',
+                                  suburls: [],
+                                  price: 'price',
+                                  title: 'title',
+                                  subtitle: 'subtitle',
+                                  rating: 'rating',
+                                  reviewNo: 'reviewNo',
+                                  obj: 'obj')));
                         },
                         child: Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               image: const DecorationImage(
                                   image: NetworkImage(
-                                      'https://images.unsplash.com/photo-1506946526854-9aad1ec915cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJpZGdlfGVufDB8fDB8fHww&w=1000&q=80'),
+                                      'https://www.befunky.com/images/prismic/f5ca4181-01da-4237-92bf-b6938359503e_hero-blur-image-5.jpg?auto=avif,webp&format=jpg&width=896'),
                                   fit: BoxFit.cover)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -74,8 +72,9 @@ class Adavanture extends StatelessWidget {
                                           fontWeight: FontWeight.bold),
                                     ),
                                     const Spacer(),
-                                    ConatinerwithWidget(  height: 50,
-                        width: 50,
+                                    ConatinerwithWidget(
+                                        height: 50,
+                                        width: 50,
                                         containerdecoration: BoxDecoration(
                                             color: kwhite,
                                             borderRadius:
@@ -91,11 +90,13 @@ class Adavanture extends StatelessWidget {
                           ),
                         ),
                       );
-                    });}),
+                    });
+                  }),
+                ),
               ),
             ),
-          ),
-      )],
+          )
+        ],
       ),
     );
   }
