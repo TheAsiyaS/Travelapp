@@ -82,4 +82,4 @@ class AgentDetails extends StatelessWidget {
       ),
     );
   }
-}
+}  
