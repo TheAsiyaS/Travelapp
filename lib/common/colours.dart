@@ -19,5 +19,3 @@ const kblackdarktrans = Color.fromARGB(194, 0, 0, 0);
 const kamber = Colors.amber;
 const kDominantTrans = Color.fromARGB(162, 30, 63, 62);
 const kbottomSubDominant = Color.fromARGB(255, 64, 110, 113);
-const kkeyclour = Colors.accents;
-const kdominatblue = Color.fromARGB(235, 51, 142, 154);
