@@ -56,7 +56,7 @@ class Adavanture extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20),
                               image: const DecorationImage(
                                   image: NetworkImage(
-                                      'https://www.befunky.com/images/prismic/f5ca4181-01da-4237-92bf-b6938359503e_hero-blur-image-5.jpg?auto=avif,webp&format=jpg&width=896'),
+                                      'https://cdn.pixabay.com/photo/2015/06/19/21/24/avenue-815297_640.jpg'),
                                   fit: BoxFit.cover)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
