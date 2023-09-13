@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
+import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Beach.dart';
@@ -9,6 +10,7 @@ import 'package:travelapp/presentation/Home/SubScreens/Calm.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Cheep.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Mostpeoplevisit.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Popular.dart';
+import 'package:travelapp/presentation/Profile/Profile.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/onssearchtimescreen.dart';
@@ -28,10 +30,16 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ktransparent,
-        actions: const [
-          CircleAvatar(
-            backgroundColor: kSubDominantcolor,
-            radius: 25,
+        actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Profile()));
+            },
+            child: const CircleAvatar(
+              backgroundImage: NetworkImage(userprofileImage),
+              radius: 25,
+            ),
           ),
           w20
         ],
@@ -179,8 +187,6 @@ class Home extends StatelessWidget {
                               ),
                             ),
                           ],
-                         
-                         
                         ),
                         h20
                       ],
