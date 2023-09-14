@@ -4,6 +4,7 @@ import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/presentation/Home/HotelSaved.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Beach.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Calm.dart';
@@ -76,9 +77,13 @@ class Home extends StatelessWidget {
                 width: size.width,
                 child: ListView.separated(
                     itemBuilder: (context, index) {
-                      return const ListTile(
-                        title: Text('Save'),
-                        subtitle: Text('Hotels save '),
+                      return ListTile(
+                        onTap: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context)=> const HotelSavedScreen()));
+                        },
+                        title: const Text('Save'),
+                        subtitle: const Text('Hotels save '),
                       );
                     },
                     separatorBuilder: (context, index) {

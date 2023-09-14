@@ -32,6 +32,7 @@ const klistdash = CupertinoIcons.list_dash;
 const ksave = Icons.bookmark_border;
 const kforward = CupertinoIcons.chevron_right_circle_fill;
 const kbackward = CupertinoIcons.chevron_left_circle_fill;
+const kdowncirclefilled = CupertinoIcons.chevron_down_circle_fill;
 const kDown = Icons.arrow_drop_down_rounded;
 const kcall = Icons.phone;
 const kmail = CupertinoIcons.mail;
