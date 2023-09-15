@@ -79,8 +79,8 @@ class Home extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return ListTile(
                         onTap: () {
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(builder: (context)=> const HotelSavedScreen()));
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const HotelSavedScreen()));
                         },
                         title: const Text('Save'),
                         subtitle: const Text('Hotels save '),

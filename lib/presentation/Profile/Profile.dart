@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
@@ -83,16 +84,21 @@ class Profile extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      ConatinerwithWidget(
-                          containerdecoration: BoxDecoration(
-                              color: kDominantcolor,
-                              borderRadius: BorderRadius.circular(50)),
-                          childwidget: const Icon(
-                            kcall,
-                            color: kDominanttextcolor,
-                          ),
-                          height: 50,
-                          width: 50),
+                      GestureDetector(
+                        onTap: ()async{
+                           bool? res = await FlutterPhoneDirectCaller.callNumber('123');
+                        },//
+                        child: ConatinerwithWidget(
+                            containerdecoration: BoxDecoration(
+                                color: kDominantcolor,
+                                borderRadius: BorderRadius.circular(50)),
+                            childwidget: const Icon(
+                              kcall,
+                              color: kDominanttextcolor,
+                            ),
+                            height: 50,
+                            width: 50),
+                      ),
                       ConatinerwithWidget(
                           containerdecoration: BoxDecoration(
                               color: kDominantcolor,

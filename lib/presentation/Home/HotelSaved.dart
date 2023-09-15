@@ -73,26 +73,29 @@ class HotelSavedScreen extends StatelessWidget {
                                     child: const Column(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        ListTile(
-                                          title: Text(
-                                            'Hotel name',
-                                            style: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.w500),
-                                          ),
-                                          subtitle: Text(
-                                              'Something about hotel.Location of the hotel situated'),
-                                          trailing: Column(
-                                            children: [
-                                              Text(
-                                                '*4.5',
-                                                style: TextStyle(color: kamber),
-                                              ),
-                                              Text(
-                                                'Rating',
-                                                style: subtextstyle,
-                                              ),
-                                            ],
+                                        Padding(
+                                          padding: EdgeInsets.only(bottom: 30),
+                                          child: ListTile(
+                                            title: Text(
+                                              'Hotel name',
+                                              style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                            subtitle: Text(
+                                                'Something about hotel.Location of the hotel situated'),
+                                            trailing: Column(
+                                              children: [
+                                                Text(
+                                                  '*4.5',
+                                                  style: TextStyle(color: kamber),
+                                                ),
+                                                Text(
+                                                  'Rating',
+                                                  style: subtextstyle,
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ],
