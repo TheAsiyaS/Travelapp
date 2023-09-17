@@ -1,4 +1,3 @@
-
 const khotelApiendpoint = 'https://hotels4.p.rapidapi.com/v2/get-meta-data';
 /*
 header("X-RapidAPI-Host", "hotels4.p.rapidapi.com")

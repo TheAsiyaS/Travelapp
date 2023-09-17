@@ -22,18 +22,18 @@ class Calm extends StatelessWidget {
             child: ListView.separated(
               itemBuilder: (context, index) {
                 return GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const SearchItemDetailed(
-                              imageurl: '',
-                              suburls: [],
-                              price: 'price',
-                              title: 'title',
-                              subtitle: 'subtitle',
-                              rating: 'rating',
-                              reviewNo: 'reviewNo',
-                              obj: 'obj')));
-                    },
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SearchItemDetailed(
+                            imageurl: '',
+                            suburls: [],
+                            price: 'price',
+                            title: 'title',
+                            subtitle: 'subtitle',
+                            rating: 'rating',
+                            reviewNo: 'reviewNo',
+                            obj: 'obj')));
+                  },
                   child: Container(
                     height: size.height / 4,
                     width: size.width / 1.2,
@@ -93,7 +93,8 @@ class Calm extends StatelessWidget {
                                             color: kSubDominantcolor,
                                           )),
                                       const Text('India , Manali',
-                                          style: TextStyle(color: kdominatgrey)),
+                                          style:
+                                              TextStyle(color: kdominatgrey)),
                                     ],
                                   )
                                 ],

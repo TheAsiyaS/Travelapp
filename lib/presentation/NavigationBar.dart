@@ -10,7 +10,7 @@ final navigationScreens = [
   const Home(),
   const Hotels(),
   const Agencies(),
-   SlideshowScreen()
+  SlideshowScreen()
 ];
 
 class NavigationBarScreen extends StatelessWidget {
@@ -18,14 +18,14 @@ class NavigationBarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Brightness brightness = MediaQuery.of(context).platformBrightness;
-        bool isDarkMode = brightness == Brightness.dark;
+    bool isDarkMode = brightness == Brightness.dark;
 
     return ValueListenableBuilder(
         valueListenable: bottomIndex,
         builder: (BuildContext ctx, int newindex, Widget? _) {
           return Scaffold(
             bottomNavigationBar: BottomNavigationBar(
-                backgroundColor: isDarkMode?kblack:kwhite,
+                backgroundColor: isDarkMode ? kblack : kwhite,
                 type: BottomNavigationBarType.fixed,
                 selectedItemColor: kDominanttextcolor,
                 unselectedItemColor: kSubDominantcolor,

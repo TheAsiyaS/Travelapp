@@ -18,9 +18,9 @@ class HotelSavedScreen extends StatelessWidget {
         actions: [
           Container(
             height: 20,
-            width: 70, 
+            width: 70,
             decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(30),
               color: kdominatgrey,
             ),
             child: Center(
@@ -88,7 +88,8 @@ class HotelSavedScreen extends StatelessWidget {
                                               children: [
                                                 Text(
                                                   '*4.5',
-                                                  style: TextStyle(color: kamber),
+                                                  style:
+                                                      TextStyle(color: kamber),
                                                 ),
                                                 Text(
                                                   'Rating',

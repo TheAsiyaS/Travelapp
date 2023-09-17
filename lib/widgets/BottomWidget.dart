@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
@@ -121,8 +120,7 @@ class BottomWidgettop extends StatelessWidget {
       width: size.width,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30)),
+            topLeft: Radius.circular(30), topRight: Radius.circular(30)),
         color: kDominantcolor,
       ),
       child: Column(children: [
@@ -148,36 +146,28 @@ class BottomWidgettop extends StatelessWidget {
               children: [
                 Text(
                   'Get Know us',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 17),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
                 ),
                 h10,
-                Text('About us',
-                    style: TextStyle(color: kDominanttextcolor)),
+                Text('About us', style: TextStyle(color: kDominanttextcolor)),
                 h10,
-                Text('About us',
-                    style: TextStyle(color: kDominanttextcolor)),
+                Text('About us', style: TextStyle(color: kDominanttextcolor)),
                 h10,
-                Text('About us',
-                    style: TextStyle(color: kDominanttextcolor))
+                Text('About us', style: TextStyle(color: kDominanttextcolor))
               ],
             ),
             Column(
               children: [
                 Text(
                   'Contact us',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 17.4),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17.4),
                 ),
                 h10,
-                Text('About us',
-                    style: TextStyle(color: kDominanttextcolor)),
+                Text('About us', style: TextStyle(color: kDominanttextcolor)),
                 h10,
-                Text('About us',
-                    style: TextStyle(color: kDominanttextcolor)),
+                Text('About us', style: TextStyle(color: kDominanttextcolor)),
                 h10,
-                Text('About us',
-                    style: TextStyle(color: kDominanttextcolor))
+                Text('About us', style: TextStyle(color: kDominanttextcolor))
               ],
             ),
           ],

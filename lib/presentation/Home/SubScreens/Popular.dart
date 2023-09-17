@@ -41,7 +41,7 @@ class Popular extends StatelessWidget {
                       width: size.width / 1.7,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          image: const DecorationImage( 
+                          image: const DecorationImage(
                             image: NetworkImage(
                                 'https://media.cnn.com/api/v1/images/stellar/prod/150306143641-beautiful-japan-fuji-shibazakura-festival-yamanashi.jpg?q=w_1800,h_1200,x_0,y_0,c_fill/h_778'),
                             fit: BoxFit.cover,
@@ -65,12 +65,11 @@ class Popular extends StatelessWidget {
                                 ],
                               ),
                               ratingbar,
-                              h20, 
+                              h20,
                             ],
                           ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.end,
-                           
                             children: [
                               ConatinerwithWidget(
                                   containerdecoration: BoxDecoration(
@@ -82,7 +81,6 @@ class Popular extends StatelessWidget {
                                   ),
                                   height: 50,
                                   width: 50),
-                           
                               Padding(
                                 padding: const EdgeInsets.all(20),
                                 child: SizedBox(

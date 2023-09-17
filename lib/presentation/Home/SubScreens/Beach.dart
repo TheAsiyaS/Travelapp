@@ -22,7 +22,7 @@ class Beach extends StatelessWidget {
                 childAspectRatio: 1 / 1.2,
                 children: List.generate(
                   10,
-                  (index) =>GestureDetector(
+                  (index) => GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const SearchItemDetailed(
@@ -53,10 +53,11 @@ class Beach extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     color: kDominantTrans,
                                     borderRadius: BorderRadius.circular(20)),
-                                child:const Padding(
-                                  padding:  EdgeInsets.all(8.0),
-                                  child:   Column(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                child: const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
                                         "Kollam Beach",

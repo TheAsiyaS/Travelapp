@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class TextAnimationDemo extends StatefulWidget {
@@ -69,5 +68,3 @@ class _TextAnimationDemoState extends State<TextAnimationDemo>
     super.dispose();
   }
 }
-
-

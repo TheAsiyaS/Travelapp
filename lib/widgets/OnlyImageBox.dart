@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class OnlyimageBoxWidget  extends StatelessWidget {
-  const OnlyimageBoxWidget (
+class OnlyimageBoxWidget extends StatelessWidget {
+  const OnlyimageBoxWidget(
       {super.key,
       required this.height,
       required this.width,

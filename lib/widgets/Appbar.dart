@@ -1,4 +1,3 @@
-
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';

@@ -50,8 +50,15 @@ class HotelSearchDetailed extends StatelessWidget {
               child: ListView.separated(
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const HotelDetailedWidget(url: '', title: 'title', subtitle: 'subtitle', price: 'price', rating: 'rating', about: 'about') ));
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const HotelDetailedWidget(
+                                url: '',
+                                title: 'title',
+                                subtitle: 'subtitle',
+                                price: 'price',
+                                rating: 'rating',
+                                about: 'about')));
                       },
                       child: Container(
                         height: size.height / 4,
@@ -81,7 +88,8 @@ class HotelSearchDetailed extends StatelessWidget {
                                 ),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       const Text(
                                         'Manali',
@@ -101,8 +109,8 @@ class HotelSearchDetailed extends StatelessWidget {
                                         ),
                                       ),
                                       Padding(
-                                        padding:
-                                            EdgeInsets.only(left: size.width / 5,top: 5),
+                                        padding: EdgeInsets.only(
+                                            left: size.width / 5, top: 5),
                                         child: SizedBox(
                                           width: size.width / 3,
                                           height: size.height / 20,
@@ -110,11 +118,14 @@ class HotelSearchDetailed extends StatelessWidget {
                                               onPress: () {},
                                               buttonwidget: Text(
                                                 'Book Now',
-                                                style: GoogleFonts.dancingScript(
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 25,
-                                                    color: const Color.fromARGB(
-                                                        255, 190, 225, 254)),
+                                                style:
+                                                    GoogleFonts.dancingScript(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 25,
+                                                        color: const Color
+                                                                .fromARGB(255,
+                                                            190, 225, 254)),
                                               ),
                                               style: ElevatedButton.styleFrom(
                                                 backgroundColor:

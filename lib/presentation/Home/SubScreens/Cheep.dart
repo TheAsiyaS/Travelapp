@@ -43,13 +43,13 @@ class Cheep extends StatelessWidget {
                                 colors: [ktransparent, kblackdarktrans])),
                         child: Column(
                           children: [
-                           
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Align(
                                 alignment: Alignment.centerRight,
-                                child: ConatinerwithWidget(  height: 50,
-                        width: 50,
+                                child: ConatinerwithWidget(
+                                  height: 50,
+                                  width: 50,
                                   containerdecoration: BoxDecoration(
                                       color: kwhite,
                                       borderRadius: BorderRadius.circular(15)),
@@ -78,7 +78,7 @@ class Cheep extends StatelessWidget {
                                     const Text(
                                       'Nepal',
                                       style: TextStyle(
-                                        color: kwhite,
+                                          color: kwhite,
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20),
                                     ),

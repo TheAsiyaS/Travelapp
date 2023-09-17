@@ -6,6 +6,7 @@ void main(List<String> args) {
   runApp(const MyApp());
 }
 
+//flutter packages pub run build_runner watch --use-polling-watcher --delete-conflicting-outputs
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
 }
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});//
+  const SplashScreen({super.key}); //
 
   @override
   Widget build(BuildContext context) {

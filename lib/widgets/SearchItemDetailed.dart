@@ -6,7 +6,16 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 
 class SearchItemDetailed extends StatelessWidget {
-  const SearchItemDetailed({super.key, required this.imageurl, required this.suburls, required this.price, required this.title, required this.subtitle, required this.rating, required this.reviewNo, required this.obj});
+  const SearchItemDetailed(
+      {super.key,
+      required this.imageurl,
+      required this.suburls,
+      required this.price,
+      required this.title,
+      required this.subtitle,
+      required this.rating,
+      required this.reviewNo,
+      required this.obj});
 
   final String imageurl;
 

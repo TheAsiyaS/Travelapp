@@ -10,7 +10,9 @@ class CupertinotextfieldWidget extends StatelessWidget {
       required this.suffixWidget,
       required this.keybodtype,
       required this.obscureText,
-      required this.style, required this.onchanged, required this.onsubmitted});
+      required this.style,
+      required this.onchanged,
+      required this.onsubmitted});
   final String placeholderText;
   final TextStyle placeholderStyle;
   final BoxDecoration boxDecoration;

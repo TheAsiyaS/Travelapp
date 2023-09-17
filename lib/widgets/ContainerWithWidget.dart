@@ -4,7 +4,9 @@ class ConatinerwithWidget extends StatelessWidget {
   const ConatinerwithWidget({
     super.key,
     required this.containerdecoration,
-    required this.childwidget, required this.height, required this.width,
+    required this.childwidget,
+    required this.height,
+    required this.width,
   });
 
   final BoxDecoration containerdecoration;

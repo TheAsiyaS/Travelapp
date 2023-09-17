@@ -71,15 +71,22 @@ class AgentDetails extends StatelessWidget {
             'help customers find a suitable package holiday or plan independent travel. make bookings and payments using online computer systems. advise customers about passports, insurance, visas, vaccinations, tours and vehicle hire. inform customers of changes like cancelled flights.',
             style: subtextstyle,
           ),
-          const Divider(color: kSubDominantcolor,),
+          const Divider(
+            color: kSubDominantcolor,
+          ),
           const Row(
             children: [
-               Text('Survice:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-              Expanded(child:  Text('A travel agent is a highly organized professional who is passionate about travel and helping others. They are focused on creating the best possible experiences, directly catered to their clients. They work with hotels, airlines, and',style: subtextstyle,)),
+              Text('Survice:',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+              Expanded(
+                  child: Text(
+                'A travel agent is a highly organized professional who is passionate about travel and helping others. They are focused on creating the best possible experiences, directly catered to their clients. They work with hotels, airlines, and',
+                style: subtextstyle,
+              )),
             ],
           )
         ],
       ),
     );
   }
-}  
+}

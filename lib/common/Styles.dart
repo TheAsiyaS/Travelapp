@@ -6,6 +6,8 @@ const userprofileImage =
     'https://www.adobe.com/acrobat/hub/media_173d13651460eb7e12c0ef4cf8410e0960a20f0ee.jpeg?width=1200&format=pjpg&optimize=medium';
 const textstyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 25);
 const subtextstyle = TextStyle(color: kgrey);
+const textstylewhite = TextStyle(color: kwhite);
+
 final ratingbar = SizedBox(
   height: 30,
   width: 230,
