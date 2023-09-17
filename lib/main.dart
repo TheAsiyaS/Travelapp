@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
 
-void main(List<String> args) {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configInjection();
   runApp(const MyApp());
 }
 
