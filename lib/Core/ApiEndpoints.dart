@@ -1,5 +1,2 @@
-const khotelApiendpoint = 'https://hotels4.p.rapidapi.com/v2/get-meta-data';
-/*
-header("X-RapidAPI-Host", "hotels4.p.rapidapi.com")
-header("X-RapidAPI-Key", "YOUR_API_KEY")
- */
+const khotelApiendpoint = 'https://api.makcorps.com/free/london';
+const khotelAuthbaseurl = "https://api.makcorps.com/auth";
