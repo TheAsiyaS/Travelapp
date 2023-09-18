@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,12 +20,17 @@ class MyApp extends StatelessWidget {
     Brightness brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
 
-    return MaterialApp(
-      theme: ThemeData(
-          primaryColor: kSubDominantcolor,
-          scaffoldBackgroundColor: isDarkMode ? kblack : kwhite,
-          brightness: isDarkMode ? Brightness.dark : Brightness.light),
-      home: const SplashScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (ctx) => getIt<HotelBloc>()),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+            primaryColor: kSubDominantcolor,
+            scaffoldBackgroundColor: isDarkMode ? kblack : kwhite,
+            brightness: isDarkMode ? Brightness.dark : Brightness.light),
+        home: const SplashScreen(),
+      ),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
@@ -16,7 +18,10 @@ class Hotels extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<HotelBloc>(context)
+          .add(const HotelEvent.hotelDetailsGet());
+    });
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(size.height / 7),

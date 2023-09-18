@@ -8,6 +8,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
+import '../../Application/HotelBloc/hotel_bloc.dart' as _i5;
 import '../../Infrastructure/Hotel/Hotel_service.dart' as _i4;
 import '../HotelModel/I_HotelModel_Service.dart'
     as _i3; // ignore_for_file: unnecessary_lambdas
@@ -25,5 +26,6 @@ _i1.GetIt $initGetIt(
     environmentFilter,
   );
   gh.lazySingleton<_i3.IhoteleRepo>(() => _i4.HotelService());
+  gh.factory<_i5.HotelBloc>(() => _i5.HotelBloc(get<_i3.IhoteleRepo>()));
   return get;
 }

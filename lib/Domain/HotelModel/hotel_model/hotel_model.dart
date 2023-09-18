@@ -8,15 +8,18 @@ part 'hotel_model.g.dart';
 class HotelModel {
   @JsonKey(name: 'Comparison')
   List<Comparison>? comparison;
-  int? totalHotelsCount;
-  int? currentPageHotelsCount;
-  int? totalpageCount;
+  // @JsonKey(name: 'totalHotelsCount')
+  // int? totalHotelsCount;
+  // @JsonKey(name: 'currentPageHotelsCount')
+  // int? currentPageHotelsCount;
+  // @JsonKey(name: 'totalpageCount')
+  // int? totalpageCount;
 
   HotelModel({
     this.comparison,
-    this.totalHotelsCount,
-    this.currentPageHotelsCount,
-    this.totalpageCount,
+    // this.totalHotelsCount,
+    // this.currentPageHotelsCount,
+    // this.totalpageCount,
   });
 
   factory HotelModel.fromJson(Map<String, dynamic> json) {

@@ -6,7 +6,9 @@ part 'comparison.g.dart';
 
 @JsonSerializable()
 class Comparison {
+  @JsonKey(name: 'hotelName')
   String? hotelName;
+  @JsonKey(name: 'prices')
   List<Price>? prices;
 
   Comparison({this.hotelName, this.prices});

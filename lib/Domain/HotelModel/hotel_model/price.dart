@@ -4,8 +4,11 @@ part 'price.g.dart';
 
 @JsonSerializable()
 class Price {
+    @JsonKey(name: 'price')
   int? price;
+    @JsonKey(name: 'tax')
   int? tax;
+    @JsonKey(name: 'vendor')
   String? vendor;
 
   Price({this.price, this.tax, this.vendor});
