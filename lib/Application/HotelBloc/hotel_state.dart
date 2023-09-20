@@ -4,9 +4,11 @@ part of 'hotel_bloc.dart';
 class HotelState with _$HotelState {
   const factory HotelState({
     required List<HotelModel> hotelModelList,
+     required List<HotelModel> hotelModelList1,
+      required List<HotelModel> hotelModelList2,
     required bool isLoading,
     required bool iserror,
   }) = _Initial;
   factory HotelState.initial() =>
-      const HotelState(hotelModelList: [], isLoading: false, iserror: false);
+      const HotelState(hotelModelList: [], isLoading: false, iserror: false, hotelModelList1: [], hotelModelList2: []);
 }

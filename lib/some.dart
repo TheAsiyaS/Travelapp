@@ -1,40 +1,79 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/common/Icons.dart';
-import 'package:travelapp/common/Sizedboxes.dart';
-import 'package:travelapp/common/colours.dart';
-import 'package:travelapp/widgets/IconButton.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_webservice/places.dart';
 
-import 'widgets/ContainerWithWidget.dart';
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
 
-class some extends StatelessWidget {
-  const some({super.key});
+class _MyHomePageState extends State<MyHomePage> {
+late  GoogleMapController mapController;
+  final places = GoogleMapsPlaces(apiKey: 'YOUR_API_KEY');
+  List<Marker> markers = [];
+
+  @override
+  void dispose() {
+    mapController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          leading: ConatinerwithWidget(
-              containerdecoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: NetworkImage(
-                        'https://www.studentuniverse.com/blog/wp-content/uploads/2014/04/Santorini-Greece.jpg'),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: BorderRadius.circular(10)),
-              childwidget: h10,
-              height: 50,
-              width: 50),
-          title: const Text('Search Place'),
-          subtitle: const Text('About that place'),
-          trailing: IconButtonWidget(
-              onPressFunc: () {},
-              iconwidget: const Icon(
-                kclose,
-                color: kDominanttextcolor,
-              )),
-        )
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Travel Partner App'),
+      ),
+      body: GoogleMap(
+        onMapCreated: _onMapCreated,
+        initialCameraPosition: CameraPosition(
+          target: LatLng(37.7749, -122.4194), // Default map location (San Francisco)
+          zoom: 12.0,
+        ),
+        markers: Set<Marker>.of(markers),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Perform a hotel search and display markers on the map
+          _searchForHotels();
+        },
+        child: Icon(Icons.search),
+      ),
     );
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    setState(() {
+      mapController = controller;
+    });
+  }
+
+  Future<void> _searchForHotels() async {
+    // Define the search parameters
+    final location = Location(lat: 37.7749,lng: -122.4194); // San Francisco coordinates
+    final radius = 5000; // Search radius in meters
+    final response = await places.searchNearbyWithRadius(
+      location,
+      radius,
+      type: 'lodging', // Specify the type as 'lodging' for hotels
+    );
+
+    // Clear existing markers
+    markers.clear();
+
+    // Add markers for the found hotels
+    for (PlacesSearchResult result in response.results) {
+      final hotel = result.name;
+      final lat = result.geometry!.location.lat;
+      final lng = result.geometry!.location.lng;
+      markers.add(
+        Marker(
+          markerId: MarkerId(hotel),
+          position: LatLng(lat, lng),
+          infoWindow: InfoWindow(title: 'Hotel', snippet: hotel),
+        ),
+      );
+    }
+    setState(() {});
   }
 }

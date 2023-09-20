@@ -26,6 +26,8 @@ class HotelDetailedWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    Brightness brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         leading: IconButtonWidget(
@@ -56,9 +58,9 @@ class HotelDetailedWidget extends StatelessWidget {
                     height: size.height / 2,
                     width: size.width),
                 ConatinerwithWidget(
-                    containerdecoration: const BoxDecoration(
-                        color: kblack,
-                        borderRadius: BorderRadius.only(
+                    containerdecoration: BoxDecoration(
+                        color: isDarkMode ? kblack : kwhite,
+                        borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40))),
                     childwidget: const Padding(
@@ -150,7 +152,7 @@ class HotelDetailedWidget extends StatelessWidget {
                             children: [
                               IconButtonWidget(
                                   onPressFunc: () {},
-                                  iconwidget: const Icon(kLocation)),
+                                  iconwidget: const Icon(kLocation,color: kwhite,)),
                               const Text('Location', style: subtextstyle)
                             ],
                           ),
@@ -158,7 +160,7 @@ class HotelDetailedWidget extends StatelessWidget {
                             children: [
                               IconButtonWidget(
                                   onPressFunc: () {},
-                                  iconwidget: const Icon(kLocation)),
+                                  iconwidget: const Icon(kLocation,color: kwhite)),
                               const Text('Location', style: subtextstyle)
                             ],
                           ),
@@ -166,7 +168,7 @@ class HotelDetailedWidget extends StatelessWidget {
                             children: [
                               IconButtonWidget(
                                   onPressFunc: () {},
-                                  iconwidget: const Icon(kLocation)),
+                                  iconwidget: const Icon(kLocation,color: kwhite)),
                               const Text(
                                 'Location',
                                 style: subtextstyle,

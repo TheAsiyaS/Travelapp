@@ -8,7 +8,8 @@ class Agencies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+ Brightness brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Travel Agents'),
@@ -42,24 +43,24 @@ class Agencies extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       color: kDominantTrans,
                                       borderRadius: BorderRadius.circular(20)),
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(8.0),
+                                  child:  Padding(
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceAround,
                                       children: [
-                                        Text(
+                                        const Text(
                                           "Agent name",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20),
                                         ),
-                                        Text(
+                                       const  Text(
                                           '+1234567890',
                                         ),
                                         Text('abcxyz@gmail.com',
                                             style:
-                                                TextStyle(color: kdominatgrey)),
+                                                TextStyle(color:isDarkMode? kdominatgrey:klightwhite)),
                                       ],
                                     ),
                                   ),

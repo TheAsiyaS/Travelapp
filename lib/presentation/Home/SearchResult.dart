@@ -80,7 +80,7 @@ class SearchResult extends StatelessWidget {
                                                   'Explore item title',
                                                   style: TextStyle(
                                                       fontWeight:
-                                                          FontWeight.bold),
+                                                          FontWeight.bold,color: kwhite),
                                                 ),
                                                 SizedBox(
                                                   height: 50,
@@ -93,7 +93,8 @@ class SearchResult extends StatelessWidget {
                                                 ),
                                                 const Text(
                                                   '\$5060',
-                                                  style: textstyle,
+                                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,color: kwhite),
+                                                  
                                                 ),
                                                 const Row(
                                                   children: [

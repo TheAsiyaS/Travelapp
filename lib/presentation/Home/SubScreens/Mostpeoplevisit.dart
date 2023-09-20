@@ -130,6 +130,7 @@ class Mostpeoplevisit extends StatelessWidget {
                                     onPressFunc: () {},
                                     iconwidget: const Icon(
                                       kfavoriteOutline,
+                                      color: kwhite,
                                       size: 20,
                                     )),
                               ),

@@ -19,32 +19,44 @@ mixin _$HotelEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() hotelDetailsGet,
+    required TResult Function() hotelDetailsGet1,
+    required TResult Function() hotelDetailsGet2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? hotelDetailsGet,
+    TResult? Function()? hotelDetailsGet1,
+    TResult? Function()? hotelDetailsGet2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? hotelDetailsGet,
+    TResult Function()? hotelDetailsGet1,
+    TResult Function()? hotelDetailsGet2,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
+    required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
+    required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
+    TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
+    TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +119,8 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() hotelDetailsGet,
+    required TResult Function() hotelDetailsGet1,
+    required TResult Function() hotelDetailsGet2,
   }) {
     return hotelDetailsGet();
   }
@@ -115,6 +129,8 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? hotelDetailsGet,
+    TResult? Function()? hotelDetailsGet1,
+    TResult? Function()? hotelDetailsGet2,
   }) {
     return hotelDetailsGet?.call();
   }
@@ -123,6 +139,8 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? hotelDetailsGet,
+    TResult Function()? hotelDetailsGet1,
+    TResult Function()? hotelDetailsGet2,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet != null) {
@@ -135,6 +153,8 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
+    required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
+    required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
   }) {
     return hotelDetailsGet(this);
   }
@@ -143,6 +163,8 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
+    TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
   }) {
     return hotelDetailsGet?.call(this);
   }
@@ -151,6 +173,8 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
+    TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet != null) {
@@ -165,8 +189,226 @@ abstract class _HotelDetailsGet implements HotelEvent {
 }
 
 /// @nodoc
+abstract class _$$_HotelDetailsGet1CopyWith<$Res> {
+  factory _$$_HotelDetailsGet1CopyWith(
+          _$_HotelDetailsGet1 value, $Res Function(_$_HotelDetailsGet1) then) =
+      __$$_HotelDetailsGet1CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_HotelDetailsGet1CopyWithImpl<$Res>
+    extends _$HotelEventCopyWithImpl<$Res, _$_HotelDetailsGet1>
+    implements _$$_HotelDetailsGet1CopyWith<$Res> {
+  __$$_HotelDetailsGet1CopyWithImpl(
+      _$_HotelDetailsGet1 _value, $Res Function(_$_HotelDetailsGet1) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
+  const _$_HotelDetailsGet1();
+
+  @override
+  String toString() {
+    return 'HotelEvent.hotelDetailsGet1()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_HotelDetailsGet1);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() hotelDetailsGet,
+    required TResult Function() hotelDetailsGet1,
+    required TResult Function() hotelDetailsGet2,
+  }) {
+    return hotelDetailsGet1();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? hotelDetailsGet,
+    TResult? Function()? hotelDetailsGet1,
+    TResult? Function()? hotelDetailsGet2,
+  }) {
+    return hotelDetailsGet1?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? hotelDetailsGet,
+    TResult Function()? hotelDetailsGet1,
+    TResult Function()? hotelDetailsGet2,
+    required TResult orElse(),
+  }) {
+    if (hotelDetailsGet1 != null) {
+      return hotelDetailsGet1();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
+    required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
+    required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
+  }) {
+    return hotelDetailsGet1(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
+    TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
+  }) {
+    return hotelDetailsGet1?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
+    TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
+    required TResult orElse(),
+  }) {
+    if (hotelDetailsGet1 != null) {
+      return hotelDetailsGet1(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HotelDetailsGet1 implements HotelEvent {
+  const factory _HotelDetailsGet1() = _$_HotelDetailsGet1;
+}
+
+/// @nodoc
+abstract class _$$_HotelDetailsGet2CopyWith<$Res> {
+  factory _$$_HotelDetailsGet2CopyWith(
+          _$_HotelDetailsGet2 value, $Res Function(_$_HotelDetailsGet2) then) =
+      __$$_HotelDetailsGet2CopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_HotelDetailsGet2CopyWithImpl<$Res>
+    extends _$HotelEventCopyWithImpl<$Res, _$_HotelDetailsGet2>
+    implements _$$_HotelDetailsGet2CopyWith<$Res> {
+  __$$_HotelDetailsGet2CopyWithImpl(
+      _$_HotelDetailsGet2 _value, $Res Function(_$_HotelDetailsGet2) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
+  const _$_HotelDetailsGet2();
+
+  @override
+  String toString() {
+    return 'HotelEvent.hotelDetailsGet2()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_HotelDetailsGet2);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() hotelDetailsGet,
+    required TResult Function() hotelDetailsGet1,
+    required TResult Function() hotelDetailsGet2,
+  }) {
+    return hotelDetailsGet2();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? hotelDetailsGet,
+    TResult? Function()? hotelDetailsGet1,
+    TResult? Function()? hotelDetailsGet2,
+  }) {
+    return hotelDetailsGet2?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? hotelDetailsGet,
+    TResult Function()? hotelDetailsGet1,
+    TResult Function()? hotelDetailsGet2,
+    required TResult orElse(),
+  }) {
+    if (hotelDetailsGet2 != null) {
+      return hotelDetailsGet2();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
+    required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
+    required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
+  }) {
+    return hotelDetailsGet2(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
+    TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
+  }) {
+    return hotelDetailsGet2?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
+    TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
+    required TResult orElse(),
+  }) {
+    if (hotelDetailsGet2 != null) {
+      return hotelDetailsGet2(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HotelDetailsGet2 implements HotelEvent {
+  const factory _HotelDetailsGet2() = _$_HotelDetailsGet2;
+}
+
+/// @nodoc
 mixin _$HotelState {
   List<HotelModel> get hotelModelList => throw _privateConstructorUsedError;
+  List<HotelModel> get hotelModelList1 => throw _privateConstructorUsedError;
+  List<HotelModel> get hotelModelList2 => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get iserror => throw _privateConstructorUsedError;
 
@@ -181,7 +423,12 @@ abstract class $HotelStateCopyWith<$Res> {
           HotelState value, $Res Function(HotelState) then) =
       _$HotelStateCopyWithImpl<$Res, HotelState>;
   @useResult
-  $Res call({List<HotelModel> hotelModelList, bool isLoading, bool iserror});
+  $Res call(
+      {List<HotelModel> hotelModelList,
+      List<HotelModel> hotelModelList1,
+      List<HotelModel> hotelModelList2,
+      bool isLoading,
+      bool iserror});
 }
 
 /// @nodoc
@@ -198,6 +445,8 @@ class _$HotelStateCopyWithImpl<$Res, $Val extends HotelState>
   @override
   $Res call({
     Object? hotelModelList = null,
+    Object? hotelModelList1 = null,
+    Object? hotelModelList2 = null,
     Object? isLoading = null,
     Object? iserror = null,
   }) {
@@ -205,6 +454,14 @@ class _$HotelStateCopyWithImpl<$Res, $Val extends HotelState>
       hotelModelList: null == hotelModelList
           ? _value.hotelModelList
           : hotelModelList // ignore: cast_nullable_to_non_nullable
+              as List<HotelModel>,
+      hotelModelList1: null == hotelModelList1
+          ? _value.hotelModelList1
+          : hotelModelList1 // ignore: cast_nullable_to_non_nullable
+              as List<HotelModel>,
+      hotelModelList2: null == hotelModelList2
+          ? _value.hotelModelList2
+          : hotelModelList2 // ignore: cast_nullable_to_non_nullable
               as List<HotelModel>,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -225,7 +482,12 @@ abstract class _$$_InitialCopyWith<$Res> implements $HotelStateCopyWith<$Res> {
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<HotelModel> hotelModelList, bool isLoading, bool iserror});
+  $Res call(
+      {List<HotelModel> hotelModelList,
+      List<HotelModel> hotelModelList1,
+      List<HotelModel> hotelModelList2,
+      bool isLoading,
+      bool iserror});
 }
 
 /// @nodoc
@@ -239,6 +501,8 @@ class __$$_InitialCopyWithImpl<$Res>
   @override
   $Res call({
     Object? hotelModelList = null,
+    Object? hotelModelList1 = null,
+    Object? hotelModelList2 = null,
     Object? isLoading = null,
     Object? iserror = null,
   }) {
@@ -246,6 +510,14 @@ class __$$_InitialCopyWithImpl<$Res>
       hotelModelList: null == hotelModelList
           ? _value._hotelModelList
           : hotelModelList // ignore: cast_nullable_to_non_nullable
+              as List<HotelModel>,
+      hotelModelList1: null == hotelModelList1
+          ? _value._hotelModelList1
+          : hotelModelList1 // ignore: cast_nullable_to_non_nullable
+              as List<HotelModel>,
+      hotelModelList2: null == hotelModelList2
+          ? _value._hotelModelList2
+          : hotelModelList2 // ignore: cast_nullable_to_non_nullable
               as List<HotelModel>,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -264,9 +536,13 @@ class __$$_InitialCopyWithImpl<$Res>
 class _$_Initial implements _Initial {
   const _$_Initial(
       {required final List<HotelModel> hotelModelList,
+      required final List<HotelModel> hotelModelList1,
+      required final List<HotelModel> hotelModelList2,
       required this.isLoading,
       required this.iserror})
-      : _hotelModelList = hotelModelList;
+      : _hotelModelList = hotelModelList,
+        _hotelModelList1 = hotelModelList1,
+        _hotelModelList2 = hotelModelList2;
 
   final List<HotelModel> _hotelModelList;
   @override
@@ -276,6 +552,22 @@ class _$_Initial implements _Initial {
     return EqualUnmodifiableListView(_hotelModelList);
   }
 
+  final List<HotelModel> _hotelModelList1;
+  @override
+  List<HotelModel> get hotelModelList1 {
+    if (_hotelModelList1 is EqualUnmodifiableListView) return _hotelModelList1;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hotelModelList1);
+  }
+
+  final List<HotelModel> _hotelModelList2;
+  @override
+  List<HotelModel> get hotelModelList2 {
+    if (_hotelModelList2 is EqualUnmodifiableListView) return _hotelModelList2;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_hotelModelList2);
+  }
+
   @override
   final bool isLoading;
   @override
@@ -283,7 +575,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'HotelState(hotelModelList: $hotelModelList, isLoading: $isLoading, iserror: $iserror)';
+    return 'HotelState(hotelModelList: $hotelModelList, hotelModelList1: $hotelModelList1, hotelModelList2: $hotelModelList2, isLoading: $isLoading, iserror: $iserror)';
   }
 
   @override
@@ -293,14 +585,23 @@ class _$_Initial implements _Initial {
             other is _$_Initial &&
             const DeepCollectionEquality()
                 .equals(other._hotelModelList, _hotelModelList) &&
+            const DeepCollectionEquality()
+                .equals(other._hotelModelList1, _hotelModelList1) &&
+            const DeepCollectionEquality()
+                .equals(other._hotelModelList2, _hotelModelList2) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.iserror, iserror) || other.iserror == iserror));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_hotelModelList), isLoading, iserror);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_hotelModelList),
+      const DeepCollectionEquality().hash(_hotelModelList1),
+      const DeepCollectionEquality().hash(_hotelModelList2),
+      isLoading,
+      iserror);
 
   @JsonKey(ignore: true)
   @override
@@ -312,11 +613,17 @@ class _$_Initial implements _Initial {
 abstract class _Initial implements HotelState {
   const factory _Initial(
       {required final List<HotelModel> hotelModelList,
+      required final List<HotelModel> hotelModelList1,
+      required final List<HotelModel> hotelModelList2,
       required final bool isLoading,
       required final bool iserror}) = _$_Initial;
 
   @override
   List<HotelModel> get hotelModelList;
+  @override
+  List<HotelModel> get hotelModelList1;
+  @override
+  List<HotelModel> get hotelModelList2;
   @override
   bool get isLoading;
   @override

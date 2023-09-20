@@ -4,4 +4,6 @@ import 'package:dartz/dartz.dart';
 
 abstract class IhoteleRepo {
   Future<Either<mainFailure, List<HotelModel>>> getHotelDetails();
+   Future<Either<mainFailure, List<HotelModel>>> getHotelDetails1();
+    Future<Either<mainFailure, List<HotelModel>>> getHotelDetails2();
 }

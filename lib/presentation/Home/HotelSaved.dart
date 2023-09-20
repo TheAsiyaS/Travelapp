@@ -79,11 +79,13 @@ class HotelSavedScreen extends StatelessWidget {
                                             title: Text(
                                               'Hotel name',
                                               style: TextStyle(
+                                                color: kwhite,
                                                   fontSize: 17,
                                                   fontWeight: FontWeight.w500),
                                             ),
                                             subtitle: Text(
-                                                'Something about hotel.Location of the hotel situated'),
+                                              
+                                                'Something about hotel.Location of the hotel situated',style: TextStyle( color: klightwhite,),),
                                             trailing: Column(
                                               children: [
                                                 Text(

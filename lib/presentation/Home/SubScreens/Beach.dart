@@ -62,6 +62,7 @@ class Beach extends StatelessWidget {
                                       Text(
                                         "Kollam Beach",
                                         style: TextStyle(
+                                           color: kwhite,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20),
                                       ),
@@ -69,6 +70,7 @@ class Beach extends StatelessWidget {
                                         ' a narrow strip of land separating a body of water from inland areas ',
                                         maxLines: 2,
                                         overflow: TextOverflow.ellipsis,
+                                        style: TextStyle( color: kwhite,),
                                       )
                                     ],
                                   ),

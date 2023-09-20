@@ -38,9 +38,10 @@ class Home extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const Profile()));
             },
             child: const CircleAvatar(
+              backgroundColor: kDominantcolor,
               backgroundImage: NetworkImage(userprofileImage),
               radius: 25,
-            ),
+            ), 
           ),
           w20
         ],
@@ -66,7 +67,7 @@ class Home extends StatelessWidget {
                     Text(
                       'Username',
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color: kwhite),
                     ),
                     h10,
                   ],
@@ -137,11 +138,11 @@ class Home extends StatelessWidget {
                       children: [
                         const Text('GOOD MORNING',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 30)),
+                                fontWeight: FontWeight.bold, fontSize: 30,color: kwhite)),
                         const Text(
                           'Explore the world with Longitude',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 35),
+                              fontWeight: FontWeight.bold, fontSize: 35,color: kwhite),
                         ),
                         h20,
                         Row(

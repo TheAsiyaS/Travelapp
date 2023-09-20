@@ -6,6 +6,7 @@ import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/Appbar.dart';
+import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 
 import 'package:travelapp/widgets/HotelDetailWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
@@ -19,8 +20,12 @@ class Hotels extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<HotelBloc>(context)
-          .add(const HotelEvent.hotelDetailsGet());
+      // BlocProvider.of<HotelBloc>(context)
+      //     .add(const HotelEvent.hotelDetailsGet());
+      //      BlocProvider.of<HotelBloc>(context)
+      //     .add(const HotelEvent.hotelDetailsGet1());
+      //      BlocProvider.of<HotelBloc>(context)
+      //     .add(const HotelEvent.hotelDetailsGet2());
     });
     return Scaffold(
       appBar: PreferredSize(
@@ -94,91 +99,105 @@ class Hotels extends StatelessWidget {
                         style: TextStyle(color: kSubDominantcolor)))
               ],
             ),
-            SizedBox(
-              height: size.height / 2.8,
-              width: size.width,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: GridView.count(
-                  crossAxisCount: 1,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  childAspectRatio: 1 / 1,
-                  scrollDirection: Axis.horizontal,
-                  children: List.generate(
-                      10,
-                      (index) => GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => const HotelDetailedWidget(
-                                      url:
-                                          'https://www.connollycove.com/wp-content/uploads/2023/05/people-walking-japan-street-nighttime-2.jpg',
-                                      title: 'Hotel',
-                                      subtitle: 'Hotel sub title',
-                                      price: '\$230',
-                                      rating: '4',
-                                      about: 'dfhdf ndfjhfd djfdhfd dfjgfg')));
-                            },
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                  height: size.height / 5,
-                                  width: size.width / 1.5,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: const DecorationImage(
-                                          image: NetworkImage(
-                                              'https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg'),
-                                          fit: BoxFit.cover)),
-                                ),
-                                SizedBox(
-                                  height: 30,
-                                  width: size.width / 1.5,
-                                  child: RatingBar.builder(
-                                    itemSize: 40,
-                                    initialRating: 3,
-                                    minRating: 1,
-                                    direction: Axis.horizontal,
-                                    allowHalfRating: true,
-                                    itemCount: 5,
-                                    itemPadding: const EdgeInsets.symmetric(
-                                        horizontal: 1),
-                                    itemBuilder: (context, _) =>
-                                        Transform.scale(
-                                      scale:
-                                          .4, // Adjust this value to reduce the size
-                                      child: const Icon(
-                                        Icons.star,
-                                        color: kamber,
+            BlocBuilder<HotelBloc, HotelState>(builder: (context, state) {
+              if (state.isLoading == true) {
+                return const WidgetCircularProgressIndicator(
+                    indicatorColor: kdominatgrey);
+              } else if (state.iserror == true) {
+                return const Text('Some error occured');
+              } else if (state.hotelModelList.isEmpty) {
+                return const Text('No Data found');
+              } else {
+                return SizedBox(
+                  height: size.height / 2.8,
+                  width: size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: GridView.count(
+                      crossAxisCount: 1,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 1 / 1,
+                      scrollDirection: Axis.horizontal,
+                      children: List.generate(
+                          10,
+                          (index) => GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => const HotelDetailedWidget(
+                                          url:
+                                              'https://www.connollycove.com/wp-content/uploads/2023/05/people-walking-japan-street-nighttime-2.jpg',
+                                          title: 'Hotel',
+                                          subtitle: 'Hotel sub title',
+                                          price: '\$6777',
+                                          rating: '4',
+                                          about:
+                                              'dfhdf ndfjhfd djfdhfd dfjgfg')));
+                                },
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      height: size.height / 5,
+                                      width: size.width / 1.5,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          image: const DecorationImage(
+                                              image: NetworkImage(
+                                                  'https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg'),
+                                              fit: BoxFit.cover)),
+                                    ),
+                                    SizedBox(
+                                      height: 30,
+                                      width: size.width / 1.5,
+                                      child: RatingBar.builder(
+                                        itemSize: 40,
+                                        initialRating: 3,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemPadding: const EdgeInsets.symmetric(
+                                            horizontal: 1),
+                                        itemBuilder: (context, _) =>
+                                            Transform.scale(
+                                          scale:
+                                              .4, // Adjust this value to reduce the size
+                                          child: const Icon(
+                                            Icons.star,
+                                            color: kamber,
+                                          ),
+                                        ),
+                                        onRatingUpdate: (double value) {},
                                       ),
                                     ),
-                                    onRatingUpdate: (double value) {},
-                                  ),
+                                    ListTile(
+                                      leading: IconButtonWidget(
+                                          onPressFunc: () {},
+                                          iconwidget: const Icon(
+                                            kLocation,
+                                            color: kSubDominantcolor,
+                                          )),
+                                      title: const Text(
+                                        '\$879',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      subtitle: const Text('Hotel name '),
+                                      trailing: IconButton(
+                                          onPressed: () {},
+                                          icon: const Icon(ksave)),
+                                    ),
+                                  ],
                                 ),
-                                ListTile(
-                                  leading: IconButtonWidget(
-                                      onPressFunc: () {},
-                                      iconwidget: const Icon(
-                                        kLocation,
-                                        color: kSubDominantcolor,
-                                      )),
-                                  title: const Text(
-                                    '\$200',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                  subtitle: const Text('Hotel name '),
-                                  trailing: IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(ksave)),
-                                ),
-                              ],
-                            ),
-                          )),
-                ),
-              ),
-            ),
+                              )),
+                    ),
+                  ),
+                );
+              }
+            }),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

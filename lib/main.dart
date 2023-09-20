@@ -4,6 +4,7 @@ import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travelapp/some.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -95,7 +95,8 @@ class _SlideshowScreenState extends State<SlideshowScreen>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    Brightness brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -132,26 +133,37 @@ class _SlideshowScreenState extends State<SlideshowScreen>
                                         images[index],
                                       ),
                                       fit: BoxFit.cover)),
-                              childwidget: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(left: size.width / 1.2),
-                                    child: IconButtonWidget(
-                                        onPressFunc: () {
-                                          // Navigator.of(context).push(
-                                          //     MaterialPageRoute(
-                                          //         builder: (context) =>
-                                          //             SlideshowScreens()));
-                                        },
-                                        iconwidget: const Icon(
-                                          kforward,
-                                          color: klightwhite,
-                                          size: 40,
-                                        )),
-                                  )
-                                ],
+                              childwidget: Container(
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                      end: Alignment.bottomCenter,
+                                      begin: Alignment.topCenter,
+                                      colors: [
+                                        ktransparent,
+                                        isDarkMode ? kblack : kwhite
+                                      ]),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          left: size.width / 1.2),
+                                      child: IconButtonWidget(
+                                          onPressFunc: () {
+                                            // Navigator.of(context).push(
+                                            //     MaterialPageRoute(
+                                            //         builder: (context) =>
+                                            //             SlideshowScreens()));
+                                          },
+                                          iconwidget: const Icon(
+                                            kforward,
+                                            color: klightwhite,
+                                            size: 40,
+                                          )),
+                                    )
+                                  ],
+                                ),
                               )));
                     },
                   ),
@@ -226,10 +238,10 @@ class _SlideshowScreenState extends State<SlideshowScreen>
                   borderRadius: BorderRadius.circular(20)),
               height: size.height / 6,
               width: size.width,
-              childwidget: const Column(
+              childwidget:  Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Get premium',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                   ),
@@ -237,7 +249,7 @@ class _SlideshowScreenState extends State<SlideshowScreen>
                   Text(
                     'Try one month free that will help you get more easy to handle your travelling Try one month free that will help you get more easy to handle your travelling ',
                     style: TextStyle(
-                      color: kgrey,
+                      color:isDarkMode? kgrey: klightwhite,
                     ),
                   ), //
                 ],
