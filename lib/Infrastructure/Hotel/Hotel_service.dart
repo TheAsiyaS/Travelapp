@@ -14,7 +14,8 @@ class HotelService implements IhoteleRepo {
   @override
   Future<Either<mainFailure, List<HotelModel>>> getHotelDetails() async {
     try {
-      final token = await authenticate();
+      final authenticationsObj = Authentications();
+      final token = await authenticationsObj.authenticate();
       final Response response = await Dio(BaseOptions(headers: {
         'Authorization': 'JWT $token',
       })).get(khotelApiendpoint);
@@ -39,7 +40,8 @@ class HotelService implements IhoteleRepo {
   @override
   Future<Either<mainFailure, List<HotelModel>>> getHotelDetails1() async {
     try {
-      final token = await authenticate();
+       final authenticationsObj = Authentications();
+      final token = await authenticationsObj.authenticate();
       final Response response = await Dio(BaseOptions(headers: {
         'Authorization': 'JWT $token',
       })).get(khotelApiendpoint);
@@ -65,7 +67,8 @@ class HotelService implements IhoteleRepo {
   @override
   Future<Either<mainFailure, List<HotelModel>>> getHotelDetails2() async {
     try {
-      final token = await authenticate();
+         final authenticationsObj = Authentications();
+      final token = await authenticationsObj.authenticate();
       final Response response = await Dio(BaseOptions(headers: {
         'Authorization': 'JWT $token',
       })).get(khotelApiendpoint);

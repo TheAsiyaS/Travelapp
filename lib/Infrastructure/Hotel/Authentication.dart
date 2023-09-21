@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
-
+class Authentications {
+  
 Future<String> authenticate() async {
   const String url = 'https://api.makcorps.com/auth';
   final Map<String, String> headers = {
@@ -26,4 +27,5 @@ Future<String> authenticate() async {
     log('Request failed with status: ${response.statusCode}');
     return '';
   }
+}
 }
