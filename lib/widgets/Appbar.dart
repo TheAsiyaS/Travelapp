@@ -2,6 +2,7 @@ import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/Hotels/HotelSearchDeatil.dart';
+import 'package:travelapp/presentation/Hotels/sample.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,12 @@ class SimpleAppbar extends StatelessWidget {
                       color: kdominatgrey,
                       borderRadius: BorderRadius.circular(15)),
                   childwidget: IconButtonWidget(
-                      onPressFunc: () {},
+                      onPressFunc: () {
+                        if (id == 'HotelSearchBar') {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const HotelList()));
+                        }
+                      },
                       iconwidget: const Icon(
                         klistdash,
                         color: kwhite,

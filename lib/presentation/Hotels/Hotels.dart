@@ -20,12 +20,9 @@ class Hotels extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // BlocProvider.of<HotelBloc>(context)
-      //     .add(const HotelEvent.hotelDetailsGet());
-      //      BlocProvider.of<HotelBloc>(context)
-      //     .add(const HotelEvent.hotelDetailsGet1());
-      //      BlocProvider.of<HotelBloc>(context)
-      //     .add(const HotelEvent.hotelDetailsGet2());
+      BlocProvider.of<HotelBloc>(context)
+          .add(const HotelEvent.hotelDetailsGet());
+         
     });
     return Scaffold(
       appBar: PreferredSize(

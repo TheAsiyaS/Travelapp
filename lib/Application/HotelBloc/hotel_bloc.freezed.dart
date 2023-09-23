@@ -406,9 +406,7 @@ abstract class _HotelDetailsGet2 implements HotelEvent {
 
 /// @nodoc
 mixin _$HotelState {
-  List<HotelModel> get hotelModelList => throw _privateConstructorUsedError;
-  List<HotelModel> get hotelModelList1 => throw _privateConstructorUsedError;
-  List<HotelModel> get hotelModelList2 => throw _privateConstructorUsedError;
+  List<HotelData> get hotelModelList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get iserror => throw _privateConstructorUsedError;
 
@@ -423,12 +421,7 @@ abstract class $HotelStateCopyWith<$Res> {
           HotelState value, $Res Function(HotelState) then) =
       _$HotelStateCopyWithImpl<$Res, HotelState>;
   @useResult
-  $Res call(
-      {List<HotelModel> hotelModelList,
-      List<HotelModel> hotelModelList1,
-      List<HotelModel> hotelModelList2,
-      bool isLoading,
-      bool iserror});
+  $Res call({List<HotelData> hotelModelList, bool isLoading, bool iserror});
 }
 
 /// @nodoc
@@ -445,8 +438,6 @@ class _$HotelStateCopyWithImpl<$Res, $Val extends HotelState>
   @override
   $Res call({
     Object? hotelModelList = null,
-    Object? hotelModelList1 = null,
-    Object? hotelModelList2 = null,
     Object? isLoading = null,
     Object? iserror = null,
   }) {
@@ -454,15 +445,7 @@ class _$HotelStateCopyWithImpl<$Res, $Val extends HotelState>
       hotelModelList: null == hotelModelList
           ? _value.hotelModelList
           : hotelModelList // ignore: cast_nullable_to_non_nullable
-              as List<HotelModel>,
-      hotelModelList1: null == hotelModelList1
-          ? _value.hotelModelList1
-          : hotelModelList1 // ignore: cast_nullable_to_non_nullable
-              as List<HotelModel>,
-      hotelModelList2: null == hotelModelList2
-          ? _value.hotelModelList2
-          : hotelModelList2 // ignore: cast_nullable_to_non_nullable
-              as List<HotelModel>,
+              as List<HotelData>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -482,12 +465,7 @@ abstract class _$$_InitialCopyWith<$Res> implements $HotelStateCopyWith<$Res> {
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<HotelModel> hotelModelList,
-      List<HotelModel> hotelModelList1,
-      List<HotelModel> hotelModelList2,
-      bool isLoading,
-      bool iserror});
+  $Res call({List<HotelData> hotelModelList, bool isLoading, bool iserror});
 }
 
 /// @nodoc
@@ -501,8 +479,6 @@ class __$$_InitialCopyWithImpl<$Res>
   @override
   $Res call({
     Object? hotelModelList = null,
-    Object? hotelModelList1 = null,
-    Object? hotelModelList2 = null,
     Object? isLoading = null,
     Object? iserror = null,
   }) {
@@ -510,15 +486,7 @@ class __$$_InitialCopyWithImpl<$Res>
       hotelModelList: null == hotelModelList
           ? _value._hotelModelList
           : hotelModelList // ignore: cast_nullable_to_non_nullable
-              as List<HotelModel>,
-      hotelModelList1: null == hotelModelList1
-          ? _value._hotelModelList1
-          : hotelModelList1 // ignore: cast_nullable_to_non_nullable
-              as List<HotelModel>,
-      hotelModelList2: null == hotelModelList2
-          ? _value._hotelModelList2
-          : hotelModelList2 // ignore: cast_nullable_to_non_nullable
-              as List<HotelModel>,
+              as List<HotelData>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -535,37 +503,17 @@ class __$$_InitialCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {required final List<HotelModel> hotelModelList,
-      required final List<HotelModel> hotelModelList1,
-      required final List<HotelModel> hotelModelList2,
+      {required final List<HotelData> hotelModelList,
       required this.isLoading,
       required this.iserror})
-      : _hotelModelList = hotelModelList,
-        _hotelModelList1 = hotelModelList1,
-        _hotelModelList2 = hotelModelList2;
+      : _hotelModelList = hotelModelList;
 
-  final List<HotelModel> _hotelModelList;
+  final List<HotelData> _hotelModelList;
   @override
-  List<HotelModel> get hotelModelList {
+  List<HotelData> get hotelModelList {
     if (_hotelModelList is EqualUnmodifiableListView) return _hotelModelList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_hotelModelList);
-  }
-
-  final List<HotelModel> _hotelModelList1;
-  @override
-  List<HotelModel> get hotelModelList1 {
-    if (_hotelModelList1 is EqualUnmodifiableListView) return _hotelModelList1;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_hotelModelList1);
-  }
-
-  final List<HotelModel> _hotelModelList2;
-  @override
-  List<HotelModel> get hotelModelList2 {
-    if (_hotelModelList2 is EqualUnmodifiableListView) return _hotelModelList2;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_hotelModelList2);
   }
 
   @override
@@ -575,7 +523,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'HotelState(hotelModelList: $hotelModelList, hotelModelList1: $hotelModelList1, hotelModelList2: $hotelModelList2, isLoading: $isLoading, iserror: $iserror)';
+    return 'HotelState(hotelModelList: $hotelModelList, isLoading: $isLoading, iserror: $iserror)';
   }
 
   @override
@@ -585,23 +533,14 @@ class _$_Initial implements _Initial {
             other is _$_Initial &&
             const DeepCollectionEquality()
                 .equals(other._hotelModelList, _hotelModelList) &&
-            const DeepCollectionEquality()
-                .equals(other._hotelModelList1, _hotelModelList1) &&
-            const DeepCollectionEquality()
-                .equals(other._hotelModelList2, _hotelModelList2) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.iserror, iserror) || other.iserror == iserror));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_hotelModelList),
-      const DeepCollectionEquality().hash(_hotelModelList1),
-      const DeepCollectionEquality().hash(_hotelModelList2),
-      isLoading,
-      iserror);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_hotelModelList), isLoading, iserror);
 
   @JsonKey(ignore: true)
   @override
@@ -612,18 +551,12 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements HotelState {
   const factory _Initial(
-      {required final List<HotelModel> hotelModelList,
-      required final List<HotelModel> hotelModelList1,
-      required final List<HotelModel> hotelModelList2,
+      {required final List<HotelData> hotelModelList,
       required final bool isLoading,
       required final bool iserror}) = _$_Initial;
 
   @override
-  List<HotelModel> get hotelModelList;
-  @override
-  List<HotelModel> get hotelModelList1;
-  @override
-  List<HotelModel> get hotelModelList2;
+  List<HotelData> get hotelModelList;
   @override
   bool get isLoading;
   @override
