@@ -20,7 +20,7 @@ class Hotels extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<HotelBloc>(context)   
+      BlocProvider.of<HotelBloc>(context)
           .add(const HotelEvent.hotelDetailsGet(querry: "black%20bedroom"));
     });
     return Scaffold(
@@ -140,9 +140,11 @@ class Hotels extends StatelessWidget {
                                       decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(10),
-                                          image: const DecorationImage(
-                                              image: NetworkImage(
-                                                  'https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/624b471bdf247131f10ea14f_61d31b8dbff9b500cbd7ed32_types_of_rooms_in_a_5-star_hotel_2_optimized_optimized.jpeg'),
+                                          image: DecorationImage(
+                                              image: NetworkImage(state
+                                                  .hotelModelList[index]
+                                                  .urls!
+                                                  .regular!),
                                               fit: BoxFit.cover)),
                                     ),
                                     SizedBox(
