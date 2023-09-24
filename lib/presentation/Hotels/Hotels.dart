@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
+import 'package:travelapp/Core/Hotelsname.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
@@ -21,7 +22,7 @@ class Hotels extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<HotelBloc>(context)
-          .add(const HotelEvent.hotelDetailsGet(querry: "black%20bedroom"));
+          .add(const HotelEvent.hotelDetailsGet(querry: "black bedroom"));
     });
     return Scaffold(
       appBar: PreferredSize(
@@ -48,10 +49,10 @@ class Hotels extends StatelessWidget {
                     (index) => GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const HotelDetailedWidget(
+                                builder: (context) =>  HotelDetailedWidget(
                                     url:
                                         'https://www.connollycove.com/wp-content/uploads/2023/05/people-walking-japan-street-nighttime-2.jpg',
-                                    title: 'Hotel',
+                                    title: khotelname[index],
                                     subtitle: 'Hotel sub title',
                                     price: '\$230',
                                     rating: '4',
@@ -115,82 +116,79 @@ class Hotels extends StatelessWidget {
                       mainAxisSpacing: 10,
                       childAspectRatio: 1 / 1,
                       scrollDirection: Axis.horizontal,
-                      children: List.generate(
-                          10,
-                          (index) => GestureDetector(
-                                onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => const HotelDetailedWidget(
-                                          url:
-                                              'https://www.connollycove.com/wp-content/uploads/2023/05/people-walking-japan-street-nighttime-2.jpg',
-                                          title: 'Hotel',
-                                          subtitle: 'Hotel sub title',
-                                          price: '\$6777',
-                                          rating: '4',
-                                          about:
-                                              'dfhdf ndfjhfd djfdhfd dfjgfg')));
-                                },
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Container(
-                                      height: size.height / 5,
-                                      width: size.width / 1.5,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          image: DecorationImage(
-                                              image: NetworkImage(state
-                                                  .hotelModelList[index]
-                                                  .urls!
-                                                  .regular!),
-                                              fit: BoxFit.cover)),
+                      children:
+                          List.generate(state.hotelModelList.length, (index) {
+                        final data = state.hotelModelList[index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => HotelDetailedWidget(
+                                    url: data.urls!.regular!,
+                                    title: khotelname[index],
+                                    subtitle: 'Londan',
+                                    price: '\$${data.likes}0',
+                                    rating: '4',
+                                    about: data.description??'')));
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                height: size.height / 5,
+                                width: size.width / 1.5,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                        image:
+                                            NetworkImage(data.urls!.regular!),
+                                        fit: BoxFit.cover)),
+                              ),
+                              SizedBox(
+                                height: 30,
+                                width: size.width / 1.5,
+                                child: RatingBar.builder(
+                                  itemSize: 40,
+                                  initialRating: 3,
+                                  minRating: 1,
+                                  direction: Axis.horizontal,
+                                  allowHalfRating: true,
+                                  itemCount: 5,
+                                  itemPadding:
+                                      const EdgeInsets.symmetric(horizontal: 1),
+                                  itemBuilder: (context, _) => Transform.scale(
+                                    scale:
+                                        .4, // Adjust this value to reduce the size
+                                    child: const Icon(
+                                      Icons.star,
+                                      color: kamber,
                                     ),
-                                    SizedBox(
-                                      height: 30,
-                                      width: size.width / 1.5,
-                                      child: RatingBar.builder(
-                                        itemSize: 40,
-                                        initialRating: 3,
-                                        minRating: 1,
-                                        direction: Axis.horizontal,
-                                        allowHalfRating: true,
-                                        itemCount: 5,
-                                        itemPadding: const EdgeInsets.symmetric(
-                                            horizontal: 1),
-                                        itemBuilder: (context, _) =>
-                                            Transform.scale(
-                                          scale:
-                                              .4, // Adjust this value to reduce the size
-                                          child: const Icon(
-                                            Icons.star,
-                                            color: kamber,
-                                          ),
-                                        ),
-                                        onRatingUpdate: (double value) {},
-                                      ),
-                                    ),
-                                    ListTile(
-                                      leading: IconButtonWidget(
-                                          onPressFunc: () {},
-                                          iconwidget: const Icon(
-                                            kLocation,
-                                            color: kSubDominantcolor,
-                                          )),
-                                      title: const Text(
-                                        '\$879',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      subtitle: const Text('Hotel name '),
-                                      trailing: IconButton(
-                                          onPressed: () {},
-                                          icon: const Icon(ksave)),
-                                    ),
-                                  ],
+                                  ),
+                                  onRatingUpdate: (double value) {},
                                 ),
-                              )),
+                              ),
+                              ListTile(
+                                leading: IconButtonWidget(
+                                    onPressFunc: () {},
+                                    iconwidget: const Icon(
+                                      kLocation,
+                                      color: kSubDominantcolor,
+                                    )),
+                                title: Text(
+                                  '\$${data.likes}0',
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                subtitle: SizedBox(
+                                    height: 30,
+                                    child: Text(data.description ??
+                                        'Currently name are unavailable')),
+                                trailing: IconButton(
+                                    onPressed: () {}, icon: const Icon(ksave)),
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
                     ),
                   ),
                 );

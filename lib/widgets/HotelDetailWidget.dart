@@ -63,20 +63,20 @@ class HotelDetailedWidget extends StatelessWidget {
                         borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40))),
-                    childwidget: const Padding(
-                      padding: EdgeInsets.only(top: 10, left: 20),
+                    childwidget: Padding(
+                      padding:const EdgeInsets.only(top: 10, left: 20),
                       child: ListTile(
                         title: Text(
-                          'Hotel Name',
+                         title,
                           style: textstyle,
                         ),
                         subtitle: Row(
                           children: [
-                            Icon(
+                           const Icon(
                               kLocation,
                               color: kdominatgrey,
                             ),
-                            Text('Near Tokyo'),
+                            Text('Near $subtitle'),
                           ],
                         ),
                       ),
@@ -93,8 +93,8 @@ class HotelDetailedWidget extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        '\$900',
+                      Text(
+                        price,
                         style: textstyle,
                       ),
                       ratingbar
@@ -108,8 +108,8 @@ class HotelDetailedWidget extends StatelessWidget {
               ),
             ),
             h10,
-            const Text(
-              'The good news is that the hotel standard in Tokyo is overall excellent, with comfortable and clean rooms well equipped with everything you need. However, hotel prices are comparable to many big European cities, and since space is a valuable commodity in Tokyo, rooms tend to be small. \n29-Jul-2023',
+            Text(
+              '$about The good news is that the hotel standard  is overall excellent, with comfortable and clean rooms well equipped with everything you need. However, hotel prices are comparable to many big European cities, and since space is a valuable commodity , rooms tend to be small. \n29-Jul-2023',
               style: subtextstyle,
               maxLines: 6,
               overflow: TextOverflow.ellipsis,

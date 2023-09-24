@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -23,7 +22,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 isLoading: false,
                 iserror: true,
               ), (result) {
-        log('list $result');
+       
 
         return HotelState(
           hotelModelList: result,

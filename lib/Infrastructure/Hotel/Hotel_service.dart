@@ -17,10 +17,10 @@ class HotelService implements IhoteleRepo {
     try {
       final unsplashresponce = await Dio().get(
           'https://api.unsplash.com/search/photos/?client_id=mVpCHNk7WILyZxPwmlGuGfBlsnQGf_A-TrCI_v4O5tY&query=${querry}');
-      log("unsplash responce $unsplashresponce");
+     // log("unsplash responce $unsplashresponce");
       if (unsplashresponce.statusCode == 200 ||
           unsplashresponce.statusCode == 201) {
-        log('responce ${unsplashresponce.data}');
+       // log('responce ${unsplashresponce.data}');
         final hotelList = (unsplashresponce.data['results'] as List).map((e) {
           return UnsplashSearch.fromJson(e);
         }).toList();
