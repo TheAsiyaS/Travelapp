@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 
 class Authentications {
   Future<String> authenticate() async {
-  
     const String url = 'https://api.makcorps.com/auth';
     final Map<String, String> headers = {
       'Content-Type': 'application/json',
@@ -23,6 +22,7 @@ class Authentications {
     if (response.statusCode == 200) {
       final Map<String, dynamic> data = json.decode(response.body);
       final String accessToken = data['access_token'];
+
       return accessToken;
     } else {
       log('Request failed with status: ${response.statusCode}');

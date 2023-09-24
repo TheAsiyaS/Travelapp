@@ -3,7 +3,6 @@ import 'package:injectable/injectable.dart';
 
 import 'Injection.config.dart';
 
-
 final getIt = GetIt.instance;
 @InjectableInit()
 Future<void> configInjection() async {

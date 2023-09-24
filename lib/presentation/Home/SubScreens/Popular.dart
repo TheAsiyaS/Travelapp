@@ -61,7 +61,9 @@ class Popular extends StatelessWidget {
                               const Row(
                                 children: [
                                   Icon(kLocation),
-                                  Text('Location',),
+                                  Text(
+                                    'Location',
+                                  ),
                                 ],
                               ),
                               ratingbar,

@@ -1,33 +1,37 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:travelapp/Core/ApiEndpoints.dart';
+
 import 'package:travelapp/Core/Failures/Failures.dart';
 import 'package:dio/dio.dart';
-import 'package:travelapp/Domain/Hotel_Model/Hotel_price_model.dart';
-import 'package:travelapp/Domain/Hotel_Model/I_HotelModel_Service.dart';
-import 'package:travelapp/Infrastructure/Hotel/Authentication.dart';
+import 'package:travelapp/Domain/HotelModel/I_HotelModel_Service.dart';
+
+import 'package:travelapp/Domain/UnsplashSearch/unsplash_search/unsplash_search.dart';
 
 @LazySingleton(as: IhoteleRepo)
 class HotelService implements IhoteleRepo {
   @override
-  Future<Either<mainFailure, HotelData>> getHotelDetails() async {
+  Future<Either<mainFailure, List<UnsplashSearch>>> getHotelDetails(
+      {required String querry}) async {
     try {
-      final authenticationsObj = Authentications();
-      final token = await authenticationsObj.authenticate();
-      final Response response = await Dio(BaseOptions(headers: {
-        'Authorization': 'JWT $token',
-      })).get(khotelApiendpoint);
-      if (response.statusCode == 200) {
-        final jsonData = jsonDecode(response.data);
-        log('decode result : ${HotelData.fromJson(jsonData)}');
-        return right(HotelData.fromJson(jsonData));
+      final unsplashresponce = await Dio().get(
+          'https://api.unsplash.com/search/photos/?client_id=mVpCHNk7WILyZxPwmlGuGfBlsnQGf_A-TrCI_v4O5tY&query=${querry}');
+      log("unsplash responce $unsplashresponce");
+      if (unsplashresponce.statusCode == 200 ||
+          unsplashresponce.statusCode == 201) {
+        log('responce ${unsplashresponce.data}');
+        final hotelList = (unsplashresponce.data['results'] as List).map((e) {
+          return UnsplashSearch.fromJson(e);
+        }).toList();
+
+        return right(hotelList);
       } else {
-        return left(const mainFailure.clientFailure());
+        log('Server Failure');
+        return left(const mainFailure.serverFailure());
       }
     } catch (e) {
+      log('error $e ');
       return left(const mainFailure.clientFailure());
     }
   }

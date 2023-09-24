@@ -238,7 +238,7 @@ class _SlideshowScreenState extends State<SlideshowScreen>
                   borderRadius: BorderRadius.circular(20)),
               height: size.height / 6,
               width: size.width,
-              childwidget:  Column(
+              childwidget: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
@@ -249,7 +249,7 @@ class _SlideshowScreenState extends State<SlideshowScreen>
                   Text(
                     'Try one month free that will help you get more easy to handle your travelling Try one month free that will help you get more easy to handle your travelling ',
                     style: TextStyle(
-                      color:isDarkMode? kgrey: klightwhite,
+                      color: isDarkMode ? kgrey : klightwhite,
                     ),
                   ), //
                 ],

@@ -8,7 +8,7 @@ class Agencies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
- Brightness brightness = MediaQuery.of(context).platformBrightness;
+    Brightness brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
@@ -43,7 +43,7 @@ class Agencies extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       color: kDominantTrans,
                                       borderRadius: BorderRadius.circular(20)),
-                                  child:  Padding(
+                                  child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
                                       mainAxisAlignment:
@@ -55,12 +55,14 @@ class Agencies extends StatelessWidget {
                                               fontWeight: FontWeight.bold,
                                               fontSize: 20),
                                         ),
-                                       const  Text(
+                                        const Text(
                                           '+1234567890',
                                         ),
                                         Text('abcxyz@gmail.com',
-                                            style:
-                                                TextStyle(color:isDarkMode? kdominatgrey:klightwhite)),
+                                            style: TextStyle(
+                                                color: isDarkMode
+                                                    ? kdominatgrey
+                                                    : klightwhite)),
                                       ],
                                     ),
                                   ),

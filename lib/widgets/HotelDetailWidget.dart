@@ -152,7 +152,10 @@ class HotelDetailedWidget extends StatelessWidget {
                             children: [
                               IconButtonWidget(
                                   onPressFunc: () {},
-                                  iconwidget: const Icon(kLocation,color: kwhite,)),
+                                  iconwidget: const Icon(
+                                    kLocation,
+                                    color: kwhite,
+                                  )),
                               const Text('Location', style: subtextstyle)
                             ],
                           ),
@@ -160,7 +163,8 @@ class HotelDetailedWidget extends StatelessWidget {
                             children: [
                               IconButtonWidget(
                                   onPressFunc: () {},
-                                  iconwidget: const Icon(kLocation,color: kwhite)),
+                                  iconwidget:
+                                      const Icon(kLocation, color: kwhite)),
                               const Text('Location', style: subtextstyle)
                             ],
                           ),
@@ -168,7 +172,8 @@ class HotelDetailedWidget extends StatelessWidget {
                             children: [
                               IconButtonWidget(
                                   onPressFunc: () {},
-                                  iconwidget: const Icon(kLocation,color: kwhite)),
+                                  iconwidget:
+                                      const Icon(kLocation, color: kwhite)),
                               const Text(
                                 'Location',
                                 style: subtextstyle,

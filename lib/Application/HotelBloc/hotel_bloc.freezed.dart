@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HotelEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() hotelDetailsGet,
+    required TResult Function(String querry) hotelDetailsGet,
     required TResult Function() hotelDetailsGet1,
     required TResult Function() hotelDetailsGet2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? hotelDetailsGet,
+    TResult? Function(String querry)? hotelDetailsGet,
     TResult? Function()? hotelDetailsGet1,
     TResult? Function()? hotelDetailsGet2,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? hotelDetailsGet,
+    TResult Function(String querry)? hotelDetailsGet,
     TResult Function()? hotelDetailsGet1,
     TResult Function()? hotelDetailsGet2,
     required TResult orElse(),
@@ -85,6 +85,8 @@ abstract class _$$_HotelDetailsGetCopyWith<$Res> {
   factory _$$_HotelDetailsGetCopyWith(
           _$_HotelDetailsGet value, $Res Function(_$_HotelDetailsGet) then) =
       __$$_HotelDetailsGetCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String querry});
 }
 
 /// @nodoc
@@ -94,57 +96,81 @@ class __$$_HotelDetailsGetCopyWithImpl<$Res>
   __$$_HotelDetailsGetCopyWithImpl(
       _$_HotelDetailsGet _value, $Res Function(_$_HotelDetailsGet) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? querry = null,
+  }) {
+    return _then(_$_HotelDetailsGet(
+      querry: null == querry
+          ? _value.querry
+          : querry // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_HotelDetailsGet implements _HotelDetailsGet {
-  const _$_HotelDetailsGet();
+  const _$_HotelDetailsGet({required this.querry});
+
+  @override
+  final String querry;
 
   @override
   String toString() {
-    return 'HotelEvent.hotelDetailsGet()';
+    return 'HotelEvent.hotelDetailsGet(querry: $querry)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_HotelDetailsGet);
+        (other.runtimeType == runtimeType &&
+            other is _$_HotelDetailsGet &&
+            (identical(other.querry, querry) || other.querry == querry));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, querry);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_HotelDetailsGetCopyWith<_$_HotelDetailsGet> get copyWith =>
+      __$$_HotelDetailsGetCopyWithImpl<_$_HotelDetailsGet>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() hotelDetailsGet,
+    required TResult Function(String querry) hotelDetailsGet,
     required TResult Function() hotelDetailsGet1,
     required TResult Function() hotelDetailsGet2,
   }) {
-    return hotelDetailsGet();
+    return hotelDetailsGet(querry);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? hotelDetailsGet,
+    TResult? Function(String querry)? hotelDetailsGet,
     TResult? Function()? hotelDetailsGet1,
     TResult? Function()? hotelDetailsGet2,
   }) {
-    return hotelDetailsGet?.call();
+    return hotelDetailsGet?.call(querry);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? hotelDetailsGet,
+    TResult Function(String querry)? hotelDetailsGet,
     TResult Function()? hotelDetailsGet1,
     TResult Function()? hotelDetailsGet2,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet != null) {
-      return hotelDetailsGet();
+      return hotelDetailsGet(querry);
     }
     return orElse();
   }
@@ -185,7 +211,13 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
 }
 
 abstract class _HotelDetailsGet implements HotelEvent {
-  const factory _HotelDetailsGet() = _$_HotelDetailsGet;
+  const factory _HotelDetailsGet({required final String querry}) =
+      _$_HotelDetailsGet;
+
+  String get querry;
+  @JsonKey(ignore: true)
+  _$$_HotelDetailsGetCopyWith<_$_HotelDetailsGet> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -226,7 +258,7 @@ class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() hotelDetailsGet,
+    required TResult Function(String querry) hotelDetailsGet,
     required TResult Function() hotelDetailsGet1,
     required TResult Function() hotelDetailsGet2,
   }) {
@@ -236,7 +268,7 @@ class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? hotelDetailsGet,
+    TResult? Function(String querry)? hotelDetailsGet,
     TResult? Function()? hotelDetailsGet1,
     TResult? Function()? hotelDetailsGet2,
   }) {
@@ -246,7 +278,7 @@ class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? hotelDetailsGet,
+    TResult Function(String querry)? hotelDetailsGet,
     TResult Function()? hotelDetailsGet1,
     TResult Function()? hotelDetailsGet2,
     required TResult orElse(),
@@ -334,7 +366,7 @@ class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() hotelDetailsGet,
+    required TResult Function(String querry) hotelDetailsGet,
     required TResult Function() hotelDetailsGet1,
     required TResult Function() hotelDetailsGet2,
   }) {
@@ -344,7 +376,7 @@ class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? hotelDetailsGet,
+    TResult? Function(String querry)? hotelDetailsGet,
     TResult? Function()? hotelDetailsGet1,
     TResult? Function()? hotelDetailsGet2,
   }) {
@@ -354,7 +386,7 @@ class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? hotelDetailsGet,
+    TResult Function(String querry)? hotelDetailsGet,
     TResult Function()? hotelDetailsGet1,
     TResult Function()? hotelDetailsGet2,
     required TResult orElse(),
@@ -406,7 +438,7 @@ abstract class _HotelDetailsGet2 implements HotelEvent {
 
 /// @nodoc
 mixin _$HotelState {
-  List<HotelData> get hotelModelList => throw _privateConstructorUsedError;
+  List<UnsplashSearch> get hotelModelList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get iserror => throw _privateConstructorUsedError;
 
@@ -421,7 +453,8 @@ abstract class $HotelStateCopyWith<$Res> {
           HotelState value, $Res Function(HotelState) then) =
       _$HotelStateCopyWithImpl<$Res, HotelState>;
   @useResult
-  $Res call({List<HotelData> hotelModelList, bool isLoading, bool iserror});
+  $Res call(
+      {List<UnsplashSearch> hotelModelList, bool isLoading, bool iserror});
 }
 
 /// @nodoc
@@ -445,7 +478,7 @@ class _$HotelStateCopyWithImpl<$Res, $Val extends HotelState>
       hotelModelList: null == hotelModelList
           ? _value.hotelModelList
           : hotelModelList // ignore: cast_nullable_to_non_nullable
-              as List<HotelData>,
+              as List<UnsplashSearch>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -465,7 +498,8 @@ abstract class _$$_InitialCopyWith<$Res> implements $HotelStateCopyWith<$Res> {
       __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<HotelData> hotelModelList, bool isLoading, bool iserror});
+  $Res call(
+      {List<UnsplashSearch> hotelModelList, bool isLoading, bool iserror});
 }
 
 /// @nodoc
@@ -486,7 +520,7 @@ class __$$_InitialCopyWithImpl<$Res>
       hotelModelList: null == hotelModelList
           ? _value._hotelModelList
           : hotelModelList // ignore: cast_nullable_to_non_nullable
-              as List<HotelData>,
+              as List<UnsplashSearch>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -503,14 +537,14 @@ class __$$_InitialCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {required final List<HotelData> hotelModelList,
+      {required final List<UnsplashSearch> hotelModelList,
       required this.isLoading,
       required this.iserror})
       : _hotelModelList = hotelModelList;
 
-  final List<HotelData> _hotelModelList;
+  final List<UnsplashSearch> _hotelModelList;
   @override
-  List<HotelData> get hotelModelList {
+  List<UnsplashSearch> get hotelModelList {
     if (_hotelModelList is EqualUnmodifiableListView) return _hotelModelList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_hotelModelList);
@@ -551,12 +585,12 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements HotelState {
   const factory _Initial(
-      {required final List<HotelData> hotelModelList,
+      {required final List<UnsplashSearch> hotelModelList,
       required final bool isLoading,
       required final bool iserror}) = _$_Initial;
 
   @override
-  List<HotelData> get hotelModelList;
+  List<UnsplashSearch> get hotelModelList;
   @override
   bool get isLoading;
   @override

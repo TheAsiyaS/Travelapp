@@ -41,7 +41,7 @@ class Home extends StatelessWidget {
               backgroundColor: kDominantcolor,
               backgroundImage: NetworkImage(userprofileImage),
               radius: 25,
-            ), 
+            ),
           ),
           w20
         ],
@@ -66,8 +66,10 @@ class Home extends StatelessWidget {
                     h10,
                     Text(
                       'Username',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 20,color: kwhite),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: kwhite),
                     ),
                     h10,
                   ],
@@ -138,11 +140,15 @@ class Home extends StatelessWidget {
                       children: [
                         const Text('GOOD MORNING',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 30,color: kwhite)),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
+                                color: kwhite)),
                         const Text(
                           'Explore the world with Longitude',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 35,color: kwhite),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 35,
+                              color: kwhite),
                         ),
                         h20,
                         Row(

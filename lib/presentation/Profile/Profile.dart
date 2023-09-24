@@ -81,7 +81,8 @@ class Profile extends StatelessWidget {
                 children: [
                   Text(
                     "Contact me",
-                    style: GoogleFonts.dancingScript(fontSize: 27,color: kwhite),
+                    style:
+                        GoogleFonts.dancingScript(fontSize: 27, color: kwhite),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
