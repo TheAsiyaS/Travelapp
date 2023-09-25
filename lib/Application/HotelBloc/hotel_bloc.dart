@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -15,17 +14,62 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
   final IhoteleRepo objIrepoHotel;
   HotelBloc(this.objIrepoHotel) : super(HotelState.initial()) {
     on<_HotelDetailsGet>((event, emit) async {
-      final resultHotel = await objIrepoHotel.getHotelDetails(querry:event.querry);
+      final resultHotel =
+          await objIrepoHotel.getHotelDetails(querry: event.querry);
       final emitHotelresult = resultHotel.fold(
           (mainFailure fail) => const HotelState(
+                hotelModelList: [],
+                hotelModelList1: [],
+                hotelModelList2: [],
+                isLoading: false,
+                iserror: true,
+              ), (result) {
+        return HotelState(
+          hotelModelList: result,
+          hotelModelList1: [],
+          hotelModelList2: [],
+          isLoading: false,
+          iserror: false,
+        );
+      });
+      emit(emitHotelresult);
+    });
+    on<_HotelDetailsGet1>((event, emit) async {
+      final resultHotel =
+          await objIrepoHotel.getHotelDetails(querry: event.querry);
+      final emitHotelresult = resultHotel.fold(
+          (mainFailure fail) => const HotelState(
+                hotelModelList1: [],
+                hotelModelList2: [],
                 hotelModelList: [],
                 isLoading: false,
                 iserror: true,
               ), (result) {
-       
-
         return HotelState(
-          hotelModelList: result,
+          hotelModelList: [],
+          hotelModelList2: [],
+          hotelModelList1: result,
+          isLoading: false,
+          iserror: false,
+        );
+      });
+      emit(emitHotelresult);
+    });
+    on<_HotelDetailsGet2>((event, emit) async {
+      final resultHotel =
+          await objIrepoHotel.getHotelDetails(querry: event.querry);
+      final emitHotelresult = resultHotel.fold(
+          (mainFailure fail) => const HotelState(
+                hotelModelList1: [],
+                hotelModelList2: [],
+                hotelModelList: [],
+                isLoading: false,
+                iserror: true,
+              ), (result) {
+        return HotelState(
+          hotelModelList1: [],
+          hotelModelList: [],
+          hotelModelList2: result,
           isLoading: false,
           iserror: false,
         );

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
@@ -28,6 +31,10 @@ class HotelDetailedWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     Brightness brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<HotelBloc>(context)
+          .add(HotelEvent.hotelDetailsGet1(querry: title));
+    });
     return Scaffold(
       appBar: AppBar(
         leading: IconButtonWidget(
@@ -64,15 +71,15 @@ class HotelDetailedWidget extends StatelessWidget {
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40))),
                     childwidget: Padding(
-                      padding:const EdgeInsets.only(top: 10, left: 20),
+                      padding: const EdgeInsets.only(top: 10, left: 20),
                       child: ListTile(
                         title: Text(
-                         title,
+                          title,
                           style: textstyle,
                         ),
                         subtitle: Row(
                           children: [
-                           const Icon(
+                            const Icon(
                               kLocation,
                               color: kdominatgrey,
                             ),
@@ -115,27 +122,39 @@ class HotelDetailedWidget extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             h10,
-            SizedBox(
-              height: size.height / 9,
-              width: size.width,
-              child: GridView.count(
-                crossAxisCount: 1,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                childAspectRatio: 3 / 4,
-                scrollDirection: Axis.horizontal,
-                children: List.generate(
-                    10,
-                    (index) => Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            image: const DecorationImage(
-                                image: NetworkImage(
-                                    'https://i.pinimg.com/originals/f4/4c/94/f44c945f6a4bbd70a615bfb393efe7a7.jpg'),
-                                fit: BoxFit.cover)),
-                        child: h10)),
-              ),
-            ),
+            BlocBuilder<HotelBloc, HotelState>(builder: (context, state) {
+              if (state.isLoading == true) {
+                return const WidgetCircularProgressIndicator(
+                    indicatorColor: kdominatgrey);
+              } else if (state.iserror == true) {
+                return const Text('Some error occured');
+              } else if (state.hotelModelList.isEmpty) {
+                return const Text('No Data found');
+              } else {
+                return SizedBox(
+                  height: size.height / 9,
+                  width: size.width,
+                  child: GridView.count(
+                    crossAxisCount: 1,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 3 / 4,
+                    scrollDirection: Axis.horizontal,
+                    children: List.generate(10, (index) {
+                       final data = state.hotelModelList[index];
+                     return Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image:  DecorationImage(
+                                  image: NetworkImage(
+                                      data.urls!.regular!),
+                                  fit: BoxFit.cover)),
+                          child: h10);
+                    }),
+                  ),
+                );
+              }
+            }),
             h10,
             Center(
               child: ConatinerwithWidget(
