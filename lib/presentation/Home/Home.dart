@@ -225,7 +225,7 @@ class Home extends StatelessWidget {
                         Text('Advanture', style: GoogleFonts.playfairDisplay()),
                   ),
                   Tab(
-                    child: Text('Calm', style: GoogleFonts.playfairDisplay()),
+                    child: Text('historical', style: GoogleFonts.playfairDisplay()),
                   ),
                   Tab(
                     child: Text('Beach', style: GoogleFonts.playfairDisplay()),
