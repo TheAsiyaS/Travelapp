@@ -109,7 +109,7 @@ class HotelService implements IplaceHotelRepo {
   }
   
   @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> beech() async {
+  Future<Either<mainFailure, List<PiaxabayModel>>> beach() async {
     try {
       final unsplashresponce = await Dio().get(
           'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=Bondi%20Beach&image_type=photo&pretty=true');

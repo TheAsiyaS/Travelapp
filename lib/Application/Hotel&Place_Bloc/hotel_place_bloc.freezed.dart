@@ -27,7 +27,6 @@ mixin _$HotelPlaceEvent {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,7 +40,6 @@ mixin _$HotelPlaceEvent {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,52 +53,47 @@ mixin _$HotelPlaceEvent {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,7 +164,6 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) {
     return hotelDetailsGet();
   }
@@ -188,7 +180,6 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) {
     return hotelDetailsGet?.call();
   }
@@ -205,7 +196,6 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet != null) {
@@ -218,17 +208,15 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) {
     return hotelDetailsGet(this);
   }
@@ -237,15 +225,14 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return hotelDetailsGet?.call(this);
   }
@@ -254,15 +241,14 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet != null) {
@@ -277,25 +263,24 @@ abstract class _HotelDetailsGet implements HotelPlaceEvent {
 }
 
 /// @nodoc
-abstract class _$$_PlaceDetailsGetCopyWith<$Res> {
-  factory _$$_PlaceDetailsGetCopyWith(
-          _$_PlaceDetailsGet value, $Res Function(_$_PlaceDetailsGet) then) =
-      __$$_PlaceDetailsGetCopyWithImpl<$Res>;
+abstract class _$$_PopularCopyWith<$Res> {
+  factory _$$_PopularCopyWith(
+          _$_Popular value, $Res Function(_$_Popular) then) =
+      __$$_PopularCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PlaceDetailsGetCopyWithImpl<$Res>
-    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceDetailsGet>
-    implements _$$_PlaceDetailsGetCopyWith<$Res> {
-  __$$_PlaceDetailsGetCopyWithImpl(
-      _$_PlaceDetailsGet _value, $Res Function(_$_PlaceDetailsGet) _then)
+class __$$_PopularCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_Popular>
+    implements _$$_PopularCopyWith<$Res> {
+  __$$_PopularCopyWithImpl(_$_Popular _value, $Res Function(_$_Popular) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PlaceDetailsGet implements _PlaceDetailsGet {
-  const _$_PlaceDetailsGet();
+class _$_Popular implements _Popular {
+  const _$_Popular();
 
   @override
   String toString() {
@@ -305,7 +290,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlaceDetailsGet);
+        (other.runtimeType == runtimeType && other is _$_Popular);
   }
 
   @override
@@ -323,7 +308,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) {
     return popular();
   }
@@ -340,7 +324,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) {
     return popular?.call();
   }
@@ -357,7 +340,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (popular != null) {
@@ -370,17 +352,15 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) {
     return popular(this);
   }
@@ -389,15 +369,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return popular?.call(this);
   }
@@ -406,15 +385,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (popular != null) {
@@ -424,30 +402,28 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   }
 }
 
-abstract class _PlaceDetailsGet implements HotelPlaceEvent {
-  const factory _PlaceDetailsGet() = _$_PlaceDetailsGet;
+abstract class _Popular implements HotelPlaceEvent {
+  const factory _Popular() = _$_Popular;
 }
 
 /// @nodoc
-abstract class _$$_PlaceDetailsGetCopyWith<$Res> {
-  factory _$$_PlaceDetailsGetCopyWith(
-          _$_PlaceDetailsGet value, $Res Function(_$_PlaceDetailsGet) then) =
-      __$$_PlaceDetailsGetCopyWithImpl<$Res>;
+abstract class _$$_CheepCopyWith<$Res> {
+  factory _$$_CheepCopyWith(_$_Cheep value, $Res Function(_$_Cheep) then) =
+      __$$_CheepCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PlaceDetailsGetCopyWithImpl<$Res>
-    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceDetailsGet>
-    implements _$$_PlaceDetailsGetCopyWith<$Res> {
-  __$$_PlaceDetailsGetCopyWithImpl(
-      _$_PlaceDetailsGet _value, $Res Function(_$_PlaceDetailsGet) _then)
+class __$$_CheepCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_Cheep>
+    implements _$$_CheepCopyWith<$Res> {
+  __$$_CheepCopyWithImpl(_$_Cheep _value, $Res Function(_$_Cheep) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PlaceDetailsGet implements _PlaceDetailsGet {
-  const _$_PlaceDetailsGet();
+class _$_Cheep implements _Cheep {
+  const _$_Cheep();
 
   @override
   String toString() {
@@ -457,7 +433,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlaceDetailsGet);
+        (other.runtimeType == runtimeType && other is _$_Cheep);
   }
 
   @override
@@ -475,7 +451,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) {
     return cheep();
   }
@@ -492,7 +467,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) {
     return cheep?.call();
   }
@@ -509,7 +483,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (cheep != null) {
@@ -522,17 +495,15 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) {
     return cheep(this);
   }
@@ -541,15 +512,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return cheep?.call(this);
   }
@@ -558,15 +528,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (cheep != null) {
@@ -576,30 +545,30 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   }
 }
 
-abstract class _PlaceDetailsGet implements HotelPlaceEvent {
-  const factory _PlaceDetailsGet() = _$_PlaceDetailsGet;
+abstract class _Cheep implements HotelPlaceEvent {
+  const factory _Cheep() = _$_Cheep;
 }
 
 /// @nodoc
-abstract class _$$_PlaceDetailsGetCopyWith<$Res> {
-  factory _$$_PlaceDetailsGetCopyWith(
-          _$_PlaceDetailsGet value, $Res Function(_$_PlaceDetailsGet) then) =
-      __$$_PlaceDetailsGetCopyWithImpl<$Res>;
+abstract class _$$_MostpeoplevisitCopyWith<$Res> {
+  factory _$$_MostpeoplevisitCopyWith(
+          _$_Mostpeoplevisit value, $Res Function(_$_Mostpeoplevisit) then) =
+      __$$_MostpeoplevisitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PlaceDetailsGetCopyWithImpl<$Res>
-    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceDetailsGet>
-    implements _$$_PlaceDetailsGetCopyWith<$Res> {
-  __$$_PlaceDetailsGetCopyWithImpl(
-      _$_PlaceDetailsGet _value, $Res Function(_$_PlaceDetailsGet) _then)
+class __$$_MostpeoplevisitCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_Mostpeoplevisit>
+    implements _$$_MostpeoplevisitCopyWith<$Res> {
+  __$$_MostpeoplevisitCopyWithImpl(
+      _$_Mostpeoplevisit _value, $Res Function(_$_Mostpeoplevisit) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PlaceDetailsGet implements _PlaceDetailsGet {
-  const _$_PlaceDetailsGet();
+class _$_Mostpeoplevisit implements _Mostpeoplevisit {
+  const _$_Mostpeoplevisit();
 
   @override
   String toString() {
@@ -609,7 +578,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlaceDetailsGet);
+        (other.runtimeType == runtimeType && other is _$_Mostpeoplevisit);
   }
 
   @override
@@ -627,7 +596,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) {
     return mostpeoplevisit();
   }
@@ -644,7 +612,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) {
     return mostpeoplevisit?.call();
   }
@@ -661,7 +628,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (mostpeoplevisit != null) {
@@ -674,17 +640,15 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) {
     return mostpeoplevisit(this);
   }
@@ -693,15 +657,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return mostpeoplevisit?.call(this);
   }
@@ -710,15 +673,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (mostpeoplevisit != null) {
@@ -728,30 +690,30 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   }
 }
 
-abstract class _PlaceDetailsGet implements HotelPlaceEvent {
-  const factory _PlaceDetailsGet() = _$_PlaceDetailsGet;
+abstract class _Mostpeoplevisit implements HotelPlaceEvent {
+  const factory _Mostpeoplevisit() = _$_Mostpeoplevisit;
 }
 
 /// @nodoc
-abstract class _$$_PlaceDetailsGetCopyWith<$Res> {
-  factory _$$_PlaceDetailsGetCopyWith(
-          _$_PlaceDetailsGet value, $Res Function(_$_PlaceDetailsGet) then) =
-      __$$_PlaceDetailsGetCopyWithImpl<$Res>;
+abstract class _$$_AdvantureCopyWith<$Res> {
+  factory _$$_AdvantureCopyWith(
+          _$_Advanture value, $Res Function(_$_Advanture) then) =
+      __$$_AdvantureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PlaceDetailsGetCopyWithImpl<$Res>
-    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceDetailsGet>
-    implements _$$_PlaceDetailsGetCopyWith<$Res> {
-  __$$_PlaceDetailsGetCopyWithImpl(
-      _$_PlaceDetailsGet _value, $Res Function(_$_PlaceDetailsGet) _then)
+class __$$_AdvantureCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_Advanture>
+    implements _$$_AdvantureCopyWith<$Res> {
+  __$$_AdvantureCopyWithImpl(
+      _$_Advanture _value, $Res Function(_$_Advanture) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PlaceDetailsGet implements _PlaceDetailsGet {
-  const _$_PlaceDetailsGet();
+class _$_Advanture implements _Advanture {
+  const _$_Advanture();
 
   @override
   String toString() {
@@ -761,7 +723,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlaceDetailsGet);
+        (other.runtimeType == runtimeType && other is _$_Advanture);
   }
 
   @override
@@ -779,7 +741,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) {
     return advanture();
   }
@@ -796,7 +757,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) {
     return advanture?.call();
   }
@@ -813,7 +773,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (advanture != null) {
@@ -826,17 +785,15 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) {
     return advanture(this);
   }
@@ -845,15 +802,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return advanture?.call(this);
   }
@@ -862,15 +818,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (advanture != null) {
@@ -880,30 +835,30 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   }
 }
 
-abstract class _PlaceDetailsGet implements HotelPlaceEvent {
-  const factory _PlaceDetailsGet() = _$_PlaceDetailsGet;
+abstract class _Advanture implements HotelPlaceEvent {
+  const factory _Advanture() = _$_Advanture;
 }
 
 /// @nodoc
-abstract class _$$_PlaceDetailsGetCopyWith<$Res> {
-  factory _$$_PlaceDetailsGetCopyWith(
-          _$_PlaceDetailsGet value, $Res Function(_$_PlaceDetailsGet) then) =
-      __$$_PlaceDetailsGetCopyWithImpl<$Res>;
+abstract class _$$_HistoricalCopyWith<$Res> {
+  factory _$$_HistoricalCopyWith(
+          _$_Historical value, $Res Function(_$_Historical) then) =
+      __$$_HistoricalCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PlaceDetailsGetCopyWithImpl<$Res>
-    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceDetailsGet>
-    implements _$$_PlaceDetailsGetCopyWith<$Res> {
-  __$$_PlaceDetailsGetCopyWithImpl(
-      _$_PlaceDetailsGet _value, $Res Function(_$_PlaceDetailsGet) _then)
+class __$$_HistoricalCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_Historical>
+    implements _$$_HistoricalCopyWith<$Res> {
+  __$$_HistoricalCopyWithImpl(
+      _$_Historical _value, $Res Function(_$_Historical) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PlaceDetailsGet implements _PlaceDetailsGet {
-  const _$_PlaceDetailsGet();
+class _$_Historical implements _Historical {
+  const _$_Historical();
 
   @override
   String toString() {
@@ -913,7 +868,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlaceDetailsGet);
+        (other.runtimeType == runtimeType && other is _$_Historical);
   }
 
   @override
@@ -931,7 +886,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) {
     return historical();
   }
@@ -948,7 +902,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) {
     return historical?.call();
   }
@@ -965,7 +918,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (historical != null) {
@@ -978,17 +930,15 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) {
     return historical(this);
   }
@@ -997,15 +947,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return historical?.call(this);
   }
@@ -1014,15 +963,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (historical != null) {
@@ -1032,8 +980,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   }
 }
 
-abstract class _PlaceDetailsGet implements HotelPlaceEvent {
-  const factory _PlaceDetailsGet() = _$_PlaceDetailsGet;
+abstract class _Historical implements HotelPlaceEvent {
+  const factory _Historical() = _$_Historical;
 }
 
 /// @nodoc
@@ -1083,7 +1031,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) {
     return placeDetailsGet();
   }
@@ -1100,7 +1047,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) {
     return placeDetailsGet?.call();
   }
@@ -1117,7 +1063,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (placeDetailsGet != null) {
@@ -1130,17 +1075,15 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) {
     return placeDetailsGet(this);
   }
@@ -1149,15 +1092,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return placeDetailsGet?.call(this);
   }
@@ -1166,15 +1108,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (placeDetailsGet != null) {
@@ -1189,25 +1130,23 @@ abstract class _PlaceDetailsGet implements HotelPlaceEvent {
 }
 
 /// @nodoc
-abstract class _$$_PlaceDetailsGetCopyWith<$Res> {
-  factory _$$_PlaceDetailsGetCopyWith(
-          _$_PlaceDetailsGet value, $Res Function(_$_PlaceDetailsGet) then) =
-      __$$_PlaceDetailsGetCopyWithImpl<$Res>;
+abstract class _$$_BeachCopyWith<$Res> {
+  factory _$$_BeachCopyWith(_$_Beach value, $Res Function(_$_Beach) then) =
+      __$$_BeachCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_PlaceDetailsGetCopyWithImpl<$Res>
-    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceDetailsGet>
-    implements _$$_PlaceDetailsGetCopyWith<$Res> {
-  __$$_PlaceDetailsGetCopyWithImpl(
-      _$_PlaceDetailsGet _value, $Res Function(_$_PlaceDetailsGet) _then)
+class __$$_BeachCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_Beach>
+    implements _$$_BeachCopyWith<$Res> {
+  __$$_BeachCopyWithImpl(_$_Beach _value, $Res Function(_$_Beach) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_PlaceDetailsGet implements _PlaceDetailsGet {
-  const _$_PlaceDetailsGet();
+class _$_Beach implements _Beach {
+  const _$_Beach();
 
   @override
   String toString() {
@@ -1217,7 +1156,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlaceDetailsGet);
+        (other.runtimeType == runtimeType && other is _$_Beach);
   }
 
   @override
@@ -1235,7 +1174,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) {
     return beach();
   }
@@ -1252,7 +1190,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) {
     return beach?.call();
   }
@@ -1269,7 +1206,6 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (beach != null) {
@@ -1282,17 +1218,15 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) {
     return beach(this);
   }
@@ -1301,15 +1235,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return beach?.call(this);
   }
@@ -1318,15 +1251,14 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (beach != null) {
@@ -1336,8 +1268,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   }
 }
 
-abstract class _PlaceDetailsGet implements HotelPlaceEvent {
-  const factory _PlaceDetailsGet() = _$_PlaceDetailsGet;
+abstract class _Beach implements HotelPlaceEvent {
+  const factory _Beach() = _$_Beach;
 }
 
 /// @nodoc
@@ -1415,7 +1347,6 @@ class _$_GetSearchPlaceDetails implements _GetSearchPlaceDetails {
     required TResult Function() placeDetailsGet,
     required TResult Function() beach,
     required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
   }) {
     return getSearchPlaceDetails(searchQuery);
   }
@@ -1432,7 +1363,6 @@ class _$_GetSearchPlaceDetails implements _GetSearchPlaceDetails {
     TResult? Function()? placeDetailsGet,
     TResult? Function()? beach,
     TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
   }) {
     return getSearchPlaceDetails?.call(searchQuery);
   }
@@ -1449,7 +1379,6 @@ class _$_GetSearchPlaceDetails implements _GetSearchPlaceDetails {
     TResult Function()? placeDetailsGet,
     TResult Function()? beach,
     TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (getSearchPlaceDetails != null) {
@@ -1462,17 +1391,15 @@ class _$_GetSearchPlaceDetails implements _GetSearchPlaceDetails {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
+    required TResult Function(_Popular value) popular,
+    required TResult Function(_Cheep value) cheep,
+    required TResult Function(_Mostpeoplevisit value) mostpeoplevisit,
+    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_Historical value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
+    required TResult Function(_Beach value) beach,
     required TResult Function(_GetSearchPlaceDetails value)
         getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
   }) {
     return getSearchPlaceDetails(this);
   }
@@ -1481,15 +1408,14 @@ class _$_GetSearchPlaceDetails implements _GetSearchPlaceDetails {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
+    TResult? Function(_Popular value)? popular,
+    TResult? Function(_Cheep value)? cheep,
+    TResult? Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_Historical value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
+    TResult? Function(_Beach value)? beach,
     TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return getSearchPlaceDetails?.call(this);
   }
@@ -1498,15 +1424,14 @@ class _$_GetSearchPlaceDetails implements _GetSearchPlaceDetails {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
+    TResult Function(_Popular value)? popular,
+    TResult Function(_Cheep value)? cheep,
+    TResult Function(_Mostpeoplevisit value)? mostpeoplevisit,
+    TResult Function(_Advanture value)? advanture,
+    TResult Function(_Historical value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
+    TResult Function(_Beach value)? beach,
     TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
     if (getSearchPlaceDetails != null) {
@@ -1524,158 +1449,6 @@ abstract class _GetSearchPlaceDetails implements HotelPlaceEvent {
   @JsonKey(ignore: true)
   _$$_GetSearchPlaceDetailsCopyWith<_$_GetSearchPlaceDetails> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_PlaceSearchDetailsGetCopyWith<$Res> {
-  factory _$$_PlaceSearchDetailsGetCopyWith(_$_PlaceSearchDetailsGet value,
-          $Res Function(_$_PlaceSearchDetailsGet) then) =
-      __$$_PlaceSearchDetailsGetCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_PlaceSearchDetailsGetCopyWithImpl<$Res>
-    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceSearchDetailsGet>
-    implements _$$_PlaceSearchDetailsGetCopyWith<$Res> {
-  __$$_PlaceSearchDetailsGetCopyWithImpl(_$_PlaceSearchDetailsGet _value,
-      $Res Function(_$_PlaceSearchDetailsGet) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_PlaceSearchDetailsGet implements _PlaceSearchDetailsGet {
-  const _$_PlaceSearchDetailsGet();
-
-  @override
-  String toString() {
-    return 'HotelPlaceEvent.placeSearchDetailsGet()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlaceSearchDetailsGet);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() hotelDetailsGet,
-    required TResult Function() popular,
-    required TResult Function() cheep,
-    required TResult Function() mostpeoplevisit,
-    required TResult Function() advanture,
-    required TResult Function() historical,
-    required TResult Function() placeDetailsGet,
-    required TResult Function() beach,
-    required TResult Function(String searchQuery) getSearchPlaceDetails,
-    required TResult Function() placeSearchDetailsGet,
-  }) {
-    return placeSearchDetailsGet();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? hotelDetailsGet,
-    TResult? Function()? popular,
-    TResult? Function()? cheep,
-    TResult? Function()? mostpeoplevisit,
-    TResult? Function()? advanture,
-    TResult? Function()? historical,
-    TResult? Function()? placeDetailsGet,
-    TResult? Function()? beach,
-    TResult? Function(String searchQuery)? getSearchPlaceDetails,
-    TResult? Function()? placeSearchDetailsGet,
-  }) {
-    return placeSearchDetailsGet?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? hotelDetailsGet,
-    TResult Function()? popular,
-    TResult Function()? cheep,
-    TResult Function()? mostpeoplevisit,
-    TResult Function()? advanture,
-    TResult Function()? historical,
-    TResult Function()? placeDetailsGet,
-    TResult Function()? beach,
-    TResult Function(String searchQuery)? getSearchPlaceDetails,
-    TResult Function()? placeSearchDetailsGet,
-    required TResult orElse(),
-  }) {
-    if (placeSearchDetailsGet != null) {
-      return placeSearchDetailsGet();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) popular,
-    required TResult Function(_PlaceDetailsGet value) cheep,
-    required TResult Function(_PlaceDetailsGet value) mostpeoplevisit,
-    required TResult Function(_PlaceDetailsGet value) advanture,
-    required TResult Function(_PlaceDetailsGet value) historical,
-    required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
-    required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_GetSearchPlaceDetails value)
-        getSearchPlaceDetails,
-    required TResult Function(_PlaceSearchDetailsGet value)
-        placeSearchDetailsGet,
-  }) {
-    return placeSearchDetailsGet(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? popular,
-    TResult? Function(_PlaceDetailsGet value)? cheep,
-    TResult? Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult? Function(_PlaceDetailsGet value)? advanture,
-    TResult? Function(_PlaceDetailsGet value)? historical,
-    TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
-  }) {
-    return placeSearchDetailsGet?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? popular,
-    TResult Function(_PlaceDetailsGet value)? cheep,
-    TResult Function(_PlaceDetailsGet value)? mostpeoplevisit,
-    TResult Function(_PlaceDetailsGet value)? advanture,
-    TResult Function(_PlaceDetailsGet value)? historical,
-    TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
-    TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
-    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
-    required TResult orElse(),
-  }) {
-    if (placeSearchDetailsGet != null) {
-      return placeSearchDetailsGet(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PlaceSearchDetailsGet implements HotelPlaceEvent {
-  const factory _PlaceSearchDetailsGet() = _$_PlaceSearchDetailsGet;
 }
 
 /// @nodoc
