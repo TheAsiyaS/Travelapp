@@ -14,7 +14,7 @@ import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
 import 'package:travelapp/widgets/TextButton.dart';
 
-import '../../Application/Hotel1/hotel1_bloc.dart';
+import '../../Application/Hotel1_Bloc/hotel1_bloc.dart';
 
 class Hotels extends StatelessWidget {
   const Hotels({super.key});

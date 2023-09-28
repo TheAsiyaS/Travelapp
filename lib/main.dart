@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/Application/Hotel1/hotel1_bloc.dart';
+import 'package:travelapp/Application/Hotel1_Bloc/hotel1_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
 import 'package:travelapp/common/colours.dart';

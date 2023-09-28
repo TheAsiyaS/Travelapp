@@ -8,13 +8,14 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../Application/Hotel1/hotel1_bloc.dart' as _i7;
-import '../../Application/HotelBloc/hotel_bloc.dart' as _i8;
-import '../../Infrastructure/Hotel/hotel1_service.dart' as _i4;
-import '../../Infrastructure/Hotel/Hotel_service.dart' as _i6;
-import '../UnsplashSearch/I_Hotel1.dart' as _i3;
+import '../../Application/Hotel&Place_Bloc/hotel_place_bloc.dart' as _i3;
+import '../../Application/Hotel1_Bloc/hotel1_bloc.dart' as _i8;
+import '../../Application/HotelBloc/hotel_bloc.dart' as _i9;
+import '../../Infrastructure/Hotel/hotel1_service.dart' as _i5;
+import '../../Infrastructure/Hotel/Hotel_service.dart' as _i7;
+import '../UnsplashSearch/I_Hotel1.dart' as _i4;
 import '../UnsplashSearch/I_HotelModel_Service.dart'
-    as _i5; // ignore_for_file: unnecessary_lambdas
+    as _i6; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -28,9 +29,10 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  gh.lazySingleton<_i3.Ihotel1eRepo>(() => _i4.HotelService());
-  gh.lazySingleton<_i5.IhoteleRepo>(() => _i6.HotelService());
-  gh.factory<_i7.Hotel1Bloc>(() => _i7.Hotel1Bloc(get<_i3.Ihotel1eRepo>()));
-  gh.factory<_i8.HotelBloc>(() => _i8.HotelBloc(get<_i5.IhoteleRepo>()));
+  gh.factory<_i3.HotelPlaceBloc>(() => _i3.HotelPlaceBloc());
+  gh.lazySingleton<_i4.Ihotel1eRepo>(() => _i5.HotelService());
+  gh.lazySingleton<_i6.IhoteleRepo>(() => _i7.HotelService());
+  gh.factory<_i8.Hotel1Bloc>(() => _i8.Hotel1Bloc(get<_i4.Ihotel1eRepo>()));
+  gh.factory<_i9.HotelBloc>(() => _i9.HotelBloc(get<_i6.IhoteleRepo>()));
   return get;
 }
