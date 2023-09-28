@@ -22,9 +22,6 @@ UnsplashSearch _$UnsplashSearchFromJson(Map<String, dynamic> json) =>
       urls: json['urls'] == null
           ? null
           : Urls.fromJson(json['urls'] as Map<String, dynamic>),
-      links: json['links'] == null
-          ? null
-          : Links.fromJson(json['links'] as Map<String, dynamic>),
       likes: json['likes'] as int?,
       likedByUser: json['liked_by_user'] as bool?,
       currentUserCollections:
@@ -51,7 +48,6 @@ Map<String, dynamic> _$UnsplashSearchToJson(UnsplashSearch instance) =>
       'alt_description': instance.altDescription,
       'breadcrumbs': instance.breadcrumbs,
       'urls': instance.urls,
-      'links': instance.links,
       'likes': instance.likes,
       'liked_by_user': instance.likedByUser,
       'current_user_collections': instance.currentUserCollections,

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (ctx) => getIt<HotelBloc>()),
-         BlocProvider(create: (ctx) => getIt<Hotel1Bloc>()),
+        BlocProvider(create: (ctx) => getIt<Hotel1Bloc>()),
       ],
       child: MaterialApp(
         theme: ThemeData(

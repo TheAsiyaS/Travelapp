@@ -17,9 +17,6 @@ Sponsor _$SponsorFromJson(Map<String, dynamic> json) => Sponsor(
       portfolioUrl: json['portfolio_url'] as String?,
       bio: json['bio'] as String?,
       location: json['location'] as String?,
-      links: json['links'] == null
-          ? null
-          : Links.fromJson(json['links'] as Map<String, dynamic>),
       profileImage: json['profile_image'] == null
           ? null
           : ProfileImage.fromJson(
@@ -46,7 +43,6 @@ Map<String, dynamic> _$SponsorToJson(Sponsor instance) => <String, dynamic>{
       'portfolio_url': instance.portfolioUrl,
       'bio': instance.bio,
       'location': instance.location,
-      'links': instance.links,
       'profile_image': instance.profileImage,
       'instagram_username': instance.instagramUsername,
       'total_collections': instance.totalCollections,

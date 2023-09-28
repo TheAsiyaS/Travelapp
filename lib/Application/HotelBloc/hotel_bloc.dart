@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -15,8 +14,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
   final IhoteleRepo objIrepoHotel;
   HotelBloc(this.objIrepoHotel) : super(HotelState.initial()) {
     on<_HotelDetailsGet>((event, emit) async {
-      final resultHotel =
-          await objIrepoHotel.getHotelDetails();
+      final resultHotel = await objIrepoHotel.getHotelDetails();
       final emitHotelresult = resultHotel.fold(
           (mainFailure fail) => const HotelState(
                 hotelModelList: [],
@@ -25,7 +23,6 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 isLoading: false,
                 iserror: true,
               ), (result) {
-      
         return HotelState(
           hotelModelList: result,
           hotelModelList1: [],
@@ -37,8 +34,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
       emit(emitHotelresult);
     });
     on<_HotelDetailsGet1>((event, emit) async {
-      final resultHotel =
-          await objIrepoHotel.getHotelDetails1();
+      final resultHotel = await objIrepoHotel.getHotelDetails1();
       final emitHotelresult1 = resultHotel.fold(
           (mainFailure fail) => const HotelState(
                 hotelModelList1: [],
@@ -47,7 +43,6 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 isLoading: false,
                 iserror: true,
               ), (result1) {
-           
         return HotelState(
           hotelModelList: [],
           hotelModelList2: [],
@@ -69,7 +64,6 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 isLoading: false,
                 iserror: true,
               ), (result2) {
-                 
         return HotelState(
           hotelModelList1: [],
           hotelModelList: [],

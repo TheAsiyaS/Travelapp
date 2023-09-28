@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'links.dart';
 import 'sponsorship.dart';
 import 'urls.dart';
 import 'user.dart';
@@ -41,9 +40,6 @@ class UnsplashSearch {
   @JsonKey(name: 'urls')
   Urls? urls;
 
-  @JsonKey(name: 'links')
-  Links? links;
-
   @JsonKey(name: 'likes')
   int? likes;
 
@@ -54,7 +50,6 @@ class UnsplashSearch {
 
   @JsonKey(name: 'sponsorship')
   Sponsorship? sponsorship;
-
 
   @JsonKey(name: 'user')
   User? user;
@@ -72,12 +67,10 @@ class UnsplashSearch {
     this.altDescription,
     this.breadcrumbs,
     this.urls,
-    this.links,
     this.likes,
     this.likedByUser,
     this.currentUserCollections,
     this.sponsorship,
-   
     this.user,
   });
 

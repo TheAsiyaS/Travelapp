@@ -18,33 +18,46 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HotelPlaceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() hotelDetailsGet,
+    required TResult Function() placeDetailsGet,
+    required TResult Function() placeSearchDetailsGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? hotelDetailsGet,
+    TResult? Function()? placeDetailsGet,
+    TResult? Function()? placeSearchDetailsGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? hotelDetailsGet,
+    TResult Function()? placeDetailsGet,
+    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
+    required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
+    required TResult Function(_PlaceSearchDetailsGet value)
+        placeSearchDetailsGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
+    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
+    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,34 +82,35 @@ class _$HotelPlaceEventCopyWithImpl<$Res, $Val extends HotelPlaceEvent>
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$_HotelDetailsGetCopyWith<$Res> {
+  factory _$$_HotelDetailsGetCopyWith(
+          _$_HotelDetailsGet value, $Res Function(_$_HotelDetailsGet) then) =
+      __$$_HotelDetailsGetCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res>
-    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_Started>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
+class __$$_HotelDetailsGetCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_HotelDetailsGet>
+    implements _$$_HotelDetailsGetCopyWith<$Res> {
+  __$$_HotelDetailsGetCopyWithImpl(
+      _$_HotelDetailsGet _value, $Res Function(_$_HotelDetailsGet) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started();
+class _$_HotelDetailsGet implements _HotelDetailsGet {
+  const _$_HotelDetailsGet();
 
   @override
   String toString() {
-    return 'HotelPlaceEvent.started()';
+    return 'HotelPlaceEvent.hotelDetailsGet()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Started);
+        (other.runtimeType == runtimeType && other is _$_HotelDetailsGet);
   }
 
   @override
@@ -105,27 +119,33 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function() hotelDetailsGet,
+    required TResult Function() placeDetailsGet,
+    required TResult Function() placeSearchDetailsGet,
   }) {
-    return started();
+    return hotelDetailsGet();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function()? hotelDetailsGet,
+    TResult? Function()? placeDetailsGet,
+    TResult? Function()? placeSearchDetailsGet,
   }) {
-    return started?.call();
+    return hotelDetailsGet?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function()? hotelDetailsGet,
+    TResult Function()? placeDetailsGet,
+    TResult Function()? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (hotelDetailsGet != null) {
+      return hotelDetailsGet();
     }
     return orElse();
   }
@@ -133,34 +153,259 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
+    required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
+    required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
+    required TResult Function(_PlaceSearchDetailsGet value)
+        placeSearchDetailsGet,
   }) {
-    return started(this);
+    return hotelDetailsGet(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
+    TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
+    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
-    return started?.call(this);
+    return hotelDetailsGet?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
+    TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
+    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (hotelDetailsGet != null) {
+      return hotelDetailsGet(this);
     }
     return orElse();
   }
 }
 
-abstract class _Started implements HotelPlaceEvent {
-  const factory _Started() = _$_Started;
+abstract class _HotelDetailsGet implements HotelPlaceEvent {
+  const factory _HotelDetailsGet() = _$_HotelDetailsGet;
+}
+
+/// @nodoc
+abstract class _$$_PlaceDetailsGetCopyWith<$Res> {
+  factory _$$_PlaceDetailsGetCopyWith(
+          _$_PlaceDetailsGet value, $Res Function(_$_PlaceDetailsGet) then) =
+      __$$_PlaceDetailsGetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PlaceDetailsGetCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceDetailsGet>
+    implements _$$_PlaceDetailsGetCopyWith<$Res> {
+  __$$_PlaceDetailsGetCopyWithImpl(
+      _$_PlaceDetailsGet _value, $Res Function(_$_PlaceDetailsGet) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PlaceDetailsGet implements _PlaceDetailsGet {
+  const _$_PlaceDetailsGet();
+
+  @override
+  String toString() {
+    return 'HotelPlaceEvent.placeDetailsGet()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PlaceDetailsGet);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() hotelDetailsGet,
+    required TResult Function() placeDetailsGet,
+    required TResult Function() placeSearchDetailsGet,
+  }) {
+    return placeDetailsGet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? hotelDetailsGet,
+    TResult? Function()? placeDetailsGet,
+    TResult? Function()? placeSearchDetailsGet,
+  }) {
+    return placeDetailsGet?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? hotelDetailsGet,
+    TResult Function()? placeDetailsGet,
+    TResult Function()? placeSearchDetailsGet,
+    required TResult orElse(),
+  }) {
+    if (placeDetailsGet != null) {
+      return placeDetailsGet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
+    required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
+    required TResult Function(_PlaceSearchDetailsGet value)
+        placeSearchDetailsGet,
+  }) {
+    return placeDetailsGet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
+    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
+  }) {
+    return placeDetailsGet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
+    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
+    required TResult orElse(),
+  }) {
+    if (placeDetailsGet != null) {
+      return placeDetailsGet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PlaceDetailsGet implements HotelPlaceEvent {
+  const factory _PlaceDetailsGet() = _$_PlaceDetailsGet;
+}
+
+/// @nodoc
+abstract class _$$_PlaceSearchDetailsGetCopyWith<$Res> {
+  factory _$$_PlaceSearchDetailsGetCopyWith(_$_PlaceSearchDetailsGet value,
+          $Res Function(_$_PlaceSearchDetailsGet) then) =
+      __$$_PlaceSearchDetailsGetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PlaceSearchDetailsGetCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceSearchDetailsGet>
+    implements _$$_PlaceSearchDetailsGetCopyWith<$Res> {
+  __$$_PlaceSearchDetailsGetCopyWithImpl(_$_PlaceSearchDetailsGet _value,
+      $Res Function(_$_PlaceSearchDetailsGet) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PlaceSearchDetailsGet implements _PlaceSearchDetailsGet {
+  const _$_PlaceSearchDetailsGet();
+
+  @override
+  String toString() {
+    return 'HotelPlaceEvent.placeSearchDetailsGet()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PlaceSearchDetailsGet);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() hotelDetailsGet,
+    required TResult Function() placeDetailsGet,
+    required TResult Function() placeSearchDetailsGet,
+  }) {
+    return placeSearchDetailsGet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? hotelDetailsGet,
+    TResult? Function()? placeDetailsGet,
+    TResult? Function()? placeSearchDetailsGet,
+  }) {
+    return placeSearchDetailsGet?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? hotelDetailsGet,
+    TResult Function()? placeDetailsGet,
+    TResult Function()? placeSearchDetailsGet,
+    required TResult orElse(),
+  }) {
+    if (placeSearchDetailsGet != null) {
+      return placeSearchDetailsGet();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_HotelDetailsGet value) hotelDetailsGet,
+    required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
+    required TResult Function(_PlaceSearchDetailsGet value)
+        placeSearchDetailsGet,
+  }) {
+    return placeSearchDetailsGet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
+    TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
+  }) {
+    return placeSearchDetailsGet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_HotelDetailsGet value)? hotelDetailsGet,
+    TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
+    TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
+    required TResult orElse(),
+  }) {
+    if (placeSearchDetailsGet != null) {
+      return placeSearchDetailsGet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PlaceSearchDetailsGet implements HotelPlaceEvent {
+  const factory _PlaceSearchDetailsGet() = _$_PlaceSearchDetailsGet;
 }
 
 /// @nodoc

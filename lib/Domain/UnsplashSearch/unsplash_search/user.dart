@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'links.dart';
 import 'profile_image.dart';
 import 'social.dart';
 
@@ -28,8 +27,7 @@ class User {
   String? bio;
   @JsonKey(name: 'location')
   String? location;
-  @JsonKey(name: 'links')
-  Links? links;
+
   @JsonKey(name: 'profile_image')
   ProfileImage? profileImage;
   @JsonKey(name: 'instagram_username')
@@ -58,7 +56,6 @@ class User {
     this.portfolioUrl,
     this.bio,
     this.location,
-    this.links,
     this.profileImage,
     this.instagramUsername,
     this.totalCollections,

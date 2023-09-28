@@ -143,7 +143,8 @@ class HotelDetailedWidget extends StatelessWidget {
                     mainAxisSpacing: 10,
                     childAspectRatio: 3 / 4,
                     scrollDirection: Axis.horizontal,
-                    children: List.generate(state.hotelModelList2.length, (index) {
+                    children:
+                        List.generate(state.hotelModelList2.length, (index) {
                       final data = state.hotelModelList2[index];
                       return Container(
                           decoration: BoxDecoration(
