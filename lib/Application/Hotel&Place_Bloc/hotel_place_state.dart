@@ -3,9 +3,15 @@ part of 'hotel_place_bloc.dart';
 @freezed
 class HotelPlaceState with _$HotelPlaceState {
   const factory HotelPlaceState({
-    required List place,
-    required List placesearch,
-    required List hotel,
+    required List<PiaxabayModel> popular,
+    required List<PiaxabayModel> advanture,
+    required List<PiaxabayModel> beach,
+    required List<PiaxabayModel> historical,
+    required List<PiaxabayModel> mostpeoplevist,
+    required List<PiaxabayModel> cheap,
+    required List<PiaxabayModel> place,
+    required List<PiaxabayModel> placesearch,
+    required List<PiaxabayModel> hotel,
     required bool isLoading,
     required bool iserror,
   }) = _Initial;
@@ -15,5 +21,11 @@ class HotelPlaceState with _$HotelPlaceState {
         hotel: [],
         isLoading: false,
         iserror: false,
+        advanture: [],
+        beach: [],
+        cheap: [],
+        historical: [],
+        mostpeoplevist: [],
+        popular: [],
       );
 }

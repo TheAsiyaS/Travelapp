@@ -10,8 +10,10 @@ class HotelPlaceEvent with _$HotelPlaceEvent {
   const factory HotelPlaceEvent.historical() = _PlaceDetailsGet;
   const factory HotelPlaceEvent.placeDetailsGet() = _PlaceDetailsGet;
   const factory HotelPlaceEvent.beach() = _PlaceDetailsGet;
-    const factory HotelPlaceEvent.getSearchPlaceDetails({required String searchQuery}) = _PlaceDetailsGet;
+  const factory HotelPlaceEvent.getSearchPlaceDetails(
+      {required String searchQuery}) = _GetSearchPlaceDetails;
 
   const factory HotelPlaceEvent.placeSearchDetailsGet() =
       _PlaceSearchDetailsGet;
 }
+      

@@ -69,7 +69,8 @@ mixin _$HotelPlaceEvent {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) =>
@@ -84,7 +85,7 @@ mixin _$HotelPlaceEvent {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) =>
       throw _privateConstructorUsedError;
@@ -98,7 +99,7 @@ mixin _$HotelPlaceEvent {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) =>
@@ -224,7 +225,8 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -242,7 +244,7 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return hotelDetailsGet?.call(this);
@@ -259,7 +261,7 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -375,7 +377,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -393,7 +396,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return popular?.call(this);
@@ -410,7 +413,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -526,7 +529,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -544,7 +548,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return cheep?.call(this);
@@ -561,7 +565,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -677,7 +681,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -695,7 +700,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return mostpeoplevisit?.call(this);
@@ -712,7 +717,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -828,7 +833,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -846,7 +852,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return advanture?.call(this);
@@ -863,7 +869,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -979,7 +985,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -997,7 +1004,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return historical?.call(this);
@@ -1014,7 +1021,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -1130,7 +1137,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -1148,7 +1156,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return placeDetailsGet?.call(this);
@@ -1165,7 +1173,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -1281,7 +1289,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -1299,7 +1308,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return beach?.call(this);
@@ -1316,7 +1325,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -1332,20 +1341,20 @@ abstract class _PlaceDetailsGet implements HotelPlaceEvent {
 }
 
 /// @nodoc
-abstract class _$$_PlaceDetailsGetCopyWith<$Res> {
-  factory _$$_PlaceDetailsGetCopyWith(
-          _$_PlaceDetailsGet value, $Res Function(_$_PlaceDetailsGet) then) =
-      __$$_PlaceDetailsGetCopyWithImpl<$Res>;
+abstract class _$$_GetSearchPlaceDetailsCopyWith<$Res> {
+  factory _$$_GetSearchPlaceDetailsCopyWith(_$_GetSearchPlaceDetails value,
+          $Res Function(_$_GetSearchPlaceDetails) then) =
+      __$$_GetSearchPlaceDetailsCopyWithImpl<$Res>;
   @useResult
   $Res call({String searchQuery});
 }
 
 /// @nodoc
-class __$$_PlaceDetailsGetCopyWithImpl<$Res>
-    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_PlaceDetailsGet>
-    implements _$$_PlaceDetailsGetCopyWith<$Res> {
-  __$$_PlaceDetailsGetCopyWithImpl(
-      _$_PlaceDetailsGet _value, $Res Function(_$_PlaceDetailsGet) _then)
+class __$$_GetSearchPlaceDetailsCopyWithImpl<$Res>
+    extends _$HotelPlaceEventCopyWithImpl<$Res, _$_GetSearchPlaceDetails>
+    implements _$$_GetSearchPlaceDetailsCopyWith<$Res> {
+  __$$_GetSearchPlaceDetailsCopyWithImpl(_$_GetSearchPlaceDetails _value,
+      $Res Function(_$_GetSearchPlaceDetails) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1353,7 +1362,7 @@ class __$$_PlaceDetailsGetCopyWithImpl<$Res>
   $Res call({
     Object? searchQuery = null,
   }) {
-    return _then(_$_PlaceDetailsGet(
+    return _then(_$_GetSearchPlaceDetails(
       searchQuery: null == searchQuery
           ? _value.searchQuery
           : searchQuery // ignore: cast_nullable_to_non_nullable
@@ -1364,8 +1373,8 @@ class __$$_PlaceDetailsGetCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PlaceDetailsGet implements _PlaceDetailsGet {
-  const _$_PlaceDetailsGet({required this.searchQuery});
+class _$_GetSearchPlaceDetails implements _GetSearchPlaceDetails {
+  const _$_GetSearchPlaceDetails({required this.searchQuery});
 
   @override
   final String searchQuery;
@@ -1379,7 +1388,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlaceDetailsGet &&
+            other is _$_GetSearchPlaceDetails &&
             (identical(other.searchQuery, searchQuery) ||
                 other.searchQuery == searchQuery));
   }
@@ -1390,8 +1399,9 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlaceDetailsGetCopyWith<_$_PlaceDetailsGet> get copyWith =>
-      __$$_PlaceDetailsGetCopyWithImpl<_$_PlaceDetailsGet>(this, _$identity);
+  _$$_GetSearchPlaceDetailsCopyWith<_$_GetSearchPlaceDetails> get copyWith =>
+      __$$_GetSearchPlaceDetailsCopyWithImpl<_$_GetSearchPlaceDetails>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1459,7 +1469,8 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -1477,7 +1488,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return getSearchPlaceDetails?.call(this);
@@ -1494,7 +1505,7 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -1505,13 +1516,13 @@ class _$_PlaceDetailsGet implements _PlaceDetailsGet {
   }
 }
 
-abstract class _PlaceDetailsGet implements HotelPlaceEvent {
-  const factory _PlaceDetailsGet({required final String searchQuery}) =
-      _$_PlaceDetailsGet;
+abstract class _GetSearchPlaceDetails implements HotelPlaceEvent {
+  const factory _GetSearchPlaceDetails({required final String searchQuery}) =
+      _$_GetSearchPlaceDetails;
 
   String get searchQuery;
   @JsonKey(ignore: true)
-  _$$_PlaceDetailsGetCopyWith<_$_PlaceDetailsGet> get copyWith =>
+  _$$_GetSearchPlaceDetailsCopyWith<_$_GetSearchPlaceDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1616,7 +1627,8 @@ class _$_PlaceSearchDetailsGet implements _PlaceSearchDetailsGet {
     required TResult Function(_PlaceDetailsGet value) historical,
     required TResult Function(_PlaceDetailsGet value) placeDetailsGet,
     required TResult Function(_PlaceDetailsGet value) beach,
-    required TResult Function(_PlaceDetailsGet value) getSearchPlaceDetails,
+    required TResult Function(_GetSearchPlaceDetails value)
+        getSearchPlaceDetails,
     required TResult Function(_PlaceSearchDetailsGet value)
         placeSearchDetailsGet,
   }) {
@@ -1634,7 +1646,7 @@ class _$_PlaceSearchDetailsGet implements _PlaceSearchDetailsGet {
     TResult? Function(_PlaceDetailsGet value)? historical,
     TResult? Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult? Function(_PlaceDetailsGet value)? beach,
-    TResult? Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult? Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult? Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
   }) {
     return placeSearchDetailsGet?.call(this);
@@ -1651,7 +1663,7 @@ class _$_PlaceSearchDetailsGet implements _PlaceSearchDetailsGet {
     TResult Function(_PlaceDetailsGet value)? historical,
     TResult Function(_PlaceDetailsGet value)? placeDetailsGet,
     TResult Function(_PlaceDetailsGet value)? beach,
-    TResult Function(_PlaceDetailsGet value)? getSearchPlaceDetails,
+    TResult Function(_GetSearchPlaceDetails value)? getSearchPlaceDetails,
     TResult Function(_PlaceSearchDetailsGet value)? placeSearchDetailsGet,
     required TResult orElse(),
   }) {
@@ -1668,9 +1680,15 @@ abstract class _PlaceSearchDetailsGet implements HotelPlaceEvent {
 
 /// @nodoc
 mixin _$HotelPlaceState {
-  List<dynamic> get place => throw _privateConstructorUsedError;
-  List<dynamic> get placesearch => throw _privateConstructorUsedError;
-  List<dynamic> get hotel => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get popular => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get advanture => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get beach => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get historical => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get mostpeoplevist => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get cheap => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get place => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get placesearch => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get hotel => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get iserror => throw _privateConstructorUsedError;
 
@@ -1686,9 +1704,15 @@ abstract class $HotelPlaceStateCopyWith<$Res> {
       _$HotelPlaceStateCopyWithImpl<$Res, HotelPlaceState>;
   @useResult
   $Res call(
-      {List<dynamic> place,
-      List<dynamic> placesearch,
-      List<dynamic> hotel,
+      {List<PiaxabayModel> popular,
+      List<PiaxabayModel> advanture,
+      List<PiaxabayModel> beach,
+      List<PiaxabayModel> historical,
+      List<PiaxabayModel> mostpeoplevist,
+      List<PiaxabayModel> cheap,
+      List<PiaxabayModel> place,
+      List<PiaxabayModel> placesearch,
+      List<PiaxabayModel> hotel,
       bool isLoading,
       bool iserror});
 }
@@ -1706,6 +1730,12 @@ class _$HotelPlaceStateCopyWithImpl<$Res, $Val extends HotelPlaceState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? popular = null,
+    Object? advanture = null,
+    Object? beach = null,
+    Object? historical = null,
+    Object? mostpeoplevist = null,
+    Object? cheap = null,
     Object? place = null,
     Object? placesearch = null,
     Object? hotel = null,
@@ -1713,18 +1743,42 @@ class _$HotelPlaceStateCopyWithImpl<$Res, $Val extends HotelPlaceState>
     Object? iserror = null,
   }) {
     return _then(_value.copyWith(
+      popular: null == popular
+          ? _value.popular
+          : popular // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      advanture: null == advanture
+          ? _value.advanture
+          : advanture // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      beach: null == beach
+          ? _value.beach
+          : beach // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      historical: null == historical
+          ? _value.historical
+          : historical // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      mostpeoplevist: null == mostpeoplevist
+          ? _value.mostpeoplevist
+          : mostpeoplevist // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      cheap: null == cheap
+          ? _value.cheap
+          : cheap // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
       place: null == place
           ? _value.place
           : place // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<PiaxabayModel>,
       placesearch: null == placesearch
           ? _value.placesearch
           : placesearch // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<PiaxabayModel>,
       hotel: null == hotel
           ? _value.hotel
           : hotel // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<PiaxabayModel>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -1746,9 +1800,15 @@ abstract class _$$_InitialCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<dynamic> place,
-      List<dynamic> placesearch,
-      List<dynamic> hotel,
+      {List<PiaxabayModel> popular,
+      List<PiaxabayModel> advanture,
+      List<PiaxabayModel> beach,
+      List<PiaxabayModel> historical,
+      List<PiaxabayModel> mostpeoplevist,
+      List<PiaxabayModel> cheap,
+      List<PiaxabayModel> place,
+      List<PiaxabayModel> placesearch,
+      List<PiaxabayModel> hotel,
       bool isLoading,
       bool iserror});
 }
@@ -1763,6 +1823,12 @@ class __$$_InitialCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? popular = null,
+    Object? advanture = null,
+    Object? beach = null,
+    Object? historical = null,
+    Object? mostpeoplevist = null,
+    Object? cheap = null,
     Object? place = null,
     Object? placesearch = null,
     Object? hotel = null,
@@ -1770,18 +1836,42 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? iserror = null,
   }) {
     return _then(_$_Initial(
+      popular: null == popular
+          ? _value._popular
+          : popular // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      advanture: null == advanture
+          ? _value._advanture
+          : advanture // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      beach: null == beach
+          ? _value._beach
+          : beach // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      historical: null == historical
+          ? _value._historical
+          : historical // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      mostpeoplevist: null == mostpeoplevist
+          ? _value._mostpeoplevist
+          : mostpeoplevist // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
+      cheap: null == cheap
+          ? _value._cheap
+          : cheap // ignore: cast_nullable_to_non_nullable
+              as List<PiaxabayModel>,
       place: null == place
           ? _value._place
           : place // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<PiaxabayModel>,
       placesearch: null == placesearch
           ? _value._placesearch
           : placesearch // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<PiaxabayModel>,
       hotel: null == hotel
           ? _value._hotel
           : hotel // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<PiaxabayModel>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -1798,34 +1888,94 @@ class __$$_InitialCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {required final List<dynamic> place,
-      required final List<dynamic> placesearch,
-      required final List<dynamic> hotel,
+      {required final List<PiaxabayModel> popular,
+      required final List<PiaxabayModel> advanture,
+      required final List<PiaxabayModel> beach,
+      required final List<PiaxabayModel> historical,
+      required final List<PiaxabayModel> mostpeoplevist,
+      required final List<PiaxabayModel> cheap,
+      required final List<PiaxabayModel> place,
+      required final List<PiaxabayModel> placesearch,
+      required final List<PiaxabayModel> hotel,
       required this.isLoading,
       required this.iserror})
-      : _place = place,
+      : _popular = popular,
+        _advanture = advanture,
+        _beach = beach,
+        _historical = historical,
+        _mostpeoplevist = mostpeoplevist,
+        _cheap = cheap,
+        _place = place,
         _placesearch = placesearch,
         _hotel = hotel;
 
-  final List<dynamic> _place;
+  final List<PiaxabayModel> _popular;
   @override
-  List<dynamic> get place {
+  List<PiaxabayModel> get popular {
+    if (_popular is EqualUnmodifiableListView) return _popular;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_popular);
+  }
+
+  final List<PiaxabayModel> _advanture;
+  @override
+  List<PiaxabayModel> get advanture {
+    if (_advanture is EqualUnmodifiableListView) return _advanture;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_advanture);
+  }
+
+  final List<PiaxabayModel> _beach;
+  @override
+  List<PiaxabayModel> get beach {
+    if (_beach is EqualUnmodifiableListView) return _beach;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_beach);
+  }
+
+  final List<PiaxabayModel> _historical;
+  @override
+  List<PiaxabayModel> get historical {
+    if (_historical is EqualUnmodifiableListView) return _historical;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_historical);
+  }
+
+  final List<PiaxabayModel> _mostpeoplevist;
+  @override
+  List<PiaxabayModel> get mostpeoplevist {
+    if (_mostpeoplevist is EqualUnmodifiableListView) return _mostpeoplevist;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_mostpeoplevist);
+  }
+
+  final List<PiaxabayModel> _cheap;
+  @override
+  List<PiaxabayModel> get cheap {
+    if (_cheap is EqualUnmodifiableListView) return _cheap;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_cheap);
+  }
+
+  final List<PiaxabayModel> _place;
+  @override
+  List<PiaxabayModel> get place {
     if (_place is EqualUnmodifiableListView) return _place;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_place);
   }
 
-  final List<dynamic> _placesearch;
+  final List<PiaxabayModel> _placesearch;
   @override
-  List<dynamic> get placesearch {
+  List<PiaxabayModel> get placesearch {
     if (_placesearch is EqualUnmodifiableListView) return _placesearch;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_placesearch);
   }
 
-  final List<dynamic> _hotel;
+  final List<PiaxabayModel> _hotel;
   @override
-  List<dynamic> get hotel {
+  List<PiaxabayModel> get hotel {
     if (_hotel is EqualUnmodifiableListView) return _hotel;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_hotel);
@@ -1838,7 +1988,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'HotelPlaceState(place: $place, placesearch: $placesearch, hotel: $hotel, isLoading: $isLoading, iserror: $iserror)';
+    return 'HotelPlaceState(popular: $popular, advanture: $advanture, beach: $beach, historical: $historical, mostpeoplevist: $mostpeoplevist, cheap: $cheap, place: $place, placesearch: $placesearch, hotel: $hotel, isLoading: $isLoading, iserror: $iserror)';
   }
 
   @override
@@ -1846,6 +1996,15 @@ class _$_Initial implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
+            const DeepCollectionEquality().equals(other._popular, _popular) &&
+            const DeepCollectionEquality()
+                .equals(other._advanture, _advanture) &&
+            const DeepCollectionEquality().equals(other._beach, _beach) &&
+            const DeepCollectionEquality()
+                .equals(other._historical, _historical) &&
+            const DeepCollectionEquality()
+                .equals(other._mostpeoplevist, _mostpeoplevist) &&
+            const DeepCollectionEquality().equals(other._cheap, _cheap) &&
             const DeepCollectionEquality().equals(other._place, _place) &&
             const DeepCollectionEquality()
                 .equals(other._placesearch, _placesearch) &&
@@ -1858,6 +2017,12 @@ class _$_Initial implements _Initial {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(_popular),
+      const DeepCollectionEquality().hash(_advanture),
+      const DeepCollectionEquality().hash(_beach),
+      const DeepCollectionEquality().hash(_historical),
+      const DeepCollectionEquality().hash(_mostpeoplevist),
+      const DeepCollectionEquality().hash(_cheap),
       const DeepCollectionEquality().hash(_place),
       const DeepCollectionEquality().hash(_placesearch),
       const DeepCollectionEquality().hash(_hotel),
@@ -1873,18 +2038,36 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements HotelPlaceState {
   const factory _Initial(
-      {required final List<dynamic> place,
-      required final List<dynamic> placesearch,
-      required final List<dynamic> hotel,
+      {required final List<PiaxabayModel> popular,
+      required final List<PiaxabayModel> advanture,
+      required final List<PiaxabayModel> beach,
+      required final List<PiaxabayModel> historical,
+      required final List<PiaxabayModel> mostpeoplevist,
+      required final List<PiaxabayModel> cheap,
+      required final List<PiaxabayModel> place,
+      required final List<PiaxabayModel> placesearch,
+      required final List<PiaxabayModel> hotel,
       required final bool isLoading,
       required final bool iserror}) = _$_Initial;
 
   @override
-  List<dynamic> get place;
+  List<PiaxabayModel> get popular;
   @override
-  List<dynamic> get placesearch;
+  List<PiaxabayModel> get advanture;
   @override
-  List<dynamic> get hotel;
+  List<PiaxabayModel> get beach;
+  @override
+  List<PiaxabayModel> get historical;
+  @override
+  List<PiaxabayModel> get mostpeoplevist;
+  @override
+  List<PiaxabayModel> get cheap;
+  @override
+  List<PiaxabayModel> get place;
+  @override
+  List<PiaxabayModel> get placesearch;
+  @override
+  List<PiaxabayModel> get hotel;
   @override
   bool get isLoading;
   @override
