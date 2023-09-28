@@ -11,7 +11,6 @@ abstract class IplaceHotelRepo {
   Future<Either<mainFailure, List<PiaxabayModel>>> mostpeoplevisit();
   Future<Either<mainFailure, List<PiaxabayModel>>> advanture();
   Future<Either<mainFailure, List<PiaxabayModel>>> historical();
-  Future<Either<mainFailure, List<PiaxabayModel>>> placeDetailsGet();
   Future<Either<mainFailure, List<PiaxabayModel>>> beech();
 
   Future<Either<mainFailure, List<PiaxabayModel>>> getSearchPlaceDetail(

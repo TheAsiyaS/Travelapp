@@ -85,45 +85,149 @@ class HotelService implements IplaceHotelRepo {
   }
   
   @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> advanture() {
-    // TODO: implement advanture
-    throw UnimplementedError();
+  Future<Either<mainFailure, List<PiaxabayModel>>> advanture() async {
+    try {
+      final unsplashresponce = await Dio().get(
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=New%20Zealand&image_type=photo&pretty=true');
+      // log("unsplash responce $unsplashresponce");
+      if (unsplashresponce.statusCode == 200 ||
+          unsplashresponce.statusCode == 201) {
+        // log('responce ${unsplashresponce.data}');
+        final hotelList = (unsplashresponce.data['hits'] as List).map((e) {
+          return PiaxabayModel.fromJson(e);
+        }).toList();
+
+        return right(hotelList);
+      } else {
+        log('Server Failure');
+        return left(const mainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e ');
+      return left(const mainFailure.clientFailure());
+    }
   }
   
   @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> beech() {
-    // TODO: implement beech
-    throw UnimplementedError();
+  Future<Either<mainFailure, List<PiaxabayModel>>> beech() async {
+    try {
+      final unsplashresponce = await Dio().get(
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=Bondi%20Beach&image_type=photo&pretty=true');
+      // log("unsplash responce $unsplashresponce");
+      if (unsplashresponce.statusCode == 200 ||
+          unsplashresponce.statusCode == 201) {
+        // log('responce ${unsplashresponce.data}');
+        final hotelList = (unsplashresponce.data['hits'] as List).map((e) {
+          return PiaxabayModel.fromJson(e);
+        }).toList();
+
+        return right(hotelList);
+      } else {
+        log('Server Failure');
+        return left(const mainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e ');
+      return left(const mainFailure.clientFailure());
+    }
   }
   
   @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> cheep() {
-    // TODO: implement cheep
-    throw UnimplementedError();
+  Future<Either<mainFailure, List<PiaxabayModel>>> cheep() async {
+    try {
+      final unsplashresponce = await Dio().get(
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=loas&image_type=photo&pretty=true');
+      // log("unsplash responce $unsplashresponce");
+      if (unsplashresponce.statusCode == 200 ||
+          unsplashresponce.statusCode == 201) {
+        // log('responce ${unsplashresponce.data}');
+        final hotelList = (unsplashresponce.data['hits'] as List).map((e) {
+          return PiaxabayModel.fromJson(e);
+        }).toList();
+
+        return right(hotelList);
+      } else {
+        log('Server Failure');
+        return left(const mainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e ');
+      return left(const mainFailure.clientFailure());
+    }
   }
   
   @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> historical() {
-    // TODO: implement historical
-    throw UnimplementedError();
+  Future<Either<mainFailure, List<PiaxabayModel>>> historical() async {
+    try {
+      final unsplashresponce = await Dio().get(
+          'https://pixabay.com/get/gd639bd88872874efa4b2ebe3b5d8eb72803fd18dd7a812fb3347a8bdeb4087e86368a82ed736d0ab11bf5b0d1cb2409e_1280.jpg');
+      // log("unsplash responce $unsplashresponce");
+      if (unsplashresponce.statusCode == 200 ||
+          unsplashresponce.statusCode == 201) {
+        // log('responce ${unsplashresponce.data}');
+        final hotelList = (unsplashresponce.data['hits'] as List).map((e) {
+          return PiaxabayModel.fromJson(e);
+        }).toList();
+
+        return right(hotelList);
+      } else {
+        log('Server Failure');
+        return left(const mainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e ');
+      return left(const mainFailure.clientFailure());
+    }
   }
   
   @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> mostpeoplevisit() {
-    // TODO: implement mostpeoplevisit
-    throw UnimplementedError();
+  Future<Either<mainFailure, List<PiaxabayModel>>> mostpeoplevisit()async {
+    try {
+      final unsplashresponce = await Dio().get(
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=france&image_type=photo&pretty=true');
+      // log("unsplash responce $unsplashresponce");
+      if (unsplashresponce.statusCode == 200 ||
+          unsplashresponce.statusCode == 201) {
+        // log('responce ${unsplashresponce.data}');
+        final hotelList = (unsplashresponce.data['hits'] as List).map((e) {
+          return PiaxabayModel.fromJson(e);
+        }).toList();
+
+        return right(hotelList);
+      } else {
+        log('Server Failure');
+        return left(const mainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e ');
+      return left(const mainFailure.clientFailure());
+    }
   }
   
-  @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> placeDetailsGet() {
-    // TODO: implement placeDetailsGet
-    throw UnimplementedError();
-  }
+ 
   
   @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> popular() {
-    // TODO: implement popular
-    throw UnimplementedError();
+  Future<Either<mainFailure, List<PiaxabayModel>>> popular() async {
+    try {
+      final unsplashresponce = await Dio().get(
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=paris&image_type=photo&pretty=true');
+      // log("unsplash responce $unsplashresponce");
+      if (unsplashresponce.statusCode == 200 ||
+          unsplashresponce.statusCode == 201) {
+        // log('responce ${unsplashresponce.data}');
+        final hotelList = (unsplashresponce.data['hits'] as List).map((e) {
+          return PiaxabayModel.fromJson(e);
+        }).toList();
+
+        return right(hotelList);
+      } else {
+        log('Server Failure');
+        return left(const mainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e ');
+      return left(const mainFailure.clientFailure());
+    }
   }
 
 
