@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -20,10 +21,16 @@ class Hotels extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_)  {
       BlocProvider.of<HotelBloc>(context)
-          .add(const HotelEvent.hotelDetailsGet(querry: "black bedroom"));
+          .add(const HotelEvent.hotelDetailsGet1());
+
+      BlocProvider.of<HotelBloc>(context)
+          .add(const HotelEvent.hotelDetailsGet());
+
+      // Now both requests have completed
     });
+
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(size.height / 7),
@@ -35,51 +42,63 @@ class Hotels extends StatelessWidget {
           child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: size.height / 6,
-              width: size.width,
-              child: GridView.count(
-                crossAxisCount: 1,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                childAspectRatio: 1 / 1,
-                scrollDirection: Axis.horizontal,
-                children: List.generate(
-                    10,
-                    (index) => GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>  HotelDetailedWidget(
-                                    url:
-                                        'https://www.connollycove.com/wp-content/uploads/2023/05/people-walking-japan-street-nighttime-2.jpg',
-                                    title: khotelname[index],
-                                    subtitle: 'Hotel sub title',
-                                    price: '\$230',
-                                    rating: '4',
-                                    about: 'dfhdf ndfjhfd djfdhfd dfjgfg')));
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                height: size.height / 9,
-                                width: size.width / 4,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: const DecorationImage(
-                                        image: NetworkImage(
-                                            'https://www.eliaermouhotel.com/uploads/photos/D1024/2019/02/standardroom_1878.jpg'),
-                                        fit: BoxFit.cover)),
-                              ),
-                              const Text('Room Name',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ))
-                            ],
-                          ),
-                        )),
-              ),
-            ),
+            BlocBuilder<HotelBloc, HotelState>(builder: (context, state) {
+              if (state.isLoading == true) {
+                return const WidgetCircularProgressIndicator(
+                    indicatorColor: kdominatgrey);
+              } else if (state.iserror == true) {
+                return const Text('Some error occured');
+              } else if (state.hotelModelList1.isEmpty) {
+                return const Text('No Data found');
+              } else {
+                
+                return SizedBox(
+                  height: size.height / 6,
+                  width: size.width,
+                  child: GridView.count(
+                    crossAxisCount: 1,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 1 / 1,
+                    scrollDirection: Axis.horizontal,
+                    children:
+                        List.generate(state.hotelModelList1.length, (index) {
+                      final data = state.hotelModelList1[index];
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HotelDetailedWidget(
+                                  url: data.urls!.regular!,
+                                  title: khotelname[index],
+                                  subtitle: 'Londan',
+                                  price: '\$${data.likes}0',
+                                  rating: '4',
+                                  about: data.description ?? '')));
+                        },
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              height: size.height / 9,
+                              width: size.width / 4,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image: NetworkImage(data.urls!.regular!),
+                                      fit: BoxFit.cover)),
+                            ),
+                            Text(kHotelNames2[index],
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ))
+                          ],
+                        ),
+                      );
+                    }),
+                  ),
+                );
+              }
+            }),
             const Divider(
               color: kSubDominantcolor,
             ),
@@ -128,7 +147,7 @@ class Hotels extends StatelessWidget {
                                     subtitle: 'Londan',
                                     price: '\$${data.likes}0',
                                     rating: '4',
-                                    about: data.description??'')));
+                                    about: data.description ?? '')));
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,

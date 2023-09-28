@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,7 +35,7 @@ class HotelDetailedWidget extends StatelessWidget {
     bool isDarkMode = brightness == Brightness.dark;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<HotelBloc>(context)
-          .add(HotelEvent.hotelDetailsGet1(querry: title));
+          .add(HotelEvent.hotelDetailsGet2(querry2: title));
     });
     return Scaffold(
       appBar: AppBar(
@@ -128,7 +130,8 @@ class HotelDetailedWidget extends StatelessWidget {
                     indicatorColor: kdominatgrey);
               } else if (state.iserror == true) {
                 return const Text('Some error occured');
-              } else if (state.hotelModelList.isEmpty) {
+              } else if (state.hotelModelList2.isEmpty) {
+                log('list ${state.hotelModelList2.length}');
                 return const Text('No Data found');
               } else {
                 return SizedBox(
@@ -140,14 +143,13 @@ class HotelDetailedWidget extends StatelessWidget {
                     mainAxisSpacing: 10,
                     childAspectRatio: 3 / 4,
                     scrollDirection: Axis.horizontal,
-                    children: List.generate(10, (index) {
-                       final data = state.hotelModelList[index];
-                     return Container(
+                    children: List.generate(state.hotelModelList2.length, (index) {
+                      final data = state.hotelModelList2[index];
+                      return Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image:  DecorationImage(
-                                  image: NetworkImage(
-                                      data.urls!.regular!),
+                              image: DecorationImage(
+                                  image: NetworkImage(data.urls!.regular!),
                                   fit: BoxFit.cover)),
                           child: h10);
                     }),

@@ -1,8 +1,9 @@
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:travelapp/Core/Failures/Failures.dart';
-import 'package:travelapp/Domain/HotelModel/I_HotelModel_Service.dart';
+import 'package:travelapp/Domain/UnsplashSearch/I_HotelModel_Service.dart';
 import 'package:travelapp/Domain/UnsplashSearch/unsplash_search/unsplash_search.dart';
 
 part 'hotel_event.dart';
@@ -15,7 +16,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
   HotelBloc(this.objIrepoHotel) : super(HotelState.initial()) {
     on<_HotelDetailsGet>((event, emit) async {
       final resultHotel =
-          await objIrepoHotel.getHotelDetails(querry: event.querry);
+          await objIrepoHotel.getHotelDetails();
       final emitHotelresult = resultHotel.fold(
           (mainFailure fail) => const HotelState(
                 hotelModelList: [],
@@ -24,6 +25,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 isLoading: false,
                 iserror: true,
               ), (result) {
+      
         return HotelState(
           hotelModelList: result,
           hotelModelList1: [],
@@ -36,45 +38,47 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
     });
     on<_HotelDetailsGet1>((event, emit) async {
       final resultHotel =
-          await objIrepoHotel.getHotelDetails(querry: event.querry);
-      final emitHotelresult = resultHotel.fold(
+          await objIrepoHotel.getHotelDetails1();
+      final emitHotelresult1 = resultHotel.fold(
           (mainFailure fail) => const HotelState(
                 hotelModelList1: [],
                 hotelModelList2: [],
                 hotelModelList: [],
                 isLoading: false,
                 iserror: true,
-              ), (result) {
+              ), (result1) {
+           
         return HotelState(
           hotelModelList: [],
           hotelModelList2: [],
-          hotelModelList1: result,
+          hotelModelList1: result1,
           isLoading: false,
           iserror: false,
         );
       });
-      emit(emitHotelresult);
+      emit(emitHotelresult1);
     });
     on<_HotelDetailsGet2>((event, emit) async {
       final resultHotel =
-          await objIrepoHotel.getHotelDetails(querry: event.querry);
-      final emitHotelresult = resultHotel.fold(
+          await objIrepoHotel.getHotelDetails2(querry2: event.querry2);
+      final emitHotelresult2 = resultHotel.fold(
           (mainFailure fail) => const HotelState(
                 hotelModelList1: [],
                 hotelModelList2: [],
                 hotelModelList: [],
                 isLoading: false,
                 iserror: true,
-              ), (result) {
+              ), (result2) {
+                 
         return HotelState(
           hotelModelList1: [],
           hotelModelList: [],
-          hotelModelList2: result,
+          hotelModelList2: result2,
           isLoading: false,
           iserror: false,
         );
       });
-      emit(emitHotelresult);
+      emit(emitHotelresult2);
     });
   }
 }
