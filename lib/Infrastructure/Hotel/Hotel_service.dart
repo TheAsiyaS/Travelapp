@@ -40,7 +40,7 @@ class HotelService implements IhoteleRepo {
   Future<Either<mainFailure, List<UnsplashSearch>>> getHotelDetails1()  async {
     try {
       final unsplashresponce = await Dio().get(
-          'https://api.unsplash.com/search/photos/?client_id=mVpCHNk7WILyZxPwmlGuGfBlsnQGf_A-TrCI_v4O5tY&query=Bedroom');
+          'https://api.unsplash.com/search/photos/?client_id=mVpCHNk7WILyZxPwmlGuGfBlsnQGf_A-TrCI_v4O5tY&query=black%20bedroom');
      // log("unsplash responce $unsplashresponce");
       if (unsplashresponce.statusCode == 200 ||
           unsplashresponce.statusCode == 201) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp/Application/Hotel1/hotel1_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
 import 'package:travelapp/common/colours.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (ctx) => getIt<HotelBloc>()),
+         BlocProvider(create: (ctx) => getIt<Hotel1Bloc>()),
       ],
       child: MaterialApp(
         theme: ThemeData(

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -15,20 +14,20 @@ import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
 import 'package:travelapp/widgets/TextButton.dart';
 
+import '../../Application/Hotel1/hotel1_bloc.dart';
+
 class Hotels extends StatelessWidget {
   const Hotels({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    WidgetsBinding.instance.addPostFrameCallback((_)  {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<HotelBloc>(context)
           .add(const HotelEvent.hotelDetailsGet1());
 
-      BlocProvider.of<HotelBloc>(context)
-          .add(const HotelEvent.hotelDetailsGet());
-
-      // Now both requests have completed
+      BlocProvider.of<Hotel1Bloc>(context)
+          .add(const Hotel1Event.hotel1DetailsGet());
     });
 
     return Scaffold(
@@ -42,16 +41,15 @@ class Hotels extends StatelessWidget {
           child: SingleChildScrollView(
         child: Column(
           children: [
-            BlocBuilder<HotelBloc, HotelState>(builder: (context, state) {
+            BlocBuilder<Hotel1Bloc, Hotel1State>(builder: (context, state) {
               if (state.isLoading == true) {
                 return const WidgetCircularProgressIndicator(
                     indicatorColor: kdominatgrey);
               } else if (state.iserror == true) {
                 return const Text('Some error occured');
-              } else if (state.hotelModelList1.isEmpty) {
+              } else if (state.hotelModelList.isEmpty) {
                 return const Text('No Data found');
               } else {
-                
                 return SizedBox(
                   height: size.height / 6,
                   width: size.width,
@@ -62,8 +60,8 @@ class Hotels extends StatelessWidget {
                     childAspectRatio: 1 / 1,
                     scrollDirection: Axis.horizontal,
                     children:
-                        List.generate(state.hotelModelList1.length, (index) {
-                      final data = state.hotelModelList1[index];
+                        List.generate(state.hotelModelList.length, (index) {
+                      final data = state.hotelModelList[index];
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -121,7 +119,7 @@ class Hotels extends StatelessWidget {
                     indicatorColor: kdominatgrey);
               } else if (state.iserror == true) {
                 return const Text('Some error occured');
-              } else if (state.hotelModelList.isEmpty) {
+              } else if (state.hotelModelList1.isEmpty) {
                 return const Text('No Data found');
               } else {
                 return SizedBox(
@@ -136,8 +134,8 @@ class Hotels extends StatelessWidget {
                       childAspectRatio: 1 / 1,
                       scrollDirection: Axis.horizontal,
                       children:
-                          List.generate(state.hotelModelList.length, (index) {
-                        final data = state.hotelModelList[index];
+                          List.generate(state.hotelModelList1.length, (index) {
+                        final data = state.hotelModelList1[index];
                         return GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
