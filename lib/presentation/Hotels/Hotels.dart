@@ -9,7 +9,6 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/Appbar.dart';
 import 'package:travelapp/widgets/CircularProgressIndicator.dart';
-
 import 'package:travelapp/widgets/HotelDetailWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
@@ -168,7 +167,7 @@ class Hotels extends StatelessWidget {
                                 width: size.width / 1.5,
                                 child: RatingBar.builder(
                                   itemSize: 40,
-                                  initialRating: 3,
+                                  initialRating: data.likes! / 5.toDouble(),
                                   minRating: 1,
                                   direction: Axis.horizontal,
                                   allowHalfRating: true,
@@ -246,15 +245,16 @@ class Hotels extends StatelessWidget {
                       final data = state.hotel;
                       return GestureDetector(
                         onTap: () {
+                          final location = hotelsname3[index].split('');
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const HotelDetailedWidget(
-                                  url:
-                                      'https://www.connollycove.com/wp-content/uploads/2023/05/people-walking-japan-street-nighttime-2.jpg',
-                                  title: 'Hotel',
-                                  subtitle: 'Hotel sub title',
-                                  price: '\$4',
-                                  rating: '4',
-                                  about: 'dfhdf ndfjhfd djfdhfd dfjgfg')));
+                              builder: (context) => HotelDetailedWidget(
+                                  url: data[index].largeImageUrl!,
+                                  title: hotelsname3[index],
+                                  subtitle: location[index],
+                                  price: '\$${data[index].likes}0',
+                                  rating:
+                                      "${data[index].views! / 7.toDouble()}",
+                                  about: hotelsname3[index])));
                         },
                         child: Container(
                           height: size.height / 5,
@@ -319,7 +319,9 @@ class Hotels extends StatelessWidget {
                                           width: size.width / 1.5,
                                           child: RatingBar.builder(
                                             itemSize: 30,
-                                            initialRating: 3,
+                                            initialRating:
+                                                data[index].comments! /
+                                                    5.toDouble(),
                                             minRating: 1,
                                             direction: Axis.horizontal,
                                             allowHalfRating: true,
@@ -339,9 +341,9 @@ class Hotels extends StatelessWidget {
                                             onRatingUpdate: (double value) {},
                                           ),
                                         ),
-                                         Text(
+                                        Text(
                                           '\$${data[index].likes}5',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 25,
                                           ),

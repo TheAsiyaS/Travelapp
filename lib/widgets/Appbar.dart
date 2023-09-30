@@ -16,6 +16,7 @@ class SimpleAppbar extends StatelessWidget {
 
   final Size size;
   final String id;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,11 +40,18 @@ class SimpleAppbar extends StatelessWidget {
                   width: size.width / 1.3,
                   child: CupertinotextfieldWidget(
                       onchanged: (value) {},
-                      onsubmitted: (value) {
+                      onsubmitted: (value)async {
                         if (id == 'HotelSearchBar') {
+                          if (value.contains('hotel') ||
+                              value.contains('Hotel')) {
+                          } else {
+                            
+                          }
+                          await Future.delayed(const Duration(seconds: 2));
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) =>
-                                  const HotelSearchDetailed()));
+                              builder: (context) => HotelSearchDetailed(
+                                    querry: value,
+                                  )));
                         } else {}
                       },
                       placeholderText: 'Search your hapiness......',

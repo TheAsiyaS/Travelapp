@@ -78,3 +78,11 @@ final hotelsname3 = [
   "Le Sirenuse, Positano, ",
   ' Borgo Egnazia, Savelletri, ',
 ];
+final touristPlaces = [
+  'Paris',
+  'Uk',
+  'Dubai',
+  'NweYork',
+  'Washington ',
+  'Arizona'
+];
