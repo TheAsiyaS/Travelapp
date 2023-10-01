@@ -10,8 +10,8 @@ class SnackbarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-         Text(message),
-        const Spacer(),
+         Expanded(child: Text(message)),
+       
         IconButton(onPressed: () {}, icon: Icon(icon))
       ],
     );
