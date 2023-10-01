@@ -25,7 +25,6 @@ class Hotels extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<HotelBloc>(context)
           .add(const HotelEvent.hotelDetailsGet1());
-
       BlocProvider.of<Hotel1Bloc>(context)
           .add(const Hotel1Event.hotel1DetailsGet());
       BlocProvider.of<HotelPlaceBloc>(context)
