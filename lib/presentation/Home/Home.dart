@@ -16,11 +16,6 @@ import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/onssearchtimescreen.dart';
 
-final List homeimageurls = [
-  'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/92/80/ef/caption.jpg?w=300&h=300&s=1',
-  'https://images.unsplash.com/photo-1564507592333-c60657eea523?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGFqfGVufDB8fDB8fHww&w=1000&q=80',
-  'https://discovery.sndimg.com/content/dam/images/discovery/fullset/2022/8/15/GettyImages-465883815.jpg.rend.hgtvcom.476.666.suffix/1660583591509.jpeg'
-];
 
 class Home extends StatelessWidget {
   const Home({super.key});

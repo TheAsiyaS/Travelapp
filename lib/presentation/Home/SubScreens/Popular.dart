@@ -5,7 +5,6 @@ import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
-import 'package:travelapp/presentation/Home/Home.dart';
 import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
@@ -22,7 +21,18 @@ class Popular extends StatelessWidget {
     });
 
     final size = MediaQuery.of(context).size;
-
+    final places = [
+      'Versailles',
+      'Giverny',
+      'Fontainebleau',
+      'Vaux-le-Vicomte',
+      'Disneyland',
+      'Mont Saint-Michel',
+      'Malmaison',
+      'Auvers-sur-Oise',
+      'Compiègne',
+      'Chantilly',
+    ];
     return Scaffold(
       body: Column(
         children: [
@@ -42,6 +52,15 @@ class Popular extends StatelessWidget {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       final data = state.popular[index];
+                      final imagesUrl = [
+                        state.popular[0].largeImageUrl,
+                        state.popular[1].largeImageUrl,
+                        state.popular[2].largeImageUrl,
+                        state.popular[3].largeImageUrl,
+                        state.popular[4].largeImageUrl,
+                        state.popular[5].largeImageUrl,
+                      ];
+                      imagesUrl.shuffle();
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -73,14 +92,14 @@ class Popular extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    '',
+                                    places[index % places.length],
                                     style: textstyle,
                                   ),
                                   const Row(
                                     children: [
                                       Icon(kLocation),
                                       Text(
-                                        'Location',
+                                        'Paris',
                                       ),
                                     ],
                                   ),
@@ -119,8 +138,7 @@ class Popular extends StatelessWidget {
                                                             10),
                                                     image: DecorationImage(
                                                         image: NetworkImage(
-                                                            homeimageurls[
-                                                                index]),
+                                                            imagesUrl[index]!),
                                                         fit: BoxFit.fill)),
                                                 childwidget: const Column(
                                                   children: [],
@@ -129,7 +147,7 @@ class Popular extends StatelessWidget {
                                           separatorBuilder: (context, index) {
                                             return h20;
                                           },
-                                          itemCount: homeimageurls.length),
+                                          itemCount: 3),
                                     ),
                                   ),
                                 ],
