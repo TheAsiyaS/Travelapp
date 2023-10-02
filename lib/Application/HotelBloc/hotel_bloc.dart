@@ -4,6 +4,7 @@ import 'package:injectable/injectable.dart';
 import 'package:travelapp/Core/Failures/Failures.dart';
 import 'package:travelapp/Domain/UnsplashSearch/I_HotelModel_Service.dart';
 import 'package:travelapp/Domain/UnsplashSearch/unsplash_search/unsplash_search.dart';
+import 'package:travelapp/Domain/pixabayModel/piaxabay_model/piaxabay_model.dart';
 
 part 'hotel_event.dart';
 part 'hotel_state.dart';
@@ -22,6 +23,8 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 hotelModelList2: [],
                 isLoading: false,
                 iserror: true,
+                advanture: [],
+                cheep: [],
               ), (result) {
         return HotelState(
           hotelModelList: result,
@@ -29,6 +32,8 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
           hotelModelList2: [],
           isLoading: false,
           iserror: false,
+          advanture: [],
+          cheep: [],
         );
       });
       emit(emitHotelresult);
@@ -42,6 +47,8 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 hotelModelList: [],
                 isLoading: false,
                 iserror: true,
+                advanture: [],
+                cheep: [],
               ), (result1) {
         return HotelState(
           hotelModelList: [],
@@ -49,6 +56,8 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
           hotelModelList1: result1,
           isLoading: false,
           iserror: false,
+          advanture: [],
+          cheep: [],
         );
       });
       emit(emitHotelresult1);
@@ -63,6 +72,8 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 hotelModelList: [],
                 isLoading: false,
                 iserror: true,
+                advanture: [],
+                cheep: [],
               ), (result2) {
         return HotelState(
           hotelModelList1: [],
@@ -70,6 +81,56 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
           hotelModelList2: result2,
           isLoading: false,
           iserror: false,
+          advanture: [],
+          cheep: [],
+        );
+      });
+      emit(emitHotelresult2);
+    });
+    on<_Cheap>((event, emit) async {
+      final resultHotel = await objIrepoHotel.cheap();
+      final emitHotelresult2 = resultHotel.fold(
+          (mainFailure fail) => const HotelState(
+                hotelModelList1: [],
+                hotelModelList2: [],
+                hotelModelList: [],
+                isLoading: false,
+                iserror: true,
+                advanture: [],
+                cheep: [],
+              ), (result2) {
+        return HotelState(
+          hotelModelList1: [],
+          hotelModelList: [],
+          hotelModelList2: [],
+          isLoading: false,
+          iserror: false,
+          advanture: [],
+          cheep: result2,
+        );
+      });
+      emit(emitHotelresult2);
+    });
+    on<_Advanture>((event, emit) async {
+      final resultHotel = await objIrepoHotel.advanture();
+      final emitHotelresult2 = resultHotel.fold(
+          (mainFailure fail) => const HotelState(
+                hotelModelList1: [],
+                hotelModelList2: [],
+                hotelModelList: [],
+                isLoading: false,
+                iserror: true,
+                advanture: [],
+                cheep: [],
+              ), (result2) {
+        return HotelState(
+          hotelModelList1: [],
+          hotelModelList: [],
+          hotelModelList2: [],
+          isLoading: false,
+          iserror: false,
+          advanture: result2,
+          cheep: [],
         );
       });
       emit(emitHotelresult2);

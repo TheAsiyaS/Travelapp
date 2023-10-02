@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -83,7 +82,7 @@ class HotelService implements IplaceHotelRepo {
       return left(const mainFailure.clientFailure());
     }
   }
-  
+
   @override
   Future<Either<mainFailure, List<PiaxabayModel>>> advanture() async {
     try {
@@ -107,7 +106,7 @@ class HotelService implements IplaceHotelRepo {
       return left(const mainFailure.clientFailure());
     }
   }
-  
+
   @override
   Future<Either<mainFailure, List<PiaxabayModel>>> beach() async {
     try {
@@ -131,12 +130,12 @@ class HotelService implements IplaceHotelRepo {
       return left(const mainFailure.clientFailure());
     }
   }
-  
+
   @override
   Future<Either<mainFailure, List<PiaxabayModel>>> cheep() async {
     try {
       final unsplashresponce = await Dio().get(
-          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=loas&image_type=photo&pretty=true');
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=Gili+Islands&image_type=photo&pretty=true');
       // log("unsplash responce $unsplashresponce");
       if (unsplashresponce.statusCode == 200 ||
           unsplashresponce.statusCode == 201) {
@@ -146,7 +145,7 @@ class HotelService implements IplaceHotelRepo {
         }).toList();
 
         return right(hotelList);
-      } else {
+      } else { 
         log('Server Failure');
         return left(const mainFailure.serverFailure());
       }
@@ -155,7 +154,7 @@ class HotelService implements IplaceHotelRepo {
       return left(const mainFailure.clientFailure());
     }
   }
-  
+
   @override
   Future<Either<mainFailure, List<PiaxabayModel>>> historical() async {
     try {
@@ -179,9 +178,9 @@ class HotelService implements IplaceHotelRepo {
       return left(const mainFailure.clientFailure());
     }
   }
-  
+
   @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> mostpeoplevisit()async {
+  Future<Either<mainFailure, List<PiaxabayModel>>> mostpeoplevisit() async {
     try {
       final unsplashresponce = await Dio().get(
           'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=france&image_type=photo&pretty=true');
@@ -203,9 +202,7 @@ class HotelService implements IplaceHotelRepo {
       return left(const mainFailure.clientFailure());
     }
   }
-  
- 
-  
+
   @override
   Future<Either<mainFailure, List<PiaxabayModel>>> popular() async {
     try {
@@ -229,7 +226,4 @@ class HotelService implements IplaceHotelRepo {
       return left(const mainFailure.clientFailure());
     }
   }
-
-
-  
 }

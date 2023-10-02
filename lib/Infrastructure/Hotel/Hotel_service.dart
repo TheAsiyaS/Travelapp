@@ -8,6 +8,7 @@ import 'package:dio/dio.dart';
 import 'package:travelapp/Domain/UnsplashSearch/I_HotelModel_Service.dart';
 
 import 'package:travelapp/Domain/UnsplashSearch/unsplash_search/unsplash_search.dart';
+import 'package:travelapp/Domain/pixabayModel/piaxabay_model/piaxabay_model.dart';
 
 @LazySingleton(as: IhoteleRepo)
 class HotelService implements IhoteleRepo {
@@ -74,6 +75,54 @@ class HotelService implements IhoteleRepo {
 
         return right(hotelList2);
       } else {
+        log('Server Failure');
+        return left(const mainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e ');
+      return left(const mainFailure.clientFailure());
+    }
+  }
+
+  @override
+  Future<Either<mainFailure, List<PiaxabayModel>>> advanture()async {
+    try {
+      final unsplashresponce = await Dio().get(
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=Gili+Islands&image_type=photo&pretty=true');
+      // log("unsplash responce $unsplashresponce");
+      if (unsplashresponce.statusCode == 200 ||
+          unsplashresponce.statusCode == 201) {
+        // log('responce ${unsplashresponce.data}');
+        final hotelList = (unsplashresponce.data['hits'] as List).map((e) {
+          return PiaxabayModel.fromJson(e);
+        }).toList();
+
+        return right(hotelList);
+      } else { 
+        log('Server Failure');
+        return left(const mainFailure.serverFailure());
+      }
+    } catch (e) {
+      log('error $e ');
+      return left(const mainFailure.clientFailure());
+    }
+  }
+
+  @override
+  Future<Either<mainFailure, List<PiaxabayModel>>> cheap() async {
+    try {
+      final unsplashresponce = await Dio().get(
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=Bangkok&image_type=photo&pretty=true');
+      // log("unsplash responce $unsplashresponce");
+      if (unsplashresponce.statusCode == 200 ||
+          unsplashresponce.statusCode == 201) {
+        // log('responce ${unsplashresponce.data}');
+        final hotelList = (unsplashresponce.data['hits'] as List).map((e) {
+          return PiaxabayModel.fromJson(e);
+        }).toList();
+
+        return right(hotelList);
+      } else { 
         log('Server Failure');
         return left(const mainFailure.serverFailure());
       }
