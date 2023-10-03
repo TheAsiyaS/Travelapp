@@ -9,5 +9,5 @@ abstract class IhoteleRepo {
   Future<Either<mainFailure, List<UnsplashSearch>>> getHotelDetails2(
       {required String querry2});
   Future<Either<mainFailure, List<PiaxabayModel>>> cheap();
-  Future<Either<mainFailure, List<PiaxabayModel>>> advanture();
+  Future<Either<mainFailure, List<PiaxabayModel>>> mostPeopleVisit();
 }

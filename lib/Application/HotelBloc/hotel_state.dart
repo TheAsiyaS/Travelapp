@@ -7,7 +7,7 @@ class HotelState with _$HotelState {
     required List<UnsplashSearch> hotelModelList1,
     required List<UnsplashSearch> hotelModelList2,
         required List<PiaxabayModel> cheep,
-            required List<PiaxabayModel> advanture,
+            required List<PiaxabayModel> mostPeopleVisit,
     required bool isLoading,
     required bool iserror,
   }) = _Initial;
@@ -16,6 +16,6 @@ class HotelState with _$HotelState {
         hotelModelList1: [],
         hotelModelList2: [],
         isLoading: false,
-        iserror: false, advanture: [], cheep: [],
+        iserror: false, mostPeopleVisit: [], cheep: [],
       );
 }

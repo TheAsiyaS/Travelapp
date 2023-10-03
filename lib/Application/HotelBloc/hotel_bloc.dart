@@ -23,7 +23,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 hotelModelList2: [],
                 isLoading: false,
                 iserror: true,
-                advanture: [],
+                mostPeopleVisit: [],
                 cheep: [],
               ), (result) {
         return HotelState(
@@ -32,7 +32,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
           hotelModelList2: [],
           isLoading: false,
           iserror: false,
-          advanture: [],
+          mostPeopleVisit: [],
           cheep: [],
         );
       });
@@ -47,7 +47,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 hotelModelList: [],
                 isLoading: false,
                 iserror: true,
-                advanture: [],
+                mostPeopleVisit: [],
                 cheep: [],
               ), (result1) {
         return HotelState(
@@ -56,7 +56,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
           hotelModelList1: result1,
           isLoading: false,
           iserror: false,
-          advanture: [],
+          mostPeopleVisit: [],
           cheep: [],
         );
       });
@@ -72,7 +72,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 hotelModelList: [],
                 isLoading: false,
                 iserror: true,
-                advanture: [],
+                mostPeopleVisit: [],
                 cheep: [],
               ), (result2) {
         return HotelState(
@@ -81,7 +81,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
           hotelModelList2: result2,
           isLoading: false,
           iserror: false,
-          advanture: [],
+          mostPeopleVisit: [],
           cheep: [],
         );
       });
@@ -96,7 +96,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 hotelModelList: [],
                 isLoading: false,
                 iserror: true,
-                advanture: [],
+                mostPeopleVisit: [],
                 cheep: [],
               ), (result2) {
         return HotelState(
@@ -105,14 +105,14 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
           hotelModelList2: [],
           isLoading: false,
           iserror: false,
-          advanture: [],
+          mostPeopleVisit: [],
           cheep: result2,
         );
       });
       emit(emitHotelresult2);
     });
-    on<_Advanture>((event, emit) async {
-      final resultHotel = await objIrepoHotel.advanture();
+    on<_MostPeopleVisit>((event, emit) async {
+      final resultHotel = await objIrepoHotel.mostPeopleVisit();
       final emitHotelresult2 = resultHotel.fold(
           (mainFailure fail) => const HotelState(
                 hotelModelList1: [],
@@ -120,7 +120,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
                 hotelModelList: [],
                 isLoading: false,
                 iserror: true,
-                advanture: [],
+                mostPeopleVisit: [],
                 cheep: [],
               ), (result2) {
         return HotelState(
@@ -129,7 +129,7 @@ class HotelBloc extends Bloc<HotelEvent, HotelState> {
           hotelModelList2: [],
           isLoading: false,
           iserror: false,
-          advanture: result2,
+          mostPeopleVisit: result2,
           cheep: [],
         );
       });

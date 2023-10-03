@@ -22,7 +22,7 @@ mixin _$HotelEvent {
     required TResult Function() hotelDetailsGet1,
     required TResult Function(String querry2) hotelDetailsGet2,
     required TResult Function() cheap,
-    required TResult Function() advanture,
+    required TResult Function() mostPeopleVisit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +31,7 @@ mixin _$HotelEvent {
     TResult? Function()? hotelDetailsGet1,
     TResult? Function(String querry2)? hotelDetailsGet2,
     TResult? Function()? cheap,
-    TResult? Function()? advanture,
+    TResult? Function()? mostPeopleVisit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$HotelEvent {
     TResult Function()? hotelDetailsGet1,
     TResult Function(String querry2)? hotelDetailsGet2,
     TResult Function()? cheap,
-    TResult Function()? advanture,
+    TResult Function()? mostPeopleVisit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ mixin _$HotelEvent {
     required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
     required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
     required TResult Function(_Cheap value) cheap,
-    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_MostPeopleVisit value) mostPeopleVisit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,7 +59,7 @@ mixin _$HotelEvent {
     TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult? Function(_Cheap value)? cheap,
-    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_MostPeopleVisit value)? mostPeopleVisit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,7 +68,7 @@ mixin _$HotelEvent {
     TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult Function(_Cheap value)? cheap,
-    TResult Function(_Advanture value)? advanture,
+    TResult Function(_MostPeopleVisit value)? mostPeopleVisit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,7 +134,7 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     required TResult Function() hotelDetailsGet1,
     required TResult Function(String querry2) hotelDetailsGet2,
     required TResult Function() cheap,
-    required TResult Function() advanture,
+    required TResult Function() mostPeopleVisit,
   }) {
     return hotelDetailsGet();
   }
@@ -146,7 +146,7 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     TResult? Function()? hotelDetailsGet1,
     TResult? Function(String querry2)? hotelDetailsGet2,
     TResult? Function()? cheap,
-    TResult? Function()? advanture,
+    TResult? Function()? mostPeopleVisit,
   }) {
     return hotelDetailsGet?.call();
   }
@@ -158,7 +158,7 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     TResult Function()? hotelDetailsGet1,
     TResult Function(String querry2)? hotelDetailsGet2,
     TResult Function()? cheap,
-    TResult Function()? advanture,
+    TResult Function()? mostPeopleVisit,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet != null) {
@@ -174,7 +174,7 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
     required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
     required TResult Function(_Cheap value) cheap,
-    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_MostPeopleVisit value) mostPeopleVisit,
   }) {
     return hotelDetailsGet(this);
   }
@@ -186,7 +186,7 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult? Function(_Cheap value)? cheap,
-    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_MostPeopleVisit value)? mostPeopleVisit,
   }) {
     return hotelDetailsGet?.call(this);
   }
@@ -198,7 +198,7 @@ class _$_HotelDetailsGet implements _HotelDetailsGet {
     TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult Function(_Cheap value)? cheap,
-    TResult Function(_Advanture value)? advanture,
+    TResult Function(_MostPeopleVisit value)? mostPeopleVisit,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet != null) {
@@ -254,7 +254,7 @@ class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
     required TResult Function() hotelDetailsGet1,
     required TResult Function(String querry2) hotelDetailsGet2,
     required TResult Function() cheap,
-    required TResult Function() advanture,
+    required TResult Function() mostPeopleVisit,
   }) {
     return hotelDetailsGet1();
   }
@@ -266,7 +266,7 @@ class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
     TResult? Function()? hotelDetailsGet1,
     TResult? Function(String querry2)? hotelDetailsGet2,
     TResult? Function()? cheap,
-    TResult? Function()? advanture,
+    TResult? Function()? mostPeopleVisit,
   }) {
     return hotelDetailsGet1?.call();
   }
@@ -278,7 +278,7 @@ class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
     TResult Function()? hotelDetailsGet1,
     TResult Function(String querry2)? hotelDetailsGet2,
     TResult Function()? cheap,
-    TResult Function()? advanture,
+    TResult Function()? mostPeopleVisit,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet1 != null) {
@@ -294,7 +294,7 @@ class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
     required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
     required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
     required TResult Function(_Cheap value) cheap,
-    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_MostPeopleVisit value) mostPeopleVisit,
   }) {
     return hotelDetailsGet1(this);
   }
@@ -306,7 +306,7 @@ class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
     TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult? Function(_Cheap value)? cheap,
-    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_MostPeopleVisit value)? mostPeopleVisit,
   }) {
     return hotelDetailsGet1?.call(this);
   }
@@ -318,7 +318,7 @@ class _$_HotelDetailsGet1 implements _HotelDetailsGet1 {
     TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult Function(_Cheap value)? cheap,
-    TResult Function(_Advanture value)? advanture,
+    TResult Function(_MostPeopleVisit value)? mostPeopleVisit,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet1 != null) {
@@ -400,7 +400,7 @@ class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
     required TResult Function() hotelDetailsGet1,
     required TResult Function(String querry2) hotelDetailsGet2,
     required TResult Function() cheap,
-    required TResult Function() advanture,
+    required TResult Function() mostPeopleVisit,
   }) {
     return hotelDetailsGet2(querry2);
   }
@@ -412,7 +412,7 @@ class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
     TResult? Function()? hotelDetailsGet1,
     TResult? Function(String querry2)? hotelDetailsGet2,
     TResult? Function()? cheap,
-    TResult? Function()? advanture,
+    TResult? Function()? mostPeopleVisit,
   }) {
     return hotelDetailsGet2?.call(querry2);
   }
@@ -424,7 +424,7 @@ class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
     TResult Function()? hotelDetailsGet1,
     TResult Function(String querry2)? hotelDetailsGet2,
     TResult Function()? cheap,
-    TResult Function()? advanture,
+    TResult Function()? mostPeopleVisit,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet2 != null) {
@@ -440,7 +440,7 @@ class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
     required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
     required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
     required TResult Function(_Cheap value) cheap,
-    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_MostPeopleVisit value) mostPeopleVisit,
   }) {
     return hotelDetailsGet2(this);
   }
@@ -452,7 +452,7 @@ class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
     TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult? Function(_Cheap value)? cheap,
-    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_MostPeopleVisit value)? mostPeopleVisit,
   }) {
     return hotelDetailsGet2?.call(this);
   }
@@ -464,7 +464,7 @@ class _$_HotelDetailsGet2 implements _HotelDetailsGet2 {
     TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult Function(_Cheap value)? cheap,
-    TResult Function(_Advanture value)? advanture,
+    TResult Function(_MostPeopleVisit value)? mostPeopleVisit,
     required TResult orElse(),
   }) {
     if (hotelDetailsGet2 != null) {
@@ -524,7 +524,7 @@ class _$_Cheap implements _Cheap {
     required TResult Function() hotelDetailsGet1,
     required TResult Function(String querry2) hotelDetailsGet2,
     required TResult Function() cheap,
-    required TResult Function() advanture,
+    required TResult Function() mostPeopleVisit,
   }) {
     return cheap();
   }
@@ -536,7 +536,7 @@ class _$_Cheap implements _Cheap {
     TResult? Function()? hotelDetailsGet1,
     TResult? Function(String querry2)? hotelDetailsGet2,
     TResult? Function()? cheap,
-    TResult? Function()? advanture,
+    TResult? Function()? mostPeopleVisit,
   }) {
     return cheap?.call();
   }
@@ -548,7 +548,7 @@ class _$_Cheap implements _Cheap {
     TResult Function()? hotelDetailsGet1,
     TResult Function(String querry2)? hotelDetailsGet2,
     TResult Function()? cheap,
-    TResult Function()? advanture,
+    TResult Function()? mostPeopleVisit,
     required TResult orElse(),
   }) {
     if (cheap != null) {
@@ -564,7 +564,7 @@ class _$_Cheap implements _Cheap {
     required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
     required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
     required TResult Function(_Cheap value) cheap,
-    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_MostPeopleVisit value) mostPeopleVisit,
   }) {
     return cheap(this);
   }
@@ -576,7 +576,7 @@ class _$_Cheap implements _Cheap {
     TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult? Function(_Cheap value)? cheap,
-    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_MostPeopleVisit value)? mostPeopleVisit,
   }) {
     return cheap?.call(this);
   }
@@ -588,7 +588,7 @@ class _$_Cheap implements _Cheap {
     TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult Function(_Cheap value)? cheap,
-    TResult Function(_Advanture value)? advanture,
+    TResult Function(_MostPeopleVisit value)? mostPeopleVisit,
     required TResult orElse(),
   }) {
     if (cheap != null) {
@@ -603,35 +603,35 @@ abstract class _Cheap implements HotelEvent {
 }
 
 /// @nodoc
-abstract class _$$_AdvantureCopyWith<$Res> {
-  factory _$$_AdvantureCopyWith(
-          _$_Advanture value, $Res Function(_$_Advanture) then) =
-      __$$_AdvantureCopyWithImpl<$Res>;
+abstract class _$$_MostPeopleVisitCopyWith<$Res> {
+  factory _$$_MostPeopleVisitCopyWith(
+          _$_MostPeopleVisit value, $Res Function(_$_MostPeopleVisit) then) =
+      __$$_MostPeopleVisitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AdvantureCopyWithImpl<$Res>
-    extends _$HotelEventCopyWithImpl<$Res, _$_Advanture>
-    implements _$$_AdvantureCopyWith<$Res> {
-  __$$_AdvantureCopyWithImpl(
-      _$_Advanture _value, $Res Function(_$_Advanture) _then)
+class __$$_MostPeopleVisitCopyWithImpl<$Res>
+    extends _$HotelEventCopyWithImpl<$Res, _$_MostPeopleVisit>
+    implements _$$_MostPeopleVisitCopyWith<$Res> {
+  __$$_MostPeopleVisitCopyWithImpl(
+      _$_MostPeopleVisit _value, $Res Function(_$_MostPeopleVisit) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Advanture implements _Advanture {
-  const _$_Advanture();
+class _$_MostPeopleVisit implements _MostPeopleVisit {
+  const _$_MostPeopleVisit();
 
   @override
   String toString() {
-    return 'HotelEvent.advanture()';
+    return 'HotelEvent.mostPeopleVisit()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Advanture);
+        (other.runtimeType == runtimeType && other is _$_MostPeopleVisit);
   }
 
   @override
@@ -644,9 +644,9 @@ class _$_Advanture implements _Advanture {
     required TResult Function() hotelDetailsGet1,
     required TResult Function(String querry2) hotelDetailsGet2,
     required TResult Function() cheap,
-    required TResult Function() advanture,
+    required TResult Function() mostPeopleVisit,
   }) {
-    return advanture();
+    return mostPeopleVisit();
   }
 
   @override
@@ -656,9 +656,9 @@ class _$_Advanture implements _Advanture {
     TResult? Function()? hotelDetailsGet1,
     TResult? Function(String querry2)? hotelDetailsGet2,
     TResult? Function()? cheap,
-    TResult? Function()? advanture,
+    TResult? Function()? mostPeopleVisit,
   }) {
-    return advanture?.call();
+    return mostPeopleVisit?.call();
   }
 
   @override
@@ -668,11 +668,11 @@ class _$_Advanture implements _Advanture {
     TResult Function()? hotelDetailsGet1,
     TResult Function(String querry2)? hotelDetailsGet2,
     TResult Function()? cheap,
-    TResult Function()? advanture,
+    TResult Function()? mostPeopleVisit,
     required TResult orElse(),
   }) {
-    if (advanture != null) {
-      return advanture();
+    if (mostPeopleVisit != null) {
+      return mostPeopleVisit();
     }
     return orElse();
   }
@@ -684,9 +684,9 @@ class _$_Advanture implements _Advanture {
     required TResult Function(_HotelDetailsGet1 value) hotelDetailsGet1,
     required TResult Function(_HotelDetailsGet2 value) hotelDetailsGet2,
     required TResult Function(_Cheap value) cheap,
-    required TResult Function(_Advanture value) advanture,
+    required TResult Function(_MostPeopleVisit value) mostPeopleVisit,
   }) {
-    return advanture(this);
+    return mostPeopleVisit(this);
   }
 
   @override
@@ -696,9 +696,9 @@ class _$_Advanture implements _Advanture {
     TResult? Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult? Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult? Function(_Cheap value)? cheap,
-    TResult? Function(_Advanture value)? advanture,
+    TResult? Function(_MostPeopleVisit value)? mostPeopleVisit,
   }) {
-    return advanture?.call(this);
+    return mostPeopleVisit?.call(this);
   }
 
   @override
@@ -708,18 +708,18 @@ class _$_Advanture implements _Advanture {
     TResult Function(_HotelDetailsGet1 value)? hotelDetailsGet1,
     TResult Function(_HotelDetailsGet2 value)? hotelDetailsGet2,
     TResult Function(_Cheap value)? cheap,
-    TResult Function(_Advanture value)? advanture,
+    TResult Function(_MostPeopleVisit value)? mostPeopleVisit,
     required TResult orElse(),
   }) {
-    if (advanture != null) {
-      return advanture(this);
+    if (mostPeopleVisit != null) {
+      return mostPeopleVisit(this);
     }
     return orElse();
   }
 }
 
-abstract class _Advanture implements HotelEvent {
-  const factory _Advanture() = _$_Advanture;
+abstract class _MostPeopleVisit implements HotelEvent {
+  const factory _MostPeopleVisit() = _$_MostPeopleVisit;
 }
 
 /// @nodoc
@@ -730,7 +730,7 @@ mixin _$HotelState {
   List<UnsplashSearch> get hotelModelList2 =>
       throw _privateConstructorUsedError;
   List<PiaxabayModel> get cheep => throw _privateConstructorUsedError;
-  List<PiaxabayModel> get advanture => throw _privateConstructorUsedError;
+  List<PiaxabayModel> get mostPeopleVisit => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get iserror => throw _privateConstructorUsedError;
 
@@ -750,7 +750,7 @@ abstract class $HotelStateCopyWith<$Res> {
       List<UnsplashSearch> hotelModelList1,
       List<UnsplashSearch> hotelModelList2,
       List<PiaxabayModel> cheep,
-      List<PiaxabayModel> advanture,
+      List<PiaxabayModel> mostPeopleVisit,
       bool isLoading,
       bool iserror});
 }
@@ -772,7 +772,7 @@ class _$HotelStateCopyWithImpl<$Res, $Val extends HotelState>
     Object? hotelModelList1 = null,
     Object? hotelModelList2 = null,
     Object? cheep = null,
-    Object? advanture = null,
+    Object? mostPeopleVisit = null,
     Object? isLoading = null,
     Object? iserror = null,
   }) {
@@ -793,9 +793,9 @@ class _$HotelStateCopyWithImpl<$Res, $Val extends HotelState>
           ? _value.cheep
           : cheep // ignore: cast_nullable_to_non_nullable
               as List<PiaxabayModel>,
-      advanture: null == advanture
-          ? _value.advanture
-          : advanture // ignore: cast_nullable_to_non_nullable
+      mostPeopleVisit: null == mostPeopleVisit
+          ? _value.mostPeopleVisit
+          : mostPeopleVisit // ignore: cast_nullable_to_non_nullable
               as List<PiaxabayModel>,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -821,7 +821,7 @@ abstract class _$$_InitialCopyWith<$Res> implements $HotelStateCopyWith<$Res> {
       List<UnsplashSearch> hotelModelList1,
       List<UnsplashSearch> hotelModelList2,
       List<PiaxabayModel> cheep,
-      List<PiaxabayModel> advanture,
+      List<PiaxabayModel> mostPeopleVisit,
       bool isLoading,
       bool iserror});
 }
@@ -840,7 +840,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? hotelModelList1 = null,
     Object? hotelModelList2 = null,
     Object? cheep = null,
-    Object? advanture = null,
+    Object? mostPeopleVisit = null,
     Object? isLoading = null,
     Object? iserror = null,
   }) {
@@ -861,9 +861,9 @@ class __$$_InitialCopyWithImpl<$Res>
           ? _value._cheep
           : cheep // ignore: cast_nullable_to_non_nullable
               as List<PiaxabayModel>,
-      advanture: null == advanture
-          ? _value._advanture
-          : advanture // ignore: cast_nullable_to_non_nullable
+      mostPeopleVisit: null == mostPeopleVisit
+          ? _value._mostPeopleVisit
+          : mostPeopleVisit // ignore: cast_nullable_to_non_nullable
               as List<PiaxabayModel>,
       isLoading: null == isLoading
           ? _value.isLoading
@@ -885,14 +885,14 @@ class _$_Initial implements _Initial {
       required final List<UnsplashSearch> hotelModelList1,
       required final List<UnsplashSearch> hotelModelList2,
       required final List<PiaxabayModel> cheep,
-      required final List<PiaxabayModel> advanture,
+      required final List<PiaxabayModel> mostPeopleVisit,
       required this.isLoading,
       required this.iserror})
       : _hotelModelList = hotelModelList,
         _hotelModelList1 = hotelModelList1,
         _hotelModelList2 = hotelModelList2,
         _cheep = cheep,
-        _advanture = advanture;
+        _mostPeopleVisit = mostPeopleVisit;
 
   final List<UnsplashSearch> _hotelModelList;
   @override
@@ -926,12 +926,12 @@ class _$_Initial implements _Initial {
     return EqualUnmodifiableListView(_cheep);
   }
 
-  final List<PiaxabayModel> _advanture;
+  final List<PiaxabayModel> _mostPeopleVisit;
   @override
-  List<PiaxabayModel> get advanture {
-    if (_advanture is EqualUnmodifiableListView) return _advanture;
+  List<PiaxabayModel> get mostPeopleVisit {
+    if (_mostPeopleVisit is EqualUnmodifiableListView) return _mostPeopleVisit;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_advanture);
+    return EqualUnmodifiableListView(_mostPeopleVisit);
   }
 
   @override
@@ -941,7 +941,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'HotelState(hotelModelList: $hotelModelList, hotelModelList1: $hotelModelList1, hotelModelList2: $hotelModelList2, cheep: $cheep, advanture: $advanture, isLoading: $isLoading, iserror: $iserror)';
+    return 'HotelState(hotelModelList: $hotelModelList, hotelModelList1: $hotelModelList1, hotelModelList2: $hotelModelList2, cheep: $cheep, mostPeopleVisit: $mostPeopleVisit, isLoading: $isLoading, iserror: $iserror)';
   }
 
   @override
@@ -957,7 +957,7 @@ class _$_Initial implements _Initial {
                 .equals(other._hotelModelList2, _hotelModelList2) &&
             const DeepCollectionEquality().equals(other._cheep, _cheep) &&
             const DeepCollectionEquality()
-                .equals(other._advanture, _advanture) &&
+                .equals(other._mostPeopleVisit, _mostPeopleVisit) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.iserror, iserror) || other.iserror == iserror));
@@ -970,7 +970,7 @@ class _$_Initial implements _Initial {
       const DeepCollectionEquality().hash(_hotelModelList1),
       const DeepCollectionEquality().hash(_hotelModelList2),
       const DeepCollectionEquality().hash(_cheep),
-      const DeepCollectionEquality().hash(_advanture),
+      const DeepCollectionEquality().hash(_mostPeopleVisit),
       isLoading,
       iserror);
 
@@ -987,7 +987,7 @@ abstract class _Initial implements HotelState {
       required final List<UnsplashSearch> hotelModelList1,
       required final List<UnsplashSearch> hotelModelList2,
       required final List<PiaxabayModel> cheep,
-      required final List<PiaxabayModel> advanture,
+      required final List<PiaxabayModel> mostPeopleVisit,
       required final bool isLoading,
       required final bool iserror}) = _$_Initial;
 
@@ -1000,7 +1000,7 @@ abstract class _Initial implements HotelState {
   @override
   List<PiaxabayModel> get cheep;
   @override
-  List<PiaxabayModel> get advanture;
+  List<PiaxabayModel> get mostPeopleVisit;
   @override
   bool get isLoading;
   @override

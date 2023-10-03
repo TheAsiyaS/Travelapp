@@ -85,10 +85,10 @@ class HotelService implements IhoteleRepo {
   }
 
   @override
-  Future<Either<mainFailure, List<PiaxabayModel>>> advanture()async {
+  Future<Either<mainFailure, List<PiaxabayModel>>> mostPeopleVisit() async {
     try {
       final unsplashresponce = await Dio().get(
-          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=Gili+Islands&image_type=photo&pretty=true');
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=Colosseum&image_type=photo&pretty=true');
       // log("unsplash responce $unsplashresponce");
       if (unsplashresponce.statusCode == 200 ||
           unsplashresponce.statusCode == 201) {
@@ -98,7 +98,7 @@ class HotelService implements IhoteleRepo {
         }).toList();
 
         return right(hotelList);
-      } else { 
+      } else {
         log('Server Failure');
         return left(const mainFailure.serverFailure());
       }
@@ -122,7 +122,7 @@ class HotelService implements IhoteleRepo {
         }).toList();
 
         return right(hotelList);
-      } else { 
+      } else {
         log('Server Failure');
         return left(const mainFailure.serverFailure());
       }
