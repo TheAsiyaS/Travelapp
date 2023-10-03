@@ -41,9 +41,9 @@ class SearchItemDetailed extends StatelessWidget {
           children: [
             ConatinerwithWidget(
                 containerdecoration: BoxDecoration(
-                    image: const DecorationImage(
+                    image:  DecorationImage(
                         image: NetworkImage(
-                            'https://d27k8xmh3cuzik.cloudfront.net/wp-content/uploads/2017/12/shutterstock_7024083491.jpg'),
+                        imageurl),
                         fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(20)),
                 childwidget: Padding(
@@ -89,13 +89,13 @@ class SearchItemDetailed extends StatelessWidget {
                 height: size.height / 2,
                 width: size.width),
             h10,
-            const Text(
-              'Country Name',
+             Text(
+              title,
               style: textstyle,
             ),
             h10,
-            const Text(
-              'Something about the country that you want visit like safety , beauty ,Quality of air , Purity of water   ',
+             Text(
+              subtitle,
               style: subtextstyle,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
