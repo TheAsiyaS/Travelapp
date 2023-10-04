@@ -145,7 +145,7 @@ class HotelService implements IplaceHotelRepo {
         }).toList();
 
         return right(hotelList);
-      } else { 
+      } else {
         log('Server Failure');
         return left(const mainFailure.serverFailure());
       }
@@ -159,13 +159,13 @@ class HotelService implements IplaceHotelRepo {
   Future<Either<mainFailure, List<PiaxabayModel>>> historical() async {
     try {
       final unsplashresponce = await Dio().get(
-          'https://pixabay.com/get/gd639bd88872874efa4b2ebe3b5d8eb72803fd18dd7a812fb3347a8bdeb4087e86368a82ed736d0ab11bf5b0d1cb2409e_1280.jpg');
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=great+wall&image_type=photo&pretty=true');
       // log("unsplash responce $unsplashresponce");
       if (unsplashresponce.statusCode == 200 ||
           unsplashresponce.statusCode == 201) {
         // log('responce ${unsplashresponce.data}');
         final hotelList = (unsplashresponce.data['hits'] as List).map((e) {
-          return PiaxabayModel.fromJson(e);
+          return PiaxabayModel.fromJson(e);    
         }).toList();
 
         return right(hotelList);

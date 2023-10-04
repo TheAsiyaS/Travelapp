@@ -7,8 +7,8 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/Home/HotelSaved.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Beach.dart';
-import 'package:travelapp/presentation/Home/SubScreens/Calm.dart';
-import 'package:travelapp/presentation/Home/SubScreens/Cheep.dart';
+import 'package:travelapp/presentation/Home/SubScreens/Historical.dart';
+import 'package:travelapp/presentation/Home/SubScreens/cheep.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Mostpeoplevisit.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Popular.dart';
 import 'package:travelapp/presentation/Profile/Profile.dart';
@@ -235,7 +235,7 @@ class Home extends StatelessWidget {
                   Cheep(),
                   Mostpeoplevisit(),
                   Adavanture(),
-                  Calm(),
+                  Historical(),
                   Beach()
                 ]),
               )
