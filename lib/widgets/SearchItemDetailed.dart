@@ -56,9 +56,9 @@ class SearchItemDetailed extends StatelessWidget {
                       ConatinerwithWidget(
                           containerdecoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
+                              image:  DecorationImage(
                                   image: NetworkImage(
-                                      'https://hips.hearstapps.com/hmg-prod/images/harpers-ferry-west-virginia-royalty-free-image-1660073165.jpg'),
+                                      suburls[0]),
                                   fit: BoxFit.cover)),
                           childwidget: h10,
                           height: 50,
@@ -66,9 +66,9 @@ class SearchItemDetailed extends StatelessWidget {
                       ConatinerwithWidget(
                           containerdecoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
+                              image:  DecorationImage(
                                   image: NetworkImage(
-                                      'https://hips.hearstapps.com/hmg-prod/images/harpers-ferry-west-virginia-royalty-free-image-1660073165.jpg'),
+                                      suburls[1]),
                                   fit: BoxFit.cover)),
                           childwidget: h10,
                           height: 50,
@@ -76,9 +76,9 @@ class SearchItemDetailed extends StatelessWidget {
                       ConatinerwithWidget(
                           containerdecoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
+                              image:  DecorationImage(
                                   image: NetworkImage(
-                                      'https://www.edreams.pt/blog/wp-content/uploads/sites/4/2017/03/Seoul-coreia-primavera.jpg'),
+                                      suburls[2]),
                                   fit: BoxFit.cover)),
                           childwidget: h10,
                           height: 50,

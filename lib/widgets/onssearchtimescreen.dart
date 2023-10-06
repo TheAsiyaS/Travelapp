@@ -42,10 +42,10 @@ class OnsearchtimeScreen extends StatelessWidget {
                     containerdecoration: const BoxDecoration(),
                     childwidget: CupertinotextfieldWidget(
                         onchanged: (value) {},
-                        onsubmitted: (value) {
+                        onsubmitted: (value) {  
                           log(value);
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SearchResult()));
+                              builder: (context) => SearchResult(querry: value,)));
                         },
                         placeholderText: 'Search your hapiness......',
                         placeholderStyle: const TextStyle(color: kdominatgrey),

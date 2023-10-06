@@ -14,6 +14,7 @@ Future<void> main() async {
 }
 
 //flutter packages pub run build_runner watch --use-polling-watcher --delete-conflicting-outputs
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

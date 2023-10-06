@@ -1,3 +1,4 @@
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -18,17 +19,18 @@ class HotelPlaceBloc extends Bloc<HotelPlaceEvent, HotelPlaceState> {
       final resultHotel = await objIplaceHotelRepo.getHotelDetail();
       final emitHotelresult = resultHotel.fold(
           (mainFailure fail) => const HotelPlaceState(
-              popular: [],
-              advanture: [],
-              beach: [],
-              historical: [],
-              mostpeoplevist: [],
-              cheap: [],
-              place: [],
-              placesearch: [],
-              hotel: [],
-              isLoading: false,
-              iserror: false), (result) {
+                popular: [],
+                advanture: [],
+                beach: [],
+                historical: [],
+                mostpeoplevist: [],
+                cheap: [],
+                place: [],
+                placesearch: [],
+                hotel: [],
+                isLoading: false,
+                iserror: false,
+              ), (result) {
         return HotelPlaceState(
           popular: [],
           advanture: [],
@@ -129,7 +131,7 @@ class HotelPlaceBloc extends Bloc<HotelPlaceEvent, HotelPlaceState> {
           beach: [],
           historical: [],
           mostpeoplevist: [],
-          cheap:result,
+          cheap: result,
           place: [],
           placesearch: [],
           hotel: [],
@@ -279,6 +281,7 @@ class HotelPlaceBloc extends Bloc<HotelPlaceEvent, HotelPlaceState> {
               hotel: [],
               isLoading: false,
               iserror: false), (result) {
+       
         return HotelPlaceState(
           popular: [],
           advanture: [],

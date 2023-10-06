@@ -12,6 +12,7 @@ class HotelPlaceState with _$HotelPlaceState {
     required List<PiaxabayModel> place,
     required List<PiaxabayModel> placesearch,
     required List<PiaxabayModel> hotel,
+
     required bool isLoading,
     required bool iserror,
   }) = _Initial;
