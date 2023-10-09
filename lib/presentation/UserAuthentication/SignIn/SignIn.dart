@@ -71,7 +71,7 @@ class SignIn extends StatelessWidget {
                       onsubmitted: (value) {}),
                 ),
                 const Divider(
-                  color: kdominatgrey,
+                  color: klightwhite,
                   endIndent: 20,
                   indent: 20,
                 ),
@@ -95,15 +95,26 @@ class SignIn extends StatelessWidget {
                       onsubmitted: (value) {}),
                 ),
                 const Divider(
-                  color: kdominatgrey,
+                  color: klightwhite,
                   endIndent: 20,
                   indent: 20,
                 ),
-                ElevatedButtonWidget(
-                    onPress: () {},
-                    buttonwidget: const Text('Login'),
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: kdominatgrey)),
+                h20,
+                SizedBox(
+                  height: 50,
+                  width: size.width / 3,
+                  child: ElevatedButtonWidget(
+                      onPress: () {},
+                      buttonwidget: const Text(
+                        'Login',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: kdominatgrey)),
+                ),
+                SizedBox(
+                  height: size.height / 9,
+                ),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   const Text('Don\'t have an account?'),
                   TextButton(
