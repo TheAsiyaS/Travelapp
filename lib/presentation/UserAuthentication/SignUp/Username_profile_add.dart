@@ -4,7 +4,7 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
-import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
+import 'package:travelapp/widgets/NavButtonWidget.dart';
 
 class UsernameProfileAdd extends StatelessWidget {
   const UsernameProfileAdd({super.key});
@@ -69,18 +69,7 @@ class UsernameProfileAdd extends StatelessWidget {
                 )),
           ),
           const Spacer(),
-          SizedBox(
-            height: 50,
-            width: size.width / 3,
-            child: ElevatedButtonWidget(
-                onPress: () {},
-                buttonwidget: const Text(
-                  'next',
-                  style: TextStyle(fontSize: 18),
-                ),
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: kDominantcolor)),
-          ),
+          NavButton(size: size, text: 'Next', color: kDominantcolor),
           h30
         ],
       )),

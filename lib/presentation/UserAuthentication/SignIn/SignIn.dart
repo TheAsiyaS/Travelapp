@@ -5,8 +5,8 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignUp/Username_profile_add.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
-import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
+import 'package:travelapp/widgets/NavButtonWidget.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -101,18 +101,7 @@ class SignIn extends StatelessWidget {
                   indent: 20,
                 ),
                 h20,
-                SizedBox(
-                  height: 50,
-                  width: size.width / 3,
-                  child: ElevatedButtonWidget(
-                      onPress: () {},
-                      buttonwidget: const Text(
-                        'Login',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: kDominantcolor)),
-                ),
+               NavButton(size: size, text: 'Login', color: kDominantcolor),
                 SizedBox(
                   height: size.height / 9,
                 ),
