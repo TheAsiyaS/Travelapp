@@ -3,6 +3,7 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/presentation/UserAuthentication/SignUp/Username_profile_add.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
@@ -37,7 +38,7 @@ class SignIn extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(left: size.width / 10),
                 child: const CircleAvatar(
-                  backgroundColor: kdominatgrey,
+                  backgroundColor: kDominantcolor,
                   radius: 70,
                   backgroundImage: AssetImage('asset/logo.png'),
                 ),
@@ -110,7 +111,7 @@ class SignIn extends StatelessWidget {
                         style: TextStyle(fontSize: 18),
                       ),
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: kdominatgrey)),
+                          backgroundColor: kDominantcolor)),
                 ),
                 SizedBox(
                   height: size.height / 9,
@@ -118,7 +119,10 @@ class SignIn extends StatelessWidget {
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   const Text('Don\'t have an account?'),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const UsernameProfileAdd()));
+                      },
                       child: const Text(
                         'Sign Up',
                         style: TextStyle(
