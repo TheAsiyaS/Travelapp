@@ -91,7 +91,7 @@ class Profile extends StatelessWidget {
                         onTap: () async {
                           bool? res =
                               await FlutterPhoneDirectCaller.callNumber('123');
-                          log('result: $res');
+                         
                         }, //
                         child: ConatinerwithWidget(
                             containerdecoration: BoxDecoration(

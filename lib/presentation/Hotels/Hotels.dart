@@ -305,7 +305,7 @@ class Hotels extends StatelessWidget {
                                           width: size.width,
                                           child: const Center(
                                             child: Text(
-                                              'Water is an inorganic compound with the chemical formula H₂O. It is a transparent, tasteless, odorless, and nearly colorless chemical substance, and it is the main constituent of Earth\'s hydrosphere and the fluids of all known living organisms',
+                                              'Hotel here is more beautiful and safest one . Good neighbourhood ,less pollution, clean water , good view are the remarkable feature of this hotels ',
                                               maxLines: 2,
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(

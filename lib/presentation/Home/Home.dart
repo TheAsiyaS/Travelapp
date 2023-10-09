@@ -209,7 +209,7 @@ class Home extends StatelessWidget {
                         Text('Popular', style: GoogleFonts.playfairDisplay()),
                   ),
                   Tab(
-                    child: Text('Cheep', style: GoogleFonts.playfairDisplay()),
+                    child: Text('Cheap', style: GoogleFonts.playfairDisplay()),
                   ),
                   Tab(
                     child: Text('Most people visit',

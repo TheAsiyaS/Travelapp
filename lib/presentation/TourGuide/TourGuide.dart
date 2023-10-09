@@ -18,21 +18,21 @@ final images = [
 ];
 final premiumqaulity = [
   'Download to Read offline without wi-fi',
-  'Guide without ad interrupyions',
+  'Guide without ad interruptions',
   '2x higher Picture quality then our free plan',
   'Play songs in any order, with unlimted skips',
   'Cancel monthly plans online anytime',
   'Something ',
 ];
 
-class SlideshowScreen extends StatefulWidget {
-  const SlideshowScreen({super.key});
+class ScreenGuid extends StatefulWidget {
+  const ScreenGuid({super.key});
 
   @override
-  _SlideshowScreenState createState() => _SlideshowScreenState();
+  _ScreenGuidState createState() => _ScreenGuidState();
 }
 
-class _SlideshowScreenState extends State<SlideshowScreen>
+class _ScreenGuidState extends State<ScreenGuid>
     with TickerProviderStateMixin {
   String fullText =
       ' Hello Username ,\n we will let you know how to set your destination  .';
@@ -151,10 +151,7 @@ class _SlideshowScreenState extends State<SlideshowScreen>
                                           left: size.width / 1.2),
                                       child: IconButtonWidget(
                                           onPressFunc: () {
-                                            // Navigator.of(context).push(
-                                            //     MaterialPageRoute(
-                                            //         builder: (context) =>
-                                            //             SlideshowScreens()));
+                                           
                                           },
                                           iconwidget: const Icon(
                                             kforward,
@@ -191,7 +188,7 @@ class _SlideshowScreenState extends State<SlideshowScreen>
      * Prepare your travel documents. ...
      * Research your destination. ...
      * Address money matters. ...
-     * Compare transportation & accommodation options. ...
+     * Compare transportation & accomodation options. ...
      * Book everything in advance. ...
      * Avoid travel fatigue. ...
      * Prioritize your health & safety. ...
