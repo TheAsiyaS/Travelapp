@@ -52,26 +52,26 @@ class Popular extends StatelessWidget {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       final data = state.popular[index];
-                      final imagesUrl = [
-                        state.popular[0].largeImageUrl,
-                        state.popular[1].largeImageUrl,
-                        state.popular[2].largeImageUrl,
-                        state.popular[3].largeImageUrl,
-                        state.popular[4].largeImageUrl,
-                        state.popular[5].largeImageUrl,
+                      final List<String> imagesUrl = [
+                        state.popular[0].largeImageUrl!,
+                        state.popular[1].largeImageUrl!,
+                        state.popular[2].largeImageUrl!,
+                        state.popular[3].largeImageUrl!,
+                        state.popular[4].largeImageUrl!,
+                        state.popular[5].largeImageUrl!,
                       ];
                       imagesUrl.shuffle();
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SearchItemDetailed(
-                                  imageurl: '',
-                                  suburls: [],
-                                  price: 'price',
-                                  title: 'title',
-                                  subtitle: 'subtitle',
-                                  rating: 'rating',
-                                  reviewNo: 'reviewNo',
+                              builder: (context) => SearchItemDetailed(
+                                  imageurl: data.largeImageUrl!,
+                                  suburls: imagesUrl,
+                                  price: '${data.imageHeight! / 5}',
+                                  title: places[index % places.length],
+                                  subtitle: 'paris',
+                                  rating: '${data.comments!.toDouble()}',
+                                  reviewNo: '${data.comments}',
                                   obj: 'obj')));
                         },
                         child: Container(
@@ -138,7 +138,7 @@ class Popular extends StatelessWidget {
                                                             10),
                                                     image: DecorationImage(
                                                         image: NetworkImage(
-                                                            imagesUrl[index]!),
+                                                            imagesUrl[index]),
                                                         fit: BoxFit.fill)),
                                                 childwidget: const Column(
                                                   children: [],

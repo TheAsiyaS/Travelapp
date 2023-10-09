@@ -6,6 +6,7 @@ import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travelapp/presentation/UserAuthentication/SignIn/SignIn.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
             primaryColor: kSubDominantcolor,
             scaffoldBackgroundColor: isDarkMode ? kblack : kwhite,
             brightness: isDarkMode ? Brightness.dark : Brightness.light),
-        home: const SplashScreen(),
+        home: const SignIn(),
       ),
     );
   }

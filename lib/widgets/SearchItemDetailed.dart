@@ -41,10 +41,8 @@ class SearchItemDetailed extends StatelessWidget {
           children: [
             ConatinerwithWidget(
                 containerdecoration: BoxDecoration(
-                    image:  DecorationImage(
-                        image: NetworkImage(
-                        imageurl),
-                        fit: BoxFit.cover),
+                    image: DecorationImage(
+                        image: NetworkImage(imageurl), fit: BoxFit.cover),
                     borderRadius: BorderRadius.circular(20)),
                 childwidget: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -56,9 +54,8 @@ class SearchItemDetailed extends StatelessWidget {
                       ConatinerwithWidget(
                           containerdecoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image:  DecorationImage(
-                                  image: NetworkImage(
-                                      suburls[0]),
+                              image: DecorationImage(
+                                  image: NetworkImage(suburls[0]),
                                   fit: BoxFit.cover)),
                           childwidget: h10,
                           height: 50,
@@ -66,9 +63,8 @@ class SearchItemDetailed extends StatelessWidget {
                       ConatinerwithWidget(
                           containerdecoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image:  DecorationImage(
-                                  image: NetworkImage(
-                                      suburls[1]),
+                              image: DecorationImage(
+                                  image: NetworkImage(suburls[1]),
                                   fit: BoxFit.cover)),
                           childwidget: h10,
                           height: 50,
@@ -76,9 +72,8 @@ class SearchItemDetailed extends StatelessWidget {
                       ConatinerwithWidget(
                           containerdecoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image:  DecorationImage(
-                                  image: NetworkImage(
-                                      suburls[2]),
+                              image: DecorationImage(
+                                  image: NetworkImage(suburls[2]),
                                   fit: BoxFit.cover)),
                           childwidget: h10,
                           height: 50,
@@ -89,12 +84,12 @@ class SearchItemDetailed extends StatelessWidget {
                 height: size.height / 2,
                 width: size.width),
             h10,
-             Text(
+            Text(
               title,
               style: textstyle,
             ),
             h10,
-             Text(
+            Text(
               subtitle,
               style: subtextstyle,
               maxLines: 3,
