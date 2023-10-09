@@ -101,7 +101,11 @@ class SignIn extends StatelessWidget {
                   indent: 20,
                 ),
                 h20,
-               NavButton(size: size, text: 'Login', color: kDominantcolor),
+                NavButton(
+                    size: size,
+                    text: 'Login',
+                    color: kDominantcolor,
+                    onPress: () {}),
                 SizedBox(
                   height: size.height / 9,
                 ),

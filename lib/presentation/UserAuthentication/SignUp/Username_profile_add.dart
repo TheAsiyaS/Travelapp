@@ -69,7 +69,8 @@ class UsernameProfileAdd extends StatelessWidget {
                 )),
           ),
           const Spacer(),
-          NavButton(size: size, text: 'Next', color: kDominantcolor),
+          NavButton(
+              size: size, text: 'Next', color: kDominantcolor, onPress: () {}),
           h30
         ],
       )),
