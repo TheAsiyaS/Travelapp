@@ -13,6 +13,8 @@ class UsernameProfileAdd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    Brightness brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
           child: Column(
@@ -33,18 +35,18 @@ class UsernameProfileAdd extends StatelessWidget {
             padding: const EdgeInsets.only(left: 15),
             child: CupertinotextfieldWidget(
                 placeholderText: 'Username....',
-                placeholderStyle: const TextStyle(color: klightwhite),
+                placeholderStyle: const TextStyle(color: kgrey),
                 boxDecoration: const BoxDecoration(),
                 prefixWidget: h10,
                 suffixWidget: h10,
                 keybodtype: TextInputType.name,
                 obscureText: false,
-                style: const TextStyle(),
+                style:  TextStyle(color :isDarkMode ? kwhite : kblack),
                 onchanged: (value) {},
                 onsubmitted: (value) {}),
           ),
           const Divider(
-            color: klightwhite,
+            color: kdominatgrey, 
             endIndent: 20,
             indent: 20,
           ),
@@ -71,7 +73,7 @@ class UsernameProfileAdd extends StatelessWidget {
           ),
           const Spacer(),
           NavButton(
-            width: 3,
+              width: 3,
               size: size,
               text: 'Next',
               color: kDominantcolor,

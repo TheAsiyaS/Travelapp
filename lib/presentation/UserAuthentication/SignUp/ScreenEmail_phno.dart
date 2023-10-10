@@ -17,37 +17,39 @@ class ScreenEmailPhno extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+        Brightness brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
     return Scaffold(
       body: SafeArea(
           child: Column(
         children: [
           const Spacer(),
           const Text(
-            'Select your Username',
+            'E-mail',
             style: textstyle,
           ),
           h10,
           const Text(
-            'Required (you can change it later).\n You can only use (a-z),(0-9)(. _)',
+            'Required (you can\'t change it later).',
             style: subtextstyle,
           ),
           h30,
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CupertinotextfieldWidget(
-                placeholderText: 'Username....',
-                placeholderStyle: const TextStyle(color: klightwhite),
+                placeholderText: 'Enter E-mail....',
+                placeholderStyle: const TextStyle(color: kgrey),
                 boxDecoration: const BoxDecoration(),
                 prefixWidget: h10,
                 suffixWidget: h10,
                 keybodtype: TextInputType.name,
                 obscureText: false,
-                style: const TextStyle(color: kwhite),
+                style:  TextStyle(color: isDarkMode ? kwhite : kblack),
                 onchanged: (value) {},
                 onsubmitted: (value) {}),
           ),
           const Divider(
-            color: klightwhite,
+            color: kdominatgrey,
             endIndent: 20,
             indent: 20,
           ),
@@ -70,7 +72,7 @@ class ScreenEmailPhno extends StatelessWidget {
               decoration: const InputDecoration(
                   hintText: 'Phone Number',
                   border: OutlineInputBorder(),
-                  fillColor: Color.fromARGB(255, 90, 88, 88),
+                  fillColor:kDominantTrans,
                   filled: true),
               onSubmitted: (phoneNumber) {
                 log("PhoneNumber-----$phoneNumber");

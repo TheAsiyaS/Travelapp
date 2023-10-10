@@ -3,6 +3,7 @@ import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/presentation/NavigationBar.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignUp/Username_profile_add.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/IconButton.dart';
@@ -58,7 +59,9 @@ class SignIn extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 15),
+                  padding: const EdgeInsets.only(
+                    top: 20,
+                    left: 15),
                   child: CupertinotextfieldWidget(
                       placeholderText: 'Username....',
                       placeholderStyle: const TextStyle(color: klightwhite),
@@ -102,11 +105,14 @@ class SignIn extends StatelessWidget {
                 ),
                 h20,
                 NavButton(
-                   width: 3,
+                    width: 3,
                     size: size,
                     text: 'Login',
                     color: kDominantcolor,
-                    onPress: () {}),
+                    onPress: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const NavigationBarScreen()));
+                    }),
                 SizedBox(
                   height: size.height / 9,
                 ),
