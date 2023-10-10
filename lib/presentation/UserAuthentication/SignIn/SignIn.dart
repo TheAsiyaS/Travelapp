@@ -102,6 +102,7 @@ class SignIn extends StatelessWidget {
                 ),
                 h20,
                 NavButton(
+                   width: 3,
                     size: size,
                     text: 'Login',
                     color: kDominantcolor,

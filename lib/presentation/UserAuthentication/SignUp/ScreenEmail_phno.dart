@@ -1,14 +1,18 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:travelapp/common/Icons.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
-import 'package:travelapp/presentation/UserAuthentication/SignUp/ScreenPassword.dart';
+import 'package:travelapp/presentation/NavigationBar.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/NavButtonWidget.dart';
 
-class UsernameProfileAdd extends StatelessWidget {
-  const UsernameProfileAdd({super.key});
+ValueNotifier<String> gphonenumber = ValueNotifier('');
+
+class ScreenEmailPhno extends StatelessWidget {
+  const ScreenEmailPhno({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,6 @@ class UsernameProfileAdd extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Spacer(),
           const Text(
@@ -39,7 +42,7 @@ class UsernameProfileAdd extends StatelessWidget {
                 suffixWidget: h10,
                 keybodtype: TextInputType.name,
                 obscureText: false,
-                style: const TextStyle(),
+                style: const TextStyle(color: kwhite),
                 onchanged: (value) {},
                 onsubmitted: (value) {}),
           ),
@@ -48,38 +51,51 @@ class UsernameProfileAdd extends StatelessWidget {
             endIndent: 20,
             indent: 20,
           ),
+          h30,
           const Spacer(),
           const Text(
-            'Select Profile Image',
+            'Phone Number add (optional)',
             style: textstyle,
           ),
           h10,
           const Text(
-            'Optional(you can change it later)',
+            'If you want to be the angent of our app',
             style: subtextstyle,
           ),
           h30,
-          const CircleAvatar(
-            radius: 50,
-            backgroundColor: kDominantcolor,
-            child: Align(
-                alignment: Alignment.bottomRight,
-                child: Icon(
-                  kaddRound,
-                  size: 30,
-                )),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: IntlPhoneField(
+              //controller: phonNoController,
+              decoration: const InputDecoration(
+                  hintText: 'Phone Number',
+                  border: OutlineInputBorder(),
+                  fillColor: Color.fromARGB(255, 90, 88, 88),
+                  filled: true),
+              onSubmitted: (phoneNumber) {
+                log("PhoneNumber-----$phoneNumber");
+                if (phoneNumber.isEmpty || phoneNumber.length < 10) {
+                  gphonenumber.value = 'Incorrect Phone number';
+                } else {
+                  gphonenumber.value = phoneNumber;
+                }
+              },
+              onChanged: (value) {
+                log(value.number);
+                gphonenumber.value = value.number;
+              },
+            ),
           ),
-          const Spacer(),
           NavButton(
-            width: 3,
               size: size,
-              text: 'Next',
+              text: 'Complete Sign-Up',
               color: kDominantcolor,
+              width: 2,
               onPress: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ScreenPassword()));
+                    builder: (context) => const NavigationBarScreen()));
               }),
-          h30
+          const Spacer(),
         ],
       )),
     );

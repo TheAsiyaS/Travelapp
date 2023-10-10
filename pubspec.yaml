@@ -59,6 +59,7 @@ dependencies:
   mockito: ^5.4.2
   provider: ^6.0.5
   go_router: ^10.2.0
+  intl_phone_field: ^3.2.0
  
 dev_dependencies:
   flutter_test:
@@ -107,7 +108,7 @@ flutter:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+  #       - asset: fonts/Schyler-Italic.ttfp
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/presentation/UserAuthentication/SignUp/ScreenEmail_phno.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/NavButtonWidget.dart';
 
@@ -23,7 +24,7 @@ class ScreenPassword extends StatelessWidget {
             style: textstyle,
           ),
           h10,
-          const Text( 
+          const Text(
             'Required (you can change it later).\n \n* Minimum 6 characters\n* Must include special characters',
             style: subtextstyle,
           ),
@@ -69,16 +70,17 @@ class ScreenPassword extends StatelessWidget {
           ),
           const Spacer(),
           NavButton(
+             width: 3,
               size: size,
               text: 'Next',
               color: kDominantcolor,
               onPress: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ScreenPassword()));
+                    builder: (context) => const ScreenEmailPhno()));
               }),
           const Spacer(),
         ],
       )),
-    );
+    ); 
   }
 }
