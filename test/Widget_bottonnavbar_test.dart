@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
 
 void main() {

@@ -8,8 +8,11 @@ import 'package:travelapp/presentation/NavigationBar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignIn/SignIn.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized(); 
+  await Firebase.initializeApp();
   await configInjection();
   runApp(const MyApp());
 }
