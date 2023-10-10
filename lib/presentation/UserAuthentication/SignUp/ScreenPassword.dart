@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
-import 'package:travelapp/presentation/UserAuthentication/SignUp/ScreenPassword.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/NavButtonWidget.dart';
 
-class UsernameProfileAdd extends StatelessWidget {
-  const UsernameProfileAdd({super.key});
+class ScreenPassword extends StatelessWidget {
+  const ScreenPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,30 +14,31 @@ class UsernameProfileAdd extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Spacer(),
           const Text(
-            'Select your Username',
+            'Choose your Password',
             style: textstyle,
           ),
           h10,
-          const Text(
-            'Required (you can change it later).\n You can only use (a-z),(0-9)(. _)',
+          const Text( 
+            'Required (you can change it later).\n \n* Minimum 6 characters\n* Must include special characters',
             style: subtextstyle,
           ),
           h30,
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CupertinotextfieldWidget(
-                placeholderText: 'Username....',
+                placeholderText: 'Password....',
                 placeholderStyle: const TextStyle(color: klightwhite),
                 boxDecoration: const BoxDecoration(),
                 prefixWidget: h10,
                 suffixWidget: h10,
                 keybodtype: TextInputType.name,
-                obscureText: false,
-                style: const TextStyle(),
+                obscureText: true,
+                style: const TextStyle(color: kwhite),
                 onchanged: (value) {},
                 onsubmitted: (value) {}),
           ),
@@ -48,26 +47,25 @@ class UsernameProfileAdd extends StatelessWidget {
             endIndent: 20,
             indent: 20,
           ),
-          const Spacer(),
-          const Text(
-            'Select Profile Image',
-            style: textstyle,
-          ),
-          h10,
-          const Text(
-            'Optional(you can change it later)',
-            style: subtextstyle,
-          ),
           h30,
-          const CircleAvatar(
-            radius: 50,
-            backgroundColor: kDominantcolor,
-            child: Align(
-                alignment: Alignment.bottomRight,
-                child: Icon(
-                  kaddRound,
-                  size: 30,
-                )),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: CupertinotextfieldWidget(
+                placeholderText: 'Re-enter....',
+                placeholderStyle: const TextStyle(color: klightwhite),
+                boxDecoration: const BoxDecoration(),
+                prefixWidget: h10,
+                suffixWidget: h10,
+                keybodtype: TextInputType.name,
+                obscureText: true,
+                style: const TextStyle(color: kwhite),
+                onchanged: (value) {},
+                onsubmitted: (value) {}),
+          ),
+          const Divider(
+            color: klightwhite,
+            endIndent: 20,
+            indent: 20,
           ),
           const Spacer(),
           NavButton(
@@ -78,7 +76,7 @@ class UsernameProfileAdd extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const ScreenPassword()));
               }),
-          h30
+          const Spacer(),
         ],
       )),
     );

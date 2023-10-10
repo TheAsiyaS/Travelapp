@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
@@ -91,7 +89,7 @@ class Profile extends StatelessWidget {
                         onTap: () async {
                           bool? res =
                               await FlutterPhoneDirectCaller.callNumber('123');
-                         
+                          print(res);
                         }, //
                         child: ConatinerwithWidget(
                             containerdecoration: BoxDecoration(
