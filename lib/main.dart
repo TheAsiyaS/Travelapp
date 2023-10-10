@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
 import 'package:travelapp/Application/Hotel1_Bloc/hotel1_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
+import 'package:travelapp/Domain/DB/UserModel.dart';
 import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
@@ -10,8 +11,9 @@ import 'package:travelapp/presentation/UserAuthentication/SignIn/SignIn.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
+late UserData currentuserdata;
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized(); 
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await configInjection();
   runApp(const MyApp());
