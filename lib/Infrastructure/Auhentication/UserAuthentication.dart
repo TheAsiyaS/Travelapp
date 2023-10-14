@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:travelapp/Domain/DB/UserModel.dart';
 import 'package:travelapp/common/ImageUrls.dart';
 
-
 String? gUid;
 
 class AuthMethod {
@@ -63,7 +62,6 @@ class AuthMethod {
     }
   }
 
-
   Future<bool> loginUser(
       {required String email, required String password}) async {
     if (email.isEmpty || password.isEmpty) {
@@ -80,9 +78,4 @@ class AuthMethod {
       return true;
     }
   }
-
- 
-
-
-
 }
