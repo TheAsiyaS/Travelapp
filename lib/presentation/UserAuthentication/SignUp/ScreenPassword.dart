@@ -7,13 +7,17 @@ import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/NavButtonWidget.dart';
 
 class ScreenPassword extends StatelessWidget {
-  const ScreenPassword({super.key});
+  const ScreenPassword({super.key, required this.username});
+  final String username;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     Brightness brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
+    final passwordController = TextEditingController();
+    final repasswordController = TextEditingController();
+    final ValueNotifier<String> errorText = ValueNotifier('');
     return Scaffold(
       body: SafeArea(
           child: Column(
@@ -34,6 +38,7 @@ class ScreenPassword extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CupertinotextfieldWidget(
+                controller: passwordController,
                 placeholderText: 'Password....',
                 placeholderStyle: const TextStyle(color: kgrey),
                 boxDecoration: const BoxDecoration(),
@@ -54,6 +59,7 @@ class ScreenPassword extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CupertinotextfieldWidget(
+                controller: repasswordController,
                 placeholderText: 'Re-enter....',
                 placeholderStyle: const TextStyle(color: kgrey),
                 boxDecoration: const BoxDecoration(),
@@ -61,7 +67,7 @@ class ScreenPassword extends StatelessWidget {
                 suffixWidget: h10,
                 keybodtype: TextInputType.name,
                 obscureText: true,
-                style:  TextStyle(color: isDarkMode ? kwhite : kblack),
+                style: TextStyle(color: isDarkMode ? kwhite : kblack),
                 onchanged: (value) {},
                 onsubmitted: (value) {}),
           ),
@@ -72,14 +78,34 @@ class ScreenPassword extends StatelessWidget {
           ),
           const Spacer(),
           NavButton(
-              width: 3,
-              size: size,
-              text: 'Next',
-              color: kDominantcolor,
-              onPress: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ScreenEmailPhno()));
-              }),
+            width: 3,
+            size: size,
+            text: 'Next',
+            color: kDominantcolor,
+            onPress: () {
+              if (repasswordController.text.length < 6) {
+                errorText.value = 'Password must contain at least 6 characters';
+              } else {
+                // Check if the password contains at least three special characters
+                RegExp specialCharacterPattern =
+                    RegExp(r'[!@#\$%^&*()_+{}\[\]:;<>,.?~\\|]');
+                Iterable<RegExpMatch> matches = specialCharacterPattern
+                    .allMatches(repasswordController.text);
+
+                if (matches.length < 3) {
+                  errorText.value =
+                      'Password must contain at least three special characters';
+                } else {
+                  errorText.value = ''; // No errors, password is valid
+                  // Navigate to the next screen
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ScreenEmailPhno(
+                          username: username,
+                          password: repasswordController.text)));
+                }
+              }
+            },
+          ),
           const Spacer(),
         ],
       )),

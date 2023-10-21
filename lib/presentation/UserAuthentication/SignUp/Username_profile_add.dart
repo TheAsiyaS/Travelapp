@@ -1,10 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/common/Icons.dart';
+import 'package:travelapp/common/RegExp.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignUp/ScreenPassword.dart';
-import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/NavButtonWidget.dart';
 
 class UsernameProfileAdd extends StatelessWidget {
@@ -15,6 +16,8 @@ class UsernameProfileAdd extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     Brightness brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
+    final TextEditingController usernameController = TextEditingController();
+    final ValueNotifier<String> errorText = ValueNotifier('');
     return Scaffold(
       body: SafeArea(
           child: Column(
@@ -32,21 +35,18 @@ class UsernameProfileAdd extends StatelessWidget {
           ),
           h30,
           Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: CupertinotextfieldWidget(
-                placeholderText: 'Username....',
+              padding: const EdgeInsets.only(left: 15),
+              child: CupertinoTextField(
+                placeholder: 'Username...',
+                decoration: const BoxDecoration(),
                 placeholderStyle: const TextStyle(color: kgrey),
-                boxDecoration: const BoxDecoration(),
-                prefixWidget: h10,
-                suffixWidget: h10,
-                keybodtype: TextInputType.name,
-                obscureText: false,
-                style:  TextStyle(color :isDarkMode ? kwhite : kblack),
-                onchanged: (value) {},
-                onsubmitted: (value) {}),
-          ),
+                style: TextStyle(color: isDarkMode ? kwhite : kblack),
+                onChanged: (value) {
+                  usernameController.text = value;
+                },
+              )),
           const Divider(
-            color: kdominatgrey, 
+            color: kdominatgrey,
             endIndent: 20,
             indent: 20,
           ),
@@ -78,10 +78,26 @@ class UsernameProfileAdd extends StatelessWidget {
               text: 'Next',
               color: kDominantcolor,
               onPress: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ScreenPassword()));
+                if (usernameController.text.isEmpty) {
+                  errorText.value =
+                      'Username is empty .\nIf you want to create a account you must have a username ';
+                } else if (!usernameRegex.hasMatch(usernameController.text)) {
+                  errorText.value =
+                      'We previously informed you that you may exclusively utilize the following characters: (a-z), (0-9), (.), and (_).';
+                } else {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ScreenPassword(
+                            username: usernameController.text,
+                          )));
+                }
               }),
-          h30
+          h10,
+          ValueListenableBuilder(
+              valueListenable: errorText,
+              builder: (context, value, _) {
+                return Text(errorText.value);
+              }),
+          h20,
         ],
       )),
     );

@@ -15,6 +15,10 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final usernameController = TextEditingController();
+
+    final passwordController = TextEditingController();
+
     return Scaffold(
       body: Column(
         children: [
@@ -59,10 +63,9 @@ class SignIn extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    top: 20,
-                    left: 15),
+                  padding: const EdgeInsets.only(top: 20, left: 15),
                   child: CupertinotextfieldWidget(
+                    controller: usernameController,
                       placeholderText: 'Username....',
                       placeholderStyle: const TextStyle(color: klightwhite),
                       boxDecoration: const BoxDecoration(),
@@ -82,6 +85,7 @@ class SignIn extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: CupertinotextfieldWidget(
+                    controller: passwordController,
                       placeholderText: 'Password....',
                       placeholderStyle: const TextStyle(color: klightwhite),
                       boxDecoration: const BoxDecoration(),

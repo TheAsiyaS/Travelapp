@@ -5,7 +5,6 @@ import 'package:travelapp/Application/Hotel1_Bloc/hotel1_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/Domain/DB/UserModel.dart';
 import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
-import 'package:travelapp/Infrastructure/Auhentication/UserAuthentication.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +16,12 @@ import 'package:firebase_core/firebase_core.dart';
 late UserData currentuserdata;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+          apiKey: 'AIzaSyAlLArPu-3rEUhDNKtblvWOiBflDet0aLg',
+          appId: '1:1001590474082:web:389a0ab48b539fcb9e183b',
+          messagingSenderId: 'G-NMPB0KB0J4',
+          projectId: 'travel-app-b239a'));
   await configInjection();
   runApp(const MyApp());
   //currentuserdata = await AuthMethod().getUserDetail();
@@ -46,31 +50,29 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: isDarkMode ? kblack : kwhite,
             brightness: isDarkMode ? Brightness.dark : Brightness.light),
         home: StreamBuilder<User?>(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-             if (snapshot.connectionState == ConnectionState.active) {
-            if (snapshot.hasData) {
-              return const SplashScreen();
-            } else if (snapshot.hasError) {
-              return Center(
-                child: Text('${snapshot.error}'),
-              );
-            }
-          }
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator(
-              strokeWidth: 2,
-              color: kwhite,
-            );
-          }
-            return const SplashScreentoSignIn();
-          }
-        ),
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.active) {
+                if (snapshot.hasData) {
+                  return const SplashScreen();
+                } else if (snapshot.hasError) {
+                  return Center(
+                    child: Text('${snapshot.error}'),
+                  );
+                }
+              }
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator(
+                  strokeWidth: 2,
+                  color: kwhite,
+                );
+              }
+              return const SplashScreentoSignIn();
+            }),
       ),
     );
   }
 }
-
 
 class SplashScreentoSignIn extends StatelessWidget {
   const SplashScreentoSignIn({super.key}); //
@@ -111,7 +113,6 @@ class SplashScreentoSignIn extends StatelessWidget {
     );
   }
 }
-
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key}); //

@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
@@ -9,16 +10,20 @@ import 'package:travelapp/presentation/NavigationBar.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/NavButtonWidget.dart';
 
-ValueNotifier<String> gphonenumber = ValueNotifier('');
-
 class ScreenEmailPhno extends StatelessWidget {
-  const ScreenEmailPhno({super.key});
+  const ScreenEmailPhno(
+      {super.key, required this.username, required this.password});
+  final String username;
+  final String password;
 
   @override
   Widget build(BuildContext context) {
+    print('username : $username passsword $password');
     final size = MediaQuery.of(context).size;
-        Brightness brightness = MediaQuery.of(context).platformBrightness;
+    Brightness brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
+    final emailController = TextEditingController();
+    ValueNotifier<String> gphonenumber = ValueNotifier('');
     return Scaffold(
       body: SafeArea(
           child: Column(
@@ -37,6 +42,7 @@ class ScreenEmailPhno extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CupertinotextfieldWidget(
+                controller: emailController,
                 placeholderText: 'Enter E-mail....',
                 placeholderStyle: const TextStyle(color: kgrey),
                 boxDecoration: const BoxDecoration(),
@@ -44,7 +50,7 @@ class ScreenEmailPhno extends StatelessWidget {
                 suffixWidget: h10,
                 keybodtype: TextInputType.name,
                 obscureText: false,
-                style:  TextStyle(color: isDarkMode ? kwhite : kblack),
+                style: TextStyle(color: isDarkMode ? kwhite : kblack),
                 onchanged: (value) {},
                 onsubmitted: (value) {}),
           ),
@@ -72,7 +78,7 @@ class ScreenEmailPhno extends StatelessWidget {
               decoration: const InputDecoration(
                   hintText: 'Phone Number',
                   border: OutlineInputBorder(),
-                  fillColor:kDominantTrans,
+                  fillColor: kDominantTrans,
                   filled: true),
               onSubmitted: (phoneNumber) {
                 log("PhoneNumber-----$phoneNumber");
@@ -94,8 +100,13 @@ class ScreenEmailPhno extends StatelessWidget {
               color: kDominantcolor,
               width: 2,
               onPress: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const NavigationBarScreen()));
+                if (emailController.text.contains('@gmail.com')) {
+                  assert(EmailValidator.validate(emailController.text));
+                  log('ok ${emailController.text}');
+                } else {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const NavigationBarScreen()));
+                }
               }),
           const Spacer(),
         ],

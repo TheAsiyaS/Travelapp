@@ -12,7 +12,7 @@ class CupertinotextfieldWidget extends StatelessWidget {
       required this.obscureText,
       required this.style,
       required this.onchanged,
-      required this.onsubmitted});
+      required this.onsubmitted, required this.controller});
   final String placeholderText;
   final TextStyle placeholderStyle;
   final BoxDecoration boxDecoration;
@@ -23,6 +23,7 @@ class CupertinotextfieldWidget extends StatelessWidget {
   final TextStyle style;
   final Function(String) onchanged;
   final Function(String) onsubmitted;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
@@ -36,6 +37,7 @@ class CupertinotextfieldWidget extends StatelessWidget {
       style: style,
       onChanged: onchanged,
       onSubmitted: onsubmitted,
+      controller: controller,
     );
   }
 }

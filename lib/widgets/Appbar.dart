@@ -22,6 +22,7 @@ class SimpleAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+        final hotelController = TextEditingController();
 
     return Container(
       decoration: const BoxDecoration(
@@ -51,6 +52,7 @@ class SimpleAppbar extends StatelessWidget {
                       height: 50,
                       width: size.width / 1.3,
                       child: CupertinotextfieldWidget(
+                        controller: hotelController,
                           onchanged: (value) {},
                           onsubmitted: (value) async {
                             if (id == 'HotelSearchBar') {

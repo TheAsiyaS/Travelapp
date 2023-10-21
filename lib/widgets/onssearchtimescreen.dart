@@ -16,6 +16,7 @@ class OnsearchtimeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+        final placeController = TextEditingController();
 
     return Scaffold(
       body: SafeArea(
@@ -41,6 +42,7 @@ class OnsearchtimeScreen extends StatelessWidget {
                 ConatinerwithWidget(
                     containerdecoration: const BoxDecoration(),
                     childwidget: CupertinotextfieldWidget(
+                      controller: placeController,
                         onchanged: (value) {},
                         onsubmitted: (value) {  
                           log(value);
