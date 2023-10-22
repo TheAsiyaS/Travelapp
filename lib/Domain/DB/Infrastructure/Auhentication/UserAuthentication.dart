@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:travelapp/Domain/DB/Infrastructure/StorageMethod.dart';
 import 'package:travelapp/Domain/DB/Model/UserModel.dart';
-import 'package:travelapp/common/ImageUrls.dart';
 
 String? gUid;
 
@@ -32,6 +31,7 @@ class AuthMethod {
     required String phoneNo,
     required String username,
     required String bio,
+    required Uint8List file,
   }) async {
     try {
       UserCredential credential = await _auth.createUserWithEmailAndPassword(
@@ -40,6 +40,8 @@ class AuthMethod {
       );
       gUid = credential.user!.uid;
       final docUser = _firestore.collection('user').doc(credential.user!.uid);
+      String photoUrl = await StorageMethods()
+          .uploadImageToStorage('profilePics', file, false); //send url to func
       final data = UserData(
         changeUsername: 0,
         phoneNumber: phoneNo,
@@ -55,7 +57,7 @@ class AuthMethod {
         bookedhotels: [],
         acLocation: '',
         name: '',
-        photoUrl: noimg,
+        photoUrl: photoUrl,
       );
       final decodedJsonObj = data.toJson();
       await docUser.set(decodedJsonObj);
@@ -63,24 +65,7 @@ class AuthMethod {
       log('=====!!!!!=$e=!!!!!!======');
     }
   }
-Future<String> addProfilePic({required Uint8List file, uid}) async {
-    try {
-      if (file.isNotEmpty) {
-        final docUser =
-            FirebaseFirestore.instance.collection('user').doc(gUid ?? uid);
-        log('Uid----$gUid');
-        String photoUrl = await StorageMethods()
-            .uploadImageToStorage('profilePics', file, false);
-        docUser.update({'photoUrl': photoUrl});
-        log('Photo Url -----$photoUrl');
-        return photoUrl;
-      }
-    } catch (e) {
-      log(e.toString());
-      return e.toString();
-    }
-    return '';
-  }
+
   Future<bool> loginUser(
       {required String email, required String password}) async {
     if (email.isEmpty || password.isEmpty) {
@@ -93,7 +78,7 @@ Future<String> addProfilePic({required Uint8List file, uid}) async {
         log(e.toString());
         return false;
       }
-      log('user can login success');
+      log('user  login success');
       return true;
     }
   }

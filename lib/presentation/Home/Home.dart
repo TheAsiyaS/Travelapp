@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/common/Icons.dart';
+import 'package:travelapp/common/ImageUrls.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
-import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/Home/HotelSaved.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';

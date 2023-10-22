@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class PlaceSavedModel {
+class HotelSavedModel {
   final String name;
   final String decription;
   final int rating;
@@ -13,7 +13,7 @@ class PlaceSavedModel {
   final String userid;
   final String userimageurl;
 
-  PlaceSavedModel(
+  HotelSavedModel(
       {required this.name,
       required this.decription,
       required this.rating,
@@ -38,9 +38,9 @@ class PlaceSavedModel {
         'userid': userid,
         'userimageurl': userimageurl,
       };
-  static PlaceSavedModel fromSnap(DocumentSnapshot snap) {
+  static HotelSavedModel fromSnap(DocumentSnapshot snap) {
     var snapshot = snap.data() as Map<String, dynamic>;
-    return PlaceSavedModel(
+    return HotelSavedModel(
       name: snapshot['name'],
       username: snapshot['username'],
       decription: snapshot['decription'],
