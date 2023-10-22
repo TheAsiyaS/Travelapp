@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
+import 'package:travelapp/Domain/DB/Infrastructure/StorageMethod.dart';
 import 'package:travelapp/Domain/DB/Model/UserModel.dart';
 import 'package:travelapp/common/ImageUrls.dart';
 
