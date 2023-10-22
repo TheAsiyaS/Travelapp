@@ -42,7 +42,7 @@ class ScreenEmailPhno extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CupertinotextfieldWidget(
-                controller: emailController,
+                controller:emailController ,
                 placeholderText: 'Enter E-mail....',
                 placeholderStyle: const TextStyle(color: kgrey),
                 boxDecoration: const BoxDecoration(),
@@ -51,8 +51,10 @@ class ScreenEmailPhno extends StatelessWidget {
                 keybodtype: TextInputType.name,
                 obscureText: false,
                 style: TextStyle(color: isDarkMode ? kwhite : kblack),
-                onchanged: (value) {},
-                onsubmitted: (value) {}),
+                onchanged: (value) {
+                  emailController.text = value;
+                },
+                onsubmitted: (value) { emailController.text = value;}),
           ),
           const Divider(
             color: kdominatgrey,
@@ -99,11 +101,19 @@ class ScreenEmailPhno extends StatelessWidget {
               text: 'Complete Sign-Up',
               color: kDominantcolor,
               width: 2,
-              onPress: () {
-                if (emailController.text.contains('@gmail.com')) {
-                  assert(EmailValidator.validate(emailController.text));
-                  log('ok ${emailController.text}');
+              onPress: () async {
+                if (!emailController.text.contains('@gmail.com')) {
+                  log('incorrect email');
+                } else if (EmailValidator.validate(emailController.text) ==
+                    false) {
+                  log('inavlid email');
                 } else {
+                  // await AuthMethod().signUp(
+                  //     email: emailController.text,
+                  //     password: password,
+                  //     phoneNo: gphonenumber.value,
+                  //     username: username,
+                  //     bio: '');
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const NavigationBarScreen()));
                 }

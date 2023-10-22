@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:travelapp/Domain/DB/UserModel.dart';
+import 'package:travelapp/Domain/DB/Model/UserModel.dart';
 import 'package:travelapp/common/ImageUrls.dart';
 
 String? gUid;
@@ -61,7 +61,24 @@ class AuthMethod {
       log('=====!!!!!=$e=!!!!!!======');
     }
   }
-
+Future<String> addProfilePic({required Uint8List file, uid}) async {
+    try {
+      if (file.isNotEmpty) {
+        final docUser =
+            FirebaseFirestore.instance.collection('user').doc(gUid ?? uid);
+        log('Uid----$gUid');
+        String photoUrl = await StorageMethods()
+            .uploadImageToStorage('profilePics', file, false);
+        docUser.update({'photoUrl': photoUrl});
+        log('Photo Url -----$photoUrl');
+        return photoUrl;
+      }
+    } catch (e) {
+      log(e.toString());
+      return e.toString();
+    }
+    return '';
+  }
   Future<bool> loginUser(
       {required String email, required String password}) async {
     if (email.isEmpty || password.isEmpty) {

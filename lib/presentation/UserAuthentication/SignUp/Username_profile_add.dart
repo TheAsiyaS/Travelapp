@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/common/Icons.dart';
@@ -35,16 +36,17 @@ class UsernameProfileAdd extends StatelessWidget {
           ),
           h30,
           Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: CupertinoTextField(
-                placeholder: 'Username...',
-                decoration: const BoxDecoration(),
-                placeholderStyle: const TextStyle(color: kgrey),
-                style: TextStyle(color: isDarkMode ? kwhite : kblack),
-                onChanged: (value) {
-                  usernameController.text = value;
-                },
-              )),
+            padding: const EdgeInsets.only(left: 15),
+            child: CupertinoTextField(
+              placeholder: 'Username...',
+              decoration: const BoxDecoration(),
+              placeholderStyle: const TextStyle(color: kgrey),
+              style: TextStyle(color: isDarkMode ? kwhite : kblack),
+                controller: usernameController, // Add this line
+             // onChanged: (value) => usernameController.text = value,
+             
+            ),
+          ),
           const Divider(
             color: kdominatgrey,
             endIndent: 20,
@@ -78,6 +80,7 @@ class UsernameProfileAdd extends StatelessWidget {
               text: 'Next',
               color: kDominantcolor,
               onPress: () {
+                log('username ${usernameController.text}');
                 if (usernameController.text.isEmpty) {
                   errorText.value =
                       'Username is empty .\nIf you want to create a account you must have a username ';

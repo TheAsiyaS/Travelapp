@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
 import 'package:travelapp/Application/Hotel1_Bloc/hotel1_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
-import 'package:travelapp/Domain/DB/UserModel.dart';
+import 'package:travelapp/Domain/DB/Model/UserModel.dart';
 import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
@@ -16,12 +17,17 @@ import 'package:firebase_core/firebase_core.dart';
 late UserData currentuserdata;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-      options: const FirebaseOptions(
-          apiKey: 'AIzaSyAlLArPu-3rEUhDNKtblvWOiBflDet0aLg',
-          appId: '1:1001590474082:web:389a0ab48b539fcb9e183b',
-          messagingSenderId: 'G-NMPB0KB0J4',
-          projectId: 'travel-app-b239a'));
+  if (kIsWeb == true) {
+    await Firebase.initializeApp(
+        options: const FirebaseOptions(
+            apiKey: 'AIzaSyAlLArPu-3rEUhDNKtblvWOiBflDet0aLg',
+            appId: '1:1001590474082:web:389a0ab48b539fcb9e183b',
+            messagingSenderId: 'G-NMPB0KB0J4',
+            projectId: 'travel-app-b239a'));
+  } else {
+    await Firebase.initializeApp();
+  }
+
   await configInjection();
   runApp(const MyApp());
   //currentuserdata = await AuthMethod().getUserDetail();
