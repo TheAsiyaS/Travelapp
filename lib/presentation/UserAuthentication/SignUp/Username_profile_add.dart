@@ -42,9 +42,8 @@ class UsernameProfileAdd extends StatelessWidget {
               decoration: const BoxDecoration(),
               placeholderStyle: const TextStyle(color: kgrey),
               style: TextStyle(color: isDarkMode ? kwhite : kblack),
-                controller: usernameController, // Add this line
-             // onChanged: (value) => usernameController.text = value,
-             
+              controller: usernameController,
+              // onSubmitted: (value) => usernameController.text = value,
             ),
           ),
           const Divider(
