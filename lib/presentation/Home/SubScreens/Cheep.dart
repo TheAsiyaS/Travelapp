@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/common/Icons.dart';
@@ -8,6 +7,7 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
+import 'package:travelapp/widgets/RatingBar.dart';
 import 'package:travelapp/widgets/SearchItemDetailed.dart';
 import 'package:travelapp/widgets/TextButton.dart';
 
@@ -134,25 +134,7 @@ class Cheep extends StatelessWidget {
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20),
                                     ),
-                                    RatingBar.builder(
-                                      initialRating: data.comments!.toDouble(),
-                                      minRating: 1,
-                                      direction: Axis.horizontal,
-                                      allowHalfRating: true,
-                                      itemCount: 5,
-                                      itemPadding: const EdgeInsets.symmetric(
-                                          horizontal: 1),
-                                      itemBuilder: (context, _) =>
-                                          Transform.scale(
-                                        scale:
-                                            .5, // Adjust this value to reduce the size
-                                        child: const Icon(
-                                          Icons.star,
-                                          color: kamber,
-                                        ),
-                                      ),
-                                      onRatingUpdate: (double value) {},
-                                    )
+                                   const RatingBar(),
                                   ],
                                 )
                               ],

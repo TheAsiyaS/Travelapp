@@ -4,6 +4,7 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
+import 'package:travelapp/widgets/RatingBar.dart';
 
 class SearchItemDetailed extends StatelessWidget {
   const SearchItemDetailed(
@@ -96,7 +97,7 @@ class SearchItemDetailed extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             h10,
-            ratingbar,
+          const RatingBar(),
             h20,
             const Text(
               'Review',

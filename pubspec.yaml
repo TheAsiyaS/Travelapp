@@ -57,7 +57,7 @@ dependencies:
   email_validator: ^2.1.17  
   firebase_core_web: ^2.8.1  
   dartz: ^0.10.1
-  flutter_rating_bar: ^4.0.1
+
 dev_dependencies:
   freezed: 
   injectable_generator: ^1.5.3

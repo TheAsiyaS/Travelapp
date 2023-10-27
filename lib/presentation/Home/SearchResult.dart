@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
@@ -9,6 +8,7 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/Appbar.dart';
 import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
+import 'package:travelapp/widgets/RatingBar.dart';
 
 import '../../widgets/SearchItemDetailed.dart';
 
@@ -149,19 +149,7 @@ class SearchResult extends StatelessWidget {
                                             ],
                                           ),
                                         ),
-                                        RatingBar(
-                                            direction: Axis.vertical,
-                                            itemSize: 15,
-                                            initialRating:
-                                                data.comments! / 2.toDouble(),
-                                            ratingWidget: RatingWidget(
-                                                full: const Icon(
-                                                  kstarsfilled,
-                                                  color: kamber,
-                                                ),
-                                                half: const Icon(kstars),
-                                                empty: const Icon(kstars)),
-                                            onRatingUpdate: (value) {})
+                                           const RatingBar(),
                                       ],
                                     ),
                                   ],

@@ -12,6 +12,7 @@ import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
+import 'package:travelapp/widgets/RatingBar.dart';
 
 class HotelDetailedWidget extends StatelessWidget {
   const HotelDetailedWidget(
@@ -106,7 +107,7 @@ class HotelDetailedWidget extends StatelessWidget {
                         price,
                         style: textstyle,
                       ),
-                      ratingbar
+                         const RatingBar(),
                     ],
                   ),
                   const Text(

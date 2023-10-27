@@ -8,6 +8,7 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
+import 'package:travelapp/widgets/RatingBar.dart';
 import 'package:travelapp/widgets/SearchItemDetailed.dart';
 
 class Popular extends StatelessWidget {
@@ -103,7 +104,7 @@ class Popular extends StatelessWidget {
                                       ),
                                     ],
                                   ),
-                                  ratingbar,
+                                    const RatingBar(),
                                   h20,
                                 ],
                               ),

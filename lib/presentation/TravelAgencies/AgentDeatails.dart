@@ -5,6 +5,7 @@ import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
+import 'package:travelapp/widgets/RatingBar.dart';
 
 class AgentDetails extends StatelessWidget {
   const AgentDetails({super.key});
@@ -31,7 +32,7 @@ class AgentDetails extends StatelessWidget {
               childwidget: h10,
               height: size.height / 2,
               width: size.width),
-          ratingbar,
+             const RatingBar(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

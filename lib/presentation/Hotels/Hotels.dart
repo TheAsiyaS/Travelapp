@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/Core/Hotelsname.dart';
@@ -12,6 +11,7 @@ import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 import 'package:travelapp/widgets/HotelDetailWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
+import 'package:travelapp/widgets/RatingBar.dart';
 import 'package:travelapp/widgets/TextButton.dart';
 
 import '../../Application/Hotel1_Bloc/hotel1_bloc.dart';
@@ -161,29 +161,7 @@ class Hotels extends StatelessWidget {
                                             NetworkImage(data.urls!.regular!),
                                         fit: BoxFit.cover)),
                               ),
-                              SizedBox(
-                                height: 30,
-                                width: size.width / 1.5,
-                                child: RatingBar.builder(
-                                  itemSize: 40,
-                                  initialRating: data.likes! / 5.toDouble(),
-                                  minRating: 1,
-                                  direction: Axis.horizontal,
-                                  allowHalfRating: true,
-                                  itemCount: 5,
-                                  itemPadding:
-                                      const EdgeInsets.symmetric(horizontal: 1),
-                                  itemBuilder: (context, _) => Transform.scale(
-                                    scale:
-                                        .4, // Adjust this value to reduce the size
-                                    child: const Icon(
-                                      Icons.star,
-                                      color: kamber,
-                                    ),
-                                  ),
-                                  onRatingUpdate: (double value) {},
-                                ),
-                              ),
+                                  const RatingBar(),
                               ListTile(
                                 leading: IconButtonWidget(
                                     onPressFunc: () {},
@@ -313,33 +291,7 @@ class Hotels extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        SizedBox(
-                                          height: 30,
-                                          width: size.width / 1.5,
-                                          child: RatingBar.builder(
-                                            itemSize: 30,
-                                            initialRating:
-                                                data[index].comments! /
-                                                    5.toDouble(),
-                                            minRating: 1,
-                                            direction: Axis.horizontal,
-                                            allowHalfRating: true,
-                                            itemCount: 5,
-                                            itemPadding:
-                                                const EdgeInsets.symmetric(
-                                                    horizontal: 1),
-                                            itemBuilder: (context, _) =>
-                                                Transform.scale(
-                                              scale:
-                                                  .4, // Adjust this value to reduce the size
-                                              child: const Icon(
-                                                Icons.star,
-                                                color: kamber,
-                                              ),
-                                            ),
-                                            onRatingUpdate: (double value) {},
-                                          ),
-                                        ),
+                                           const RatingBar(),
                                         Text(
                                           '\$${data[index].likes}5',
                                           style: const TextStyle(
