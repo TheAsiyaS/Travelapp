@@ -71,7 +71,7 @@ class Hotels extends StatelessWidget {
                                   title: khotelname[index],
                                   subtitle: 'Londan',
                                   price: '\$${data.likes}0',
-                                  rating: '4',
+                                  rating: data.likes!,
                                   about: data.description ?? '')));
                         },
                         child: Column(
@@ -145,7 +145,7 @@ class Hotels extends StatelessWidget {
                                     title: khotelname[index],
                                     subtitle: 'Londan',
                                     price: '\$${data.likes}0',
-                                    rating: '4',
+                                    rating: 4,
                                     about: data.description ?? '')));
                           },
                           child: Column(
@@ -161,7 +161,11 @@ class Hotels extends StatelessWidget {
                                             NetworkImage(data.urls!.regular!),
                                         fit: BoxFit.cover)),
                               ),
-                                  const RatingBar(),
+                              RatingBar(
+                                  intialvalue: 3,
+                                  height: size.height / 15,
+                                  width: size.width / 1.5,
+                                  scrolldirection: Axis.horizontal),
                               ListTile(
                                 leading: IconButtonWidget(
                                     onPressFunc: () {},
@@ -229,8 +233,7 @@ class Hotels extends StatelessWidget {
                                   title: hotelsname3[index],
                                   subtitle: location[index],
                                   price: '\$${data[index].likes}0',
-                                  rating:
-                                      "${data[index].views! / 7.toDouble()}",
+                                  rating: data[index].comments!,
                                   about: hotelsname3[index])));
                         },
                         child: Container(
@@ -291,7 +294,7 @@ class Hotels extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                           const RatingBar(),
+                                        //   const RatingBar(),
                                         Text(
                                           '\$${data[index].likes}5',
                                           style: const TextStyle(

@@ -97,7 +97,7 @@ class SearchItemDetailed extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             h10,
-          const RatingBar(),
+        //  const RatingBar(),
             h20,
             const Text(
               'Review',

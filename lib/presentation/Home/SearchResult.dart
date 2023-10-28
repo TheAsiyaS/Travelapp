@@ -107,7 +107,7 @@ class SearchResult extends StatelessWidget {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 20),
+                                               EdgeInsets.only(left:size.width/5),
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -149,7 +149,11 @@ class SearchResult extends StatelessWidget {
                                             ],
                                           ),
                                         ),
-                                           const RatingBar(),
+                                        RatingBar(
+                                      intialvalue: data.comments!,
+                                      height: size.height /6,
+                                      width: size.width / 5, 
+                                      scrolldirection: Axis.vertical),
                                       ],
                                     ),
                                   ],

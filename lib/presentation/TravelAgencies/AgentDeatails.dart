@@ -32,7 +32,11 @@ class AgentDetails extends StatelessWidget {
               childwidget: h10,
               height: size.height / 2,
               width: size.width),
-             const RatingBar(),
+          RatingBar(
+                                      intialvalue:4,
+                                      height: size.height / 15,
+                                      width: size.width / 1.5, 
+                                      scrolldirection: Axis.horizontal),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

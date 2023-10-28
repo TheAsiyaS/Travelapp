@@ -27,7 +27,7 @@ class HotelDetailedWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final String price;
-  final String rating;
+  final int rating;
   final String about;
   @override
   Widget build(BuildContext context) {
@@ -107,7 +107,11 @@ class HotelDetailedWidget extends StatelessWidget {
                         price,
                         style: textstyle,
                       ),
-                         const RatingBar(),
+                        RatingBar(
+                                      intialvalue: rating,
+                                      height: size.height / 15,
+                                      width: size.width / 1.5, 
+                                      scrolldirection: Axis.horizontal),
                     ],
                   ),
                   const Text(

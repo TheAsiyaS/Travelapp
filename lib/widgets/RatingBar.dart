@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 class RatingBar extends StatelessWidget {
-  const RatingBar({super.key});
-
+  const RatingBar({super.key, required this.intialvalue, required this.height, required this.width, required this.scrolldirection});
+  final int intialvalue;
+  final double height;
+  final double width;
+  final Axis  scrolldirection;
   @override
   Widget build(BuildContext context) {
-    final ValueNotifier<int> rating = ValueNotifier<int>(0);
+    final ValueNotifier<int> rating = ValueNotifier<int>(intialvalue);
 
     return SizedBox(
-      height: 30,
-      width: 225,
+      height: height,
+      width: width,
       child: Center(
         child: ListView.separated(
-          scrollDirection: Axis.horizontal,
+          scrollDirection:scrolldirection,
           itemBuilder: (context, index) {
             return IconButton(
               onPressed: () {

@@ -134,7 +134,11 @@ class Cheep extends StatelessWidget {
                                           fontWeight: FontWeight.bold,
                                           fontSize: 20),
                                     ),
-                                   const RatingBar(),
+                                  RatingBar(
+                                      intialvalue: data.comments!,
+                                      height: size.height / 15,
+                                      width: size.width / 1.5, 
+                                      scrolldirection: Axis.horizontal),
                                   ],
                                 )
                               ],

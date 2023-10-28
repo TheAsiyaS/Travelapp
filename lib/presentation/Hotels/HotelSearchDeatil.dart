@@ -69,7 +69,7 @@ class HotelSearchDetailed extends StatelessWidget {
                             title: 'title',
                             subtitle: 'subtitle',
                             price: 'price',
-                            rating: 'rating',
+                            rating: 3,
                             about: 'about',
                           ),
                         ));
