@@ -69,7 +69,7 @@ class Historical extends StatelessWidget {
                                 price: "${data.imageHeight}.9",
                                 title: countryNames[index % places.length],
                                 subtitle: 'subtitle',
-                                rating: 'rating',
+                                rating: 3,
                                 reviewNo: 'reviewNo',
                                 obj: 'obj')));
                       },

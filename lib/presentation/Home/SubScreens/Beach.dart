@@ -60,7 +60,7 @@ class Beach extends StatelessWidget {
                                   title: places[index % places.length],
                                   subtitle:
                                       ' With its powdery white sands and crystal-clear turquoise waters, Grace Bay is a tropical paradise perfect for sunbathing and water sports.',
-                                  rating: '${data.comments}',
+                                  rating: data.comments!,
                                   reviewNo: '${data.comments}',
                                   obj: 'obj')));
                         },

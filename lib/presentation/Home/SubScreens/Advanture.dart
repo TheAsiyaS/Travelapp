@@ -79,7 +79,7 @@ class Adavanture extends StatelessWidget {
                                   title: places[index % places.length],
                                   subtitle:
                                       ' rope climbing exercises, obstacle courses, bouldering, rock climbing, target oriented activities, and zip-lines. They are usually intended for recreation.',
-                                  rating: "${data.comments}",
+                                  rating:  data.comments!,
                                   reviewNo: data.comments!.toString(),
                                   obj: 'obj')));
                         },

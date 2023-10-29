@@ -24,7 +24,7 @@ class SearchItemDetailed extends StatelessWidget {
   final String price;
   final String title;
   final String subtitle;
-  final String rating;
+  final int rating;
   final String reviewNo;
   final String obj;
   @override
@@ -97,7 +97,11 @@ class SearchItemDetailed extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             h10,
-        //  const RatingBar(),
+       RatingBar(
+                                      intialvalue: rating,
+                                      height: size.height / 15,
+                                      width: size.width / 1.5, 
+                                      scrolldirection: Axis.horizontal),
             h20,
             const Text(
               'Review',

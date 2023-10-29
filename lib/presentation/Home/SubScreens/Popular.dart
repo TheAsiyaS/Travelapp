@@ -71,7 +71,7 @@ class Popular extends StatelessWidget {
                                   price: '${data.imageHeight! / 5}',
                                   title: places[index % places.length],
                                   subtitle: 'paris',
-                                  rating: '${data.comments})}',
+                                  rating: data.comments!,
                                   reviewNo: '${data.comments}',
                                   obj: 'obj')));
                         },
@@ -107,7 +107,7 @@ class Popular extends StatelessWidget {
                                   RatingBar(
                                       intialvalue: data.comments!,
                                       height: size.height / 15,
-                                      width: size.width / 1.5, 
+                                      width: size.width / 1.5,
                                       scrolldirection: Axis.horizontal),
                                   h20,
                                 ],

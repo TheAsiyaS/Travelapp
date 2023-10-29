@@ -77,7 +77,7 @@ class Cheep extends StatelessWidget {
                               price: '${data.imageHeight! / 5}',
                               title: places[index % places.length],
                               subtitle: '',
-                              rating: '${data.comments! / 4.toDouble()}',
+                              rating: data.comments!,
                               reviewNo: '${data.comments!}',
                               obj: '')));
                     },
@@ -207,7 +207,7 @@ class Cheep extends StatelessWidget {
                                 price: '${data.imageHeight! / 5}',
                                 title: places[index % places.length],
                                 subtitle: '',
-                                rating: '${data.comments! / 4.toDouble()}',
+                                rating: data.comments!,
                                 reviewNo: '${data.comments!}',
                                 obj: '')));
                       },

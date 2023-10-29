@@ -36,7 +36,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.                  
   google_fonts: ^4.0.4
   flutter_staggered_grid_view: ^0.7.0
-  font_awesome_flutter: ^10.6.0
   flutter_custom_clippers: ^2.1.0
   flutter_phone_direct_caller: ^2.1.1
   cupertino_icons: ^1.0.6
