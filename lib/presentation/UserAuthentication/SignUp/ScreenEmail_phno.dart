@@ -31,7 +31,13 @@ class EmailPhoneModel extends ChangeNotifier {
           username: username,
           bio: '',
           file: imageFile);
-     
+      if (result == 'ok') {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => const NavigationBarScreen(),
+        ));
+      } else {
+        log('some error occured');
+      }
       // Navigate to the next screen after successful signup
     }
   }

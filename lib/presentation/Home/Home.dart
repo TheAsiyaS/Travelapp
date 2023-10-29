@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/common/Icons.dart';
-import 'package:travelapp/common/ImageUrls.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/Home/HotelSaved.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Beach.dart';
@@ -32,9 +32,9 @@ class Home extends StatelessWidget {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const Profile()));
             },
-            child: const CircleAvatar(
+            child:  CircleAvatar(
               backgroundColor: kDominantcolor,
-              backgroundImage: NetworkImage(userprofileImage),
+              backgroundImage: NetworkImage(currentuserdata.photoUrl),
               radius: 25,
             ),
           ),

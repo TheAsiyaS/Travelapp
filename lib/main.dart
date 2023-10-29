@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
 import 'package:travelapp/Application/Hotel1_Bloc/hotel1_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
+import 'package:travelapp/Domain/DB/Infrastructure/Auhentication/UserAuthentication.dart';
 import 'package:travelapp/Domain/DB/Model/UserModel.dart';
 import 'package:travelapp/Domain/DependencyInjection/Injection.dart';
 import 'package:travelapp/common/colours.dart';
@@ -30,7 +31,7 @@ Future<void> main() async {
 
   await configInjection();
   runApp(const MyApp());
-  //currentuserdata = await AuthMethod().getUserDetail();
+  currentuserdata = await AuthMethod().getUserDetail();
 }
 
 //flutter packages pub run build_runner watch --use-polling-watcher --delete-conflicting-outputs

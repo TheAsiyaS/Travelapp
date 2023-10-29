@@ -29,7 +29,7 @@ class AuthMethod {
   Future<String> signUp({
     required String email,
     required String password,
-    required String phoneNo,
+    required String phoneNo, 
     required String username,
     required String bio,
     required Uint8List? file,
@@ -72,7 +72,6 @@ class AuthMethod {
     } catch (e) {
       log('=====!!!!!=$e=!!!!!!======');
       return e.toString();
-      
     }
   }
 
