@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
@@ -10,14 +11,30 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignUp/ScreenPassword.dart';
 import 'package:travelapp/widgets/NavButtonWidget.dart';
 import 'package:provider/provider.dart';
+import 'package:image_picker/image_picker.dart';
 
 class UsernameModel extends ChangeNotifier {
   final TextEditingController usernameController = TextEditingController();
   final ValueNotifier<String> errorText = ValueNotifier('');
   final ValueNotifier<String> username = ValueNotifier('');
-
+  Uint8List? imageBytes;
+  bool? isProfile = false;
   void setUsername(String value) {
     username.value = value;
+  }
+
+  Future<void> selectImage() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    log('image file $image');
+
+    if (image != null) {
+      imageBytes = await image.readAsBytes();
+      isProfile = true;
+    } else {
+      isProfile = false;
+    }
+    notifyListeners();
   }
 }
 
@@ -83,16 +100,23 @@ class UsernameProfileAdd extends StatelessWidget {
                   ),
                   h30,
                   GestureDetector(
-                    onTap: (){},
-                    child: const CircleAvatar(
+                    onTap: () {
+                      model.selectImage();
+                    },
+                    child: CircleAvatar(
                       radius: 50,
                       backgroundColor: kDominantcolor,
-                      child: Align(
-                          alignment: Alignment.bottomRight,
-                          child: Icon(
-                            kaddRound,
-                            size: 30,
-                          )),
+                      child: model.imageBytes != null
+                          ? CircleAvatar(
+                              backgroundImage: MemoryImage(model.imageBytes!),
+                              radius: 50,
+                            )
+                          : const Align(
+                              alignment: Alignment.bottomRight,
+                              child: Icon(
+                                kaddRound,
+                                size: 30,
+                              )),
                     ),
                   ),
                   const Spacer(),
@@ -113,7 +137,7 @@ class UsernameProfileAdd extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ScreenPassword(
                                     username: model.username.value,
-                                    imageFile: Uint8List(12),
+                                    imageFile: model.imageBytes,
                                   )));
                         }
                       }),

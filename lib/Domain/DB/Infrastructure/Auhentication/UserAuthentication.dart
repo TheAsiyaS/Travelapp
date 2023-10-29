@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:travelapp/Domain/DB/Infrastructure/StorageMethod.dart';
 import 'package:travelapp/Domain/DB/Model/UserModel.dart';
+import 'package:travelapp/common/ImageUrls.dart';
 
 String? gUid;
 
@@ -25,13 +26,13 @@ class AuthMethod {
     }
   }
 
-  Future<void> signUp({
+  Future<String> signUp({
     required String email,
     required String password,
     required String phoneNo,
     required String username,
     required String bio,
-    required Uint8List file,
+    required Uint8List? file,
   }) async {
     try {
       UserCredential credential = await _auth.createUserWithEmailAndPassword(
@@ -40,8 +41,14 @@ class AuthMethod {
       );
       gUid = credential.user!.uid;
       final docUser = _firestore.collection('user').doc(credential.user!.uid);
-      String photoUrl = await StorageMethods()
-          .uploadImageToStorage('profilePics', file, false); //send url to func
+      String? photoUrl;
+      if (file != null) {
+        photoUrl = await StorageMethods().uploadImageToStorage(
+            'profilePics', file, false); //send url to func
+      } else {
+        photoUrl = noimg;
+      }
+
       final data = UserData(
         changeUsername: 0,
         phoneNumber: phoneNo,
@@ -61,8 +68,11 @@ class AuthMethod {
       );
       final decodedJsonObj = data.toJson();
       await docUser.set(decodedJsonObj);
+      return 'ok';
     } catch (e) {
       log('=====!!!!!=$e=!!!!!!======');
+      return e.toString();
+      
     }
   }
 

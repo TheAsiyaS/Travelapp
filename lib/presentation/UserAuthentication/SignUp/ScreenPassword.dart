@@ -15,7 +15,7 @@ class PasswordModel extends ChangeNotifier {
   final ValueNotifier<String> errorText = ValueNotifier('');
 
   void validatePasswordAndNavigate(
-      BuildContext context, String username, Uint8List imagefile) {
+      BuildContext context, String username, Uint8List? imagefile) {
     if (repasswordController.text.length < 6) {
       errorText.value = 'Password must contain at least 6 characters';
     } else {
@@ -44,7 +44,7 @@ class PasswordModel extends ChangeNotifier {
 
 class ScreenPassword extends StatelessWidget {
   final String username;
-  final Uint8List imageFile;
+  final Uint8List? imageFile;
   const ScreenPassword({required this.username, super.key, required this.imageFile});
 
   @override

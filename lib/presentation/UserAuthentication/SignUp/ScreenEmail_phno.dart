@@ -18,24 +18,21 @@ class EmailPhoneModel extends ChangeNotifier {
   final ValueNotifier<String> gPhoneNumber = ValueNotifier('');
 
   void validateAndNavigate(BuildContext context, String username,
-      String password, Uint8List imageFile) async {
+      String password, Uint8List? imageFile) async {
     if (!emailController.text.contains('@gmail.com')) {
       log('Incorrect email');
     } else if (!EmailValidator.validate(emailController.text)) {
       log('Invalid email');
     } else {
-      await AuthMethod().signUp(
+      final result = await AuthMethod().signUp(
           email: emailController.text,
           password: password,
           phoneNo: gPhoneNumber.value,
           username: username,
           bio: '',
           file: imageFile);
-
+     
       // Navigate to the next screen after successful signup
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const NavigationBarScreen(),
-      ));
     }
   }
 }
@@ -43,9 +40,12 @@ class EmailPhoneModel extends ChangeNotifier {
 class ScreenEmailPhno extends StatelessWidget {
   final String username;
   final String password;
-  final Uint8List imageFile;
+  final Uint8List? imageFile;
   const ScreenEmailPhno(
-      {super.key, required this.username, required this.password,required this.imageFile});
+      {super.key,
+      required this.username,
+      required this.password,
+      required this.imageFile});
 
   @override
   Widget build(BuildContext context) {
@@ -135,7 +135,8 @@ class ScreenEmailPhno extends StatelessWidget {
                     color: kDominantcolor, // Change to your preferred color
                     width: 2,
                     onPress: () {
-                      model.validateAndNavigate(context, username, password,imageFile);
+                      model.validateAndNavigate(
+                          context, username, password, imageFile);
                     },
                   ),
                   const Spacer(),
