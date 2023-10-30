@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
+import 'package:travelapp/Domain/DB/Infrastructure/FirestoreMethod.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/main.dart';
 import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
@@ -34,6 +36,7 @@ class Popular extends StatelessWidget {
       'Compiègne',
       'Chantilly',
     ];
+    final ValueNotifier<bool> islike = ValueNotifier(false);
     return Scaffold(
       body: Column(
         children: [
@@ -53,7 +56,7 @@ class Popular extends StatelessWidget {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       final data = state.popular[index];
-                      final List<String> imagesUrl = [
+                      final List<String> subimagesUrl = [
                         state.popular[0].largeImageUrl!,
                         state.popular[1].largeImageUrl!,
                         state.popular[2].largeImageUrl!,
@@ -61,13 +64,13 @@ class Popular extends StatelessWidget {
                         state.popular[4].largeImageUrl!,
                         state.popular[5].largeImageUrl!,
                       ];
-                      imagesUrl.shuffle();
+                      subimagesUrl.shuffle();
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => SearchItemDetailed(
                                   imageurl: data.largeImageUrl!,
-                                  suburls: imagesUrl,
+                                  suburls: subimagesUrl,
                                   price: '${data.imageHeight! / 5}',
                                   title: places[index % places.length],
                                   subtitle: 'paris',
@@ -115,17 +118,52 @@ class Popular extends StatelessWidget {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  ConatinerwithWidget(
-                                      containerdecoration: BoxDecoration(
-                                          color: klightwhite,
-                                          borderRadius:
-                                              BorderRadius.circular(50)),
-                                      childwidget: const Icon(
-                                        kfavorite,
-                                        color: kDominantcolor,
-                                      ),
-                                      height: 50,
-                                      width: 50),
+                                  ValueListenableBuilder(
+                                      valueListenable: islike,
+                                      builder: (context, value, _) {
+                                        return GestureDetector(
+                                          onTap: () async {
+                                            islike.value = !islike.value;
+                                            if (islike.value == true) {
+                                              //add function
+                                              await FirestoreMethods().placesaved(
+                                                  name: places[
+                                                      index % places.length],
+                                                  decription:
+                                                      'Popular tourists place in the world . ${places[index]}\'s top place . good air condition & safe also.',
+                                                  rating: data.comments!,
+                                                  imageurl: data.largeImageUrl!,
+                                                  subimageurl: subimagesUrl,
+                                                  price:
+                                                      '${data.imageHeight! / 5}',
+                                                  reviewno: '${data.comments}',
+                                                  username:
+                                                      currentuserdata.username,
+                                                  userid: currentuserdata.uid!,
+                                                  userimageurl:
+                                                      currentuserdata.photoUrl);
+                                            } else {
+                                              //delete function
+                                            }
+                                          },
+                                          child: ConatinerwithWidget(
+                                              containerdecoration:
+                                                  BoxDecoration(
+                                                      color: klightwhite,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              50)),
+                                              childwidget: islike.value
+                                                  ? const Icon(
+                                                      kfavorite,
+                                                      color: kDominantcolor,
+                                                    )
+                                                  : const Icon(
+                                                      kfavoriteOutline),
+                                              height: 50,
+                                              width: 50),
+                                        );
+                                      }),
                                   Padding(
                                     padding: const EdgeInsets.all(20),
                                     child: SizedBox(
@@ -143,7 +181,8 @@ class Popular extends StatelessWidget {
                                                             10),
                                                     image: DecorationImage(
                                                         image: NetworkImage(
-                                                            imagesUrl[index]),
+                                                            subimagesUrl[
+                                                                index]),
                                                         fit: BoxFit.fill)),
                                                 childwidget: const Column(
                                                   children: [],

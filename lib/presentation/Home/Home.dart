@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
             },
             child:  CircleAvatar(
               backgroundColor: kDominantcolor,
-              backgroundImage: NetworkImage(currentuserdata.photoUrl),
+          backgroundImage: NetworkImage(currentuserdata.photoUrl),
               radius: 25,
             ),
           ),
