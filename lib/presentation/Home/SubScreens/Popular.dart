@@ -65,7 +65,7 @@ class Popular extends StatelessWidget {
                         state.popular[2].largeImageUrl!,
                         state.popular[3].largeImageUrl!,
                         state.popular[4].largeImageUrl!,
-                        state.popular[5].largeImageUrl!,
+                        state.popular[5].largeImageUrl!,      
                       ];
                       subimagesUrl.shuffle();
                       return GestureDetector(
@@ -152,7 +152,7 @@ class Popular extends StatelessWidget {
                                                 .first; // Assumes the numeric part is always before the hyphen
                                           } else {
                                             // Return a default value or handle the missing field
-                                            return 'default_numeric_value'; // Replace with an appropriate default or error handling
+                                            return '102840'; // Replace with an appropriate default or error handling
                                           }
                                         }).toList();
 
