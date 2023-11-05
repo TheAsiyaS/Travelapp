@@ -31,6 +31,8 @@ class PasswordModel extends ChangeNotifier {
       } else {
         errorText.value = ''; // No errors, password is valid
         // Navigate to the next screen
+        // print(
+        //     'password : ${repasswordController.text}\n username : $username \n image file $imagefile');
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => ScreenEmailPhno(
                   username: username,
@@ -45,7 +47,8 @@ class PasswordModel extends ChangeNotifier {
 class ScreenPassword extends StatelessWidget {
   final String username;
   final Uint8List? imageFile;
-  const ScreenPassword({required this.username, super.key, required this.imageFile});
+  const ScreenPassword(
+      {required this.username, super.key, required this.imageFile});
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +126,8 @@ class ScreenPassword extends StatelessWidget {
                     size: size,
                     width: 3,
                     onPress: () {
-                      model.validatePasswordAndNavigate(context, username,imageFile );
+                      model.validatePasswordAndNavigate(
+                          context, username, imageFile);
                     },
                     text: 'Next',
                   ),

@@ -12,7 +12,6 @@ class PlaceSavedModel {
   final String username;
   final String userid;
   final String userimageurl;
-
   PlaceSavedModel(
       {required this.name,
       required this.decription,

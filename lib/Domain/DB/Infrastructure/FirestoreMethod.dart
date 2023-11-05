@@ -48,7 +48,7 @@ class FirestoreMethods {
     return isOk;
   }
 
-  Future<bool> placesaved(
+  Future<String> placesaved(
       {required String name,
       required String decription,
       required int rating,
@@ -58,12 +58,12 @@ class FirestoreMethods {
       required String reviewno,
       required String username,
       required String userid,
-      required String userimageurl}) async {
-    bool isOk = false;
-
+      required String userimageurl,
+      required String placeId}) async {
+    String isOk = '';
     try {
-      final String placeId = const Uuid().v1();
-      final PlaceSavedModel post = PlaceSavedModel(
+      final PlaceSavedModel place = PlaceSavedModel(
+         
           name: name,
           username: username,
           decription: decription,
@@ -76,15 +76,34 @@ class FirestoreMethods {
           userid: userid,
           userimageurl: userimageurl);
 
-      final jsonData = post.toJson();
+      final jsonData = place.toJson();
       await _firestore.collection('SavedPlaces').doc(placeId).set(jsonData);
 
-      isOk = true;
+      isOk = 'ok';
     } catch (e, stackTrace) {
-      isOk = false;
+      isOk = '';
       log('Error: $e\nStackTrace: $stackTrace');
     }
 
     return isOk;
+  }
+
+  /*---------------------------------------------------------!!!!!--------------------------------------- */
+  Future<bool> deletePlaceSaved({required String placedId}) async {
+    try {
+      await _firestore.collection('SavedPlaces').doc(placedId).delete();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Future<bool> deleteHotelSaved({required String hotelId}) async {
+    try {
+      await _firestore.collection('SavedHotels').doc(hotelId).delete();
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 }

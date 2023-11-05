@@ -11,7 +11,7 @@ class SearchItemDetailed extends StatelessWidget {
       {super.key,
       required this.imageurl,
       required this.suburls,
-      required this.price,
+      required this.price, 
       required this.title,
       required this.subtitle,
       required this.rating,
@@ -97,11 +97,11 @@ class SearchItemDetailed extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             h10,
-       RatingBar(
-                                      intialvalue: rating,
-                                      height: size.height / 15,
-                                      width: size.width / 1.5, 
-                                      scrolldirection: Axis.horizontal),
+            RatingBar(
+                intialvalue: rating,
+                height: size.height / 15,
+                width: size.width / 1.5,
+                scrolldirection: Axis.horizontal),
             h20,
             const Text(
               'Review',

@@ -30,8 +30,9 @@ Future<void> main() async {
   }
 
   await configInjection();
-  runApp(const MyApp());
  currentuserdata = await AuthMethod().getUserDetail();
+  
+  runApp(const MyApp());//flower@#
 }
 
 //flutter packages pub run build_runner watch --use-polling-watcher --delete-conflicting-outputs
