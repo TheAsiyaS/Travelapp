@@ -4,7 +4,7 @@ import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
-import 'package:travelapp/presentation/Home/HotelSaved.dart';
+import 'package:travelapp/presentation/Home/DrawerScreens/FavouritePlace.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Beach.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Historical.dart';
@@ -78,7 +78,7 @@ class Home extends StatelessWidget {
                       return ListTile(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const HotelSavedScreen()));
+                              builder: (context) => const FavouritePlaces()));
                         },
                         title: const Text('Save'),
                         subtitle: const Text('Hotels save '),
