@@ -65,7 +65,7 @@ class Popular extends StatelessWidget {
                         state.popular[2].largeImageUrl!,
                         state.popular[3].largeImageUrl!,
                         state.popular[4].largeImageUrl!,
-                        state.popular[5].largeImageUrl!,      
+                        state.popular[5].largeImageUrl!,
                       ];
                       subimagesUrl.shuffle();
                       return GestureDetector(
@@ -138,25 +138,20 @@ class Popular extends StatelessWidget {
                                       );
                                     } else {
                                       if (currentuserdata.uid != null) {
-                                        // Extract only the numeric part of the PlaceId if it exists
                                         List<String> likedPostNumericIds =
                                             snapshot.data!.docs.map((doc) {
-                                          // Check if the 'PlaceId' field exists in the document
                                           if (doc
                                               .data()
                                               .containsKey('placeId')) {
                                             String fullId =
                                                 doc.get('placeId').toString();
                                             var parts = fullId.split('-');
-                                            return parts
-                                                .first; // Assumes the numeric part is always before the hyphen
+                                            return parts.first;
                                           } else {
-                                            // Return a default value or handle the missing field
-                                            return '102840'; // Replace with an appropriate default or error handling
+                                            return '102840';
                                           }
                                         }).toList();
 
-                                        // Clear the old values and add the new numeric IDs to avoid duplication
                                         likes.value.clear();
                                         likes.value.addAll(likedPostNumericIds);
                                       }
@@ -170,7 +165,7 @@ class Popular extends StatelessWidget {
                                               builder: (context, value, _) {
                                                 print(
                                                     "like data :${likes.value}");
-                                                return GestureDetector(
+                                                 return GestureDetector(
                                                   onTap: () async {
                                                     islike.value =
                                                         !islike.value;

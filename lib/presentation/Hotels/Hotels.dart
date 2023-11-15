@@ -1,11 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/Core/Hotelsname.dart';
+import 'package:travelapp/Domain/DB/Infrastructure/FirestoreMethod.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/main.dart';
 import 'package:travelapp/widgets/Appbar.dart';
 import 'package:travelapp/widgets/CircularProgressIndicator.dart';
 import 'package:travelapp/widgets/HotelDetailWidget.dart';
@@ -30,7 +33,7 @@ class Hotels extends StatelessWidget {
       BlocProvider.of<HotelPlaceBloc>(context)
           .add(const HotelPlaceEvent.hotelDetailsGet());
     });
-
+    final ValueNotifier<List<String>> saves = ValueNotifier([]);
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(size.height / 7),
@@ -166,25 +169,122 @@ class Hotels extends StatelessWidget {
                                   height: size.height / 15,
                                   width: size.width / 1.5,
                                   scrolldirection: Axis.horizontal),
-                              ListTile(
-                                leading: IconButtonWidget(
-                                    onPressFunc: () {},
-                                    iconwidget: const Icon(
-                                      kLocation,
-                                      color: kSubDominantcolor,
-                                    )),
-                                title: Text(
-                                  '\$${data.likes}0',
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                subtitle: SizedBox(
-                                    height: 30,
-                                    child: Text(data.description ??
-                                        'Currently name are unavailable')),
-                                trailing: IconButton(
-                                    onPressed: () {}, icon: const Icon(ksave)),
-                              ),
+                              FutureBuilder(
+                                  future: FirebaseFirestore.instance
+                                      .collection("SavedHotels")
+                                      .where('userid',
+                                          isEqualTo: currentuserdata.uid)
+                                      .get(),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState ==
+                                        ConnectionState.waiting) {
+                                      return const CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        color: kdominatgrey,
+                                      );
+                                    } else if (snapshot.hasError) {
+                                      return const CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        color: kRed,
+                                      );
+                                    } else {
+                                      final String hotelId = data.id.toString();
+
+                                      if (currentuserdata.uid != null) {
+                                        List<String> likedPostNumericIds =
+                                            snapshot.data!.docs.map((doc) {
+                                          if (doc
+                                              .data()
+                                              .containsKey('hotelId')) {
+                                            String fullId =
+                                                doc.get('hotelId').toString();
+                                            var parts = fullId.split('-09');
+                                            return parts.first;
+                                          } else {
+                                            return '';
+                                          }
+                                        }).toList();
+
+                                        saves.value = List<String>.from(
+                                            likedPostNumericIds);
+                                      }
+
+                                      return ValueListenableBuilder(
+                                          valueListenable: saves,
+                                          builder: (context, value, _) {
+                                            print("like data :${saves.value}");
+                                            return ListTile(
+                                                leading: IconButtonWidget(
+                                                    onPressFunc: () {},
+                                                    iconwidget: const Icon(
+                                                      kLocation,
+                                                      color: kSubDominantcolor,
+                                                    )),
+                                                title: Text(
+                                                  '\$${data.likes}0',
+                                                  style: const TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                subtitle: SizedBox(
+                                                    height: 30,
+                                                    child: Text(data
+                                                            .description ??
+                                                        'Currently name are unavailable')),
+                                                trailing: IconButton(
+                                                    onPressed: () async {
+                                                      //add & remove data in firebase
+                                                      print(data.id);
+                                                      if (!saves.value.contains(
+                                                          data.id.toString())) {
+                                                        saves.value
+                                                            .add(hotelId);
+                                                        saves.notifyListeners();
+                                                        FirestoreMethods().hotelsaved(
+                                                            hotelId:
+                                                                "${data.id}-09${currentuserdata.uid}",
+                                                            name: khotelname[
+                                                                index],
+                                                            decription: data
+                                                                    .description ??
+                                                                "curremtly unavailable",
+                                                            rating: data.likes!,
+                                                            imageurl: data
+                                                                .urls!.regular!,
+                                                            subimageurl: [],
+                                                            price:
+                                                                "${data.likes!}0",
+                                                            reviewno: '23',
+                                                            username:
+                                                                currentuserdata
+                                                                    .username,
+                                                            userid:
+                                                                currentuserdata
+                                                                    .uid!,
+                                                            userimageurl:
+                                                                currentuserdata
+                                                                    .photoUrl);
+                                                      } else {
+                                                        saves.value
+                                                            .remove(hotelId);
+                                                        saves.notifyListeners();
+
+                                                        await FirestoreMethods()
+                                                            .deleteHotelSaved(
+                                                                hotelId:
+                                                                    "${data.id}-09${currentuserdata.uid}");
+                                                      }
+                                                    },
+                                                    icon: Icon(
+                                                      saves.value
+                                                              .contains(hotelId)
+                                                          ? ksaved
+                                                          : ksave,
+                                                      color: kDominantcolor,
+                                                    )));
+                                          });
+                                    }
+                                  }),
                             ],
                           ),
                         );

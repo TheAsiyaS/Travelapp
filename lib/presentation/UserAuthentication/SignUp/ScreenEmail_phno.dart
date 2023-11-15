@@ -8,6 +8,7 @@ import 'package:travelapp/Domain/DB/Infrastructure/Auhentication/UserAuthenticat
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/NavButtonWidget.dart';
@@ -20,9 +21,11 @@ class EmailPhoneModel extends ChangeNotifier {
   void validateAndNavigate(BuildContext context, String username,
       String password, Uint8List? imageFile) async {
     if (!emailController.text.contains('@gmail.com')) {
-      log('Incorrect email');
+      print('Incorrect email');
     } else if (!EmailValidator.validate(emailController.text)) {
-      log('Invalid email');
+      print('Invalid email');
+    } else if (username.isEmpty || password.isEmpty) {
+      print('password or username is empty');
     } else {
       final result = await AuthMethod().signUp(
           email: emailController.text,
@@ -32,9 +35,10 @@ class EmailPhoneModel extends ChangeNotifier {
           bio: '',
           file: imageFile);
       if (result == 'ok') {
+         currentuserdata = await AuthMethod().getUserDetail();
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const NavigationBarScreen(),
-        ));
+        )); //cat123!!@@#
       } else {
         log('some error occured');
       }

@@ -14,7 +14,7 @@ import 'package:travelapp/presentation/UserAuthentication/SignIn/SignIn.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
-/*i will keep you informed   */
+/*i will keep you informed  Breaking down UI into smaller widgets */
 late UserData currentuserdata;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,13 +26,12 @@ Future<void> main() async {
             messagingSenderId: 'G-NMPB0KB0J4',
             projectId: 'travel-app-b239a'));
   } else {
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(); //
   }
 
   await configInjection();
- currentuserdata = await AuthMethod().getUserDetail();
-  
-  runApp(const MyApp());//flower@#
+
+  runApp(const MyApp()); //flower@#
 }
 
 //flutter packages pub run build_runner watch --use-polling-watcher --delete-conflicting-outputs
@@ -127,7 +126,9 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () async {
+      currentuserdata = await AuthMethod().getUserDetail();
+
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return const NavigationBarScreen();
       }));
@@ -161,3 +162,11 @@ class SplashScreen extends StatelessWidget {
     );
   }
 }
+/*void method(int useful, int useless) {
+  print(useful);
+}
+Since useless variable won't be used, I should rather write the above code as:
+
+void method(int useful, int _) { // 'useless' is replaced with '_'
+  print(useful);
+} */

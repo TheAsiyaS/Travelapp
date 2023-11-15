@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:travelapp/Domain/DB/Model/hotelSavedModel.dart';
 import 'package:travelapp/Domain/DB/Model/placeSavedModel.dart';
 
-import 'package:uuid/uuid.dart';
 
 class FirestoreMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -18,11 +17,11 @@ class FirestoreMethods {
       required String reviewno,
       required String username,
       required String userid,
-      required String userimageurl}) async {
+      required String userimageurl,
+      required String hotelId}) async {
     bool isOk = false;
 
     try {
-      final String hotelId = const Uuid().v1();
       final HotelSavedModel post = HotelSavedModel(
           name: name,
           username: username,
