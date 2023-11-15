@@ -46,6 +46,45 @@ class FirestoreMethods {
 
     return isOk;
   }
+ Future<bool> hotelBooked(
+      {required String name,
+      required String decription,
+      required int rating,
+      required String imageurl,
+      required List<String> subimageurl,
+      required String price,
+      required String reviewno,
+      required String username,
+      required String userid,
+      required String userimageurl,
+      required String hotelId}) async {
+    bool isOk = false;
+
+    try {
+      final HotelSavedModel post = HotelSavedModel(
+          name: name,
+          username: username,
+          decription: decription,
+          rating: rating,
+          subimageurl: subimageurl,
+          imageurl: imageurl,
+          price: price,
+          reviewno: reviewno,
+          hotelId: hotelId,
+          userid: userid,
+          userimageurl: userimageurl);
+
+      final jsonData = post.toJson();
+      await _firestore.collection('SavedHotels').doc(hotelId).set(jsonData);
+
+      isOk = true;
+    } catch (e, stackTrace) {
+      isOk = false;
+      log('Error: $e\nStackTrace: $stackTrace');
+    }
+
+    return isOk;
+  }
 
   Future<String> placesaved(
       {required String name,
