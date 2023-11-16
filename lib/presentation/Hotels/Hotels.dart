@@ -11,7 +11,7 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
 import 'package:travelapp/widgets/Appbar.dart';
 import 'package:travelapp/widgets/CircularProgressIndicator.dart';
-import 'package:travelapp/widgets/HotelDetailWidget.dart';
+import 'package:travelapp/presentation/Hotels/HotelDetailWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
 import 'package:travelapp/widgets/RatingBar.dart';
@@ -70,6 +70,7 @@ class Hotels extends StatelessWidget {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => HotelDetailedWidget(
+                                  hotelid: data.id!,
                                   url: data.urls!.regular!,
                                   title: khotelname[index],
                                   subtitle: 'Londan',
@@ -144,6 +145,7 @@ class Hotels extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => HotelDetailedWidget(
+                                    hotelid: data.id!,
                                     url: data.urls!.regular!,
                                     title: khotelname[index],
                                     subtitle: 'Londan',
@@ -329,6 +331,7 @@ class Hotels extends StatelessWidget {
                           final location = hotelsname3[index].split('');
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => HotelDetailedWidget(
+                                  hotelid: data[index].id!.toString(),
                                   url: data[index].largeImageUrl!,
                                   title: hotelsname3[index],
                                   subtitle: location[index],

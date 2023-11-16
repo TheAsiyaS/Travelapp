@@ -75,7 +75,7 @@ class FirestoreMethods {
           userimageurl: userimageurl);
 
       final jsonData = post.toJson();
-      await _firestore.collection('SavedHotels').doc(hotelId).set(jsonData);
+      await _firestore.collection('BookedHotels').doc(hotelId).set(jsonData);
 
       isOk = true;
     } catch (e, stackTrace) {
@@ -139,6 +139,15 @@ class FirestoreMethods {
   Future<bool> deleteHotelSaved({required String hotelId}) async {
     try {
       await _firestore.collection('SavedHotels').doc(hotelId).delete();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  
+  Future<bool> deleteHotelBooked({required String hotelId}) async {
+    try {
+      await _firestore.collection('BookedHotels').doc(hotelId).delete();
       return true;
     } catch (e) {
       return false;

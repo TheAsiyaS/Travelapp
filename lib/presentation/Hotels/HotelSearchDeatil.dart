@@ -9,7 +9,7 @@ import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/Appbar.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
-import 'package:travelapp/widgets/HotelDetailWidget.dart';
+import 'package:travelapp/presentation/Hotels/HotelDetailWidget.dart';
 import 'package:travelapp/widgets/OnlyImageBox.dart';
 
 class HotelSearchDetailed extends StatelessWidget {
@@ -64,7 +64,8 @@ class HotelSearchDetailed extends StatelessWidget {
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HotelDetailedWidget(
+                          builder: (context) =>  HotelDetailedWidget(
+                            hotelid: data.id!,
                             url: '',
                             title: 'title',
                             subtitle: 'subtitle',
