@@ -8,14 +8,25 @@ import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/RatingBar.dart';
 
 class AgentDetails extends StatelessWidget {
-  const AgentDetails({super.key});
+  const AgentDetails(
+      {super.key,
+      required this.imageurl,
+      required this.rating,
+      required this.phoneNumber,
+      required this.email,
+      required this.username});
+  final String imageurl;
+  final String rating;
+  final String phoneNumber;
+  final String email;
+  final String username;
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Agent Name'),
+        title: Text(username),
         backgroundColor: ktransparent,
       ),
       extendBodyBehindAppBar: true,
@@ -24,11 +35,9 @@ class AgentDetails extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           ConatinerwithWidget(
-              containerdecoration: const BoxDecoration(
+              containerdecoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(
-                          'https://media.istockphoto.com/id/831902150/photo/ive-solidified-my-name-in-the-business-world.jpg?s=612x612&w=0&k=20&c=GCkoeN4GXE9W3EgNmwnInZpvGEepUSPd7N8NMKGBGFs='),
-                      fit: BoxFit.cover)),
+                      image: NetworkImage(imageurl), fit: BoxFit.cover)),
               childwidget: h10,
               height: size.height / 2,
               width: size.width),
@@ -40,9 +49,9 @@ class AgentDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text(
-                'Phone Number: 1234567890',
-                style: TextStyle(fontSize: 18),
+              Text(
+                'Phone Number: $phoneNumber',
+                style: const TextStyle(fontSize: 18),
               ),
               IconButtonWidget(
                   onPressFunc: () {},
@@ -55,9 +64,9 @@ class AgentDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text(
-                'Email: abcxyz@gamil.com ',
-                style: TextStyle(fontSize: 18),
+              Text(
+                'Email: $email ',
+                style: const TextStyle(fontSize: 18),
               ),
               IconButtonWidget(
                   onPressFunc: () {},

@@ -397,7 +397,7 @@ class Hotels extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        //   const RatingBar(),
+                                      
                                         Text(
                                           '\$${data[index].likes}5',
                                           style: const TextStyle(
