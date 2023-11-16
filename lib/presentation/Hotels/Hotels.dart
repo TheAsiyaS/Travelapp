@@ -282,7 +282,7 @@ class Hotels extends StatelessWidget {
                                                               .contains(hotelId)
                                                           ? ksaved
                                                           : ksave,
-                                                      color: kDominantcolor,
+                                                      color: kwhite,
                                                     )));
                                           });
                                     }

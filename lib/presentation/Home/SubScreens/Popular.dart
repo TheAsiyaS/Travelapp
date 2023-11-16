@@ -165,7 +165,7 @@ class Popular extends StatelessWidget {
                                               builder: (context, value, _) {
                                                 print(
                                                     "like data :${likes.value}");
-                                                 return GestureDetector(
+                                                return GestureDetector(
                                                   onTap: () async {
                                                     islike.value =
                                                         !islike.value;
@@ -223,6 +223,8 @@ class Popular extends StatelessWidget {
                                                                   .toString())
                                                           ? const Icon(
                                                               kfavorite,
+                                                              color:
+                                                                  kDominantcolor,
                                                             )
                                                           : const Icon(
                                                               kfavoriteOutline,

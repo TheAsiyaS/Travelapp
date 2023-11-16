@@ -211,14 +211,16 @@ class Cheep extends StatelessWidget {
                                                     iconwidget: likes.value
                                                             .contains(data.id
                                                                 .toString())
-                                                        ? const Icon(
-                                                            kfavorite,
-                                                          )
-                                                        : const Icon(
-                                                            kfavoriteOutline,
-                                                            color:
-                                                                kDominantcolor,
-                                                          ),
+                                                         ? const Icon(
+                                                              kfavorite,
+                                                              color:
+                                                                  kDominantcolor,
+                                                            )
+                                                          : const Icon(
+                                                              kfavoriteOutline,
+                                                              color:
+                                                                  kDominantcolor,
+                                                            ),
                                                   ),
                                                 );
                                               });

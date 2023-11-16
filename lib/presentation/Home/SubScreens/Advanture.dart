@@ -231,6 +231,8 @@ class Adavanture extends StatelessWidget {
                                                                     .toString())
                                                             ? const Icon(
                                                                 kfavorite,
+                                                                color:
+                                                                    kDominantcolor,
                                                               )
                                                             : const Icon(
                                                                 kfavoriteOutline,
