@@ -7,6 +7,7 @@ import 'package:travelapp/common/ImageUrls.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/main.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 
 class Profile extends StatelessWidget {
@@ -33,10 +34,9 @@ class Profile extends StatelessWidget {
                 child: Container(
                   height: size.height / 2,
                   width: size.width,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(
-                              'https://t4.ftcdn.net/jpg/04/25/65/97/360_F_425659755_5BaLdNbbCtQbbiz1JNFBikshfiCWI5NE.jpg'),
+                          image: NetworkImage(currentuserdata.photoUrl),
                           fit: BoxFit.cover)),
                   child: Container(
                     color: const Color.fromARGB(122, 34, 54, 55),
@@ -52,18 +52,18 @@ class Profile extends StatelessWidget {
               ),
             ],
           ),
-          const Text(
-            'Username',
+          Text(
+            currentuserdata.username,
             style: textstyle,
           ),
-          const Text(
-            'Name',
+          Text(
+            currentuserdata.name,
           ),
           SizedBox(
             height: size.height / 10,
             width: size.width / 2,
-            child: const Text(
-              'About the user.Like their Working exprience , Notable awards they got , Exprience about the LONGITUDE ',
+            child: Text(
+              currentuserdata.bio,
               style: subtextstyle,
             ),
           ),
@@ -89,7 +89,7 @@ class Profile extends StatelessWidget {
                       GestureDetector(
                         onTap: () async {
                           bool? res =
-                              await FlutterPhoneDirectCaller.callNumber('123');
+                              await FlutterPhoneDirectCaller.callNumber(currentuserdata.phoneNumber);
                           print(res);
                         }, //
                         child: ConatinerwithWidget(
@@ -116,14 +116,14 @@ class Profile extends StatelessWidget {
                     ],
                   ),
                   h10,
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        '1234567890',
+                        currentuserdata.phoneNumber,
                         style: subtextstyle,
                       ),
-                      Text('abcxyz@gmail.com', style: subtextstyle),
+                      Text(currentuserdata.email, style: subtextstyle),
                     ],
                   ),
                   h20,
