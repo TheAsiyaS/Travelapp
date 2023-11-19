@@ -7,6 +7,7 @@ import 'package:travelapp/Domain/DB/Infrastructure/StorageMethod.dart';
 import 'package:travelapp/Domain/DB/Model/UserModel.dart';
 import 'package:travelapp/common/ImageUrls.dart';
 import 'package:travelapp/main.dart';
+import 'package:travelapp/presentation/UserAuthentication/SignUp/Username_profile_add.dart';
 
 String? gUid;
 
@@ -105,9 +106,13 @@ class AuthMethod {
     if (file != null) {
       photoUrl = await StorageMethods().uploadImageToStorage(
           'secondaryProfilePics', file, false); //send url to func
+      final usermodel = UsernameModel();
+      usermodel.imageBytes = file;
+      usermodel.notifyListeners();
     } else {
       photoUrl = noimg;
     }
+
     docUser.update({'scondaryImage': photoUrl});
   }
 }

@@ -90,7 +90,7 @@ class Profile extends StatelessWidget {
                                     if (model.imageBytes != null) {
                                       await AuthMethod().uploadSecondaryImage(
                                           file: model.imageBytes);
-                                      // Trigger a rebuild of the UI
+                                  model.notifyListeners();
                                     } else {
                                       // Handle case when imageBytes is null
                                     }
