@@ -16,6 +16,9 @@ class UserData {
   final List<dynamic> favplaces;
   final List<dynamic> bookedhotels;
   final List<dynamic> bookedplaces;
+  final String scondaryImage;
+  final String additionalImfo;
+
   UserData(
       {required this.phoneNumber,
       this.uid,
@@ -31,6 +34,8 @@ class UserData {
       required this.favplaces,
       required this.bookedplaces,
       required this.name,
+      required this.scondaryImage,
+      required this.additionalImfo,
       this.acLocation});
 
   Map<String, dynamic> toJson() => {
@@ -48,12 +53,16 @@ class UserData {
         'acLocation': acLocation,
         'favplaces': favplaces,
         'bookedhotels': bookedhotels,
-        'bookedplaces': bookedplaces
+        'bookedplaces': bookedplaces,
+        'scondaryImage': scondaryImage,
+        'additionalImfo': additionalImfo
       };
 
   static UserData fromSnap(DocumentSnapshot snap) {
     var snapshot = snap.data() as Map<String, dynamic>;
     return UserData(
+      additionalImfo: snapshot['additionalImfo'],
+      scondaryImage: snapshot['scondaryImage'],
       bookedhotels: snapshot['bookedhotels'],
       phoneNumber: snapshot['phoneNumber'],
       username: snapshot['username'],

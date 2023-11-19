@@ -127,7 +127,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () async {
-      currentuserdata = await AuthMethod().getUserDetail();
+   currentuserdata = await AuthMethod().getUserDetail();
 
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return const NavigationBarScreen();

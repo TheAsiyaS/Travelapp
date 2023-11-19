@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:travelapp/Domain/DB/Infrastructure/StorageMethod.dart';
 import 'package:travelapp/Domain/DB/Model/UserModel.dart';
 import 'package:travelapp/common/ImageUrls.dart';
+import 'package:travelapp/main.dart';
 
 String? gUid;
 
@@ -29,7 +30,7 @@ class AuthMethod {
   Future<String> signUp({
     required String email,
     required String password,
-    required String phoneNo, 
+    required String phoneNo,
     required String username,
     required String bio,
     required Uint8List? file,
@@ -41,6 +42,7 @@ class AuthMethod {
       );
       gUid = credential.user!.uid;
       final docUser = _firestore.collection('user').doc(credential.user!.uid);
+
       String? photoUrl;
       if (file != null) {
         photoUrl = await StorageMethods().uploadImageToStorage(
@@ -50,6 +52,7 @@ class AuthMethod {
       }
 
       final data = UserData(
+        additionalImfo: '',
         changeUsername: 0,
         phoneNumber: phoneNo,
         dateJoin: DateTime.now().toString(),
@@ -64,6 +67,7 @@ class AuthMethod {
         bookedhotels: [],
         acLocation: '',
         name: '',
+        scondaryImage: '',
         photoUrl: photoUrl,
       );
       final decodedJsonObj = data.toJson();
@@ -90,5 +94,20 @@ class AuthMethod {
       log('user  login success');
       return true;
     }
+  }
+
+  Future<void> uploadSecondaryImage({
+    required Uint8List? file,
+  }) async {
+    final docUser =
+        FirebaseFirestore.instance.collection('user').doc(currentuserdata.uid);
+    String? photoUrl;
+    if (file != null) {
+      photoUrl = await StorageMethods().uploadImageToStorage(
+          'secondaryProfilePics', file, false); //send url to func
+    } else {
+      photoUrl = noimg;
+    }
+    docUser.update({'scondaryImage': photoUrl});
   }
 }
