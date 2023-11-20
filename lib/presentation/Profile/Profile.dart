@@ -11,6 +11,7 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
+import 'package:travelapp/presentation/Profile/EditeProfilePage.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignUp/Username_profile_add.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
@@ -169,7 +170,7 @@ class Profile extends StatelessWidget {
                                       kcall,
                                       color: kDominanttextcolor,
                                     ),
-                                    height: 50, 
+                                    height: 50,
                                     width: 50,
                                   ),
                                 ),
@@ -207,11 +208,17 @@ class Profile extends StatelessWidget {
                     Center(
                       child: SizedBox(
                         height: size.height / 12,
-                        width: size.width/1.3,
+                        width: size.width / 1.3,
                         child: ElevatedButtonWidget(
-                            onPress: () {},
-                            buttonwidget:  Text('Edite account',style: GoogleFonts.crimsonText(
-                                  fontSize: 27, color: kwhite),),
+                            onPress: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const EiteProfile()));
+                            },
+                            buttonwidget: Text(
+                              'Edite account',
+                              style: GoogleFonts.crimsonText(
+                                  fontSize: 27, color: kwhite),
+                            ),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: kDominantcolor,
                             )),
