@@ -13,6 +13,7 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignUp/Username_profile_add.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
+import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -33,7 +34,6 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return ChangeNotifierProvider<UsernameModel>(
         create: (context) => UsernameModel(),
         child: Scaffold(
@@ -71,7 +71,7 @@ class Profile extends StatelessWidget {
                         ),
                         FutureBuilder<Uint8List>(
                             future: loadImage(imageUrl),
-                            builder: (context, snapshot) { 
+                            builder: (context, snapshot) {
                               if (snapshot.connectionState ==
                                   ConnectionState.done) {
                                 if (snapshot.hasError) {
@@ -90,7 +90,7 @@ class Profile extends StatelessWidget {
                                     if (model.imageBytes != null) {
                                       await AuthMethod().uploadSecondaryImage(
                                           file: model.imageBytes);
-                                  model.notifyListeners();
+                                      model.notifyListeners();
                                     } else {
                                       // Handle case when imageBytes is null
                                     }
@@ -120,7 +120,9 @@ class Profile extends StatelessWidget {
                       style: textstyle,
                     ),
                     Text(
-                      currentuserdata.name,
+                      currentuserdata.name.isEmpty
+                          ? 'name'
+                          : currentuserdata.name,
                     ),
                     SizedBox(
                       height: size.height / 10,
@@ -167,7 +169,7 @@ class Profile extends StatelessWidget {
                                       kcall,
                                       color: kDominanttextcolor,
                                     ),
-                                    height: 50,
+                                    height: 50, 
                                     width: 50,
                                   ),
                                 ),
@@ -202,9 +204,19 @@ class Profile extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const Text('More About me'),
-                    const Text(
-                        'Work: Flutter developer\nYears of experience: 2\nLive: Country\nStatus: Focused\n'),
+                    Center(
+                      child: SizedBox(
+                        height: size.height / 12,
+                        width: size.width/1.3,
+                        child: ElevatedButtonWidget(
+                            onPress: () {},
+                            buttonwidget:  Text('Edite account',style: GoogleFonts.crimsonText(
+                                  fontSize: 27, color: kwhite),),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: kDominantcolor,
+                            )),
+                      ),
+                    ),
                   ],
                 );
               },
