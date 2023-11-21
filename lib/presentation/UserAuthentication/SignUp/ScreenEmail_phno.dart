@@ -1,10 +1,10 @@
 import 'dart:developer';
 import 'dart:typed_data';
 
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:travelapp/Domain/DB/Infrastructure/Auhentication/UserAuthentication.dart';
+import 'package:travelapp/common/Functions/UserAuthFunction.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
@@ -20,12 +20,10 @@ class EmailPhoneModel extends ChangeNotifier {
 
   void validateAndNavigate(BuildContext context, String username,
       String password, Uint8List? imageFile) async {
-    if (!emailController.text.contains('@gmail.com')) {
-      print('Incorrect email');
-    } else if (!EmailValidator.validate(emailController.text)) {
-      print('Invalid email');
-    } else if (username.isEmpty || password.isEmpty) {
-      print('password or username is empty');
+    final result = emailcheck(email: emailController.text);
+    final passwordres = passwordcheck(password: password);
+    if (result  != 'ok'&& passwordres !='ok') {
+      print(result);
     } else {
       final result = await AuthMethod().signUp(
           email: emailController.text,
@@ -35,14 +33,13 @@ class EmailPhoneModel extends ChangeNotifier {
           bio: '',
           file: imageFile);
       if (result == 'ok') {
-         currentuserdata = await AuthMethod().getUserDetail();
+        currentuserdata = await AuthMethod().getUserDetail();
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const NavigationBarScreen(),
-        )); //cat123!!@@#
+        ));
       } else {
         log('some error occured');
       }
-      // Navigate to the next screen after successful signup
     }
   }
 }

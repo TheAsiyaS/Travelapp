@@ -3,8 +3,8 @@ import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:travelapp/common/Functions/UserAuthFunction.dart';
 import 'package:travelapp/common/Icons.dart';
-import 'package:travelapp/common/RegExp.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
@@ -131,13 +131,10 @@ class UsernameProfileAdd extends StatelessWidget {
                       text: 'Next',
                       color: kDominantcolor,
                       onPress: () {
-                        if (model.username.value.isEmpty) {
-                          model.errorText.value =
-                              'Username is empty .\nIf you want to create a account you must have a username ';
-                        } else if (!usernameRegex
-                            .hasMatch(model.username.value)) {
-                          model.errorText.value =
-                              'We previously informed you that you may exclusively utilize the following characters: (a-z), (0-9), (.), and (_).';
+                        final result =
+                            usernamecheck(username: model.username.value);
+                        if (result != 'ok') {
+                          model.errorText.value = result;
                         } else {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ScreenPassword(

@@ -1,7 +1,7 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travelapp/Domain/DB/Infrastructure/Auhentication/UserAuthentication.dart';
+import 'package:travelapp/common/Functions/UserAuthFunction.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
@@ -58,9 +58,7 @@ class EiteProfile extends StatelessWidget {
                     obscureText: false,
                     style: const TextStyle(color: kwhite),
                     onchanged: (value) {},
-                    onsubmitted: (value) {
-                      print(model.usernameController);
-                    },
+                    onsubmitted: (value) {},
                     controller: model.usernameController),
                 const Divider(
                   color: klightwhite,
@@ -78,9 +76,7 @@ class EiteProfile extends StatelessWidget {
                     obscureText: false,
                     style: const TextStyle(color: kwhite),
                     onchanged: (value) {},
-                    onsubmitted: (value) {
-                      print(model.nameController);
-                    },
+                    onsubmitted: (value) {},
                     controller: model.nameController),
                 const Divider(
                   color: klightwhite,
@@ -96,9 +92,7 @@ class EiteProfile extends StatelessWidget {
                     obscureText: false,
                     style: const TextStyle(color: kwhite),
                     onchanged: (value) {},
-                    onsubmitted: (value) {
-                      print(model.emailController);
-                    },
+                    onsubmitted: (value) {},
                     controller: model.emailController),
                 const Divider(
                   color: klightwhite,
@@ -116,9 +110,7 @@ class EiteProfile extends StatelessWidget {
                     obscureText: false,
                     style: const TextStyle(color: kwhite),
                     onchanged: (value) {},
-                    onsubmitted: (value) {
-                      print(model.phNOController);
-                    },
+                    onsubmitted: (value) {},
                     controller: model.phNOController),
                 const Divider(
                   color: klightwhite,
@@ -130,18 +122,18 @@ class EiteProfile extends StatelessWidget {
                     width: size.width / 1.5,
                     child: ElevatedButtonWidget(
                         onPress: () async {
-                          if (model.emailController.text.isNotEmpty && model.phNOController.text.isNotEmpty) {
-                            if (!model.emailController.text
-                              .contains('@gmail.com')) {
-                            print('Incorrect email');
-                          } else if (!EmailValidator.validate(
-                              model.emailController.text)) {
-                            print('Invalid email');
-                          } else if (model.phNOController.text.length < 10) {
-                            print('incorrect phone number ');
-                          } 
-                          }
-                          else {
+                          if (model.emailController.text.isNotEmpty &&
+                              model.phNOController.text.isNotEmpty) {
+                            //final result =
+                            emailcheck(email: model.emailController.text);
+                            //final resultph =
+                            phonenocheck(
+                                phoneNumber: model.phNOController.text);
+                          } else if (model.usernameController.text.isNotEmpty) {
+                            //  final result =
+                            usernamecheck(
+                                username: model.usernameController.text);
+                          } else {
                             await AuthMethod().updateUserndata(
                                 username: model.usernameController.text.isEmpty
                                     ? currentuserdata.username

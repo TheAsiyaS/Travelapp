@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:travelapp/common/Functions/UserAuthFunction.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
@@ -16,30 +17,17 @@ class PasswordModel extends ChangeNotifier {
 
   void validatePasswordAndNavigate(
       BuildContext context, String username, Uint8List? imagefile) {
-    if (repasswordController.text.length < 6) {
-      errorText.value = 'Password must contain at least 6 characters';
+    final result = passwordcheck(password: repasswordController.text);
+    if (result != 'ok') {
+      errorText.value = result;
     } else {
-      // Check if the password contains at least three special characters
-      RegExp specialCharacterPattern =
-          RegExp(r'[!@#\$%^&*()_+{}\[\]:;<>,.?~\\|]');
-      Iterable<RegExpMatch> matches =
-          specialCharacterPattern.allMatches(repasswordController.text);
-
-      if (matches.length < 3) {
-        errorText.value =
-            'Password must contain at least three special characters';
-      } else {
-        errorText.value = ''; // No errors, password is valid
-        // Navigate to the next screen
-        // print(
-        //     'password : ${repasswordController.text}\n username : $username \n image file $imagefile');
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => ScreenEmailPhno(
-                  username: username,
-                  password: repasswordController.text,
-                  imageFile: imagefile,
-                )));
-      }
+      errorText.value = '';
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ScreenEmailPhno(
+                username: username,
+                password: repasswordController.text,
+                imageFile: imagefile,
+              )));
     }
   }
 }
