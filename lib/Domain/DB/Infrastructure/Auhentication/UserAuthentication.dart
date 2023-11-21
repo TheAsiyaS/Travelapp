@@ -106,9 +106,6 @@ class AuthMethod {
     if (file != null) {
       photoUrl = await StorageMethods().uploadImageToStorage(
           'secondaryProfilePics', file, false); //send url to func
-      // final usermodel = UsernameModel();
-      // usermodel.imageBytes = file;
-      // usermodel.notifyListeners();
     } else {
       photoUrl = noimg;
     }
@@ -116,12 +113,37 @@ class AuthMethod {
     docUser.update({'scondaryImage': photoUrl});
   }
 
-  Future<void> uploadUsername({required String username}) async {
+  Future<void> uploadProfileImage({
+    required Uint8List? file,
+  }) async {
+    final docUser =
+        FirebaseFirestore.instance.collection('user').doc(currentuserdata.uid);
+    String? photoUrl;
+    if (file != null) {
+      photoUrl = await StorageMethods()
+          .uploadImageToStorage('profilePics', file, false); //send url to func
+    } else {
+      photoUrl = noimg;
+    }
+
+    docUser.update({'photoUrl': photoUrl});
+  }
+
+  Future<void> updateUserndata(
+      {required String username,
+      required String name,
+      required String email,
+      required String phoneno}) async {
     if (username.isNotEmpty) {
       final docUser = FirebaseFirestore.instance
           .collection('user')
           .doc(currentuserdata.uid);
-      docUser.update({'username':username});
+      docUser.update({
+        'username': username,
+        'name': name,
+        'email': email,
+        'phoneNumber': phoneno,
+      });
     } else {}
   }
 }
