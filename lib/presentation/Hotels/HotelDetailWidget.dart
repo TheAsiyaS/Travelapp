@@ -219,7 +219,7 @@ class HotelDetailedWidget extends StatelessWidget {
                       FutureBuilder(
                           future: FirebaseFirestore.instance
                               .collection("BookedHotels")
-                              .where('userid', isEqualTo: currentuserdata.uid)
+                              .where('userid', isEqualTo: currentuserdata.value.uid)
                               .get(),
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
@@ -234,7 +234,7 @@ class HotelDetailedWidget extends StatelessWidget {
                                 color: kRed,
                               );
                             } else {
-                              if (currentuserdata.uid != null) {
+                              if (currentuserdata.value.uid != null) {
                                 List<String> likedPostNumericIds =
                                     snapshot.data!.docs.map((doc) {
                                   if (doc.data().containsKey('hotelId')) {
@@ -268,7 +268,7 @@ class HotelDetailedWidget extends StatelessWidget {
                                               await FirestoreMethods()
                                                   .deleteHotelSaved(
                                                       hotelId:
-                                                          "$hotelid-09${currentuserdata.uid}");
+                                                          "$hotelid-09${currentuserdata.value.uid}");
                                             } else {
                                               booked.value.add(hotelid);
                                               booked.notifyListeners();
@@ -282,12 +282,12 @@ class HotelDetailedWidget extends StatelessWidget {
                                                   price: price,
                                                   reviewno: "$rating",
                                                   username:
-                                                      currentuserdata.username,
-                                                  userid: currentuserdata.uid!,
+                                                      currentuserdata.value.username,
+                                                  userid: currentuserdata.value.uid!,
                                                   userimageurl:
-                                                      currentuserdata.photoUrl,
+                                                      currentuserdata.value.photoUrl,
                                                   hotelId:
-                                                      "$hotelid-09${currentuserdata.uid}");
+                                                      "$hotelid-09${currentuserdata.value.uid}");
                                             }
                                           },
                                           buttonwidget: Text(

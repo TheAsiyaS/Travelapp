@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travelapp/Domain/DB/Infrastructure/Auhentication/UserAuthentication.dart';
@@ -43,13 +45,14 @@ class EiteProfile extends StatelessWidget {
                     },
                     child: CircleAvatar(
                       radius: 70,
-                      backgroundImage: NetworkImage(currentuserdata.photoUrl),
+                      backgroundImage:
+                          NetworkImage(currentuserdata.value.photoUrl),
                     ),
                   ),
                 ),
                 const Text('Username'),
                 CupertinotextfieldWidget(
-                    placeholderText: currentuserdata.username,
+                    placeholderText: currentuserdata.value.username,
                     placeholderStyle: subtextstyle,
                     boxDecoration: const BoxDecoration(),
                     prefixWidget: w2,
@@ -65,9 +68,9 @@ class EiteProfile extends StatelessWidget {
                 ),
                 const Text('name'),
                 CupertinotextfieldWidget(
-                    placeholderText: currentuserdata.name.isEmpty
+                    placeholderText: currentuserdata.value.name.isEmpty
                         ? "Name"
-                        : currentuserdata.name,
+                        : currentuserdata.value.name,
                     placeholderStyle: subtextstyle,
                     boxDecoration: const BoxDecoration(),
                     prefixWidget: w2,
@@ -83,7 +86,7 @@ class EiteProfile extends StatelessWidget {
                 ),
                 const Text('Email'),
                 CupertinotextfieldWidget(
-                    placeholderText: currentuserdata.email,
+                    placeholderText: currentuserdata.value.email,
                     placeholderStyle: subtextstyle,
                     boxDecoration: const BoxDecoration(),
                     prefixWidget: w2,
@@ -99,9 +102,9 @@ class EiteProfile extends StatelessWidget {
                 ),
                 const Text('Phone Number'),
                 CupertinotextfieldWidget(
-                    placeholderText: currentuserdata.phoneNumber.isEmpty
+                    placeholderText: currentuserdata.value.phoneNumber.isEmpty
                         ? "No number"
-                        : currentuserdata.phoneNumber,
+                        : currentuserdata.value.phoneNumber,
                     placeholderStyle: subtextstyle,
                     boxDecoration: const BoxDecoration(),
                     prefixWidget: w2,
@@ -122,32 +125,49 @@ class EiteProfile extends StatelessWidget {
                     width: size.width / 1.5,
                     child: ElevatedButtonWidget(
                         onPress: () async {
-                          if (model.emailController.text.isNotEmpty &&
-                              model.phNOController.text.isNotEmpty) {
-                            //final result =
-                            emailcheck(email: model.emailController.text);
-                            //final resultph =
-                            phonenocheck(
-                                phoneNumber: model.phNOController.text);
-                          } else if (model.usernameController.text.isNotEmpty) {
-                            //  final result =
-                            usernamecheck(
-                                username: model.usernameController.text);
+                          ValueNotifier<String> resultph = ValueNotifier('');
+                          if (currentuserdata.value.phoneNumber.isEmpty &&
+                              model.phNOController.text.isEmpty) {
+                            resultph.value = 'ok';
+                            resultph.notifyListeners();
+                          } else {
+                            resultph.value = phonenocheck(
+                                phoneNumber: model.phNOController.text.isEmpty
+                                    ? currentuserdata.value.phoneNumber
+                                    : model.phNOController.text);
+                            resultph.notifyListeners();
+                          }
+                          final result = emailcheck(
+                              email: model.emailController.text.isEmpty
+                                  ? currentuserdata.value.email
+                                  : model.emailController.text);
+
+                          final resultusername = usernamecheck(
+                            username: model.usernameController.text.isEmpty
+                                ? currentuserdata.value.username
+                                : model.usernameController.text,
+                          );
+                          if (resultph.value != 'ok' ||
+                              result != 'ok' ||
+                              resultusername != 'ok') {
+                            print('${resultph.value} $result $resultusername');
                           } else {
                             await AuthMethod().updateUserndata(
                                 username: model.usernameController.text.isEmpty
-                                    ? currentuserdata.username
+                                    ? currentuserdata.value.username
                                     : model.usernameController.text,
                                 name: model.nameController.text.isEmpty
-                                    ? currentuserdata.name
+                                    ? currentuserdata.value.name
                                     : model.nameController.text,
                                 email: model.emailController.text.isEmpty
-                                    ? currentuserdata.email
+                                    ? currentuserdata.value.email
                                     : model.emailController.text,
                                 phoneno: model.phNOController.text.isEmpty
-                                    ? currentuserdata.phoneNumber
+                                    ? currentuserdata.value.phoneNumber
                                     : model.phNOController.text);
-                            model.notifyListeners();
+                            currentuserdata.value =
+                                await AuthMethod().getUserDetail();
+                            currentuserdata.notifyListeners();
                             Navigator.of(context).pop();
                           }
                         },

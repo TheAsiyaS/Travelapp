@@ -108,7 +108,7 @@ class Cheep extends StatelessWidget {
                                       future: FirebaseFirestore.instance
                                           .collection("SavedPlaces")
                                           .where('userid',
-                                              isEqualTo: currentuserdata.uid)
+                                              isEqualTo: currentuserdata.value.uid)
                                           .get(),
                                       builder: (context, snapshot) {
                                         if (snapshot.connectionState ==
@@ -123,7 +123,7 @@ class Cheep extends StatelessWidget {
                                             color: kRed,
                                           );
                                         } else {
-                                          if (currentuserdata.uid != null) {
+                                          if (currentuserdata.value.uid != null) {
                                             // Extract only the numeric part of the PlaceId if it exists
                                             List<String> likedPostNumericIds =
                                                 snapshot.data!.docs.map((doc) {
@@ -171,7 +171,7 @@ class Cheep extends StatelessWidget {
 
                                                         await FirestoreMethods().placesaved(
                                                             placeId:
-                                                                "${data.id}-${currentuserdata.uid}",
+                                                                "${data.id}-${currentuserdata.value.uid}",
                                                             name: places[index %
                                                                 places.length],
                                                             decription:
@@ -187,13 +187,13 @@ class Cheep extends StatelessWidget {
                                                             reviewno:
                                                                 '${data.comments}',
                                                             username:
-                                                                currentuserdata
+                                                                currentuserdata.value
                                                                     .username,
                                                             userid:
-                                                                currentuserdata
+                                                                currentuserdata.value
                                                                     .uid!,
                                                             userimageurl:
-                                                                currentuserdata
+                                                                currentuserdata.value
                                                                     .photoUrl);
                                                       } else {
                                                         print("delete");
@@ -205,7 +205,7 @@ class Cheep extends StatelessWidget {
                                                         await FirestoreMethods()
                                                             .deletePlaceSaved(
                                                                 placedId:
-                                                                    "${data.id}-${currentuserdata.uid}");
+                                                                    "${data.id}-${currentuserdata.value.uid}");
                                                       }
                                                     },
                                                     iconwidget: likes.value

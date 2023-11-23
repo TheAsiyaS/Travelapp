@@ -101,7 +101,7 @@ class AuthMethod {
     required Uint8List? file,
   }) async {
     final docUser =
-        FirebaseFirestore.instance.collection('user').doc(currentuserdata.uid);
+        FirebaseFirestore.instance.collection('user').doc(currentuserdata.value.uid);
     String? photoUrl;
     if (file != null) {
       photoUrl = await StorageMethods().uploadImageToStorage(
@@ -117,7 +117,7 @@ class AuthMethod {
     required Uint8List? file,
   }) async {
     final docUser =
-        FirebaseFirestore.instance.collection('user').doc(currentuserdata.uid);
+        FirebaseFirestore.instance.collection('user').doc(currentuserdata.value.uid);
     String? photoUrl;
     if (file != null) {
       photoUrl = await StorageMethods()
@@ -137,7 +137,7 @@ class AuthMethod {
     if (username.isNotEmpty) {
       final docUser = FirebaseFirestore.instance
           .collection('user')
-          .doc(currentuserdata.uid);
+          .doc(currentuserdata.value.uid);
       docUser.update({
         'username': username,
         'name': name,

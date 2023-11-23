@@ -15,7 +15,22 @@ import 'package:travelapp/presentation/UserAuthentication/SignIn/SignIn.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 /*i will keep you informed  Breaking down UI into smaller widgets */
-late UserData currentuserdata;
+late ValueNotifier<UserData> currentuserdata = ValueNotifier(UserData(
+    phoneNumber: '',
+    bookedhotels: [],
+    favhotels: [],
+    dateJoin: '',
+    photoUrl: '',
+    username: '',
+    email: '',
+    password: '',
+    bio: '',
+    changeUsername: 0,
+    favplaces: [],
+    bookedplaces: [],
+    name: '',
+    scondaryImage: '',
+    additionalImfo: ''));
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb == true) {
@@ -127,7 +142,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () async {
-   currentuserdata = await AuthMethod().getUserDetail();
+      currentuserdata.value = await AuthMethod().getUserDetail();
 
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return const NavigationBarScreen();

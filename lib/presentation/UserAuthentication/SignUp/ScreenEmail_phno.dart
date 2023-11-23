@@ -33,7 +33,7 @@ class EmailPhoneModel extends ChangeNotifier {
           bio: '',
           file: imageFile);
       if (result == 'ok') {
-        currentuserdata = await AuthMethod().getUserDetail();
+        currentuserdata.value = await AuthMethod().getUserDetail();
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => const NavigationBarScreen(),
         ));

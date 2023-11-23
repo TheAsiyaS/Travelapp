@@ -39,7 +39,7 @@ class FavouritePlaces extends StatelessWidget {
               child: FutureBuilder(
                   future: FirebaseFirestore.instance
                       .collection("SavedPlaces")
-                      .where('userid', isEqualTo: currentuserdata.uid)
+                      .where('userid', isEqualTo: currentuserdata.value.uid)
                       .get(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
@@ -56,7 +56,7 @@ class FavouritePlaces extends StatelessWidget {
                         child: Text('Currently you have no Favourite places'),
                       );
                     } else {
-                      if (currentuserdata.uid != null) {
+                      if (currentuserdata.value.uid != null) {
                         List likesId = snapshot.data!.docs.map((doc) {
                           return doc['placeId'];
                         }).toList();

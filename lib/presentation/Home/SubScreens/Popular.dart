@@ -122,7 +122,7 @@ class Popular extends StatelessWidget {
                                   future: FirebaseFirestore.instance
                                       .collection("SavedPlaces")
                                       .where('userid',
-                                          isEqualTo: currentuserdata.uid)
+                                          isEqualTo: currentuserdata.value.uid)
                                       .get(),
                                   builder: (context, snapshot) {
                                     if (snapshot.connectionState ==
@@ -137,7 +137,7 @@ class Popular extends StatelessWidget {
                                         color: kRed,
                                       );
                                     } else {
-                                      if (currentuserdata.uid != null) {
+                                      if (currentuserdata.value.uid != null) {
                                         List<String> likedPostNumericIds =
                                             snapshot.data!.docs.map((doc) {
                                           if (doc
@@ -175,7 +175,7 @@ class Popular extends StatelessWidget {
                                                           .add("${data.id}");
                                                       await FirestoreMethods().placesaved(
                                                           placeId:
-                                                              "${data.id}-${currentuserdata.uid}",
+                                                              "${data.id}-${currentuserdata.value.uid}",
                                                           name: places[index %
                                                               places.length],
                                                           decription:
@@ -191,13 +191,13 @@ class Popular extends StatelessWidget {
                                                           reviewno:
                                                               '${data.comments}',
                                                           username:
-                                                              currentuserdata
+                                                              currentuserdata.value
                                                                   .username,
                                                           userid:
-                                                              currentuserdata
+                                                              currentuserdata.value
                                                                   .uid!,
                                                           userimageurl:
-                                                              currentuserdata
+                                                              currentuserdata.value
                                                                   .photoUrl);
                                                     } else {
                                                       likes.value
@@ -206,7 +206,7 @@ class Popular extends StatelessWidget {
                                                       await FirestoreMethods()
                                                           .deletePlaceSaved(
                                                               placedId:
-                                                                  "${data.id}-${currentuserdata.uid}");
+                                                                  "${data.id}-${currentuserdata.value.uid}");
                                                     }
                                                   },
                                                   child: ConatinerwithWidget(

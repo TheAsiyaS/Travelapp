@@ -175,7 +175,7 @@ class Hotels extends StatelessWidget {
                                   future: FirebaseFirestore.instance
                                       .collection("SavedHotels")
                                       .where('userid',
-                                          isEqualTo: currentuserdata.uid)
+                                          isEqualTo: currentuserdata.value.uid)
                                       .get(),
                                   builder: (context, snapshot) {
                                     if (snapshot.connectionState ==
@@ -192,7 +192,7 @@ class Hotels extends StatelessWidget {
                                     } else {
                                       final String hotelId = data.id.toString();
 
-                                      if (currentuserdata.uid != null) {
+                                      if (currentuserdata.value.uid != null) {
                                         List<String> likedPostNumericIds =
                                             snapshot.data!.docs.map((doc) {
                                           if (doc
@@ -244,7 +244,7 @@ class Hotels extends StatelessWidget {
                                                         saves.notifyListeners();
                                                         FirestoreMethods().hotelsaved(
                                                             hotelId:
-                                                                "${data.id}-09${currentuserdata.uid}",
+                                                                "${data.id}-09${currentuserdata.value.uid}",
                                                             name: khotelname[
                                                                 index],
                                                             decription: data
@@ -258,13 +258,13 @@ class Hotels extends StatelessWidget {
                                                                 "${data.likes!}0",
                                                             reviewno: '23',
                                                             username:
-                                                                currentuserdata
+                                                                currentuserdata.value
                                                                     .username,
                                                             userid:
-                                                                currentuserdata
+                                                                currentuserdata.value
                                                                     .uid!,
                                                             userimageurl:
-                                                                currentuserdata
+                                                                currentuserdata.value
                                                                     .photoUrl);
                                                       } else {
                                                         saves.value
@@ -274,7 +274,7 @@ class Hotels extends StatelessWidget {
                                                         await FirestoreMethods()
                                                             .deleteHotelSaved(
                                                                 hotelId:
-                                                                    "${data.id}-09${currentuserdata.uid}");
+                                                                    "${data.id}-09${currentuserdata.value.uid}");
                                                       }
                                                     },
                                                     icon: Icon(
