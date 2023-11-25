@@ -5,6 +5,7 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/Home/DrawerScreens/FavouritePlace.dart';
+import 'package:travelapp/presentation/Home/DrawerScreens/HotelSaved.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Beach.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Historical.dart';
@@ -16,13 +17,15 @@ import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/onssearchtimescreen.dart';
 
-
 class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final drwawerTitle = ['Saved Hotels', 'Favourite Places', 'Booked Hotels'];
+    final drwawerSubTitle = ['Hotels', 'Places', 'Hotels'];
+    final drawerScreens = [ const HotelSavedScreen(),const FavouritePlaces(),const Home()];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ktransparent,
@@ -32,9 +35,9 @@ class Home extends StatelessWidget {
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const Profile()));
             },
-            child:  CircleAvatar(
+            child: CircleAvatar(
               backgroundColor: kDominantcolor,
-          backgroundImage: NetworkImage(currentuserdata.value.photoUrl),
+              backgroundImage: NetworkImage(currentuserdata.value.photoUrl),
               radius: 25,
             ),
           ),
@@ -50,44 +53,48 @@ class Home extends StatelessWidget {
                 color: kbottomSubDominant,
                 height: size.height / 3,
                 width: size.width,
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: NetworkImage(
-                          'https://www.guinnessworldrecords.com/Images/Burj-portrait-lagre_tcm25-475749.jpg'),
-                    ),
-                    h10,
-                    Text(
-                      'Username',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: kwhite),
-                    ),
-                    h10,
-                  ],
-                ),
+                child: ValueListenableBuilder(
+                    valueListenable: currentuserdata,
+                    builder: (context, value, _) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          CircleAvatar(
+                            radius: 50,
+                            backgroundImage:
+                                NetworkImage(currentuserdata.value.photoUrl),
+                          ),
+                          h10,
+                          Text(
+                            currentuserdata.value.name,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: kwhite),
+                          ),
+                          h10,
+                        ],
+                      );
+                    }),
               ),
               SizedBox(
                 height: size.height / 2,
                 width: size.width,
-                child: ListView.separated(
+                child: ListView.separated(  
                     itemBuilder: (context, index) {
                       return ListTile(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const FavouritePlaces()));
+                              builder: (context) => drawerScreens[index]));
                         },
-                        title: const Text('Save'),
-                        subtitle: const Text('Hotels save '),
+                        title: Text(drwawerTitle[index]),
+                        subtitle: Text(drwawerSubTitle[index]),
                       );
                     },
                     separatorBuilder: (context, index) {
                       return const Divider();
                     },
-                    itemCount: 4),
+                    itemCount: 3),
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 Text(
@@ -220,7 +227,8 @@ class Home extends StatelessWidget {
                         Text('Advanture', style: GoogleFonts.playfairDisplay()),
                   ),
                   Tab(
-                    child: Text('historical', style: GoogleFonts.playfairDisplay()),
+                    child: Text('historical',
+                        style: GoogleFonts.playfairDisplay()),
                   ),
                   Tab(
                     child: Text('Beach', style: GoogleFonts.playfairDisplay()),

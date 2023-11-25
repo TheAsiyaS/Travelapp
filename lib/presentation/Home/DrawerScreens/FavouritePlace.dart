@@ -29,7 +29,7 @@ class FavouritePlaces extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Heading',
+              'Your favourite  places',
               style: textstyle,
             ),
             const Divider(),
@@ -43,9 +43,11 @@ class FavouritePlaces extends StatelessWidget {
                       .get(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: kwhite,
+                      return const Center(
+                        child:  CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: kwhite,
+                        ),
                       );
                     } else if (snapshot.hasError) {
                       return const Center(

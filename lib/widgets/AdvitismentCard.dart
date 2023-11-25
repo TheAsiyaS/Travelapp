@@ -21,22 +21,33 @@ class Adcard extends StatelessWidget {
       child: SizedBox(
         height: size.height / 7,
         child: Center(
-          child: ListTile(
-            title: const Text(
-              'Arabica',
-              style: textstyle,
-            ),
-            subtitle: const Text('Subtitle , about place'),
-            trailing: Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: const DecorationImage(
-                      image: NetworkImage(
-                          'https://teaaroma.in/wp-content/uploads/2023/05/Arabica-Coffee-3.jpg'),
-                      fit: BoxFit.cover)),
-            ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center, 
+            children: [
+               Container(
+                height: 70,
+                width: 90,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: const DecorationImage(
+                        image: NetworkImage(
+                            'https://e8w3u9a9.rocketcdn.me/wp-content/uploads/2022/01/product_coffee-bean.jpg'),
+                        fit: BoxFit.cover)),
+              ),
+              SizedBox(
+                height: size.height / 8,
+                width: size.width / 2,
+                child: const ListTile(
+                  title: Text(
+                    'Arabica',
+                    style: textstyle,
+                  ),
+                  subtitle: Text('No.1 online coffee shop'),
+                ),
+              ),
+           
+             
+            ],
           ),
         ),
       ),
