@@ -13,6 +13,9 @@ class HotelSavedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    ValueNotifier<List> hotelsname = ValueNotifier([]);
+    final PageController pageController = PageController();
+
     return FutureBuilder(
         future: FirebaseFirestore.instance
             .collection("BookedHotels")
@@ -35,10 +38,23 @@ class HotelSavedScreen extends StatelessWidget {
               child: Text('Currently you have no Favourite places'),
             );
           } else {
+            if (currentuserdata.value.uid != null) {
+              List hotelname = snapshot.data!.docs.map((doc) {
+                return doc['name'];
+              }).toList();
+
+              hotelsname.value.clear();
+              hotelsname.value.addAll(hotelname);
+            }
             return Scaffold(
                 appBar: AppBar(
                   backgroundColor: ktransparent,
-                  title: const Text('Hotel name'),
+                  title:  ValueListenableBuilder<List>(
+                valueListenable: hotelsname,
+                builder: (context, names, _) {
+                  return Text(names.join(', '));
+                },
+              ),
                   actions: [
                     Container(
                       height: 20,
@@ -58,6 +74,13 @@ class HotelSavedScreen extends StatelessWidget {
                 ),
                 extendBodyBehindAppBar: true,
                 body: PageView.builder(
+                  controller: pageController,
+                  onPageChanged: (int index) {
+                    // Update hotelsname based on the data of the currently displayed page
+                    final data = snapshot.data!.docs[index];
+                    List hotelname = [data['name']];
+                    hotelsname.value = hotelname;
+                  },
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
                     final data = snapshot.data!.docs[index];
@@ -83,17 +106,17 @@ class HotelSavedScreen extends StatelessWidget {
                                               color: kblackTransparent,
                                               borderRadius:
                                                   BorderRadius.circular(20)),
-                                          child:  Column(
+                                          child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.end,
                                             children: [
                                               Padding(
-                                                padding:
-                                                   const EdgeInsets.only(bottom: 30),
+                                                padding: const EdgeInsets.only(
+                                                    bottom: 30),
                                                 child: ListTile(
                                                   title: Text(
                                                     data['name'],
-                                                    style:const TextStyle(
+                                                    style: const TextStyle(
                                                         color: kwhite,
                                                         fontSize: 17,
                                                         fontWeight:
@@ -102,19 +125,21 @@ class HotelSavedScreen extends StatelessWidget {
                                                   subtitle: Text(
                                                     data['decription'],
                                                     maxLines: 2,
-                                                    overflow: TextOverflow.ellipsis,
-                                                    style:const TextStyle(
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    style: const TextStyle(
                                                       color: klightwhite,
                                                     ),
                                                   ),
                                                   trailing: Column(
                                                     children: [
                                                       Text(
-                                                        data['rating'].toString(),
-                                                        style:const TextStyle(
+                                                        data['rating']
+                                                            .toString(),
+                                                        style: const TextStyle(
                                                             color: kamber),
                                                       ),
-                                                     const Text(
+                                                      const Text(
                                                         'Rating',
                                                         style: subtextstyle,
                                                       ),
@@ -134,7 +159,7 @@ class HotelSavedScreen extends StatelessWidget {
                                         containerdecoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(20),
-                                            image:  DecorationImage(
+                                            image: DecorationImage(
                                                 image: NetworkImage(
                                                     data['imageurl']))),
                                         childwidget: h10,
