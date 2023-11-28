@@ -54,32 +54,32 @@ class OnsearchtimeScreen extends StatelessWidget {
                 ConatinerwithWidget(
                     containerdecoration: const BoxDecoration(),
                     childwidget: ValueListenableBuilder(
-                      valueListenable: searchvalue,
-                      builder: (context, value,_) {
-                        return CupertinotextfieldWidget(
-                            controller: placeController,
-                            onchanged: (value) {},
-                            onsubmitted: (value) {
-                               searchvalue.value =value;
-                          searchvalue.notifyListeners();
-                              log(value);
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => SearchResult(
-                                        querry: searchvalue.value,
-                                      )));
-                            },
-                            placeholderText: searchvalue.value,
-                            placeholderStyle: const TextStyle(color: kdominatgrey),
-                            boxDecoration: BoxDecoration(
-                                color: kwhite,
-                                borderRadius: BorderRadius.circular(15)),
-                            prefixWidget: w10,
-                            suffixWidget: h10,
-                            keybodtype: TextInputType.name,
-                            obscureText: false,
-                            style: const TextStyle());
-                      }
-                    ),
+                        valueListenable: searchvalue,
+                        builder: (context, value, _) {
+                          return CupertinotextfieldWidget(
+                              controller: placeController,
+                              onchanged: (value) {},
+                              onsubmitted: (value) {
+                                searchvalue.value = value;
+                                searchvalue.notifyListeners();
+                                log(value);
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => SearchResult(
+                                          querry: searchvalue.value,
+                                        )));
+                              },
+                              placeholderText: searchvalue.value,
+                              placeholderStyle:
+                                  const TextStyle(color: kdominatgrey),
+                              boxDecoration: BoxDecoration(
+                                  color: kwhite,
+                                  borderRadius: BorderRadius.circular(15)),
+                              prefixWidget: w10,
+                              suffixWidget: h10,
+                              keybodtype: TextInputType.name,
+                              obscureText: false,
+                              style: const TextStyle());
+                        }),
                     height: 50,
                     width: size.width / 1.2)
               ],

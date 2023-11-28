@@ -5,6 +5,7 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/Home/DrawerScreens/FavouritePlace.dart';
+import 'package:travelapp/presentation/Home/DrawerScreens/HotelBooked.dart';
 import 'package:travelapp/presentation/Home/DrawerScreens/HotelSaved.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Beach.dart';
@@ -25,7 +26,7 @@ class Home extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final drwawerTitle = ['Saved Hotels', 'Favourite Places', 'Booked Hotels'];
     final drwawerSubTitle = ['Hotels', 'Places', 'Hotels'];
-    final drawerScreens = [ const HotelSavedScreen(),const FavouritePlaces(),const Home()];
+    final drawerScreens = [ const HotelBookedScreen(),const FavouritePlaces(),const SavedHotels()];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ktransparent,
