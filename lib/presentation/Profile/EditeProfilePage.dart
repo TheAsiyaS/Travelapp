@@ -18,7 +18,7 @@ class EiteProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    final ValueNotifier<String> errorText = ValueNotifier('');
     return ChangeNotifierProvider<UsernameModel>(
         create: (context) => UsernameModel(),
         child: Scaffold(
@@ -118,7 +118,11 @@ class EiteProfile extends StatelessWidget {
                 const Divider(
                   color: klightwhite,
                 ),
-                const Center(child: Text('data')),
+                ValueListenableBuilder(
+                    valueListenable: errorText,
+                    builder: (context, value, _) {
+                      return Center(child: Text(errorText.value));
+                    }),
                 Center(
                   child: SizedBox(
                     height: size.height / 12,
@@ -150,8 +154,16 @@ class EiteProfile extends StatelessWidget {
                           if (resultph.value != 'ok' ||
                               result != 'ok' ||
                               resultusername != 'ok') {
-                            print('${resultph.value} $result $resultusername');
+                            if (resultph.value != 'ok') {
+                              errorText.value = resultph.value;
+                            } else if (result != 'ok') {
+                              errorText.value = resultph.value;
+                            } else if (resultusername != 'ok') {
+                              errorText.value = result;
+                            }
+                            print('----------------------------------------------------------------${resultph.value} $result $resultusername');
                           } else {
+                            errorText.value = '';
                             await AuthMethod().updateUserndata(
                                 username: model.usernameController.text.isEmpty
                                     ? currentuserdata.value.username

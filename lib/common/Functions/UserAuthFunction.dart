@@ -26,7 +26,9 @@ String emailcheck({required String email}) {
 String phonenocheck({required String phoneNumber}) {
   if (phoneNumber.isEmpty) {
     return 'phoneNumber is empty';
-  } else if (phoneNumber.length < 9) {
+  } else if (phoneNumber.length <= 9) {
+    return 'Incorrect phoneNumber';
+  }else if (phoneNumber.length > 10) {
     return 'Incorrect phoneNumber';
   } else {
     return 'ok';

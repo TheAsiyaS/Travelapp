@@ -21,7 +21,7 @@ class RatingBar extends StatelessWidget {
               onPressed: () {
                 rating.value = index + 1;
               },
-              icon: ValueListenableBuilder<int>(
+              icon: ValueListenableBuilder<int>( 
                 valueListenable: rating,
                 builder: (context, value, child) {
                   return index < value

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/main.dart';
 import 'package:travelapp/widgets/BottomWidget.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
@@ -35,7 +36,7 @@ class ScreenGuid extends StatefulWidget {
 class _ScreenGuidState extends State<ScreenGuid>
     with TickerProviderStateMixin {
   String fullText =
-      ' Hello Username ,\n we will let you know how to set your destination  .';
+      ' Hello ${currentuserdata.value.username} ,\n we will let you know how to set your destination  .';
   String displayedText = '';
   int textIndex = 0;
   late AnimationController _controller;
