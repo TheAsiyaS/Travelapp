@@ -44,7 +44,7 @@ class _ScreenGuidState extends State<ScreenGuid>
   int _currentPage = 0;
   Timer? _timer;
 
-  @override
+  @override    
   void initState() {
     super.initState();
     _controller = AnimationController(
