@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelapp/Domain/DB/Infrastructure/FirestoreMethod.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
@@ -9,12 +10,19 @@ import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 import 'package:travelapp/widgets/RatingBar.dart';
 
-class SavedHotels extends StatelessWidget {
+class SavedHotels extends StatefulWidget {
   const SavedHotels({super.key});
 
   @override
+  State<SavedHotels> createState() => _SavedHotelsState();
+}
+
+class _SavedHotelsState extends State<SavedHotels> {
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final PageController _pageController = PageController();
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: ktransparent,
@@ -59,6 +67,7 @@ class SavedHotels extends StatelessWidget {
                 );
               } else {
                 return PageView.builder(
+                  controller: _pageController,
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
                     final data = snapshot.data!.docs[index];
@@ -106,9 +115,11 @@ class SavedHotels extends StatelessWidget {
                                           width: 100,
                                           child: ElevatedButtonWidget(
                                               onPress: () {},
-                                              buttonwidget:
-                                                  const Text('More Info',style: TextStyle(color:   Color.fromARGB(
-                                                    255, 190, 225, 254))),
+                                              buttonwidget: const Text(
+                                                  'More Info',
+                                                  style: TextStyle(
+                                                      color: Color.fromARGB(
+                                                          255, 190, 225, 254))),
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor:
                                                       kDominantTrans)),
@@ -118,9 +129,12 @@ class SavedHotels extends StatelessWidget {
                                           width: 100,
                                           child: ElevatedButtonWidget(
                                               onPress: () {},
-                                              buttonwidget:
-                                                  const Text('More Info',style: TextStyle(color:   Color.fromARGB(
-                                                    255, 190, 225, 254)),),
+                                              buttonwidget: const Text(
+                                                'More Info',
+                                                style: TextStyle(
+                                                    color: Color.fromARGB(
+                                                        255, 190, 225, 254)),
+                                              ),
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor:
                                                       kDominantTrans)),
@@ -132,7 +146,16 @@ class SavedHotels extends StatelessWidget {
                                       height: 50,
                                       width: size.width / 1.5,
                                       child: ElevatedButtonWidget(
-                                          onPress: () {},
+                                          onPress: () async {
+                                            // Go back one page
+                                            await _pageController.nextPage(
+                                                duration: const Duration(
+                                                    seconds: 001),
+                                                curve: Curves.bounceIn);
+                                            await FirestoreMethods()
+                                                .deleteHotelSaved(
+                                                    hotelId: data['hotelId']);
+                                          },
                                           buttonwidget: Text(
                                             'Booked',
                                             style: GoogleFonts.dancingScript(
