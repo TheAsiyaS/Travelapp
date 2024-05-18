@@ -17,13 +17,14 @@ class Mostpeoplevisit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<HotelPlaceBloc>(context)
           .add(const HotelPlaceEvent.mostpeoplevisit());
       BlocProvider.of<HotelBloc>(context)
           .add(const HotelEvent.mostPeopleVisit());
     });
-    final size = MediaQuery.of(context).size;
+
     final places = [
       'Versailles',
       'Giverny',
@@ -85,7 +86,8 @@ class Mostpeoplevisit extends StatelessWidget {
                                         future: FirebaseFirestore.instance
                                             .collection("SavedPlaces")
                                             .where('userid',
-                                                isEqualTo: currentuserdata.value.uid)
+                                                isEqualTo:
+                                                    currentuserdata.value.uid)
                                             .get(),
                                         builder: (context, snapshot) {
                                           if (snapshot.connectionState ==
@@ -100,7 +102,8 @@ class Mostpeoplevisit extends StatelessWidget {
                                               color: kRed,
                                             );
                                           } else {
-                                            if (currentuserdata.value.uid != null) {
+                                            if (currentuserdata.value.uid !=
+                                                null) {
                                               // Extract only the numeric part of the PlaceId if it exists
                                               List<String> likedPostNumericIds =
                                                   snapshot.data!.docs
@@ -120,9 +123,11 @@ class Mostpeoplevisit extends StatelessWidget {
                                               }).toList();
 
                                               likes.value.clear();
-                                              likes.value = List.from(
-                                                  likes.value)
-                                                ..addAll(likedPostNumericIds);
+                                              WidgetsBinding.instance
+                                                  .addPostFrameCallback((_) {
+                                                likes.value = List.from(
+                                                    likedPostNumericIds);
+                                              });
                                             }
                                             print('likes : ${likes.value}');
                                             return ValueListenableBuilder(
@@ -169,13 +174,16 @@ class Mostpeoplevisit extends StatelessWidget {
                                                               reviewno:
                                                                   '${data.comments}',
                                                               username:
-                                                                  currentuserdata.value
+                                                                  currentuserdata
+                                                                      .value
                                                                       .username,
                                                               userid:
-                                                                  currentuserdata.value
+                                                                  currentuserdata
+                                                                      .value
                                                                       .uid!,
                                                               userimageurl:
-                                                                  currentuserdata.value
+                                                                  currentuserdata
+                                                                      .value
                                                                       .photoUrl);
                                                         } else {
                                                           print("delete");
