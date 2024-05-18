@@ -63,7 +63,7 @@ class HotelService implements IplaceHotelRepo {
       {required String searchQuery}) async {
     try {
       final unsplashresponce = await Dio().get(
-          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=${searchQuery}&image_type=photo&pretty=true');
+          'https://pixabay.com/api/?key=29794808-de72aa3602715c0f8bc9d7224&q=$searchQuery&image_type=photo&pretty=true');
 
       if (unsplashresponce.statusCode == 200 ||
           unsplashresponce.statusCode == 201) {

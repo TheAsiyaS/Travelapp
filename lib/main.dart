@@ -11,11 +11,12 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignIn/SignIn.dart';
+import 'package:flutter/scheduler.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
 /*i will keep you informed  Breaking down UI into smaller widgets */
-late ValueNotifier<UserData> currentuserdata = ValueNotifier(UserData(
+ValueNotifier<UserData> currentuserdata = ValueNotifier(UserData(
     phoneNumber: '',
     bookedhotels: [],
     favhotels: [],
@@ -101,11 +102,15 @@ class SplashScreentoSignIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const SignIn();
-      }));
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      Future.delayed(const Duration(seconds: 3), () {
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) {
+          return const SignIn();
+        }));
+      });
     });
+
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
@@ -177,11 +182,3 @@ class SplashScreen extends StatelessWidget {
     );
   }
 }
-/*void method(int useful, int useless) {
-  print(useful);
-}
-Since useless variable won't be used, I should rather write the above code as:
-
-void method(int useful, int _) { // 'useless' is replaced with '_'
-  print(useful);
-} */

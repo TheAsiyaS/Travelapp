@@ -55,7 +55,7 @@ class Historical extends StatelessWidget {
                 }).toList();
 
                 // Print the extracted country names
-                countryNames.forEach((country) {});
+                for (var country in countryNames) {}
 
                 return ListView.separated(
                   itemBuilder: (context, index) {
@@ -65,7 +65,7 @@ class Historical extends StatelessWidget {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => SearchItemDetailed(
                                 imageurl: data.largeImageUrl!,
-                                suburls: [],
+                                suburls: const [],
                                 price: "${data.imageHeight}.9",
                                 title: countryNames[index % places.length],
                                 subtitle: 'subtitle',

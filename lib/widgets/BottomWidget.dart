@@ -37,9 +37,9 @@ class BottomprivacyPolicy extends StatelessWidget {
                         fit: BoxFit.cover)),
               ),
               ElevatedButtonWidget(
-                  onPress: () {},
+                  onPress: () {}, 
                   buttonwidget: const Row(
-                    children: [Icon(Icons.language), w10, Text('English')],
+                    children: [Icon(Icons.language,color: kwhite ,), w10, Text('English',style: TextStyle(color: kwhite))],
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: kbottomSubDominant,
@@ -127,9 +127,9 @@ class BottomWidgettop extends StatelessWidget {
         SizedBox(
           height: 40,
           width: size.width,
-          child: ElevatedButtonWidget(
+          child: ElevatedButtonWidget(  
               onPress: () {},
-              buttonwidget: const Text('Back to top'),
+              buttonwidget: const Text('Back to top',style: TextStyle(color: kwhite),),
               style: ElevatedButton.styleFrom(
                 shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(

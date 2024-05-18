@@ -21,7 +21,7 @@ class _SavedHotelsState extends State<SavedHotels> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final PageController _pageController = PageController();
+    final PageController pageController = PageController();
 
     return Scaffold(
         appBar: AppBar(
@@ -67,7 +67,7 @@ class _SavedHotelsState extends State<SavedHotels> {
                 );
               } else {
                 return PageView.builder(
-                  controller: _pageController,
+                  controller: pageController,
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
                     final data = snapshot.data!.docs[index];
@@ -148,7 +148,7 @@ class _SavedHotelsState extends State<SavedHotels> {
                                       child: ElevatedButtonWidget(
                                           onPress: () async {
                                             // Go back one page
-                                            await _pageController.nextPage(
+                                            await pageController.nextPage(
                                                 duration: const Duration(
                                                     seconds: 001),
                                                 curve: Curves.bounceIn);

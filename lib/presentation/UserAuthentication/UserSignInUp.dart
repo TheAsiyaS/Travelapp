@@ -7,9 +7,9 @@ class UserSignInUpScrreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('SignInup'),
+        title: const Text('SignInup'),
       ),
-      body: SafeArea(
+      body: const SafeArea(
           child: Column(
         children: [],
       )),

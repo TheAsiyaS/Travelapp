@@ -29,8 +29,8 @@ class UsernameModel extends ChangeNotifier {
   }
 
   Future<void> selectImage() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     log('image file $image');
 
     if (image != null) {

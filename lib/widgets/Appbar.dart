@@ -21,7 +21,7 @@ class SimpleAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
         final hotelController = TextEditingController();
 
     return Container(
@@ -33,7 +33,7 @@ class SimpleAppbar extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-        key: _scaffoldKey,
+        key: scaffoldKey,
         body: Container(
           decoration: const BoxDecoration(
               color: kDominantcolor,

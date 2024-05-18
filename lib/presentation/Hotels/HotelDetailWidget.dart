@@ -84,7 +84,7 @@ class HotelDetailedWidget extends StatelessWidget {
                     childwidget: Padding(
                       padding: const EdgeInsets.only(top: 10, left: 20),
                       child: ListTile(
-                        title: Text(
+                        title: Text(//logx.45(34);
                           title,
                           style: textstyle,
                         ),
@@ -219,7 +219,8 @@ class HotelDetailedWidget extends StatelessWidget {
                       FutureBuilder(
                           future: FirebaseFirestore.instance
                               .collection("BookedHotels")
-                              .where('userid', isEqualTo: currentuserdata.value.uid)
+                              .where('userid',
+                                  isEqualTo: currentuserdata.value.uid)
                               .get(),
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
@@ -260,9 +261,10 @@ class HotelDetailedWidget extends StatelessWidget {
                                       height: size.height / 15,
                                       child: ElevatedButtonWidget(
                                           onPress: () async {
-                                            if (booked.value
+                                            if (booked.value//print(1234);
                                                 .contains(hotelid)) {
                                               booked.value.remove(hotelid);
+
                                               booked.notifyListeners();
 
                                               await FirestoreMethods()
@@ -281,11 +283,12 @@ class HotelDetailedWidget extends StatelessWidget {
                                                   subimageurl: [],
                                                   price: price,
                                                   reviewno: "$rating",
-                                                  username:
-                                                      currentuserdata.value.username,
-                                                  userid: currentuserdata.value.uid!,
-                                                  userimageurl:
-                                                      currentuserdata.value.photoUrl,
+                                                  username: currentuserdata
+                                                      .value.username,
+                                                  userid: currentuserdata
+                                                      .value.uid!,
+                                                  userimageurl: currentuserdata
+                                                      .value.photoUrl,
                                                   hotelId:
                                                       "$hotelid-09${currentuserdata.value.uid}");
                                             }
