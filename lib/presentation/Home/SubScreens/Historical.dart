@@ -53,19 +53,27 @@ class Historical extends StatelessWidget {
                       ? parts[1]
                       : place; // Get the last part as the country name
                 }).toList();
+                final List<String> imagesUrl = [
+                  state.historical[0].largeImageUrl!,
+                  state.historical[1].largeImageUrl!,
+                  state.historical[2].largeImageUrl!,
+                  state.historical[3].largeImageUrl!,
+                  state.historical[4].largeImageUrl!,
+                  state.historical[5].largeImageUrl!,
+                ];
 
-                // Print the extracted country names
-                for (var country in countryNames) {}
-
+                imagesUrl.shuffle();
                 return ListView.separated(
                   itemBuilder: (context, index) {
                     final data = state.historical[index];
                     return GestureDetector(
                       onTap: () {
+                        print(
+                            '${data.largeImageUrl!}${data.imageHeight} ${countryNames[index % places.length]}');
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => SearchItemDetailed(
                                 imageurl: data.largeImageUrl!,
-                                suburls: const [],
+                                suburls: imagesUrl,
                                 price: "${data.imageHeight}.9",
                                 title: countryNames[index % places.length],
                                 subtitle: 'subtitle',

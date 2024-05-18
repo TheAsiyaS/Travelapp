@@ -58,6 +58,16 @@ class Adavanture extends StatelessWidget {
                 } else if (state.advanture.isEmpty) {
                   return const Center(child: Text('No Data found'));
                 } else {
+                     final List<String> imagesUrl = [
+                  state.advanture[0].largeImageUrl!,
+                  state.advanture[1].largeImageUrl!,
+                  state.advanture[2].largeImageUrl!,
+                  state.advanture[3].largeImageUrl!,
+                  state.advanture[4].largeImageUrl!,
+                  state.advanture[5].largeImageUrl!,
+                ];
+
+                imagesUrl.shuffle();
                   return GridView.custom(
                     gridDelegate: SliverQuiltedGridDelegate(
                       crossAxisCount: 2,
@@ -79,7 +89,7 @@ class Adavanture extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => SearchItemDetailed(
                                   imageurl: data.largeImageUrl!,
-                                  suburls: const [],
+                                  suburls: imagesUrl,
                                   price: "${data.comments}0",
                                   title: places[index % places.length],
                                   subtitle:
