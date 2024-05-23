@@ -27,7 +27,8 @@ class CupertinotextfieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
-      placeholder: placeholderText,
+  
+      placeholder: placeholderText, 
       placeholderStyle: placeholderStyle,
       decoration: boxDecoration,
       prefix: prefixWidget,

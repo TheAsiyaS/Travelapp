@@ -29,3 +29,5 @@ const kmail = CupertinoIcons.mail;
 const kaddRound = Icons.add_circle;
 const kwifi = Icons.wifi;
 const ksetting = Icons.settings;
+const kperson = Icons.person_outline_outlined;
+const knote= CupertinoIcons.news;
