@@ -40,6 +40,16 @@ class Beach extends StatelessWidget {
             } else if (state.beach.isEmpty) {
               return const Center(child: Text('No Data found'));
             } else {
+                 final List<String> imagesUrl = [
+                  state.beach[0].largeImageUrl!,
+                  state.beach[1].largeImageUrl!,
+                  state.beach[2].largeImageUrl!,
+                  state.beach[3].largeImageUrl!,
+                  state.beach[4].largeImageUrl!,
+                  state.beach[5].largeImageUrl!,
+                ];
+
+                imagesUrl.shuffle();
               return SizedBox(
                 height: size.height / 3,
                 width: size.width,
@@ -55,8 +65,8 @@ class Beach extends StatelessWidget {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => SearchItemDetailed(
                                   imageurl: data.largeImageUrl!,
-                                  suburls: const [],
-                                  price: "${data.imageHeight}.3",
+                                  suburls:imagesUrl,
+                                  price: "${data.imageHeight}.3", 
                                   title: places[index % places.length],
                                   subtitle:
                                       ' With its powdery white sands and crystal-clear turquoise waters, Grace Bay is a tropical paradise perfect for sunbathing and water sports.',

@@ -28,3 +28,4 @@ const kcall = Icons.phone;
 const kmail = CupertinoIcons.mail;
 const kaddRound = Icons.add_circle;
 const kwifi = Icons.wifi;
+const ksetting = Icons.settings;

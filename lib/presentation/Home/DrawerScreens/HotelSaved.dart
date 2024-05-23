@@ -44,96 +44,141 @@ class _SavedHotelsState extends State<SavedHotels> {
           ],
         ),
         extendBodyBehindAppBar: true,
-        body: FutureBuilder(
-            future: FirebaseFirestore.instance
-                .collection("SavedHotels")
-                .where('userid', isEqualTo: currentuserdata.value.uid)
-                .get(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    color: kwhite,
-                  ),
-                );
-              } else if (snapshot.hasError) {
-                return const Center(
-                  child: Text('Some error occured!!'),
-                );
-              } else if (snapshot.data!.docs.isEmpty) {
-                return const Center(
-                  child: Text('Currently you have no Favourite places'),
-                );
-              } else {
-                return PageView.builder(
-                  controller: pageController,
-                  itemCount: snapshot.data!.docs.length,
-                  itemBuilder: (context, index) {
-                    final data = snapshot.data!.docs[index];
-                    return ConatinerwithWidget(
-                        containerdecoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: NetworkImage(data['imageurl']),
-                                fit: BoxFit.cover)),
-                        childwidget: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            ConatinerwithWidget(
-                                containerdecoration: const BoxDecoration(
-                                    color: kblackTransparent,
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(40),
-                                        topRight: Radius.circular(40))),
-                                childwidget: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      data['name'],
-                                      style: textstyle,
-                                    ),
-                                    Text(
-                                      "\$${data['price']}",
-                                      style: textstyle,
-                                    ),
-                                    SizedBox(
-                                      height: 50,
-                                      width: size.width / 2,
-                                      child: RatingBar(
-                                          intialvalue: data['rating'],
-                                          height: 50,
-                                          width: size.width,
-                                          scrolldirection: Axis.horizontal),
-                                    ),
-                                    Row(
+        body: Column(
+          children: [
+            FutureBuilder(
+                future: FirebaseFirestore.instance
+                    .collection("SavedHotels")
+                    .where('userid', isEqualTo: currentuserdata.value.uid)
+                    .get(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: kwhite,
+                      ),
+                    );
+                  } else if (snapshot.hasError) {
+                    return const Center(
+                      child: Text('Some error occured!!'),
+                    );
+                  } else if (snapshot.data!.docs.isEmpty) {
+                    return const Center(
+                      child: Text('Currently you have no Saved Hotels'),
+                    );
+                  } else {
+                    return PageView.builder(
+                      controller: pageController,
+                      itemCount: snapshot.data!.docs.length,
+                      itemBuilder: (context, index) {
+                        final data = snapshot.data!.docs[index];
+                        return ConatinerwithWidget(
+                            containerdecoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(data['imageurl']),
+                                    fit: BoxFit.cover)),
+                            childwidget: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                ConatinerwithWidget(
+                                    containerdecoration: const BoxDecoration(
+                                        color: kblackTransparent,
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(40),
+                                            topRight: Radius.circular(40))),
+                                    childwidget: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
+                                          MainAxisAlignment.center,
                                       children: [
-                                        SizedBox(
-                                          height: 45,
-                                          width: 100,
-                                          child: ElevatedButtonWidget(
-                                              onPress: () {},
-                                              buttonwidget: const Text(
-                                                  'More Info',
-                                                  style: TextStyle(
-                                                      color: Color.fromARGB(
-                                                          255, 190, 225, 254))),
-                                              style: ElevatedButton.styleFrom(
-                                                  backgroundColor:
-                                                      kDominantTrans)),
+                                        Text(
+                                          data['name'],
+                                          style: textstyle,
+                                        ),
+                                        Text(
+                                          "\$${data['price']}",
+                                          style: textstyle,
                                         ),
                                         SizedBox(
-                                          height: 45,
-                                          width: 100,
+                                          height: 50,
+                                          width: size.width / 2,
+                                          child: RatingBar(
+                                              intialvalue: data['rating'],
+                                              height: 50,
+                                              width: size.width,
+                                              scrolldirection: Axis.horizontal),
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            SizedBox(
+                                              height: 45,
+                                              width: 100,
+                                              child: ElevatedButtonWidget(
+                                                  onPress: () {},
+                                                  buttonwidget: const Text(
+                                                      'More Info',
+                                                      style: TextStyle(
+                                                          color: Color.fromARGB(
+                                                              255,
+                                                              190,
+                                                              225,
+                                                              254))),
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                          backgroundColor:
+                                                              kDominantTrans)),
+                                            ),
+                                            SizedBox(
+                                              height: 45,
+                                              width: 100,
+                                              child: ElevatedButtonWidget(
+                                                  onPress: () {},
+                                                  buttonwidget: const Text(
+                                                    'More Info',
+                                                    style: TextStyle(
+                                                        color: Color.fromARGB(
+                                                            255,
+                                                            190,
+                                                            225,
+                                                            254)),
+                                                  ),
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                          backgroundColor:
+                                                              kDominantTrans)),
+                                            )
+                                          ],
+                                        ),
+                                        h20,
+                                        SizedBox(
+                                          height: 50,
+                                          width: size.width / 1.5,
                                           child: ElevatedButtonWidget(
-                                              onPress: () {},
-                                              buttonwidget: const Text(
-                                                'More Info',
-                                                style: TextStyle(
-                                                    color: Color.fromARGB(
-                                                        255, 190, 225, 254)),
+                                              onPress: () async {
+                                                // Go back one page
+                                                await pageController.nextPage(
+                                                    duration: const Duration(
+                                                        seconds: 001),
+                                                    curve: Curves.bounceIn);
+                                                await FirestoreMethods()
+                                                    .deleteHotelSaved(
+                                                        hotelId:
+                                                            data['hotelId']);
+                                              },
+                                              buttonwidget: Text(
+                                                'Booked',
+                                                style:
+                                                    GoogleFonts.dancingScript(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 25,
+                                                        color: const Color
+                                                            .fromARGB(255, 190,
+                                                            225, 254)),
                                               ),
                                               style: ElevatedButton.styleFrom(
                                                   backgroundColor:
@@ -141,43 +186,17 @@ class _SavedHotelsState extends State<SavedHotels> {
                                         )
                                       ],
                                     ),
-                                    h20,
-                                    SizedBox(
-                                      height: 50,
-                                      width: size.width / 1.5,
-                                      child: ElevatedButtonWidget(
-                                          onPress: () async {
-                                            // Go back one page
-                                            await pageController.nextPage(
-                                                duration: const Duration(
-                                                    seconds: 001),
-                                                curve: Curves.bounceIn);
-                                            await FirestoreMethods()
-                                                .deleteHotelSaved(
-                                                    hotelId: data['hotelId']);
-                                          },
-                                          buttonwidget: Text(
-                                            'Booked',
-                                            style: GoogleFonts.dancingScript(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 25,
-                                                color: const Color.fromARGB(
-                                                    255, 190, 225, 254)),
-                                          ),
-                                          style: ElevatedButton.styleFrom(
-                                              backgroundColor: kDominantTrans)),
-                                    )
-                                  ],
-                                ),
-                                height: size.height / 2.5,
-                                width: size.width),
-                          ],
-                        ),
-                        height: size.height,
-                        width: size.width);
-                  },
-                );
-              }
-            }));
+                                    height: size.height / 2.5,
+                                    width: size.width),
+                              ],
+                            ),
+                            height: size.height,
+                            width: size.width);
+                      },
+                    );
+                  }
+                }),
+          ],
+        ));
   }
 }

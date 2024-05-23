@@ -1,8 +1,9 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:travelapp/Domain/DB/Infrastructure/Auhentication/UserAuthentication.dart';
 import 'package:travelapp/common/Functions/UserAuthFunction.dart';
+import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
@@ -10,6 +11,25 @@ import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignUp/Username_profile_add.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
+import 'package:travelapp/widgets/IconButton.dart';
+
+class BottomRightTriangleClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height * 0.60);
+    path.lineTo(size.width * 0.02, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
 
 class EiteProfile extends StatelessWidget {
   const EiteProfile({super.key});
@@ -18,36 +38,65 @@ class EiteProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final ValueNotifier<String> errorText = ValueNotifier('');
+
     return ChangeNotifierProvider<UsernameModel>(
         create: (context) => UsernameModel(),
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Edite profile '),
+            foregroundColor: kwhite,
+            title: const Text('Edit Profile'),
+            backgroundColor: ktransparent,
+            actions: [
+              IconButtonWidget(
+                  onPressFunc: () {
+                   
+                  },
+                  iconwidget: const Icon(
+                    ksetting,
+                  ))
+            ],
           ),
+          extendBodyBehindAppBar: true,
           body: Consumer<UsernameModel>(builder: (context, model, _) {
-            return SafeArea(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: GestureDetector(
-                    onTap: () async {
-                      await model.selectImage();
-                      if (model.imageBytes != null) {
-                        await AuthMethod()
-                            .uploadProfileImage(file: model.imageBytes);
-                        model.notifyListeners();
-                      } else {
-                        // Handle case when imageBytes is null
-                      }
-                    },
-                    child: CircleAvatar(
-                      radius: 70,
-                      backgroundImage:
-                          NetworkImage(currentuserdata.value.photoUrl),
+                Stack(
+                  children: [
+                    ClipPath(
+                        clipper: BottomRightTriangleClipper(),
+                      child: Container(
+                          height: size.height / 2.5,
+                          width: size.width,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image:
+                                  NetworkImage(currentuserdata.value.photoUrl),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          child: h10),
                     ),
-                  ),
+                    Center(
+                      child: GestureDetector(
+                        onTap: () async {
+                          await model.selectImage();
+                          if (model.imageBytes != null) {
+                            await AuthMethod()
+                                .uploadProfileImage(file: model.imageBytes);
+                            model.notifyListeners();
+                          } else {
+                            // Handle case when imageBytes is null
+                          }
+                        },
+                        child: CircleAvatar(
+                          radius: 70,
+                          backgroundImage:
+                              NetworkImage(currentuserdata.value.photoUrl),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const Text('Username'),
                 CupertinotextfieldWidget(
@@ -58,7 +107,7 @@ class EiteProfile extends StatelessWidget {
                     suffixWidget: w2,
                     keybodtype: TextInputType.name,
                     obscureText: false,
-                    style: const TextStyle(color: kwhite),
+                    style: const TextStyle(color: kgrey),
                     onchanged: (value) {},
                     onsubmitted: (value) {},
                     controller: model.usernameController),
@@ -76,10 +125,28 @@ class EiteProfile extends StatelessWidget {
                     suffixWidget: w2,
                     keybodtype: TextInputType.name,
                     obscureText: false,
-                    style: const TextStyle(color: kwhite),
+                    style: const TextStyle(color: kgrey),
                     onchanged: (value) {},
                     onsubmitted: (value) {},
                     controller: model.nameController),
+                const Divider(
+                  color: klightwhite,
+                ),
+                const Text('Bio'),
+                CupertinotextfieldWidget(
+                    placeholderText: currentuserdata.value.bio.isEmpty
+                        ? "You haven't provided a bio yet."
+                        : currentuserdata.value.bio,
+                    placeholderStyle: subtextstyle,
+                    boxDecoration: const BoxDecoration(),
+                    prefixWidget: w2,
+                    suffixWidget: w2,
+                    keybodtype: TextInputType.name,
+                    obscureText: false,
+                    style: const TextStyle(color: kgrey),
+                    onchanged: (value) {},
+                    onsubmitted: (value) {},
+                    controller: model.bioController),
                 const Divider(
                   color: klightwhite,
                 ),
@@ -92,7 +159,7 @@ class EiteProfile extends StatelessWidget {
                     suffixWidget: w2,
                     keybodtype: TextInputType.name,
                     obscureText: false,
-                    style: const TextStyle(color: kwhite),
+                    style: const TextStyle(color: kgrey),
                     onchanged: (value) {},
                     onsubmitted: (value) {},
                     controller: model.emailController),
@@ -110,7 +177,7 @@ class EiteProfile extends StatelessWidget {
                     suffixWidget: w2,
                     keybodtype: TextInputType.name,
                     obscureText: false,
-                    style: const TextStyle(color: kwhite),
+                    style: const TextStyle(color: kgrey),
                     onchanged: (value) {},
                     onsubmitted: (value) {},
                     controller: model.phNOController),
@@ -150,6 +217,7 @@ class EiteProfile extends StatelessWidget {
                                 ? currentuserdata.value.username
                                 : model.usernameController.text,
                           );
+
                           if (resultph.value != 'ok' ||
                               result != 'ok' ||
                               resultusername != 'ok') {
@@ -160,10 +228,12 @@ class EiteProfile extends StatelessWidget {
                             } else if (resultusername != 'ok') {
                               errorText.value = result;
                             }
-                            print('----------------------------------------------------------------${resultph.value} $result $resultusername');
                           } else {
                             errorText.value = '';
                             await AuthMethod().updateUserndata(
+                                bio: model.bioController.text.isEmpty
+                                    ? currentuserdata.value.bio
+                                    : model.bioController.text,
                                 username: model.usernameController.text.isEmpty
                                     ? currentuserdata.value.username
                                     : model.usernameController.text,
@@ -192,7 +262,7 @@ class EiteProfile extends StatelessWidget {
                   ),
                 ),
               ],
-            ));
+            );
           }),
         ));
   }

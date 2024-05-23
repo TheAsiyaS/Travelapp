@@ -11,7 +11,7 @@ class SearchItemDetailed extends StatelessWidget {
       {super.key,
       required this.imageurl,
       required this.suburls,
-      required this.price, 
+      required this.price,
       required this.title,
       required this.subtitle,
       required this.rating,

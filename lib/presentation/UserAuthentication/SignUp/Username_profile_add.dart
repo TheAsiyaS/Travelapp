@@ -16,9 +16,8 @@ import 'package:image_picker/image_picker.dart';
 class UsernameModel extends ChangeNotifier {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
-
+  final TextEditingController bioController = TextEditingController();
   final TextEditingController phNOController = TextEditingController();
-
   final TextEditingController emailController = TextEditingController();
   final ValueNotifier<String> errorText = ValueNotifier('');
   final ValueNotifier<String> username = ValueNotifier('');

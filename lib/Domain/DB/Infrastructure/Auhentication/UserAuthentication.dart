@@ -133,6 +133,7 @@ class AuthMethod {
       {required String username,
       required String name,
       required String email,
+      required String bio,
       required String phoneno}) async {
     if (username.isNotEmpty) {
       final docUser = FirebaseFirestore.instance
@@ -142,6 +143,7 @@ class AuthMethod {
         'username': username,
         'name': name,
         'email': email,
+        'bio':bio,
         'phoneNumber': phoneno,
       });
     } else {}
