@@ -64,6 +64,7 @@ class Historical extends StatelessWidget {
 
                 imagesUrl.shuffle();
                 return ListView.separated(
+                       padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     final data = state.historical[index];
                     return GestureDetector(

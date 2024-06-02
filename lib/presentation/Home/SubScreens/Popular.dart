@@ -56,7 +56,7 @@ class Popular extends StatelessWidget {
                 return const Text('No Data found');
               } else {
                 return ListView.separated(
-                    shrinkWrap: true,
+                  padding: EdgeInsets.zero,
                     itemBuilder: (context, index) {
                       final data = state.popular[index];
                       final List<String> subimagesUrl = [

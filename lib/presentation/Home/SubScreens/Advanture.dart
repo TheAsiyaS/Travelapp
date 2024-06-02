@@ -69,10 +69,12 @@ class Adavanture extends StatelessWidget {
 
                 imagesUrl.shuffle();
                   return GridView.custom(
+                         padding: EdgeInsets.zero,
                     gridDelegate: SliverQuiltedGridDelegate(
                       crossAxisCount: 2,
                       mainAxisSpacing: 30,
                       crossAxisSpacing: 20,
+                      
                       repeatPattern: QuiltedGridRepeatPattern.inverted,
                       pattern: [
                         const QuiltedGridTile(2, 1),
