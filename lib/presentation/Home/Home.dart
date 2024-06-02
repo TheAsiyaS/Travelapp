@@ -4,9 +4,6 @@ import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
-import 'package:travelapp/presentation/Home/DrawerScreens/FavouritePlace.dart';
-import 'package:travelapp/presentation/Home/DrawerScreens/HotelBooked.dart';
-import 'package:travelapp/presentation/Home/DrawerScreens/HotelSaved.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Advanture.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Beach.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Historical.dart';
@@ -21,237 +18,215 @@ import 'package:travelapp/widgets/onssearchtimescreen.dart';
 class Home extends StatelessWidget {
   const Home({super.key});
 
-  @override
+  @override  
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final drwawerTitle = ['Saved Hotels', 'Favourite Places', 'Booked Hotels'];
-    final drwawerSubTitle = ['Hotels', 'Places', 'Hotels'];
-    final drawerScreens = [ const HotelBookedScreen(),const FavouritePlaces(),const SavedHotels()];
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ktransparent,
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const Profile()));
-            },
-            child: CircleAvatar(
-              backgroundColor: kDominantcolor,
-              backgroundImage: NetworkImage(currentuserdata.value.photoUrl),
-              radius: 25,
+
+    final ValueNotifier<double> xOffsetNotifier = ValueNotifier<double>(0);
+    final ValueNotifier<double> yOffsetNotifier = ValueNotifier<double>(0);
+    final ValueNotifier<bool> isDrawerOpenNotifier = ValueNotifier<bool>(false);
+
+    void toggleDrawer() {
+      if (isDrawerOpenNotifier.value) {
+        xOffsetNotifier.value = 0;
+        yOffsetNotifier.value = 0;
+        isDrawerOpenNotifier.value = false;
+      } else {
+        xOffsetNotifier.value = 290;
+        yOffsetNotifier.value = 100;
+        isDrawerOpenNotifier.value = true;
+      }
+    }
+
+    return ValueListenableBuilder(
+        valueListenable: isDrawerOpenNotifier,
+        builder: (context, isDrawerOpen, child) {
+          return AnimatedContainer(
+            transform: Matrix4.translationValues(
+              xOffsetNotifier.value,
+              yOffsetNotifier.value,
+              0,
+            )
+              ..scale(isDrawerOpen ? 0.65 : 1.00)
+              ..rotateZ(isDrawerOpen ? -50 : 0),
+            duration: const Duration(milliseconds: 200),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 52, 72, 84),
+              borderRadius: isDrawerOpen
+                  ? BorderRadius.circular(40)
+                  : BorderRadius.circular(0),
             ),
-          ),
-          w20
-        ],
-      ),
-      extendBodyBehindAppBar: true,
-      drawer: Drawer(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                color: kbottomSubDominant,
-                height: size.height / 3,
-                width: size.width,
-                child: ValueListenableBuilder(
-                    valueListenable: currentuserdata,
-                    builder: (context, value, _) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          CircleAvatar(
-                            radius: 50,
-                            backgroundImage:
-                                NetworkImage(currentuserdata.value.photoUrl),
-                          ),
-                          h10,
-                          Text(
-                            currentuserdata.value.name,
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: kwhite),
-                          ),
-                          h10,
-                        ],
-                      );
-                    }),
-              ),
-              SizedBox(
-                height: size.height / 2,
-                width: size.width,
-                child: ListView.separated(  
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => drawerScreens[index]));
-                        },
-                        title: Text(drwawerTitle[index]),
-                        subtitle: Text(drwawerSubTitle[index]),
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return const Divider();
-                    },
-                    itemCount: 3),
-              ),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text(
-                  'Longitude',
-                  style: GoogleFonts.dancingScript(fontSize: 20),
+            child: Scaffold(
+              extendBodyBehindAppBar: true,
+              appBar: AppBar(
+                backgroundColor: ktransparent,
+                leading: GestureDetector(
+                  onTap: toggleDrawer,
+                  child: Icon(isDrawerOpen ? Icons.arrow_back_ios : Icons.menu),
                 ),
-                Container(
-                  height: 70,
-                  width: 70,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('asset/logo.png'),
-                          fit: BoxFit.cover)),
-                ),
-              ]),
-            ],
-          ),
-        ),
-      ),
-      body: DefaultTabController(
-        length: 6,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                height: size.height / 2,
-                width: size.width,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage(
-                            'https://images.unsplash.com/photo-1630618357937-bb2aa9c8c911?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&w=1000&q=80'),
-                        fit: BoxFit.cover,
-                        opacity: 80)),
-                child: Container(
-                  decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [ktransparent, kblackTransparent])),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('GOOD MORNING',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 30,
-                                color: kwhite)),
-                        const Text(
-                          'Explore the world with Longitude',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 35,
-                              color: kwhite),
-                        ),
-                        h20,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            ConatinerwithWidget(
-                              height: 50,
-                              width: 50,
-                              containerdecoration: BoxDecoration(
-                                  color: kwhite,
-                                  borderRadius: BorderRadius.circular(15)),
-                              childwidget: IconButtonWidget(
-                                  onPressFunc: () {},
-                                  iconwidget: const Icon(
-                                    kiconsearch,
-                                    color: kdominatgrey,
-                                  )),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        const OnsearchtimeScreen()));
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: kwhite,
-                                    borderRadius: BorderRadius.circular(15)),
-                                height: 50,
-                                width: size.width / 1.3,
-                                child: const Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        '  Search your hapiness......',
-                                        style: TextStyle(
-                                            color: kdominatgrey, fontSize: 18),
-                                      )
-                                    ]),
-                              ),
-                            ),
-                          ],
-                        ),
-                        h20
-                      ],
+                actions: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const Profile()));
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: kDominantcolor,
+                      backgroundImage:
+                          NetworkImage(currentuserdata.value.photoUrl),
+                      radius: 25,
                     ),
                   ),
-                ),
-              ),
-              h20,
-              TabBar(
-                isScrollable: true,
-                labelColor: kDominanttextcolor,
-                unselectedLabelColor: kSubDominantcolor,
-                labelStyle:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w900),
-                indicatorColor: kgreyTransparent,
-                tabs: [
-                  Tab(
-                    child:
-                        Text('Popular', style: GoogleFonts.playfairDisplay()),
-                  ),
-                  Tab(
-                    child: Text('Cheap', style: GoogleFonts.playfairDisplay()),
-                  ),
-                  Tab(
-                    child: Text('Most people visit',
-                        style: GoogleFonts.playfairDisplay()),
-                  ),
-                  Tab(
-                    child:
-                        Text('Advanture', style: GoogleFonts.playfairDisplay()),
-                  ),
-                  Tab(
-                    child: Text('historical',
-                        style: GoogleFonts.playfairDisplay()),
-                  ),
-                  Tab(
-                    child: Text('Beach', style: GoogleFonts.playfairDisplay()),
-                  ),
+                  w20
                 ],
               ),
-              SizedBox(
-                height: size.height / 1.5,
-                width: size.width,
-                child: const TabBarView(children: [
-                  Popular(),
-                  Cheep(),
-                  Mostpeoplevisit(),
-                  Adavanture(),
-                  Historical(),
-                  Beach()
-                ]),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+              body: DefaultTabController(
+                length: 6,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        height: size.height / 2,
+                        width: size.width,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    'https://images.unsplash.com/photo-1630618357937-bb2aa9c8c911?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&w=1000&q=80'),
+                                fit: BoxFit.cover,
+                                opacity: 80)),
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [ktransparent, kblackTransparent])),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text('GOOD MORNING',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 30,
+                                        color: kwhite)),
+                                const Text(
+                                  'Explore the world with Longitude',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 35,
+                                      color: kwhite),
+                                ),
+                                h20,
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    ConatinerwithWidget(
+                                      height: 50,
+                                      width: 50,
+                                      containerdecoration: BoxDecoration(
+                                          color: kwhite,
+                                          borderRadius:
+                                              BorderRadius.circular(15)),
+                                      childwidget: IconButtonWidget(
+                                          onPressFunc: () {},
+                                          iconwidget: const Icon(
+                                            kiconsearch,
+                                            color: kdominatgrey,
+                                          )),
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const OnsearchtimeScreen()));
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: kwhite,
+                                            borderRadius:
+                                                BorderRadius.circular(15)),
+                                        height: 50,
+                                        width: size.width / 1.3,
+                                        child: const Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                '  Search your hapiness......',
+                                                style: TextStyle(
+                                                    color: kdominatgrey,
+                                                    fontSize: 18),
+                                              )
+                                            ]),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                h20
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      h20,
+                      TabBar(
+                        isScrollable: true,
+                        labelColor: kDominanttextcolor,
+                        unselectedLabelColor: kSubDominantcolor,
+                        labelStyle: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w900),
+                        indicatorColor: kgreyTransparent,
+                        tabs: [
+                          Tab(
+                            child: Text('Popular',
+                                style: GoogleFonts.playfairDisplay()),
+                          ),
+                          Tab(
+                            child: Text('Cheap',
+                                style: GoogleFonts.playfairDisplay()),
+                          ),
+                          Tab(
+                            child: Text('Most people visit',
+                                style: GoogleFonts.playfairDisplay()),
+                          ),
+                          Tab(
+                            child: Text('Advanture',
+                                style: GoogleFonts.playfairDisplay()),
+                          ),
+                          Tab(
+                            child: Text('historical',
+                                style: GoogleFonts.playfairDisplay()),
+                          ),
+                          Tab(
+                            child: Text('Beach',
+                                style: GoogleFonts.playfairDisplay()),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: size.height / 1.5,
+                        width: size.width,
+                        child: const TabBarView(children: [
+                          Popular(),
+                          Cheep(),
+                          Mostpeoplevisit(),
+                          Adavanture(),
+                          Historical(),
+                          Beach()
+                        ]),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        });
   }
 }

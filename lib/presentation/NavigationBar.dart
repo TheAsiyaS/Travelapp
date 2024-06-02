@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:travelapp/common/colours.dart';
-import 'package:travelapp/presentation/Home/Home.dart';
+import 'package:travelapp/presentation/Home/HomeStack.dart';
 import 'package:travelapp/presentation/Hotels/Hotels.dart';
 import 'package:travelapp/presentation/TourGuide/TourGuide.dart';
 import 'package:travelapp/presentation/TravelAgencies/Agencies.dart';
 
 ValueNotifier<int> bottomIndex = ValueNotifier(0); //bottomnavigationBar index
 final navigationScreens = [
-  const Home(),
+  const HomeStack(),
   const Hotels(),
   const Agencies(),
   const ScreenGuid()

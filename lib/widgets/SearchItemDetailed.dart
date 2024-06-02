@@ -4,6 +4,7 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
+import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/RatingBar.dart';
 
 class SearchItemDetailed extends StatelessWidget {
@@ -34,6 +35,15 @@ class SearchItemDetailed extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ktransparent,
+        leading: IconButtonWidget(
+                              onPressFunc: () {
+                                Navigator.of(context).pop();
+                              },
+                              iconwidget: const Icon(
+                                kbackward,
+                                color: klightwhite,
+                                size: 45,
+                              )),
       ),
       extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
@@ -111,6 +121,7 @@ class SearchItemDetailed extends StatelessWidget {
                 height: size.height / 1.6,
                 width: size.width,
                 child: ListView.separated(
+                       padding: EdgeInsets.zero,
                     itemBuilder: (context, index) {
                       return const ListTile(
                         leading: CircleAvatar(
