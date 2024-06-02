@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:travelapp/Domain/DB/Infrastructure/Auhentication/UserAuthentication.dart';
 import 'package:travelapp/common/Functions/UserAuthFunction.dart';
@@ -10,7 +9,6 @@ import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/Profile/AvatarFlip.dart';
 import 'package:travelapp/presentation/UserAuthentication/SignUp/Username_profile_add.dart';
-import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/CupertinoTextfield.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
@@ -92,7 +90,7 @@ class EiteProfile extends StatelessWidget {
               IconButtonWidget(
                   onPressFunc: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => FlipAvatarPage()));
+                        builder: (context) => const FlipAvatarPage()));
                   },
                   iconwidget: const Icon(
                     ksetting,
@@ -110,19 +108,35 @@ class EiteProfile extends StatelessWidget {
                     children: [
                       ClipPath(
                         clipper: BottomRightTriangleClipper(),
-                        child: Container(
-                            height: size.height / 2.5,
-                            width: size.width,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    currentuserdata.value.photoUrl),
-                                fit: BoxFit.cover,
+                        child: GestureDetector(
+                          onTap: () async {
+                            await model.selectImage();
+                            if (model.imageBytes != null) {
+                              await AuthMethod()
+                                  .uploadSecondaryImage(file: model.imageBytes);
+                              model.notifyListeners();
+                            } else {
+                              // Handle case when imageBytes is null
+                            }
+                          },
+                          child: Container(
+                              height: size.height / 2.5,
+                              width: size.width,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: currentuserdata
+                                          .value.scondaryImage.isEmpty
+                                      ? const AssetImage('asset/noImage.jpg')
+                                          as ImageProvider<Object>
+                                      : NetworkImage(
+                                          currentuserdata.value.scondaryImage),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                            ),
-                            child: Container(
-                              color: kDominantTrans,
-                            )),
+                              child: Container(
+                                color: kDominantTrans,
+                              )),
+                        ),
                       ),
                       GestureDetector(
                           onTap: () async {
@@ -135,7 +149,7 @@ class EiteProfile extends StatelessWidget {
                               // Handle case when imageBytes is null
                             }
                           },
-                          child: FlipAvatarPage()),
+                          child: const FlipAvatarPage()),
                     ],
                   ),
                   h20,

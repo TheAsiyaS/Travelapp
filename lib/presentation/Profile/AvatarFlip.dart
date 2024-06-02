@@ -7,10 +7,10 @@ class FlipAvatarPage extends StatefulWidget {
   const FlipAvatarPage({super.key});
 
   @override
-  _FlipAvatarPageState createState() => _FlipAvatarPageState();
+  FlipAvatarPageState createState() => FlipAvatarPageState();
 }
 
-class _FlipAvatarPageState extends State<FlipAvatarPage>
+class FlipAvatarPageState extends State<FlipAvatarPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;

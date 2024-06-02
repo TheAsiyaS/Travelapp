@@ -31,3 +31,4 @@ const kwifi = Icons.wifi;
 const ksetting = Icons.settings;
 const kperson = Icons.person_outline_outlined;
 const knote= CupertinoIcons.news;
+const kinfoOutline = Icons.info_outline;
