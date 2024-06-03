@@ -15,9 +15,9 @@ class Drawerscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final drwawerTitle = [
-      'Saved Hotels',
-      'Favourite Places',
       'Booked Hotels',
+      'Favourite Places',
+      'Saved Hotels',
       'Profile'
     ];
     final drwawerSubTitle = ['Hotels', 'Places', 'Hotels', 'Profile'];
@@ -85,7 +85,7 @@ class Drawerscreen extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
               'Longitude',
-              style: GoogleFonts.dancingScript(fontSize: 20,color: kwhite),
+              style: GoogleFonts.dancingScript(fontSize: 20, color: kwhite),
             ),
             Container(
               height: 70,

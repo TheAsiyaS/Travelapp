@@ -125,6 +125,7 @@ class Hotels extends StatelessWidget {
               } else if (state.iserror == true) {
                 return const Text('Some error occured');
               } else if (state.hotelModelList1.isEmpty) {
+                print('list =========== ${state.hotelModelList1}');
                 return const Text('No Data found');
               } else {
                 return SizedBox(
@@ -258,13 +259,15 @@ class Hotels extends StatelessWidget {
                                                                 "${data.likes!}0",
                                                             reviewno: '23',
                                                             username:
-                                                                currentuserdata.value
+                                                                currentuserdata
+                                                                    .value
                                                                     .username,
                                                             userid:
-                                                                currentuserdata.value
-                                                                    .uid!,
+                                                                currentuserdata
+                                                                    .value.uid!,
                                                             userimageurl:
-                                                                currentuserdata.value
+                                                                currentuserdata
+                                                                    .value
                                                                     .photoUrl);
                                                       } else {
                                                         saves.value
@@ -282,7 +285,7 @@ class Hotels extends StatelessWidget {
                                                               .contains(hotelId)
                                                           ? ksaved
                                                           : ksave,
-                                                      color: kwhite,
+                                                      color: kDominantcolor,
                                                     )));
                                           });
                                     }
@@ -397,7 +400,6 @@ class Hotels extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                      
                                         Text(
                                           '\$${data[index].likes}5',
                                           style: const TextStyle(

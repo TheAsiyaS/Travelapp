@@ -65,17 +65,11 @@ class Home extends StatelessWidget {
                   child: Icon(isDrawerOpen ? Icons.arrow_back_ios : Icons.menu),
                 ),
                 actions: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Profile()));
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: kDominantcolor,
-                      backgroundImage:
-                          NetworkImage(currentuserdata.value.photoUrl),
-                      radius: 25,
-                    ),
+                  CircleAvatar(
+                    backgroundColor: kDominantcolor,
+                    backgroundImage:
+                        NetworkImage(currentuserdata.value.photoUrl),
+                    radius: 25,
                   ),
                   w20
                 ],

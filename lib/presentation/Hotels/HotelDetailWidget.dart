@@ -61,30 +61,30 @@ class HotelDetailedWidget extends StatelessWidget {
         backgroundColor: ktransparent,
       ),
       extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Column(
+      body: ConatinerwithWidget(
+        containerdecoration: BoxDecoration(
+            image:
+                DecorationImage(image: NetworkImage(url), fit: BoxFit.cover)),
+        height: size.height,
+        width: size.width,
+        childwidget: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Stack(
               alignment: AlignmentDirectional.bottomCenter,
               children: [
                 ConatinerwithWidget(
-                    containerdecoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(url), fit: BoxFit.cover)),
-                    childwidget: h10,
-                    height: size.height / 2,
-                    width: size.width),
-                ConatinerwithWidget(
-                    containerdecoration: BoxDecoration(
-                        color: isDarkMode ? kblack : kwhite,
-                        borderRadius: const BorderRadius.only(
+                    containerdecoration: const BoxDecoration(
+                        color: klightwhite,
+                        borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40))),
                     childwidget: Padding(
                       padding: const EdgeInsets.only(top: 10, left: 20),
                       child: ListTile(
-                        title: Text(//logx.45(34);
+                        title: Text(
+                          //logx.45(34);
                           title,
                           style: textstyle,
                         ),
@@ -103,225 +103,247 @@ class HotelDetailedWidget extends StatelessWidget {
                     width: size.width),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        price,
-                        style: textstyle,
-                      ),
-                      RatingBar(
-                          intialvalue: rating,
-                          height: size.height / 15,
-                          width: size.width / 1.5,
-                          scrolldirection: Axis.horizontal),
-                    ],
-                  ),
-                  const Text(
-                    'Starting price',
-                    style: subtextstyle,
-                  ),
-                ],
+            Container(
+              color: klightwhite,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20, top: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          price,
+                          style: textstyle,
+                        ),
+                        RatingBar(
+                            intialvalue: rating,
+                            height: size.height / 15,
+                            width: size.width / 1.5,
+                            scrolldirection: Axis.horizontal),
+                      ],
+                    ),
+                    const Text(
+                      'Starting price',
+                      style: TextStyle(color: kdominatgrey),
+                    ),
+                    h10,
+                  ],
+                ),
               ),
             ),
-            h10,
-            Text(
-              '$about The good news is that the hotel standard  is overall excellent, with comfortable and clean rooms well equipped with everything you need. However, hotel prices are comparable to many big European cities, and since space is a valuable commodity , rooms tend to be small. \n29-Jul-2023',
-              style: subtextstyle,
-              maxLines: 6,
-              overflow: TextOverflow.ellipsis,
-            ),
-            h10,
-            BlocBuilder<HotelBloc, HotelState>(builder: (context, state) {
-              if (state.isLoading == true) {
-                return const WidgetCircularProgressIndicator(
-                    indicatorColor: kdominatgrey);
-              } else if (state.iserror == true) {
-                return const Text('Some error occured');
-              } else if (state.hotelModelList2.isEmpty) {
-                log('data : ${state.hotelModelList.length}\n${state.hotelModelList1.length}');
-                log('list ${state.hotelModelList2.length}');
-                return const Text('No Data found');
-              } else {
-                return SizedBox(
-                  height: size.height / 9,
-                  width: size.width,
-                  child: GridView.count(
-                    crossAxisCount: 1,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 3 / 4,
-                    scrollDirection: Axis.horizontal,
-                    children:
-                        List.generate(state.hotelModelList2.length, (index) {
-                      final data = state.hotelModelList2[index];
-                      return Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  image: NetworkImage(data.urls!.regular!),
-                                  fit: BoxFit.cover)),
-                          child: h10);
-                    }),
+            Container(
+              color: klightwhite,
+              child: Column(
+                children: [
+                  Text(
+                    '$about The good news is that the hotel standard  is overall excellent, with comfortable and clean rooms well equipped with everything you need. However, hotel prices are comparable to many big European cities, and since space is a valuable commodity , rooms tend to be small. \n29-Jul-2023',
+                    style: const TextStyle(color: kblack),
+                    maxLines: 6,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                );
-              }
-            }),
-            h10,
-            Center(
-              child: ConatinerwithWidget(
-                  containerdecoration: BoxDecoration(
-                      color: kDominantcolor,
-                      borderRadius: BorderRadius.circular(20)),
-                  childwidget: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Column(
-                            children: [
-                              IconButtonWidget(
-                                  onPressFunc: () {},
-                                  iconwidget: const Icon(
-                                    kLocation,
-                                    color: kwhite,
-                                  )),
-                              Text(subtitle, style: subtextstyle)
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              IconButtonWidget(
-                                  onPressFunc: () {},
-                                  iconwidget: const Icon(kpool, color: kwhite)),
-                              const Text('Pool', style: subtextstyle)
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              IconButtonWidget(
-                                  onPressFunc: () {},
-                                  iconwidget: const Icon(kwifi, color: kwhite)),
-                              const Text(
-                                'Wifi',
-                                style: subtextstyle,
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                      FutureBuilder(
-                          future: FirebaseFirestore.instance
-                              .collection("BookedHotels")
-                              .where('userid',
-                                  isEqualTo: currentuserdata.value.uid)
-                              .get(),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return const CircularProgressIndicator(
-                                strokeWidth: 2,
-                                color: kdominatgrey,
-                              );
-                            } else if (snapshot.hasError) {
-                              return const CircularProgressIndicator(
-                                strokeWidth: 2,
-                                color: kRed,
-                              );
-                            } else {
-                              if (currentuserdata.value.uid != null) {
-                                List<String> likedPostNumericIds =
-                                    snapshot.data!.docs.map((doc) {
-                                  if (doc.data().containsKey('hotelId')) {
-                                    String fullId =
-                                        doc.get('hotelId').toString();
-                                    var parts = fullId.split('-09');
-                                    return parts.first;
-                                  } else {
-                                    return '';
-                                  }
-                                }).toList();
-
-                                booked.value =
-                                    List<String>.from(likedPostNumericIds);
-                              }
-
-                              return ValueListenableBuilder(
-                                  valueListenable: booked,
-                                  builder: (context, value, _) {
-                                    print("booked data :${booked.value}");
-                                    return SizedBox(
-                                      width: size.width / 2,
-                                      height: size.height / 15,
-                                      child: ElevatedButtonWidget(
-                                          onPress: () async {
-                                            if (booked.value//print(1234);
-                                                .contains(hotelid)) {
-                                              booked.value.remove(hotelid);
-
-                                              booked.notifyListeners();
-
-                                              await FirestoreMethods()
-                                                  .deleteHotelSaved(
-                                                      hotelId:
-                                                          "$hotelid-09${currentuserdata.value.uid}");
-                                            } else {
-                                              booked.value.add(hotelid);
-                                              booked.notifyListeners();
-                                              FirestoreMethods().hotelBooked(
-                                                  name: title,
-                                                  decription:
-                                                      "$about The good news is that the hotel standard  is overall excellent, with comfortable and clean rooms well equipped with everything you need. However, hotel prices are comparable to many big European cities, and since space is a valuable commodity , rooms tend to be small. \n29-Jul-2023",
-                                                  rating: rating,
-                                                  imageurl: url,
-                                                  subimageurl: [],
-                                                  price: price,
-                                                  reviewno: "$rating",
-                                                  username: currentuserdata
-                                                      .value.username,
-                                                  userid: currentuserdata
-                                                      .value.uid!,
-                                                  userimageurl: currentuserdata
-                                                      .value.photoUrl,
-                                                  hotelId:
-                                                      "$hotelid-09${currentuserdata.value.uid}");
-                                            }
-                                          },
-                                          buttonwidget: Text(
-                                            booked.value.contains(hotelid)
-                                                ? 'Booked'
-                                                : 'Book Now',
-                                            style: GoogleFonts.dancingScript(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 25,
-                                                color: const Color.fromARGB(
-                                                    255, 190, 225, 254)),
-                                          ),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: kbottomSubDominant,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8),
-                                              side: const BorderSide(
-                                                  color: kDominantcolor,
-                                                  width:
-                                                      2.0), // Border properties
-                                            ),
-                                          )),
+                  h10,
+                  BlocBuilder<HotelBloc, HotelState>(builder: (context, state) {
+                    if (state.isLoading == true) {
+                      return const WidgetCircularProgressIndicator(
+                          indicatorColor: kdominatgrey);
+                    } else if (state.iserror == true) {
+                      return const Text('Some error occured');
+                    } else if (state.hotelModelList2.isEmpty) {
+                      log('data : ${state.hotelModelList.length}\n${state.hotelModelList1.length}');
+                      log('list ${state.hotelModelList2.length}');
+                      return const Text('No Data found');
+                    } else {
+                      return SizedBox(
+                        height: size.height / 9,
+                        width: size.width,
+                        child: GridView.count(
+                          crossAxisCount: 1,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 3 / 4,
+                          scrollDirection: Axis.horizontal,
+                          children: List.generate(state.hotelModelList2.length,
+                              (index) {
+                            final data = state.hotelModelList2[index];
+                            return Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                        image:
+                                            NetworkImage(data.urls!.regular!),
+                                        fit: BoxFit.cover)),
+                                child: h10);
+                          }),
+                        ),
+                      );
+                    }
+                  }),
+                  h10,
+                  Center(
+                    child: ConatinerwithWidget(
+                        containerdecoration: BoxDecoration(
+                            color: kDominantcolor,
+                            borderRadius: BorderRadius.circular(20)),
+                        childwidget: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Column(
+                                  children: [
+                                    IconButtonWidget(
+                                        onPressFunc: () {},
+                                        iconwidget: const Icon(
+                                          kLocation,
+                                          color: kwhite,
+                                        )),
+                                    Text(subtitle, style: subtextstyle)
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    IconButtonWidget(
+                                        onPressFunc: () {},
+                                        iconwidget:
+                                            const Icon(kpool, color: kwhite)),
+                                    const Text('Pool', style: subtextstyle)
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    IconButtonWidget(
+                                        onPressFunc: () {},
+                                        iconwidget:
+                                            const Icon(kwifi, color: kwhite)),
+                                    const Text(
+                                      'Wifi',
+                                      style: subtextstyle,
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                            FutureBuilder(
+                                future: FirebaseFirestore.instance
+                                    .collection("BookedHotels")
+                                    .where('userid',
+                                        isEqualTo: currentuserdata.value.uid)
+                                    .get(),
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return const CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                      color: kdominatgrey,
                                     );
-                                  });
-                            }
-                          })
-                    ],
-                  ),
-                  height: size.height / 6,
-                  width: size.width / 1.5),
+                                  } else if (snapshot.hasError) {
+                                    return const CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                      color: kRed,
+                                    );
+                                  } else {
+                                    if (currentuserdata.value.uid != null) {
+                                      List<String> likedPostNumericIds =
+                                          snapshot.data!.docs.map((doc) {
+                                        if (doc.data().containsKey('hotelId')) {
+                                          String fullId =
+                                              doc.get('hotelId').toString();
+                                          var parts = fullId.split('-09');
+                                          return parts.first;
+                                        } else {
+                                          return '';
+                                        }
+                                      }).toList();
+
+                                      booked.value = List<String>.from(
+                                          likedPostNumericIds);
+                                    }
+
+                                    return ValueListenableBuilder(
+                                        valueListenable: booked,
+                                        builder: (context, value, _) {
+                                          print("booked data :${booked.value}");
+                                          return SizedBox(
+                                            width: size.width / 2,
+                                            height: size.height / 15,
+                                            child: ElevatedButtonWidget(
+                                                onPress: () async {
+                                                  if (booked
+                                                      .value //print(1234);
+                                                      .contains(hotelid)) {
+                                                    booked.value
+                                                        .remove(hotelid);
+
+                                                    booked.notifyListeners();
+
+                                                    await FirestoreMethods()
+                                                        .deleteHotelSaved(
+                                                            hotelId:
+                                                                "$hotelid-09${currentuserdata.value.uid}");
+                                                  } else {
+                                                    booked.value.add(hotelid);
+                                                    booked.notifyListeners();
+                                                    FirestoreMethods().hotelBooked(
+                                                        name: title,
+                                                        decription:
+                                                            "$about The good news is that the hotel standard  is overall excellent, with comfortable and clean rooms well equipped with everything you need. However, hotel prices are comparable to many big European cities, and since space is a valuable commodity , rooms tend to be small. \n29-Jul-2023",
+                                                        rating: rating,
+                                                        imageurl: url,
+                                                        subimageurl: [],
+                                                        price: price,
+                                                        reviewno: "$rating",
+                                                        username:
+                                                            currentuserdata
+                                                                .value.username,
+                                                        userid: currentuserdata
+                                                            .value.uid!,
+                                                        userimageurl:
+                                                            currentuserdata
+                                                                .value.photoUrl,
+                                                        hotelId:
+                                                            "$hotelid-09${currentuserdata.value.uid}");
+                                                  }
+                                                },
+                                                buttonwidget: Text(
+                                                  booked.value.contains(hotelid)
+                                                      ? 'Booked'
+                                                      : 'Book Now',
+                                                  style:
+                                                      GoogleFonts.dancingScript(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 25,
+                                                          color: const Color
+                                                              .fromARGB(255,
+                                                              190, 225, 254)),
+                                                ),
+                                                style: ElevatedButton.styleFrom(
+                                                  backgroundColor:
+                                                      kbottomSubDominant,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                    side: const BorderSide(
+                                                        color: kDominantcolor,
+                                                        width:
+                                                            2.0), // Border properties
+                                                  ),
+                                                )),
+                                          );
+                                        });
+                                  }
+                                })
+                          ],
+                        ),
+                        height: size.height / 6,
+                        width: size.width / 1.5),
+                  )
+                ],
+              ),
             )
           ],
         ),

@@ -28,9 +28,17 @@ class FavouritePlaces extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Your favourite  places',
-              style: textstyle,
+            Row(
+              children: [
+                IconButtonWidget(
+                    onPressFunc: () {
+                      Navigator.of(context).pop();
+                    }, iconwidget: const Icon(kbackward,color: kDominantTrans,size: 35,)),
+                const Text(
+                  'Your favourite  places',
+                  style: textstyle,
+                ),
+              ],
             ),
             const Divider(),
             SizedBox(
@@ -44,7 +52,7 @@ class FavouritePlaces extends StatelessWidget {
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
-                        child:  CircularProgressIndicator(
+                        child: CircularProgressIndicator(
                           strokeWidth: 2,
                           color: kwhite,
                         ),
@@ -68,99 +76,100 @@ class FavouritePlaces extends StatelessWidget {
                       }
                       print('likes: $likes');
                       return ValueListenableBuilder(
-                        valueListenable: likes,
-                        builder: (context, value , _) {
-                          return ListView.separated(
-                              itemBuilder: (context, index) {
-                                final data = snapshot.data!.docs[index];
-                                return Card(
-                                  elevation: 10,
-                                  child: SizedBox(
-                                    height: size.height / 4,
-                                    width: size.width / 2,
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            SizedBox(
-                                              width: size.width / 2,
-                                              child: Text(
-                                                data['name'],
-                                                style: textstyle,
-                                              ),
-                                            ),
-                                            w20,
-                                            ConatinerwithWidget(
-                                                containerdecoration: BoxDecoration(
-                                                    color: kDominantTransdark,
-                                                    borderRadius:
-                                                        BorderRadiusDirectional
-                                                            .circular(15)),
-                                                childwidget: IconButton(
-                                                    onPressed: () async {
-                                                      likes.value
-                                                          .remove(data['placeId']);
-                                                      await FirestoreMethods()
-                                                          .deletePlaceSaved(
-                                                              placedId: data.id);
-                                                      // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
-                                                      likes.notifyListeners();
-                                                    },
-                                                    icon: const Icon(
-                                                      kfavorite,
-                                                      color: kDominantcolor,
-                                                    )),
-                                                height: 50,
-                                                width: 50)
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            ConatinerwithWidget(
-                                                containerdecoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(20),
-                                                    image: DecorationImage(
-                                                        image: NetworkImage(
-                                                            data['imageurl']),
-                                                        fit: BoxFit.cover)),
-                                                childwidget: h10,
-                                                height: size.height / 6,
-                                                width: size.width / 2),
-                                            Column(
-                                              children: [
-                                                Text(
-                                                  "\$${data['price']}",
+                          valueListenable: likes,
+                          builder: (context, value, _) {
+                            return ListView.separated(
+                                itemBuilder: (context, index) {
+                                  final data = snapshot.data!.docs[index];
+                                  return Card(
+                                    elevation: 10,
+                                    child: SizedBox(
+                                      height: size.height / 4,
+                                      width: size.width / 2,
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              SizedBox(
+                                                width: size.width / 2,
+                                                child: Text(
+                                                  data['name'],
                                                   style: textstyle,
                                                 ),
-                                                SizedBox(
-                                                    height: 50,
-                                                    width: 150,
-                                                    child: Text(
-                                                      data['decription'],
-                                                      maxLines: 3,
-                                                      overflow:
-                                                          TextOverflow.ellipsis,
-                                                    ))
-                                              ],
-                                            )
-                                          ],
-                                        )
-                                      ],
+                                              ),
+                                              w20,
+                                              ConatinerwithWidget(
+                                                  containerdecoration: BoxDecoration(
+                                                      color: kDominantTransdark,
+                                                      borderRadius:
+                                                          BorderRadiusDirectional
+                                                              .circular(15)),
+                                                  childwidget: IconButton(
+                                                      onPressed: () async {
+                                                        likes.value.remove(
+                                                            data['placeId']);
+                                                        await FirestoreMethods()
+                                                            .deletePlaceSaved(
+                                                                placedId:
+                                                                    data.id);
+                                                        // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
+                                                        likes.notifyListeners();
+                                                      },
+                                                      icon: const Icon(
+                                                        kfavorite,
+                                                        color: kDominantcolor,
+                                                      )),
+                                                  height: 50,
+                                                  width: 50)
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              ConatinerwithWidget(
+                                                  containerdecoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      image: DecorationImage(
+                                                          image: NetworkImage(
+                                                              data['imageurl']),
+                                                          fit: BoxFit.cover)),
+                                                  childwidget: h10,
+                                                  height: size.height / 6,
+                                                  width: size.width / 2),
+                                              Column(
+                                                children: [
+                                                  Text(
+                                                    "\$${data['price']}",
+                                                    style: textstyle,
+                                                  ),
+                                                  SizedBox(
+                                                      height: 50,
+                                                      width: 150,
+                                                      child: Text(
+                                                        data['decription'],
+                                                        maxLines: 3,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                      ))
+                                                ],
+                                              )
+                                            ],
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                );
-                              },
-                              separatorBuilder: (context, index) {
-                                return const Divider();
-                              },
-                              itemCount: snapshot.data!.docs.length);
-                        }
-                      );
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return const Divider();
+                                },
+                                itemCount: snapshot.data!.docs.length);
+                          });
                     }
                   }),
             )
