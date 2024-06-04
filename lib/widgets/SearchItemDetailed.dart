@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
@@ -33,7 +34,7 @@ class SearchItemDetailed extends StatelessWidget {
     final rated = rating.toString();
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(80),  
+        preferredSize: const Size.fromHeight(80),
         child: AppBar(
           backgroundColor: ktransparent,
           leading: Padding(
@@ -105,10 +106,10 @@ class SearchItemDetailed extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: Container(
-                    height: size.height / 6,
+                    height: size.height / 5.5,
                     width: size.width / 1.3,
                     decoration: BoxDecoration(
-                        color: klightwhite,
+                        color: const Color.fromARGB(101, 10, 56, 53),
                         borderRadius: BorderRadius.circular(20)),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -211,24 +212,56 @@ class SearchItemDetailed extends StatelessWidget {
             SizedBox(
                 height: size.height / 1.6,
                 width: size.width,
-                child: ListView.separated(
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context, index) {
-                      return const ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                              'https://www.adobe.com/acrobat/hub/media_173d13651460eb7e12c0ef4cf8410e0960a20f0ee.jpeg?width=1200&format=pjpg&optimize=medium'),
-                        ),
-                        title: Text('Username'),
-                        subtitle: Text(
-                            'Reviwe of the user will be shown here like they love our app they will be join our premium plan'),
-                        trailing: Icon(kcheck, color: kSubDominantcolor),
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return const Divider();
-                    },
-                    itemCount: 15))
+                child: FutureBuilder(
+                    future: FirebaseFirestore.instance
+                        .collection("user")
+                        .where('phoneNumber', isNotEqualTo: '')
+                        .get(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: kdominatgrey,
+                          ),
+                        );
+                      } else if (snapshot.hasError) {
+                        return const Center(
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: kRed,
+                          ),
+                        );
+                      } else {
+                        final review = [
+                          'Really amazing😍',
+                          'So nice 💕💕',
+                          'Wonderfull!!!..',
+                          'Budget Friendly..😊',
+                          'Thank you so much ❤️❤️, I like this place😘'
+                        ];
+                        review.shuffle();
+                        return ListView.separated(
+                            padding: EdgeInsets.zero,
+                            itemBuilder: (context, index) {
+                              final userdata = snapshot.data!.docs[index];
+                              return ListTile(
+                                leading: CircleAvatar(
+                                    backgroundImage:
+                                        NetworkImage(userdata['photoUrl'])),
+                                title: Text(userdata['username']),
+                                subtitle: Text(
+                                    review[index % review.length]),
+                                trailing: const Icon(kcheck,
+                                    color: kSubDominantcolor),
+                              );
+                            },
+                            separatorBuilder: (context, index) {
+                              return const Divider();
+                            },
+                            itemCount: snapshot.data!.docs.length);
+                      }
+                    }))
           ],
         ),
       ),

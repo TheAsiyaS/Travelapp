@@ -42,7 +42,7 @@ class FavouritePlaces extends StatelessWidget {
             ),
             const Divider(),
             SizedBox(
-              height: size.height / 1.1,
+              height: size.height / 1.2,
               width: size.width,
               child: FutureBuilder(
                   future: FirebaseFirestore.instance

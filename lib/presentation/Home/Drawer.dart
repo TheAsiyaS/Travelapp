@@ -4,8 +4,8 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/Home/DrawerScreens/FavouritePlace.dart';
-import 'package:travelapp/presentation/Home/DrawerScreens/HotelBook.dart';
 import 'package:travelapp/presentation/Home/DrawerScreens/HotelSave.dart';
+import 'package:travelapp/presentation/Home/DrawerScreens/HotelBooked.dart';
 import 'package:travelapp/presentation/Profile/Profile.dart';
 
 class Drawerscreen extends StatelessWidget {

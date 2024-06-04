@@ -39,7 +39,7 @@ class AgentDetails extends StatelessWidget {
                   image: DecorationImage(
                       image: NetworkImage(imageurl), fit: BoxFit.cover)),
               childwidget: h10,
-              height: size.height / 2,
+              height: size.height / 2.5,
               width: size.width),
           RatingBar(
               intialvalue: 4,
