@@ -1,49 +1,49 @@
 {
-  "project_info": {
-    "project_number": "1001590474082",
-    "project_id": "travel-app-b239a",
-    "storage_bucket": "travel-app-b239a.appspot.com"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1001590474082:android:7583db7e156dde319e183b",
-        "android_client_info": {
-          "package_name": "com.example.travelapp"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDgbbG87-HgnloUIO6w7usClp0jZCaSfyY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
+    "project_info": {
+      "project_number": "1001590474082",
+      "project_id": "travel-app-b239a",
+      "storage_bucket": "travel-app-b239a.appspot.com"
     },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1001590474082:android:7583db7e156dde319e183b",
-        "android_client_info": {
-          "package_name": "com.example.travelapp"
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:1001590474082:android:7583db7e156dde319e183b",
+          "android_client_info": {
+            "package_name": "com.example.travelapp"
+          }
+        },
+        "oauth_client": [],
+        "api_key": [
+          {
+            "current_key": "AIzaSyDgbbG87-HgnloUIO6w7usClp0jZCaSfyY"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": []
+          }
         }
       },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDgbbG87-HgnloUIO6w7usClp0jZCaSfyY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:1001590474082:android:7583db7e156dde319e183b",
+          "android_client_info": {
+            "package_name": "com.example.travelapp"
+          }
+        },
+        "oauth_client": [],
+        "api_key": [
+          {
+            "current_key": "AIzaSyDgbbG87-HgnloUIO6w7usClp0jZCaSfyY"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": []
+          }
         }
       }
-    }
-  ],
-  
-  "configuration_version": "1"
-}
+    ],
+    
+    "configuration_version": "1"
+  }

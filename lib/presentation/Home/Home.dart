@@ -10,7 +10,6 @@ import 'package:travelapp/presentation/Home/SubScreens/Historical.dart';
 import 'package:travelapp/presentation/Home/SubScreens/cheep.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Mostpeoplevisit.dart';
 import 'package:travelapp/presentation/Home/SubScreens/Popular.dart';
-import 'package:travelapp/presentation/Profile/Profile.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
 import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/onssearchtimescreen.dart';
@@ -18,7 +17,7 @@ import 'package:travelapp/widgets/onssearchtimescreen.dart';
 class Home extends StatelessWidget {
   const Home({super.key});
 
-  @override  
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
@@ -51,18 +50,28 @@ class Home extends StatelessWidget {
               ..rotateZ(isDrawerOpen ? -50 : 0),
             duration: const Duration(milliseconds: 200),
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 52, 72, 84),
+              color: const Color.fromARGB(255, 49, 77, 95),
               borderRadius: isDrawerOpen
                   ? BorderRadius.circular(40)
                   : BorderRadius.circular(0),
             ),
             child: Scaffold(
-              extendBodyBehindAppBar: true,
+              extendBodyBehindAppBar: true,    
               appBar: AppBar(
-                backgroundColor: ktransparent,
+                backgroundColor: ktransparent,    
                 leading: GestureDetector(
                   onTap: toggleDrawer,
-                  child: Icon(isDrawerOpen ? Icons.arrow_back_ios : Icons.menu),
+                  child: Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(162, 130, 130, 130),
+                        borderRadius: BorderRadius.circular(40)),
+                    child: Icon(
+                      isDrawerOpen ? Icons.arrow_back_ios : Icons.menu,
+                      color: kwhite,
+                    ),
+                  ),
                 ),
                 actions: [
                   CircleAvatar(
@@ -84,8 +93,7 @@ class Home extends StatelessWidget {
                         width: size.width,
                         decoration: const BoxDecoration(
                             image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://images.unsplash.com/photo-1630618357937-bb2aa9c8c911?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&w=1000&q=80'),
+                                image: AssetImage('asset/homrpage.jpeg'),
                                 fit: BoxFit.cover,
                                 opacity: 80)),
                         child: Container(
@@ -121,14 +129,15 @@ class Home extends StatelessWidget {
                                       height: 50,
                                       width: 50,
                                       containerdecoration: BoxDecoration(
-                                          color: kwhite,
+                                          color: const Color.fromARGB(
+                                              100, 255, 255, 255),
                                           borderRadius:
                                               BorderRadius.circular(15)),
                                       childwidget: IconButtonWidget(
                                           onPressFunc: () {},
                                           iconwidget: const Icon(
                                             kiconsearch,
-                                            color: kdominatgrey,
+                                            color: kwhite,
                                           )),
                                     ),
                                     GestureDetector(
@@ -140,7 +149,8 @@ class Home extends StatelessWidget {
                                       },
                                       child: Container(
                                         decoration: BoxDecoration(
-                                            color: kwhite,
+                                            color: const Color.fromARGB(
+                                                100, 255, 255, 255),
                                             borderRadius:
                                                 BorderRadius.circular(15)),
                                         height: 50,
@@ -154,7 +164,7 @@ class Home extends StatelessWidget {
                                               Text(
                                                 '  Search your hapiness......',
                                                 style: TextStyle(
-                                                    color: kdominatgrey,
+                                                    color: kwhite,
                                                     fontSize: 18),
                                               )
                                             ]),
@@ -175,7 +185,9 @@ class Home extends StatelessWidget {
                         unselectedLabelColor: kSubDominantcolor,
                         labelStyle: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w900),
-                        indicatorColor: kgreyTransparent,
+                        indicatorColor: const Color.fromARGB(133, 43, 74, 88),
+                      tabAlignment: TabAlignment.start,
+               // labelPadding: EdgeInsets.symmetric(horizontal: 15),  
                         tabs: [
                           Tab(
                             child: Text('Popular',

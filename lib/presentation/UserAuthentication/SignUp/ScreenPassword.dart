@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -20,8 +21,9 @@ class PasswordModel extends ChangeNotifier {
     final result = passwordcheck(password: repasswordController.text);
     if (result != 'ok') {
       errorText.value = result;
+      log(errorText.value);
     } else {
-      errorText.value = '';
+      errorText.value = '';//print(trave_ll);
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => ScreenEmailPhno(
                 username: username,
@@ -114,6 +116,7 @@ class ScreenPassword extends StatelessWidget {
                     size: size,
                     width: 3,
                     onPress: () {
+                      print('clicked');
                       model.validatePasswordAndNavigate(
                           context, username, imageFile);
                     },

@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
 import 'package:travelapp/Application/Hotel1_Bloc/hotel1_bloc.dart';
@@ -34,16 +33,17 @@ ValueNotifier<UserData> currentuserdata = ValueNotifier(UserData(
     additionalImfo: ''));
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (kIsWeb == true) {
-    await Firebase.initializeApp(
-        options: const FirebaseOptions(
-            apiKey: 'AIzaSyAlLArPu-3rEUhDNKtblvWOiBflDet0aLg',
-            appId: '1:1001590474082:web:389a0ab48b539fcb9e183b',
-            messagingSenderId: 'G-NMPB0KB0J4',
-            projectId: 'travel-app-b239a'));
-  } else {
-    await Firebase.initializeApp(); //
-  }
+
+  await Firebase.initializeApp(
+      options: const FirebaseOptions(
+    apiKey: 'AIzaSyAlLArPu-3rEUhDNKtblvWOiBflDet0aLg',
+    appId: '1:1001590474082:web:389a0ab48b539fcb9e183b',
+    messagingSenderId: '1001590474082',
+    projectId: 'travel-app-b239a',
+    storageBucket: 'gs://travel-app-b239a.appspot.com',
+  ));
+
+  await Firebase.initializeApp(); //
 
   await configInjection();
 

@@ -22,7 +22,7 @@ class EmailPhoneModel extends ChangeNotifier {
       String password, Uint8List? imageFile) async {
     final result = emailcheck(email: emailController.text);
     final passwordres = passwordcheck(password: password);
-    if (result  != 'ok'&& passwordres !='ok') {
+    if (result != 'ok' && passwordres != 'ok') {
       print(result);
     } else {
       final result = await AuthMethod().signUp(
@@ -34,9 +34,9 @@ class EmailPhoneModel extends ChangeNotifier {
           file: imageFile);
       if (result == 'ok') {
         currentuserdata.value = await AuthMethod().getUserDetail();
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const NavigationBarScreen(),
-        ));
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => NavigationBarScreen()),
+             (Route<dynamic> route) => false );
       } else {
         log('some error occured');
       }
