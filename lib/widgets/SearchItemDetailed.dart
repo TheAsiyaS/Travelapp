@@ -99,7 +99,74 @@ class SearchItemDetailed extends StatelessWidget {
                         imageurl,
                       ),
                       fit: BoxFit.cover)),
-             
+               child: Container(
+                height: MediaQuery.of(context).size.height / 1.6,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                    const Color.fromARGB(136, 0, 0, 0),
+                    ktransparent
+                  ]),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Share $rating',
+                      style: TextStyle(
+                        color: kwhite,
+                        fontSize: 20,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                    Text(
+                      title,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 35,
+                          color: kwhite),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundColor: kDominantTransdark,
+                          backgroundImage: NetworkImage(suburls[0]),
+                        ),
+                        SizedBox(
+                          height: 20,
+                          child: VerticalDivider(
+                            color: kwhite,
+                            thickness: 2,
+                          ),
+                        ),
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundColor: kDominantTransdark,
+                          backgroundImage: NetworkImage(suburls[1]),
+                        ),
+                        SizedBox(
+                          height: 20,
+                          child: VerticalDivider(
+                            color: kwhite,
+                            thickness: 2,
+                          ),
+                        ),
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundColor: kDominantTransdark,
+                          backgroundImage: NetworkImage(suburls[2]),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: size.height / 9,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
        
