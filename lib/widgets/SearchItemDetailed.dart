@@ -25,9 +25,10 @@ class SearchItemDetailed extends StatelessWidget {
   final int rating;
   final String reviewNo;
   final String obj;
-  @override 
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final rate = reduceToOneDigit(rating);
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 144, 161, 162),
@@ -99,7 +100,7 @@ class SearchItemDetailed extends StatelessWidget {
                         imageurl,
                       ),
                       fit: BoxFit.cover)),
-               child: Container(
+              child: Container(
                 height: MediaQuery.of(context).size.height / 1.6,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -164,13 +165,12 @@ class SearchItemDetailed extends StatelessWidget {
                     SizedBox(
                       height: size.height / 9,
                     ),
-                    
                   ],
                 ),
               ),
             ),
           ),
-                      Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.area_chart),
@@ -225,7 +225,7 @@ class SearchItemDetailed extends StatelessWidget {
                     ],
                   )),
               Container(
-                  height: 40, 
+                  height: 40,
                   width: 80,
                   decoration: BoxDecoration(
                       color: kDominantTrans,
@@ -238,15 +238,19 @@ class SearchItemDetailed extends StatelessWidget {
                         size: 17,
                         color: const Color.fromARGB(255, 164, 220, 218),
                       ),
-                      
+                      Text(
+                        '${rate}/10',
+                        style: TextStyle(
+                            color: kwhite,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      )
                     ],
                   )),
             ],
           ),
           Text(
               'jsdjfsdjf dskfjdsf askdjijfd sjdfjisafd ajdsiajsdioas kasdj xjsdk  sdkfoidfksdsiodsdsd sdsd fsdkfiodsf mdsfjisjdfs df smfsdfm sdfkdsjfoipsdf smdfnjdsfo9difc dx ')
-
-
         ],
       ),
     );
@@ -269,5 +273,12 @@ class MyClipper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return false;
   }
+}
+
+              int reduceToOneDigit(int number) {
+  while (number >= 10) {
+    number = number.toString().split('').map(int.parse).reduce((a, b) => a + b);
+  }
+  return number;
 }
 
