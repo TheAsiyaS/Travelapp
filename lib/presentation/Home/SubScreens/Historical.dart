@@ -76,8 +76,8 @@ class Historical extends StatelessWidget {
                                 imageurl: data.largeImageUrl!,
                                 suburls: imagesUrl,
                                 price: "${data.imageHeight}.9",
-                                title: countryNames[index % places.length],
-                                subtitle: 'subtitle',
+                                title: places[index % places.length],
+                                subtitle: countryNames[index % places.length],
                                 rating: 3,
                                 reviewNo: 'reviewNo',
                                 obj: 'obj')));

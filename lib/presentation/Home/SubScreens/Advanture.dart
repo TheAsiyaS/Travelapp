@@ -58,23 +58,22 @@ class Adavanture extends StatelessWidget {
                 } else if (state.advanture.isEmpty) {
                   return const Center(child: Text('No Data found'));
                 } else {
-                     final List<String> imagesUrl = [
-                  state.advanture[0].largeImageUrl!,
-                  state.advanture[1].largeImageUrl!,
-                  state.advanture[2].largeImageUrl!,
-                  state.advanture[3].largeImageUrl!,
-                  state.advanture[4].largeImageUrl!,
-                  state.advanture[5].largeImageUrl!,
-                ];
+                  final List<String> imagesUrl = [
+                    state.advanture[0].largeImageUrl!,
+                    state.advanture[1].largeImageUrl!,
+                    state.advanture[2].largeImageUrl!,
+                    state.advanture[3].largeImageUrl!,
+                    state.advanture[4].largeImageUrl!,
+                    state.advanture[5].largeImageUrl!,
+                  ];
 
-                imagesUrl.shuffle();
+                  imagesUrl.shuffle();
                   return GridView.custom(
-                         padding: EdgeInsets.zero,
+                    padding: EdgeInsets.zero,
                     gridDelegate: SliverQuiltedGridDelegate(
                       crossAxisCount: 2,
                       mainAxisSpacing: 30,
                       crossAxisSpacing: 20,
-                      
                       repeatPattern: QuiltedGridRepeatPattern.inverted,
                       pattern: [
                         const QuiltedGridTile(2, 1),
@@ -88,14 +87,19 @@ class Adavanture extends StatelessWidget {
                       final data = state.advanture[index];
                       return GestureDetector(
                         onTap: () {
+                          List<String> countryNames = places.map((place) {
+                            List<String> parts = place.split(', ');
+                            return parts.length > 1
+                                ? parts[1]
+                                : place; // Get the last part as the country name
+                          }).toList();
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => SearchItemDetailed(
                                   imageurl: data.largeImageUrl!,
                                   suburls: imagesUrl,
                                   price: "${data.comments}0",
                                   title: places[index % places.length],
-                                  subtitle:
-                                      ' rope climbing exercises, obstacle courses, bouldering, rock climbing, target oriented activities, and zip-lines. They are usually intended for recreation.',
+                                  subtitle: countryNames[index % places.length],
                                   rating: data.comments!,
                                   reviewNo: data.comments!.toString(),
                                   obj: 'obj')));

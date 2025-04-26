@@ -79,7 +79,7 @@ class Popular extends StatelessWidget {
                                   rating: data.comments!,
                                   reviewNo: '${data.comments}',
                                   obj: 'obj')));
-                        },
+                         },
                         child: Container(
                           height: size.height / 2.5,
                           width: size.width / 1.7,

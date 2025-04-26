@@ -29,13 +29,7 @@ class SearchItemDetailed extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final rate = reduceToOneDigit(rating);
-    List<String> parts = title.split(',');
 
-    String place = parts[0].trim();
-// String country = parts[1].trim();
-
-// print('Place: $place');
-// print('Country: $country');
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 144, 161, 162),
       appBar: PreferredSize(
@@ -197,18 +191,46 @@ class SearchItemDetailed extends StatelessWidget {
                   )),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.area_chart),
-              Text(
-                'Spain , Madrid',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 25, color: kblack),
-              )
-            ],
+          // Text.rich(
+          //   TextSpan(
+          //     children: [
+          //       WidgetSpan(
+          //         alignment: PlaceholderAlignment.middle,
+          //         child: Icon(Icons.area_chart, size: 28, color: kblack),
+          //       ),
+          //       TextSpan(
+          //         text: ' $subtitle',
+          //         style: TextStyle(
+          //           fontWeight: FontWeight.bold,
+          //           fontSize: 25,
+          //           color: kblack,
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          //   textAlign: TextAlign.center,
+          //   maxLines: 1,
+          //   overflow: TextOverflow.ellipsis,
+          // ),
+          RichText(
+            text: TextSpan(
+              children: [
+                WidgetSpan(
+                  child: Icon(Icons.area_chart, size: 28, color: kblack),
+                ),
+                TextSpan(
+                  text: ' $subtitle',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25,
+                    color: kblack,
+                  ),
+                ),
+              ],
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
           Text(
             title,
