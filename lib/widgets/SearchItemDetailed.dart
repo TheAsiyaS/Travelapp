@@ -35,7 +35,54 @@ class SearchItemDetailed extends StatelessWidget {
         preferredSize: const Size.fromHeight(80),
         child: AppBar(
           backgroundColor: ktransparent,
-          
+          leading: CircleAvatar(
+            radius: 45,
+            backgroundColor: kblackTransparent,
+            child: IconButtonWidget(
+                onPressFunc: () {
+                  Navigator.of(context).pop();
+                },
+                iconwidget: const Icon(
+                  kbackward,
+                  color: Color.fromARGB(255, 133, 145, 144),
+                  size: 35,
+                )),
+          ),
+          actions: [
+            Container(
+              decoration: BoxDecoration(
+                color: kblackTransparent,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50),
+                  bottomLeft: Radius.circular(50),
+                  topRight: Radius.circular(5),
+                  bottomRight: Radius.circular(5),
+                ),
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: kblack,
+                    child: Icon(
+                      Icons.sunny,
+                      color: kamber,
+                    ),
+                  ),
+                  w10,
+                  Column(
+                    children: [
+                      Text(
+                        'Sunny',
+                        style: TextStyle(color: kwhite),
+                      ),
+                      Text('15*c', style: TextStyle(color: kwhite))
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       ),
       extendBodyBehindAppBar: true,
