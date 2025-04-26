@@ -56,8 +56,6 @@ class SearchItemDetailed extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(50),
                   bottomLeft: Radius.circular(50),
-                  topRight: Radius.circular(5),
-                  bottomRight: Radius.circular(5),
                 ),
               ),
               child: Row(
@@ -72,6 +70,7 @@ class SearchItemDetailed extends StatelessWidget {
                   ),
                   w10,
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'Sunny',
@@ -94,7 +93,7 @@ class SearchItemDetailed extends StatelessWidget {
               ClipPath(
                 clipper: MyClipper(),
                 child: Container(
-                  height: size.height / 1.6,
+                  height: size.height / 1.7,
                   width: double.infinity,
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -111,71 +110,72 @@ class SearchItemDetailed extends StatelessWidget {
                         ktransparent
                       ]),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Share $rating',
-                          style: TextStyle(
-                            color: kwhite,
-                            fontSize: 20,
-                            decoration: TextDecoration.underline,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Share $rating',
+                            style: TextStyle(
+                              color: kwhite,
+                              fontSize: 20,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
-                        ),
-                        Text(
-                          title,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 35,
-                              color: kwhite),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: kDominantTransdark,
-                              backgroundImage: NetworkImage(suburls[0]),
-                            ),
-                            SizedBox(
-                              height: 20,
-                              child: VerticalDivider(
-                                color: kwhite,
-                                thickness: 2,
+                          Text(
+                            title,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 35,
+                                color: kwhite),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: kDominantTransdark,
+                                backgroundImage: NetworkImage(suburls[0]),
                               ),
-                            ),
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: kDominantTransdark,
-                              backgroundImage: NetworkImage(suburls[1]),
-                            ),
-                            SizedBox(
-                              height: 20,
-                              child: VerticalDivider(
-                                color: kwhite,
-                                thickness: 2,
+                              SizedBox(
+                                height: 20,
+                                child: VerticalDivider(
+                                  color: kwhite,
+                                  thickness: 2,
+                                ),
                               ),
-                            ),
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundColor: kDominantTransdark,
-                              backgroundImage: NetworkImage(suburls[2]),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: size.height / 9,
-                        ),
-                      ],
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: kDominantTransdark,
+                                backgroundImage: NetworkImage(suburls[1]),
+                              ),
+                              SizedBox(
+                                height: 20,
+                                child: VerticalDivider(
+                                  color: kwhite,
+                                  thickness: 2,
+                                ),
+                              ),
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: kDominantTransdark,
+                                backgroundImage: NetworkImage(suburls[2]),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: size.height / 9,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-              
-
-Positioned(
-                  bottom: size.height / 20,
+              Positioned(
+                  bottom: size.height / 25,
                   right: 10,
                   child: CircleAvatar(
                     backgroundColor: kblack,
@@ -186,9 +186,7 @@ Positioned(
                       size: 35,
                       weight: 2,
                     ),
-                  )
-
-),
+                  )),
             ],
           ),
           Row(
@@ -206,6 +204,22 @@ Positioned(
             title,
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 30, color: kblack),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              SizedBox(width: size.width / 3, child: Divider(color: kdominatgrey,)),
+              Icon(Icons.hive_sharp,color: kdominatgrey,),
+              SizedBox(width: size.width / 3, child: Divider(color: kdominatgrey,)),
+            ],
+          ),
+          Text(
+            textAlign: TextAlign.center,
+            'Discover the beauty, culture, and unique experiences this destination has to offer. From breathtaking views to rich traditions, every moment here creates unforgettable memories.\n',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                color: const Color.fromARGB(255, 44, 72, 71)),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -270,8 +284,49 @@ Positioned(
                   )),
             ],
           ),
-          Text(
-              'jsdjfsdjf dskfjdsf askdjijfd sjdfjisafd ajdsiajsdioas kasdj xjsdk  sdkfoidfksdsiodsdsd sdsd fsdkfiodsf mdsfjisjdfs df smfsdfm sdfkdsjfoipsdf smdfnjdsfo9difc dx ')
+          h20,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                children: [
+                  Text(
+                    'starting from ',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: kblack),
+                  ),
+                  Text(
+                    '\$$price.23',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 35,
+                        color: kblack),
+                  ),
+                ],
+              ),
+              SizedBox(height: size.height / 10, child: VerticalDivider(color: kdominatgrey)),
+              Column(
+                children: [
+                  Text(
+                    '$rating+',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 35,
+                        color: kblack),
+                  ),
+                  Text(
+                    'Reviews',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        color: kblack),
+                  ),
+                ],
+              ),
+            ],
+          )
         ],
       ),
     );
@@ -296,10 +351,9 @@ class MyClipper extends CustomClipper<Path> {
   }
 }
 
-              int reduceToOneDigit(int number) {
+int reduceToOneDigit(int number) {
   while (number >= 10) {
     number = number.toString().split('').map(int.parse).reduce((a, b) => a + b);
   }
   return number;
 }
-
