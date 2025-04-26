@@ -14,7 +14,6 @@ import 'package:flutter/scheduler.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 
-/*i will keep you informed  Breaking down UI into smaller widgets */
 ValueNotifier<UserData> currentuserdata = ValueNotifier(UserData(
     phoneNumber: '',
     bookedhotels: [],
@@ -105,7 +104,7 @@ class SplashScreentoSignIn extends StatelessWidget {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 3), () {
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) {
+            MaterialPageRoute(builder: (ctx) {
           return const SignIn();
         }));
       });
