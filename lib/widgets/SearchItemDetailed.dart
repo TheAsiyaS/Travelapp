@@ -164,12 +164,89 @@ class SearchItemDetailed extends StatelessWidget {
                     SizedBox(
                       height: size.height / 9,
                     ),
+                    
                   ],
                 ),
               ),
             ),
           ),
-       
+                      Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.area_chart),
+              Text(
+                'Spain , Madrid',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, fontSize: 25, color: kblack),
+              )
+            ],
+          ),
+          Text(
+            title,
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 30, color: kblack),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                height: 40,
+                width: 70,
+                decoration: BoxDecoration(
+                    color: kDominantTrans,
+                    borderRadius: BorderRadius.circular(20)),
+                child: Center(
+                    child: Text(
+                  '10+ hr',
+                  style: TextStyle(
+                      color: kwhite, fontSize: 15, fontWeight: FontWeight.bold),
+                )),
+              ),
+              Container(
+                  height: 40,
+                  width: 110,
+                  decoration: BoxDecoration(
+                      color: kDominantTrans,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        Icons.all_inclusive_rounded,
+                        color: const Color.fromARGB(255, 164, 220, 218),
+                      ),
+                      Text(
+                        '100 Km',
+                        style: TextStyle(
+                            color: kwhite,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  )),
+              Container(
+                  height: 40, 
+                  width: 80,
+                  decoration: BoxDecoration(
+                      color: kDominantTrans,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        kstarsfilled,
+                        size: 17,
+                        color: const Color.fromARGB(255, 164, 220, 218),
+                      ),
+                      
+                    ],
+                  )),
+            ],
+          ),
+          Text(
+              'jsdjfsdjf dskfjdsf askdjijfd sjdfjisafd ajdsiajsdioas kasdj xjsdk  sdkfoidfksdsiodsdsd sdsd fsdkfiodsf mdsfjisjdfs df smfsdfm sdfkdsjfoipsdf smdfnjdsfo9difc dx ')
+
+
         ],
       ),
     );
