@@ -89,86 +89,107 @@ class SearchItemDetailed extends StatelessWidget {
       extendBodyBehindAppBar: true,
       body: Column(
         children: [
-          ClipPath(
-            clipper: MyClipper(),
-            child: Container(
-              height: size.height / 1.6,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: NetworkImage(
-                        imageurl,
-                      ),
-                      fit: BoxFit.cover)),
-              child: Container(
-                height: MediaQuery.of(context).size.height / 1.6,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                    const Color.fromARGB(136, 0, 0, 0),
-                    ktransparent
-                  ]),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Share $rating',
-                      style: TextStyle(
-                        color: kwhite,
-                        fontSize: 20,
-                        decoration: TextDecoration.underline,
-                      ),
+          Stack(
+            children: [
+              ClipPath(
+                clipper: MyClipper(),
+                child: Container(
+                  height: size.height / 1.6,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage(
+                            imageurl,
+                          ),
+                          fit: BoxFit.cover)),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height / 1.6,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: [
+                        const Color.fromARGB(136, 0, 0, 0),
+                        ktransparent
+                      ]),
                     ),
-                    Text(
-                      title,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 35,
-                          color: kwhite),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: kDominantTransdark,
-                          backgroundImage: NetworkImage(suburls[0]),
-                        ),
-                        SizedBox(
-                          height: 20,
-                          child: VerticalDivider(
+                        Text(
+                          'Share $rating',
+                          style: TextStyle(
                             color: kwhite,
-                            thickness: 2,
+                            fontSize: 20,
+                            decoration: TextDecoration.underline,
                           ),
                         ),
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: kDominantTransdark,
-                          backgroundImage: NetworkImage(suburls[1]),
+                        Text(
+                          title,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 35,
+                              color: kwhite),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: kDominantTransdark,
+                              backgroundImage: NetworkImage(suburls[0]),
+                            ),
+                            SizedBox(
+                              height: 20,
+                              child: VerticalDivider(
+                                color: kwhite,
+                                thickness: 2,
+                              ),
+                            ),
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: kDominantTransdark,
+                              backgroundImage: NetworkImage(suburls[1]),
+                            ),
+                            SizedBox(
+                              height: 20,
+                              child: VerticalDivider(
+                                color: kwhite,
+                                thickness: 2,
+                              ),
+                            ),
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: kDominantTransdark,
+                              backgroundImage: NetworkImage(suburls[2]),
+                            )
+                          ],
                         ),
                         SizedBox(
-                          height: 20,
-                          child: VerticalDivider(
-                            color: kwhite,
-                            thickness: 2,
-                          ),
+                          height: size.height / 9,
                         ),
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: kDominantTransdark,
-                          backgroundImage: NetworkImage(suburls[2]),
-                        )
                       ],
                     ),
-                    SizedBox(
-                      height: size.height / 9,
-                    ),
-                  ],
+                  ),
                 ),
               ),
-            ),
+              
+
+Positioned(
+                  bottom: size.height / 20,
+                  right: 10,
+                  child: CircleAvatar(
+                    backgroundColor: kblack,
+                    radius: 40,
+                    child: Icon(
+                      kfavorite,
+                      color: kdominatgrey,
+                      size: 35,
+                      weight: 2,
+                    ),
+                  )
+
+),
+            ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
