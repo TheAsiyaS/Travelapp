@@ -29,7 +29,13 @@ class SearchItemDetailed extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final rate = reduceToOneDigit(rating);
+    List<String> parts = title.split(',');
 
+    String place = parts[0].trim();
+// String country = parts[1].trim();
+
+// print('Place: $place');
+// print('Country: $country');
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 144, 161, 162),
       appBar: PreferredSize(
@@ -126,6 +132,8 @@ class SearchItemDetailed extends StatelessWidget {
                           ),
                           Text(
                             title,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 35,
@@ -195,6 +203,8 @@ class SearchItemDetailed extends StatelessWidget {
               Icon(Icons.area_chart),
               Text(
                 'Spain , Madrid',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 25, color: kblack),
               )
@@ -202,15 +212,31 @@ class SearchItemDetailed extends StatelessWidget {
           ),
           Text(
             title,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 30, color: kblack),
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              color: kblack,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              SizedBox(width: size.width / 3, child: Divider(color: kdominatgrey,)),
-              Icon(Icons.hive_sharp,color: kdominatgrey,),
-              SizedBox(width: size.width / 3, child: Divider(color: kdominatgrey,)),
+              SizedBox(
+                  width: size.width / 3,
+                  child: Divider(
+                    color: kdominatgrey,
+                  )),
+              Icon(
+                Icons.hive_sharp,
+                color: kdominatgrey,
+              ),
+              SizedBox(
+                  width: size.width / 3,
+                  child: Divider(
+                    color: kdominatgrey,
+                  )),
             ],
           ),
           Text(
@@ -306,7 +332,9 @@ class SearchItemDetailed extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: size.height / 10, child: VerticalDivider(color: kdominatgrey)),
+              SizedBox(
+                  height: size.height / 10,
+                  child: VerticalDivider(color: kdominatgrey)),
               Column(
                 children: [
                   Text(
