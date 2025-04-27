@@ -63,14 +63,19 @@ class Beach extends StatelessWidget {
                       final data = state.beach[index];
                       return GestureDetector(
                         onTap: () {
+                          List<String> countryNames = places.map((place) {
+                            List<String> parts = place.split(', ');
+                            return parts.length > 1
+                                ? parts[1]
+                                : place; // Get the last part as the country name
+                          }).toList();
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => SearchItemDetailed(
                                   imageurl: data.largeImageUrl!,
                                   suburls: imagesUrl,
                                   price: "${data.imageHeight}.3",
                                   title: places[index % places.length],
-                                  subtitle:
-                                      ' With its powdery white sands and crystal-clear turquoise waters, Grace Bay is a tropical paradise perfect for sunbathing and water sports.',
+                                  subtitle: countryNames[index % places.length],
                                   rating: data.comments!,
                                   reviewNo: '${data.comments}',
                                   obj: 'obj')));

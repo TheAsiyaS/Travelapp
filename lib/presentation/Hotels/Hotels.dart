@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,19 +23,23 @@ import '../../Application/Hotel1_Bloc/hotel1_bloc.dart';
 
 class Hotels extends StatelessWidget {
   const Hotels({super.key});
+  static bool _isLoaded = false; // static - only once for this screen
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      BlocProvider.of<HotelBloc>(context)
-          .add(const HotelEvent.hotelDetailsGet1());
-      BlocProvider.of<Hotel1Bloc>(context)
-          .add(const Hotel1Event.hotel1DetailsGet());
-      BlocProvider.of<HotelPlaceBloc>(context)
-          .add(const HotelPlaceEvent.hotelDetailsGet());
-    });
+    if (!_isLoaded) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        context.read<HotelBloc>().add(const HotelEvent.hotelDetailsGet1());
+        context.read<Hotel1Bloc>().add(const Hotel1Event.hotel1DetailsGet());
+        context
+            .read<HotelPlaceBloc>()
+            .add(const HotelPlaceEvent.hotelDetailsGet());
+      });
+      _isLoaded = true;
+    }
     final ValueNotifier<List<String>> saves = ValueNotifier([]);
+    log('message');
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(size.height / 7),

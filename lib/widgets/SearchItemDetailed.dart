@@ -191,27 +191,6 @@ class SearchItemDetailed extends StatelessWidget {
                   )),
             ],
           ),
-          // Text.rich(
-          //   TextSpan(
-          //     children: [
-          //       WidgetSpan(
-          //         alignment: PlaceholderAlignment.middle,
-          //         child: Icon(Icons.area_chart, size: 28, color: kblack),
-          //       ),
-          //       TextSpan(
-          //         text: ' $subtitle',
-          //         style: TextStyle(
-          //           fontWeight: FontWeight.bold,
-          //           fontSize: 25,
-          //           color: kblack,
-          //         ),
-          //       ),
-          //     ],
-          //   ),
-          //   textAlign: TextAlign.center,
-          //   maxLines: 1,
-          //   overflow: TextOverflow.ellipsis,
-          // ),
           RichText(
             text: TextSpan(
               children: [
