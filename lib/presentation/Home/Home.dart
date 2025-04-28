@@ -79,7 +79,7 @@ class Home extends StatelessWidget {
                     backgroundImage:
                         NetworkImage(currentuserdata.value.photoUrl),
                     radius: 25,
-                  ),
+                  ), 
                   w20
                 ],
               ),

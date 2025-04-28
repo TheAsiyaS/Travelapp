@@ -65,7 +65,7 @@ class SignIn extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 20, left: 15),
                   child: CupertinotextfieldWidget(
-                    controller: usernameController,
+                      controller: usernameController,
                       placeholderText: 'Username....',
                       placeholderStyle: const TextStyle(color: klightwhite),
                       boxDecoration: const BoxDecoration(),
@@ -85,7 +85,7 @@ class SignIn extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: CupertinotextfieldWidget(
-                    controller: passwordController,
+                      controller: passwordController,
                       placeholderText: 'Password....',
                       placeholderStyle: const TextStyle(color: klightwhite),
                       boxDecoration: const BoxDecoration(),
@@ -125,7 +125,7 @@ class SignIn extends StatelessWidget {
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>  const UsernameProfileAdd()));
+                            builder: (context) => const UsernameProfileAdd()));
                       },
                       child: const Text(
                         'Sign Up',

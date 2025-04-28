@@ -7,6 +7,8 @@ import 'package:travelapp/Application/Hotel&Place_Bloc/hotel_place_bloc.dart';
 import 'package:travelapp/Application/HotelBloc/hotel_bloc.dart';
 import 'package:travelapp/Core/Hotelsname.dart';
 import 'package:travelapp/Domain/DB/Infrastructure/FirestoreMethod.dart';
+import 'package:travelapp/Domain/UnsplashSearch/unsplash_search/unsplash_search.dart';
+import 'package:travelapp/Functions/savehotelsdata.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
@@ -38,7 +40,6 @@ class Hotels extends StatelessWidget {
       });
       _isLoaded = true;
     }
-    final ValueNotifier<List<String>> saves = ValueNotifier([]);
     log('message');
     return Scaffold(
       appBar: PreferredSize(
@@ -178,124 +179,11 @@ class Hotels extends StatelessWidget {
                                   height: size.height / 15,
                                   width: size.width / 1.5,
                                   scrolldirection: Axis.horizontal),
-                              FutureBuilder(
-                                  future: FirebaseFirestore.instance
-                                      .collection("SavedHotels")
-                                      .where('userid',
-                                          isEqualTo: currentuserdata.value.uid)
-                                      .get(),
-                                  builder: (context, snapshot) {
-                                    if (snapshot.connectionState ==
-                                        ConnectionState.waiting) {
-                                      return const CircularProgressIndicator(
-                                        strokeWidth: 2,
-                                        color: kdominatgrey,
-                                      );
-                                    } else if (snapshot.hasError) {
-                                      return const CircularProgressIndicator(
-                                        strokeWidth: 2,
-                                        color: kRed,
-                                      );
-                                    } else {
-                                      final String hotelId = data.id.toString();
-
-                                      if (currentuserdata.value.uid != null) {
-                                        List<String> likedPostNumericIds =
-                                            snapshot.data!.docs.map((doc) {
-                                          if (doc
-                                              .data()
-                                              .containsKey('hotelId')) {
-                                            String fullId =
-                                                doc.get('hotelId').toString();
-                                            var parts = fullId.split('-09');
-                                            return parts.first;
-                                          } else {
-                                            return '';
-                                          }
-                                        }).toList();
-
-                                        saves.value = List<String>.from(
-                                            likedPostNumericIds);
-                                      }
-
-                                      return ValueListenableBuilder(
-                                          valueListenable: saves,
-                                          builder: (context, value, _) {
-                                            print("like data :${saves.value}");
-                                            return ListTile(
-                                                leading: IconButtonWidget(
-                                                    onPressFunc: () {},
-                                                    iconwidget: const Icon(
-                                                      kLocation,
-                                                      color: kSubDominantcolor,
-                                                    )),
-                                                title: Text(
-                                                  '\$${data.likes}0',
-                                                  style: const TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                                subtitle: SizedBox(
-                                                    height: 30,
-                                                    child: Text(data
-                                                            .description ??
-                                                        'Currently name are unavailable')),
-                                                trailing: IconButton(
-                                                    onPressed: () async {
-                                                      //add & remove data in firebase
-                                                      print(data.id);
-                                                      if (!saves.value.contains(
-                                                          data.id.toString())) {
-                                                        saves.value
-                                                            .add(hotelId);
-                                                        saves.notifyListeners();
-                                                        FirestoreMethods().hotelsaved(
-                                                            hotelId:
-                                                                "${data.id}-09${currentuserdata.value.uid}",
-                                                            name: khotelname[
-                                                                index],
-                                                            decription: data
-                                                                    .description ??
-                                                                "curremtly unavailable",
-                                                            rating: data.likes!,
-                                                            imageurl: data
-                                                                .urls!.regular!,
-                                                            subimageurl: [],
-                                                            price:
-                                                                "${data.likes!}0",
-                                                            reviewno: '23',
-                                                            username:
-                                                                currentuserdata
-                                                                    .value
-                                                                    .username,
-                                                            userid:
-                                                                currentuserdata
-                                                                    .value.uid!,
-                                                            userimageurl:
-                                                                currentuserdata
-                                                                    .value
-                                                                    .photoUrl);
-                                                      } else {
-                                                        saves.value
-                                                            .remove(hotelId);
-                                                        saves.notifyListeners();
-
-                                                        await FirestoreMethods()
-                                                            .deleteHotelSaved(
-                                                                hotelId:
-                                                                    "${data.id}-09${currentuserdata.value.uid}");
-                                                      }
-                                                    },
-                                                    icon: Icon(
-                                                      saves.value
-                                                              .contains(hotelId)
-                                                          ? ksaved
-                                                          : ksave,
-                                                      color: kDominantcolor,
-                                                    )));
-                                          });
-                                    }
-                                  }),
+                              //--------------------------------------- here ------------------------------------------------------
+                              SizedBox(
+                                  height: size.height / 20,
+                                  width: size.width / 1.5,
+                                  child: saveiconwidget(data: data)),
                             ],
                           ),
                         );
@@ -337,7 +225,10 @@ class Hotels extends StatelessWidget {
                       final data = state.hotel;
                       return GestureDetector(
                         onTap: () {
-                          final location = hotelsname3[index].split('');
+                          List<String> location = hotelsname3.map((place) {
+                            List<String> parts = place.split(', ');
+                            return parts.length > 1 ? parts[1] : place;
+                          }).toList();
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => HotelDetailedWidget(
                                   hotelid: data[index].id!.toString(),
@@ -435,5 +326,74 @@ class Hotels extends StatelessWidget {
         ),
       )),
     );
+  }
+}
+
+class saveiconwidget extends StatelessWidget {
+  saveiconwidget({super.key, required this.data});
+  final UnsplashSearch data;
+   ValueNotifier<List<String>> saves = ValueNotifier([]);
+
+  @override
+  Widget build(BuildContext context) {
+   
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+       saves = (await fetchSavedHotels(currentuserdata.value.uid!)) as ValueNotifier<List<String>>;
+    });
+     
+    return ValueListenableBuilder(
+        valueListenable: saves,
+        builder: (context, value, _) {
+          print("like data :${saves.value}");
+        
+
+          return ListTile(
+              leading: IconButtonWidget(
+                  onPressFunc: () {},
+                  iconwidget: const Icon(
+                    kLocation,
+                    color: kSubDominantcolor,
+                  )),
+              title: Text(
+                '\$${data.likes}0',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: SizedBox(
+                  height: 30,
+                  child: Text(
+                      data.description ?? 'Currently name are unavailable')),
+              trailing: IconButton(
+                  onPressed: () async {
+                    //add & remove data in firebase
+                    print(data.id);
+                    if (!saves.value.contains(data.id.toString())) {
+                      saves.value.add(data.id.toString());
+                      saves.notifyListeners();
+                      FirestoreMethods().hotelsaved(
+                          hotelId: "${data.id}-09${currentuserdata.value.uid}",
+                          name: khotelname[khotelname.length % 10],
+                          decription:
+                              data.description ?? "curremtly unavailable",
+                          rating: data.likes!,
+                          imageurl: data.urls!.regular!,
+                          subimageurl: [],
+                          price: "${data.likes!}0",
+                          reviewno: '23',
+                          username: currentuserdata.value.username,
+                          userid: currentuserdata.value.uid!,
+                          userimageurl: currentuserdata.value.photoUrl);
+                    } else {
+                      saves.value.remove(data.id.toString());
+                      saves.notifyListeners();
+
+                      await FirestoreMethods().deleteHotelSaved(
+                          hotelId: "${data.id}-09${currentuserdata.value.uid}");
+                    }
+                  },
+                  icon: Icon(
+                    saves.value.contains(data.id.toString()) ? ksaved : ksave,
+                    color: kDominantcolor,
+                  )));
+        });
   }
 }

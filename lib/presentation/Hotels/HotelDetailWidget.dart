@@ -84,9 +84,8 @@ class HotelDetailedWidget extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 10, left: 20),
                       child: ListTile(
                         title: Text(
-                          //logx.45(34);
                           title,
-                          style: textstyle,
+                          style: textstyle, 
                         ),
                         subtitle: Row(
                           children: [
