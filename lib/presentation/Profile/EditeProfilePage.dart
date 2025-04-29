@@ -45,7 +45,7 @@ class EiteProfile extends StatelessWidget {
       'Email',
       'Phone Number',
       'Location',
-      'username',
+      
     ];
     final fieldplaceholder = [
       currentuserdata.value.username,
@@ -58,7 +58,7 @@ class EiteProfile extends StatelessWidget {
           ? "No number"
           : currentuserdata.value.phoneNumber,
       'Location',
-      'user'
+      
     ];
     final keyboardType = [
       TextInputType.name,
@@ -66,7 +66,6 @@ class EiteProfile extends StatelessWidget {
       TextInputType.name,
       TextInputType.name,
       TextInputType.number,
-      TextInputType.name,
       TextInputType.name,
     ];
     final fieldTrailingIcon = [
@@ -76,7 +75,7 @@ class EiteProfile extends StatelessWidget {
       kmail,
       kcall,
       kLocation,
-      kiconsearch
+      
     ];
     return ChangeNotifierProvider<UsernameModel>(
         create: (context) => UsernameModel(),
@@ -165,8 +164,7 @@ class EiteProfile extends StatelessWidget {
                             model.bioController,
                             model.emailController,
                             model.phNOController,
-                            model.usernameController,
-                            model.usernameController,
+                            model.locationController,
                           ];
                           return Container(
                             decoration: BoxDecoration(
@@ -202,7 +200,7 @@ class EiteProfile extends StatelessWidget {
                             color: kDominantTransdark,
                           );
                         },
-                        itemCount: 7),
+                        itemCount: 6),
                   ),
                   ValueListenableBuilder(
                       valueListenable: errorText,
