@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelapp/Functions/userauthentication.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/NavigationBar.dart';
@@ -15,7 +16,7 @@ class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final usernameController = TextEditingController();
+    final emailController = TextEditingController();
 
     final passwordController = TextEditingController();
 
@@ -65,8 +66,8 @@ class SignIn extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 20, left: 15),
                   child: CupertinotextfieldWidget(
-                      controller: usernameController,
-                      placeholderText: 'Username....',
+                      controller: emailController,
+                      placeholderText: 'Enter your e-mail adress....',
                       placeholderStyle: const TextStyle(color: klightwhite),
                       boxDecoration: const BoxDecoration(),
                       prefixWidget: h10,
@@ -86,7 +87,7 @@ class SignIn extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 15),
                   child: CupertinotextfieldWidget(
                       controller: passwordController,
-                      placeholderText: 'Password....',
+                      placeholderText: 'Enter your Password....',
                       placeholderStyle: const TextStyle(color: klightwhite),
                       boxDecoration: const BoxDecoration(),
                       prefixWidget: h10,
@@ -113,9 +114,13 @@ class SignIn extends StatelessWidget {
                     size: size,
                     text: 'Login',
                     color: kDominantcolor,
-                    onPress: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const NavigationBarScreen()));
+                    onPress: () async {
+                      final res = await verifyUser(
+                          emailController.text, passwordController.text);
+                      if (res == true) {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const NavigationBarScreen()));
+                      } else {}
                     }),
                 SizedBox(
                   height: size.height / 9,

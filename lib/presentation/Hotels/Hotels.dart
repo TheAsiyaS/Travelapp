@@ -328,7 +328,7 @@ class Hotels extends StatelessWidget {
     );
   }
 }
-
+  
 class saveiconwidget extends StatelessWidget {
   saveiconwidget({super.key, required this.data});
   final UnsplashSearch data;
