@@ -71,15 +71,17 @@ class Agencies extends StatelessWidget {
                   ],
                 ),
               ),
+              h20,
               Text(
                 ' WE have',
                 style: GoogleFonts.bodoniModa(
-                    fontSize: 30, fontWeight: FontWeight.bold),
+                    color: kwhite, fontSize: 30, fontWeight: FontWeight.bold),
               ),
               Text(
                 ' 30+ Agents',
                 style: GoogleFonts.oldStandardTt(
                   fontSize: 45,
+                  color: kDominantcolor,
                 ),
               ),
               Text(
@@ -87,6 +89,7 @@ class Agencies extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.oldStandardTt(
                   color: kwhite,
+                  fontWeight: FontWeight.bold,
                   fontSize: 25,
                 ),
               ),
@@ -110,17 +113,16 @@ class Agencies extends StatelessWidget {
                 ],
               ),
               h20,
-              Text(
-                'Today available Guides',
-                style: GoogleFonts.bodoniModa(color: kwhite, fontSize: 25),
-              ),
-              Divider(
-                endIndent: size.width / 2,
-                color: kdominatgrey,
-              ),
-              Divider(
-                endIndent: size.width / 2.5,
-                color: kdominatgrey,
+              Container(
+                height: size.height / 19,
+                width: size.width,
+                color: kDominantcolor,
+                child: Center(
+                  child: Text(
+                    'Today available Guides',
+                    style: GoogleFonts.bodoniModa(color: kwhite, fontSize: 25),
+                  ),
+                ),
               ),
               h40,
               SizedBox(
@@ -181,9 +183,8 @@ class Agencies extends StatelessWidget {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 20),
+                                                  padding: EdgeInsets.only(
+                                                      top: index < 9 ? 20 : 30),
                                                   child: Container(
                                                     height: size.height / 4,
                                                     width: size.width / 2,
@@ -212,7 +213,7 @@ class Agencies extends StatelessWidget {
                                             ),
                                             Text('1234355678'),
                                             Text('user1234@gmail.com'),
-                                            h20,
+                                            h10,
                                             ElevatedButtonWidget(
                                                 onPress: () {},
                                                 buttonwidget: Text(
