@@ -21,6 +21,7 @@ class NavigationBarScreen extends StatelessWidget {
     bool isDarkMode = brightness == Brightness.dark;
 
     return ValueListenableBuilder(
+      
         valueListenable: bottomIndex,
         builder: (BuildContext ctx, int newindex, Widget? _) {
           return Scaffold(

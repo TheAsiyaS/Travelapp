@@ -18,6 +18,7 @@ class Agencies extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 152, 168, 169),
         body: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 height: size.height / 1.5,
@@ -25,7 +26,8 @@ class Agencies extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         image: NetworkImage(
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4H7LormyHhqenNDsLXtlVdLJdISsrRpJBJv_LT_MwkqKOdEMDagj5parjn-eyL2FJxoU&usqp=CAU'),
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4H7LormyHhqenNDsLXtlVdLJdISsrRpJBJv_LT_MwkqKOdEMDagj5parjn-eyL2FJxoU&usqp=CAU',
+                        ),
                         fit: BoxFit.cover)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -34,7 +36,8 @@ class Agencies extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: Text(
                         date,
-                        style: GoogleFonts.lora(color: kwhite, fontSize: 20),
+                        style:
+                            GoogleFonts.bodoniModa(color: kwhite, fontSize: 25),
                       ),
                     ),
                     Divider(
@@ -47,9 +50,10 @@ class Agencies extends StatelessWidget {
                       width: size.width / 1.1,
                       color: const Color.fromARGB(157, 77, 77, 77),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: EdgeInsetsDirectional.all(20),
                         child: Text(
                           "Meet Our Trusted Tourist Guides \nExplore with confidence! Our friendly and experienced tourist guides are here to make your journey unforgettable.",
+                          textAlign: TextAlign.left,
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
@@ -61,6 +65,58 @@ class Agencies extends StatelessWidget {
                   ],
                 ),
               ),
+              Text(
+                ' WE have',
+                style: GoogleFonts.bodoniModa(
+                    fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                ' 30+ Agents',
+                style: GoogleFonts.oldStandardTt(
+                  fontSize: 45,
+                ),
+              ),
+              Text(
+                ' They are here to guide you through a world of wonders.',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.oldStandardTt(
+                  fontSize: 25,
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(
+                      width: size.width / 3,
+                      child: Divider(
+                        color: kdominatgrey,
+                      )),
+                  Icon(
+                    Icons.hive_sharp,
+                    color: kdominatgrey,
+                  ),
+                  SizedBox(
+                      width: size.width / 3,
+                      child: Divider(
+                        color: kdominatgrey,
+                      )),
+                ],
+              ),
+              h20,
+              Container(
+                height: size.height / 13,
+                width: size.width / 2,
+                decoration: BoxDecoration(
+                    color: kDominantcolor,
+                    borderRadius: BorderRadius.circular(30)),
+                child: Center(
+                    child: Text(
+                  'Available guides',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+                )),
+              ),
+
             ],
           ),
         ));
@@ -70,6 +126,7 @@ class Agencies extends StatelessWidget {
     //);
   }
 }
+
 /*
 
 
