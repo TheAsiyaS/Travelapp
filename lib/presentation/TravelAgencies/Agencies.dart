@@ -5,9 +5,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/Functions/dateget.dart';
+import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 
 class Agencies extends StatelessWidget {
   const Agencies({super.key});
@@ -126,80 +128,121 @@ class Agencies extends StatelessWidget {
                 width: size.width,
                 child: GridView.count(
                     crossAxisCount: 1,
-                    childAspectRatio: 1.4,
+                    childAspectRatio: 1.3,
                     mainAxisSpacing: 10,
                     scrollDirection: Axis.horizontal,
-                    children: List.generate(10, (index) {
-                      return Container(
-                        height: size.height / 3,
-                        width: size.width / 2.5,
-                        color: const Color.fromARGB(255, 52, 81, 80),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: CustomPaint(
-                                painter:
-                                    DashedBorderPainter(color: Colors.white),
-                                child: ClipPath(
-                                  clipper: Agentcardclip(),
-                                  child: Container(
-                                    height: size.height / 2.3,
-                                    width: size.width / 1.5,
-                                    decoration: BoxDecoration(
-                                        color: kdominatgrey,
-                                        borderRadius: BorderRadius.only(
-                                            topLeft: Radius.circular(5))),
-                                    child: Column(
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                    children: List.generate(20, (index) {
+                      return Stack(
+                        children: [
+                          Container(
+                            height: size.height / 2,
+                            width: size.width / 1.1,
+                            color: const Color.fromARGB(255, 52, 81, 80),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CustomPaint(
+                                  painter: CustomTBorderPainter(
+                                      color: const Color.fromARGB(
+                                          255, 177, 185, 186)),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(15),
+                                    child: ClipPath(
+                                      clipper: Agentcardclip(),
+                                      child: Container(
+                                        height: size.height / 2.3,
+                                        width: index < 9
+                                            ? size.width / 1.5
+                                            : size.width / 1.3,
+                                        decoration: BoxDecoration(
+                                            color: const Color.fromARGB(
+                                                227, 96, 114, 116),
+                                            borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(5))),
+                                        child: Column(
                                           children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 20),
-                                              child: Text(
-                                                '${index + 1}',
-                                                style: GoogleFonts.bodoniModa(
-                                                    color: const Color.fromARGB(
-                                                        255, 155, 172, 174),
-                                                    fontSize: 70),
-                                              ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 20),
+                                                  child: Text(
+                                                    '${index + 1}',
+                                                    style:
+                                                        GoogleFonts.bodoniModa(
+                                                            color: const Color
+                                                                .fromARGB(255,
+                                                                155, 172, 174),
+                                                            fontSize: 70),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 20),
+                                                  child: Container(
+                                                    height: size.height / 4,
+                                                    width: size.width / 2,
+                                                    decoration: BoxDecoration(
+                                                        color: kDominantcolor,
+                                                        borderRadius:
+                                                            BorderRadius.only(
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        100),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                        100)),
+                                                        image: DecorationImage(
+                                                            image: NetworkImage(
+                                                              'https://media.gettyimages.com/id/2025430042/photo/portrait-of-female-airport-staff-member.jpg?s=612x612&w=gi&k=20&c=vfLk59PgDOm7EvxFD2bL2Z58U18fSbk8aptMGyVz7qQ=',
+                                                            ),
+                                                            fit: BoxFit.cover)),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 20),
-                                              child: Container(
-                                                height: size.height / 4,
-                                                width: size.width / 2,
-                                                decoration: BoxDecoration(
-                                                    color: kDominantcolor,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    100),
-                                                            bottomRight: Radius
-                                                                .circular(100)),
-                                                    image: DecorationImage(
-                                                        image: NetworkImage(
-                                                          'https://media.gettyimages.com/id/2025430042/photo/portrait-of-female-airport-staff-member.jpg?s=612x612&w=gi&k=20&c=vfLk59PgDOm7EvxFD2bL2Z58U18fSbk8aptMGyVz7qQ=',
-                                                        ),
-                                                        fit: BoxFit.cover)),
-                                              ),
+                                            Text(
+                                              'Username',
+                                              style: textstyle,
                                             ),
+                                            Text('1234355678'),
+                                            Text('user1234@gmail.com'),
+                                            h20,
+                                            ElevatedButtonWidget(
+                                                onPress: () {},
+                                                buttonwidget: Text(
+                                                  'Know more',
+                                                  style: TextStyle(
+                                                    color: kwhite,
+                                                  ),
+                                                ),
+                                                style: ElevatedButton.styleFrom(
+                                                    backgroundColor: kblack))
                                           ],
-                                        )
-                                      ],
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
+                          ),
+                          Positioned(
+                              bottom: size.height / 5,
+                              left: size.width / 1.5,
+                              child: CircleAvatar(
+                                  radius: 30,
+                                  backgroundColor: kblack,
+                                  child: Icon(
+                                    kstarsfilled,
+                                    color: kamber,
+                                  )))
+                        ],
                       );
                     })),
               )
@@ -243,18 +286,11 @@ class Agentcardclip extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
 
-class DashedBorderPainter extends CustomPainter {
+class CustomTBorderPainter extends CustomPainter {
   final Color color;
   final double strokeWidth;
-  final double dashWidth;
-  final double dashSpace;
 
-  DashedBorderPainter({
-    required this.color,
-    this.strokeWidth = 1,
-    this.dashWidth = 5,
-    this.dashSpace = 3,
-  });
+  CustomTBorderPainter({this.color = Colors.white, this.strokeWidth = 2});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -263,28 +299,18 @@ class DashedBorderPainter extends CustomPainter {
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
-    Path path = Path()
-      ..addRRect(RRect.fromRectAndRadius(
-        Rect.fromLTWH(0, 0, size.width, size.height),
-        Radius.circular(8),
-      ));
+    double centerX = size.width * 0.17;
 
-    PathMetrics pathMetrics = path.computeMetrics();
-    for (PathMetric pathMetric in pathMetrics) {
-      double distance = 0.0;
-      while (distance < pathMetric.length) {
-        final extractPath = pathMetric.extractPath(
-          distance,
-          distance + dashWidth,
-        );
-        canvas.drawPath(extractPath, paint);
-        distance += dashWidth + dashSpace;
-      }
-    }
+    // Draw vertical line
+    canvas.drawLine(Offset(centerX, 0), Offset(centerX, size.height), paint);
+
+    // Draw horizontal line from the vertical line outward
+    canvas.drawLine(Offset(0, size.height * 0.18),
+        Offset(size.width, size.height * 0.18), paint);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 /*
