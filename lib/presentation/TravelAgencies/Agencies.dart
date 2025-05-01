@@ -1,8 +1,12 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/Functions/dateget.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
+import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 
 class Agencies extends StatelessWidget {
@@ -80,6 +84,7 @@ class Agencies extends StatelessWidget {
                 ' They are here to guide you through a world of wonders.',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.oldStandardTt(
+                  color: kwhite,
                   fontSize: 25,
                 ),
               ),
@@ -103,20 +108,101 @@ class Agencies extends StatelessWidget {
                 ],
               ),
               h20,
-              Container(
-                height: size.height / 13,
-                width: size.width / 2,
-                decoration: BoxDecoration(
-                    color: kDominantcolor,
-                    borderRadius: BorderRadius.circular(30)),
-                child: Center(
-                    child: Text(
-                  'Available guides',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
-                )),
+              Text(
+                'Today available Guides',
+                style: GoogleFonts.bodoniModa(color: kwhite, fontSize: 25),
               ),
-
+              Divider(
+                endIndent: size.width / 2,
+                color: kdominatgrey,
+              ),
+              Divider(
+                endIndent: size.width / 2.5,
+                color: kdominatgrey,
+              ),
+              h40,
+              SizedBox(
+                height: size.height / 2,
+                width: size.width,
+                child: GridView.count(
+                    crossAxisCount: 1,
+                    childAspectRatio: 1.4,
+                    mainAxisSpacing: 10,
+                    scrollDirection: Axis.horizontal,
+                    children: List.generate(10, (index) {
+                      return Container(
+                        height: size.height / 3,
+                        width: size.width / 2.5,
+                        color: const Color.fromARGB(255, 52, 81, 80),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: CustomPaint(
+                                painter:
+                                    DashedBorderPainter(color: Colors.white),
+                                child: ClipPath(
+                                  clipper: Agentcardclip(),
+                                  child: Container(
+                                    height: size.height / 2.3,
+                                    width: size.width / 1.5,
+                                    decoration: BoxDecoration(
+                                        color: kdominatgrey,
+                                        borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(5))),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 20),
+                                              child: Text(
+                                                '${index + 1}',
+                                                style: GoogleFonts.bodoniModa(
+                                                    color: const Color.fromARGB(
+                                                        255, 155, 172, 174),
+                                                    fontSize: 70),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 20),
+                                              child: Container(
+                                                height: size.height / 4,
+                                                width: size.width / 2,
+                                                decoration: BoxDecoration(
+                                                    color: kDominantcolor,
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    100),
+                                                            bottomRight: Radius
+                                                                .circular(100)),
+                                                    image: DecorationImage(
+                                                        image: NetworkImage(
+                                                          'https://media.gettyimages.com/id/2025430042/photo/portrait-of-female-airport-staff-member.jpg?s=612x612&w=gi&k=20&c=vfLk59PgDOm7EvxFD2bL2Z58U18fSbk8aptMGyVz7qQ=',
+                                                        ),
+                                                        fit: BoxFit.cover)),
+                                              ),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    })),
+              )
             ],
           ),
         ));
@@ -125,6 +211,80 @@ class Agencies extends StatelessWidget {
     // }),
     //);
   }
+}
+
+class Agentcardclip extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final path = Path();
+
+    // Start at the top left corner
+    path.moveTo(0, 0);
+
+    // Draw a line to the bottom left corner
+    path.lineTo(0, size.height);
+
+    // Draw a line to the bottom right corner
+    path.lineTo(size.width, size.height);
+
+    // Draw a line back to the top right corner
+    path.lineTo(size.width, size.width / 3);
+
+    // Create the triangular cut out at the top right
+    path.lineTo(size.width * 0.02,
+        0); // Adjust the value to control the size of the triangle
+
+    // Move back to the top left corner to close the path
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class DashedBorderPainter extends CustomPainter {
+  final Color color;
+  final double strokeWidth;
+  final double dashWidth;
+  final double dashSpace;
+
+  DashedBorderPainter({
+    required this.color,
+    this.strokeWidth = 1,
+    this.dashWidth = 5,
+    this.dashSpace = 3,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..strokeWidth = strokeWidth
+      ..style = PaintingStyle.stroke;
+
+    Path path = Path()
+      ..addRRect(RRect.fromRectAndRadius(
+        Rect.fromLTWH(0, 0, size.width, size.height),
+        Radius.circular(8),
+      ));
+
+    PathMetrics pathMetrics = path.computeMetrics();
+    for (PathMetric pathMetric in pathMetrics) {
+      double distance = 0.0;
+      while (distance < pathMetric.length) {
+        final extractPath = pathMetric.extractPath(
+          distance,
+          distance + dashWidth,
+        );
+        canvas.drawPath(extractPath, paint);
+        distance += dashWidth + dashSpace;
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
 /*
