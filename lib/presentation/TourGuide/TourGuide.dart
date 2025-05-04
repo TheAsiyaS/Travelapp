@@ -1,21 +1,19 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
-import 'package:travelapp/main.dart';
 import 'package:travelapp/widgets/BottomWidget.dart';
 import 'package:travelapp/widgets/ContainerWithWidget.dart';
-import 'package:travelapp/widgets/IconButton.dart';
 import 'package:travelapp/widgets/TextButton.dart';
 
 final images = [
-  'https://lp-cms-production.imgix.net/2023-02/GettyImages-1172642617.jpg?auto=format&w=1440&h=810&fit=crop&q=75',
-  'https://c4.wallpaperflare.com/wallpaper/543/302/394/lights-the-moon-france-paris-panorama-hd-wallpaper-preview.jpg',
-  'https://media.istockphoto.com/id/1426025965/photo/light-trails-from-rush-hour-traffic-light-up-walterdale-bridge-in-edmonton-canada-on-a-sunset.webp?b=1&s=170667a&w=0&k=20&c=LFN9EvwLxlxZMuq_MW1AOmq4BjzTkDR8uDvhsk9b9og=',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Dubai_Skylines_at_night_%28Pexels_3787839%29.jpg/640px-Dubai_Skylines_at_night_%28Pexels_3787839%29.jpg',
-  'https://res.cloudinary.com/du5jifpgg/image/upload/t_opengraph_image/Parcours/itin%C3%A9raires/Disneyland-et-alentours/Fetes-de-fin-d-annee-2021-a-disneyland-paris-header.jpg'
+  'asset/guide1.jpeg',
+  'asset/guide2.jpeg',
+  'asset/guide3.jpeg',
+  'asset/guide4.jpeg',
+  'asset/guide5.jpeg',
+  'asset/guide6.jpeg',
 ];
 final premiumqaulity = [
   'Download to Read offline without wi-fi',
@@ -33,68 +31,56 @@ class ScreenGuid extends StatefulWidget {
   _ScreenGuidState createState() => _ScreenGuidState();
 }
 
-class _ScreenGuidState extends State<ScreenGuid>
-    with TickerProviderStateMixin {
-  String fullText =
-      ' Hello ${currentuserdata.value.username} ,\n we will let you know how to set your destination  .';
-  String displayedText = '';
-  int textIndex = 0;
+class _ScreenGuidState extends State<ScreenGuid> with TickerProviderStateMixin {
+  int currentIndex = 0;
   late AnimationController _controller;
-  final PageController _pageController = PageController(initialPage: 0);
-  int _currentPage = 0;
-  Timer? _timer;
+  late Animation<double> _scaleAnim;
+  late Timer _timer;
 
-  @override    
+  @override
   void initState() {
     super.initState();
+
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 100),
+      duration: Duration(milliseconds: 600),
     );
-    _startTypingAnimation();
-    _pageController.addListener(() {
+
+    _scaleAnim = Tween<double>(
+      begin: 0.85,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
+
+    _controller.forward();
+
+    _timer = Timer.periodic(Duration(seconds: 4), (_) {
+      _controller.forward(from: 0.0);
       setState(() {
-        _currentPage = _pageController.page!.round();
+        currentIndex = (currentIndex + 1) % images.length;
       });
-    });
-
-    _timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
-      if (_currentPage < 4) {
-        _pageController.nextPage(
-            duration: const Duration(seconds: 1), curve: Curves.ease);
-      } else {
-        _pageController.jumpToPage(0);
-      }
-    });
-  }
-
-  void _startTypingAnimation() {
-    _controller.forward().then((_) {
-      if (textIndex <= fullText.length) {
-        setState(() {
-          displayedText = fullText.substring(0, textIndex);
-          textIndex++;
-        });
-        _controller.reset();
-        _startTypingAnimation();
-      } else {
-        textIndex = 0;
-        displayedText = '';
-        _startTypingAnimation();
-      }
     });
   }
 
   @override
   void dispose() {
-    _pageController.dispose();
     _controller.dispose();
-    _timer?.cancel();
+    _timer.cancel();
     super.dispose();
+  }
+
+  List<String> getUpcomingImages() {
+    List<String> upcoming = [];
+    for (int i = 1; i <= 3; i++) {
+      int index = (currentIndex + i) % images.length;
+      upcoming.add(images[index]);
+    }
+    return upcoming;
   }
 
   @override
   Widget build(BuildContext context) {
+    final upcoming = getUpcomingImages();
+
     final size = MediaQuery.of(context).size;
     Brightness brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
@@ -103,79 +89,44 @@ class _ScreenGuidState extends State<ScreenGuid>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                SizedBox(
-                  height: size.height / 2,
-                  child: PageView.builder(
-                    controller: _pageController,
-                    itemCount: 5,
-                    itemBuilder: (BuildContext context, int index) {
-                      return AnimatedBuilder(
-                          animation: _pageController,
-                          builder: (BuildContext context, Widget? child) {
-                            double value = 1.0;
-                            if (_pageController.position.haveDimensions) {
-                              value = _pageController.page! - index;
-                              value = (1 - (value.abs() * 0.5)).clamp(0.0, 1.0);
-                            }
-                            return SizedBox(
-                              width: Curves.easeInExpo.transform(value) * 250,
-                              child: child,
-                            );
-                          },
-                          child: ConatinerwithWidget(
-                              height: size.height / 2,
-                              width: size.width,
-                              containerdecoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: NetworkImage(
-                                        images[index],
-                                      ),
-                                      fit: BoxFit.cover)),
-                              childwidget: Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                      end: Alignment.bottomCenter,
-                                      begin: Alignment.topCenter,
-                                      colors: [
-                                        ktransparent,
-                                        isDarkMode ? kblack : kwhite
-                                      ]),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          left: size.width / 1.2),
-                                      child: IconButtonWidget(
-                                          onPressFunc: () {
-                                           
-                                          },
-                                          iconwidget: const Icon(
-                                            kforward,
-                                            color: klightwhite,
-                                            size: 40,
-                                          )),
-                                    )
-                                  ],
-                                ),
-                              )));
-                    },
+            AnimatedBuilder(
+              animation: _scaleAnim,
+              builder: (context, child) {
+                return Transform.scale(
+                  scale: _scaleAnim.value,
+                  child: ClipOval(
+                    child: AnimatedSwitcher(
+                      duration: Duration(milliseconds: 600),
+                      child: Image.asset(
+                        images[currentIndex],
+                        key: ValueKey(images[currentIndex]),
+                        width: size.width / 1.2,
+                        height: size.height / 3,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                ),
-                AnimatedBuilder(
-                  animation: _controller,
-                  builder: (BuildContext context, Widget? child) {
-                    return Text(
-                      displayedText,
-                      style: const TextStyle(fontSize: 30, color: kwhite),
-                    );
-                  },
-                ),
-              ],
+                );
+              },
+            ),
+            h30,
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: List.generate(upcoming.length, (i) {
+                // Radius-like sizes: 60 → 40 → 20
+                double size = [60.0, 40.0, 20.0][i];
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: ClipOval(
+                    child: Image.asset(
+                      upcoming[i],
+                      width: size,
+                      height: size,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              }),
             ),
             const Padding(
               padding: EdgeInsets.only(top: 25, bottom: 20),
