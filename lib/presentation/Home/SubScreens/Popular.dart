@@ -79,7 +79,7 @@ class Popular extends StatelessWidget {
                                   rating: data.comments!,
                                   reviewNo: '${data.comments}',
                                   obj: 'obj')));
-                         },
+                        },
                         child: Container(
                           height: size.height / 2.5,
                           width: size.width / 1.7,
@@ -98,9 +98,9 @@ class Popular extends StatelessWidget {
                               begin: Alignment.topCenter,
                               end: Alignment.bottomCenter,
                               colors: [
-                               // ktransparent,
-                                 ktransparent,
-                              const Color.fromARGB(255, 0, 0, 0),
+                                // ktransparent,
+                                ktransparent,
+                                const Color.fromARGB(255, 0, 0, 0),
                               ],
                             )),
                             child: Row(
@@ -112,11 +112,16 @@ class Popular extends StatelessWidget {
                                   children: [
                                     Text(
                                       places[index % places.length],
-                                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,color: kwhite),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 25,
+                                          color: kwhite),
                                     ),
-                                      const Row(
+                                    const Row(
                                       children: [
-                                        Icon(kLocation,color: Color.fromARGB(154, 255, 255, 255)),
+                                        Icon(kLocation,
+                                            color: Color.fromARGB(
+                                                154, 255, 255, 255)),
                                         Text(
                                           'Paris',
                                           style: TextStyle(color: kwhite),
@@ -213,7 +218,7 @@ class Popular extends StatelessWidget {
                                                                 currentuserdata
                                                                     .value.uid!,
                                                             userimageurl:
-                                                                currentuserdata 
+                                                                currentuserdata
                                                                     .value
                                                                     .photoUrl);
                                                       } else {
@@ -239,7 +244,8 @@ class Popular extends StatelessWidget {
                                                                 .contains(data
                                                                     .id
                                                                     .toString())
-                                                            ? const Icon( // curry-yum annu kodukkunadh , edhalam apol dhehikum
+                                                            ? const Icon(
+                                                                // curry-yum annu kodukkunadh , edhalam apol dhehikum
                                                                 kfavorite,
                                                                 color:
                                                                     kDominantcolor,
@@ -258,37 +264,41 @@ class Popular extends StatelessWidget {
                                               child: SizedBox(
                                                 height: size.height / 4,
                                                 width: 50,
-                                                child: ListView.separated(
-                                                    scrollDirection:
-                                                        Axis.vertical,
-                                                    itemBuilder:
-                                                        (context, index) {
-                                                      return OnlyimageBoxWidget(
-                                                          height: 50,
-                                                          width: 50,
-                                                          boxdecoration: BoxDecoration(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          10),
-                                                              image: DecorationImage(
-                                                                  image: NetworkImage(
-                                                                      subimagesUrl[
-                                                                          index]),
-                                                                  fit: BoxFit
-                                                                      .fill)),
-                                                          childwidget:
-                                                              const Column(
-                                                            children: [],
-                                                          ));
-                                                    },
-                                                    separatorBuilder:
-                                                        (context, index) {
-                                                      return h20;
-                                                    },
-                                                    itemCount: 3),
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children:
+                                                      List.generate(3, (index) {
+                                                    return Padding(
+                                                      padding: EdgeInsets.only(
+                                                          bottom: index < 2
+                                                              ? 20
+                                                              : 0),
+                                                      child: OnlyimageBoxWidget(
+                                                        height: 50,
+                                                        width: 50,
+                                                        boxdecoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(10),
+                                                          image:
+                                                              DecorationImage(
+                                                            image: NetworkImage(
+                                                                subimagesUrl[
+                                                                    index]),
+                                                            fit: BoxFit.fill,
+                                                          ),
+                                                        ),
+                                                        childwidget:
+                                                            const Column(
+                                                                children: []),
+                                                      ),
+                                                    );
+                                                  }),
+                                                ),
                                               ),
-                                            ),
+                                            )
                                           ],
                                         );
                                       }
