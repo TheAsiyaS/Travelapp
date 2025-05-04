@@ -89,25 +89,34 @@ class _ScreenGuidState extends State<ScreenGuid> with TickerProviderStateMixin {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AnimatedBuilder(
-              animation: _scaleAnim,
-              builder: (context, child) {
-                return Transform.scale(
-                  scale: _scaleAnim.value,
-                  child: ClipOval(
-                    child: AnimatedSwitcher(
-                      duration: Duration(milliseconds: 600),
-                      child: Image.asset(
-                        images[currentIndex],
-                        key: ValueKey(images[currentIndex]),
-                        width: size.width / 1.2,
-                        height: size.height / 3,
-                        fit: BoxFit.cover,
-                      ),
+            Row(
+            
+              children: [
+                ClipOval(
+                  child: AnimatedSwitcher(
+                    duration: Duration(milliseconds: 600),
+                    child: Image.asset(
+                      images[currentIndex],
+                      key: ValueKey(images[currentIndex]),
+                      width: size.width / 2,
+                      height: size.width / 2,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                );
-              },
+                ),
+
+                // 🌙 Crescent facing LEFT
+                ClipPath(
+                  clipper: CrescentClipper(),
+                  child: Container(
+                    // Crescent size
+                    width: size.width / 2,
+                    height: size.width / 2,
+
+                    color: kdominatgrey, // or crescent color
+                  ),
+                ),
+              ],
             ),
             h30,
             Row(
@@ -212,4 +221,27 @@ class _ScreenGuidState extends State<ScreenGuid> with TickerProviderStateMixin {
       ),
     );
   }
+}
+
+class CrescentClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path outer = Path()
+      ..addOval(Rect.fromCircle(
+        center: Offset(size.width / 2, size.height / 2),
+        radius: size.width / 2,
+      ));
+
+    // Shift inner circle to the LEFT for left-facing crescent
+    Path inner = Path()
+      ..addOval(Rect.fromCircle(
+        center: Offset(size.width / 2 - size.width * 0.15, size.height / 2),
+        radius: size.width / 2,
+      ));
+
+    return Path.combine(PathOperation.difference, outer, inner);
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
