@@ -36,6 +36,7 @@ class _ScreenGuidState extends State<ScreenGuid> with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnim;
   late Timer _timer;
+  bool isAnimating = false;
 
   @override
   void initState() {
@@ -52,12 +53,19 @@ class _ScreenGuidState extends State<ScreenGuid> with TickerProviderStateMixin {
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
     _controller.forward();
-
-    _timer = Timer.periodic(Duration(seconds: 4), (_) {
-      _controller.forward(from: 0.0);
+    _timer = Timer.periodic(Duration(seconds: 4), (_) async {
       setState(() {
+        isAnimating = true; // trigger move
+      });
+
+      await Future.delayed(Duration(milliseconds: 500)); // wait for move
+
+      setState(() {
+        isAnimating = false;
         currentIndex = (currentIndex + 1) % images.length;
       });
+
+      _controller.forward(from: 0.0);
     });
   }
 
@@ -70,7 +78,7 @@ class _ScreenGuidState extends State<ScreenGuid> with TickerProviderStateMixin {
 
   List<String> getUpcomingImages() {
     List<String> upcoming = [];
-    for (int i = 1; i <= 3; i++) {
+    for (int i = 1; i <= 5; i++) {
       int index = (currentIndex + i) % images.length;
       upcoming.add(images[index]);
     }
@@ -89,53 +97,49 @@ class _ScreenGuidState extends State<ScreenGuid> with TickerProviderStateMixin {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-            
-              children: [
-                ClipOval(
-                  child: AnimatedSwitcher(
-                    duration: Duration(milliseconds: 600),
-                    child: Image.asset(
-                      images[currentIndex],
-                      key: ValueKey(images[currentIndex]),
-                      width: size.width / 2,
-                      height: size.width / 2,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+            ClipOval(
+              child: AnimatedSwitcher(
+                duration: Duration(milliseconds: 600),
+                child: Image.asset(
+                  images[currentIndex],
+                  key: ValueKey(images[currentIndex]),
+                  width: size.width / 1,
+                  height: size.width /1,
+                  fit: BoxFit.cover,
                 ),
-
-                // 🌙 Crescent facing LEFT
-                ClipPath(
-                  clipper: CrescentClipper(),
-                  child: Container(
-                    // Crescent size
-                    width: size.width / 2,
-                    height: size.width / 2,
-
-                    color: kdominatgrey, // or crescent color
-                  ),
-                ),
-              ],
+              ),
             ),
-            h30,
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: List.generate(upcoming.length, (i) {
-                // Radius-like sizes: 60 → 40 → 20
-                double size = [60.0, 40.0, 20.0][i];
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: ClipOval(
-                    child: Image.asset(
-                      upcoming[i],
-                      width: size,
-                      height: size,
-                      fit: BoxFit.cover,
+            SizedBox(
+              height: 150, // set a fixed height for alignment to work
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(upcoming.length, (i) {
+                  Alignment alignment;
+
+                  if (i == 0 && isAnimating) {
+                    alignment = Alignment(0.0, -2.0); // move up
+                  } else {
+                    alignment = Alignment.center;
+                  }
+
+                  return AnimatedAlign(
+                    alignment: alignment,
+                    duration: Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: ClipOval(
+                        child: Image.asset(
+                          upcoming[i],
+                          width: size.width / 6.5,
+                          height: size.width / 6.5,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
-                );
-              }),
+                  );
+                }),
+              ),
             ),
             const Padding(
               padding: EdgeInsets.only(top: 25, bottom: 20),
@@ -222,26 +226,35 @@ class _ScreenGuidState extends State<ScreenGuid> with TickerProviderStateMixin {
     );
   }
 }
-
-class CrescentClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path outer = Path()
-      ..addOval(Rect.fromCircle(
-        center: Offset(size.width / 2, size.height / 2),
-        radius: size.width / 2,
-      ));
-
-    // Shift inner circle to the LEFT for left-facing crescent
-    Path inner = Path()
-      ..addOval(Rect.fromCircle(
-        center: Offset(size.width / 2 - size.width * 0.15, size.height / 2),
-        radius: size.width / 2,
-      ));
-
-    return Path.combine(PathOperation.difference, outer, inner);
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}
+/*
+  ClipOval(
+              child: AnimatedSwitcher(
+                duration: Duration(milliseconds: 600),
+                child: Image.asset(
+                  images[currentIndex],
+                  key: ValueKey(images[currentIndex]),
+                  width: size.width / 1,
+                  height: size.width / 1,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            h30,
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(upcoming.length, (i) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: ClipOval(
+                    child: Image.asset(
+                      upcoming[i],
+                      width: size.width / 6.5,
+                      height: size.width / 6.5,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              }),
+            ),
+ */
