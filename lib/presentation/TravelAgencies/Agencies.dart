@@ -125,128 +125,175 @@ class Agencies extends StatelessWidget {
                 ),
               ),
               h40,
-              SizedBox(
-                height: size.height / 2,
-                width: size.width,
-                child: GridView.count(
-                    crossAxisCount: 1,
-                    childAspectRatio: 1.3,
-                    mainAxisSpacing: 10,
-                    scrollDirection: Axis.horizontal,
-                    children: List.generate(20, (index) {
-                      return Stack(
-                        children: [
-                          Container(
-                            height: size.height / 2,
-                            width: size.width / 1.1,
-                            color: const Color.fromARGB(255, 52, 81, 80),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CustomPaint(
-                                  painter: CustomTBorderPainter(
-                                      color: const Color.fromARGB(
-                                          255, 177, 185, 186)),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(15),
-                                    child: ClipPath(
-                                      clipper: Agentcardclip(),
-                                      child: Container(
-                                        height: size.height / 2.3,
-                                        width: index < 9
-                                            ? size.width / 1.5
-                                            : size.width / 1.3,
-                                        decoration: BoxDecoration(
-                                            color: const Color.fromARGB(
-                                                227, 96, 114, 116),
-                                            borderRadius: BorderRadius.only(
-                                                topLeft: Radius.circular(5))),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 20),
-                                                  child: Text(
-                                                    '${index + 1}',
-                                                    style:
-                                                        GoogleFonts.bodoniModa(
-                                                            color: const Color
-                                                                .fromARGB(255,
-                                                                155, 172, 174),
-                                                            fontSize: 70),
-                                                  ),
+              FutureBuilder(
+                  future: FirebaseFirestore.instance
+                      .collection("user")
+                      .where('phoneNumber', isNotEqualTo: '')
+                      .get(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: kdominatgrey,
+                        ),
+                      );
+                    } else if (snapshot.hasError) {
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: kRed,
+                        ),
+                      );
+                    } else {
+                      return SizedBox(
+                        height: size.height / 2,
+                        width: size.width,
+                        child: GridView.count(
+                            crossAxisCount: 1,
+                            childAspectRatio: 1.3,
+                            mainAxisSpacing: 10,
+                            scrollDirection: Axis.horizontal,
+                            children: List.generate(snapshot.data!.docs.length,
+                                (index) {
+                              final data = snapshot.data!.docs;
+
+                              return Stack(
+                                children: [
+                                  Container(
+                                    height: size.height / 2,
+                                    width: size.width / 1.1,
+                                    color:
+                                        const Color.fromARGB(255, 52, 81, 80),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        CustomPaint(
+                                          painter: CustomTBorderPainter(
+                                              color: const Color.fromARGB(
+                                                  255, 177, 185, 186)),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(15),
+                                            child: ClipPath(
+                                              clipper: Agentcardclip(),
+                                              child: Container(
+                                                height: size.height / 2.3,
+                                                width: index < 9
+                                                    ? size.width / 1.5
+                                                    : size.width / 1.3,
+                                                decoration: BoxDecoration(
+                                                    color: const Color.fromARGB(
+                                                        227, 96, 114, 116),
+                                                    borderRadius:
+                                                        BorderRadius.only(
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    5))),
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                                  left: 20),
+                                                          child: Text(
+                                                            '${index + 1}',
+                                                            style: GoogleFonts
+                                                                .bodoniModa(
+                                                                    color: const Color
+                                                                        .fromARGB(
+                                                                        255,
+                                                                        155,
+                                                                        172,
+                                                                        174),
+                                                                    fontSize:
+                                                                        70),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  top: index < 9
+                                                                      ? 20
+                                                                      : 30),
+                                                          child: Container(
+                                                            height:
+                                                                size.height / 4,
+                                                            width:
+                                                                size.width / 2,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                                    color:
+                                                                        kDominantcolor,
+                                                                    borderRadius: BorderRadius.only(
+                                                                        bottomLeft:
+                                                                            Radius.circular(
+                                                                                100),
+                                                                        bottomRight:
+                                                                            Radius.circular(100)),
+                                                                    image: DecorationImage(
+                                                                        image: NetworkImage(
+                                                                          data[index]
+                                                                              [
+                                                                              'photoUrl'],
+                                                                        ),
+                                                                        fit: BoxFit.cover)),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    Text(
+                                                      data[index]['username'],
+                                                      style: textstyle,
+                                                    ),
+                                                    Text(data[index]['username']),
+                                                    Text('user1234@gmail.com'),
+                                                    Spacer(),
+                                                    Container(
+                                                      height: size.height / 20,
+                                                      width: size.width,
+                                                      color: kblack,
+                                                      child: Center(
+                                                          child: Text(
+                                                        'Know more',
+                                                        style: TextStyle(
+                                                            color: kwhite,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      )),
+                                                    ),
+                                                  ],
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      top: index < 9 ? 20 : 30),
-                                                  child: Container(
-                                                    height: size.height / 4,
-                                                    width: size.width / 2,
-                                                    decoration: BoxDecoration(
-                                                        color: kDominantcolor,
-                                                        borderRadius:
-                                                            BorderRadius.only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        100),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        100)),
-                                                        image: DecorationImage(
-                                                            image: NetworkImage(
-                                                              'https://media.gettyimages.com/id/2025430042/photo/portrait-of-female-airport-staff-member.jpg?s=612x612&w=gi&k=20&c=vfLk59PgDOm7EvxFD2bL2Z58U18fSbk8aptMGyVz7qQ=',
-                                                            ),
-                                                            fit: BoxFit.cover)),
-                                                  ),
-                                                ),
-                                              ],
+                                              ),
                                             ),
-                                            Text(
-                                              'Username',
-                                              style: textstyle,
-                                            ),
-                                            Text('1234355678'),
-                                            Text('user1234@gmail.com'),
-                                            h10,
-                                            ElevatedButtonWidget(
-                                                onPress: () {},
-                                                buttonwidget: Text(
-                                                  'Know more',
-                                                  style: TextStyle(
-                                                    color: kwhite,
-                                                  ),
-                                                ),
-                                                style: ElevatedButton.styleFrom(
-                                                    backgroundColor: kblack))
-                                          ],
+                                          ),
                                         ),
-                                      ),
+                                      ],
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Positioned(
-                              bottom: size.height / 5,
-                              left: size.width / 1.5,
-                              child: CircleAvatar(
-                                  radius: 30,
-                                  backgroundColor: kblack,
-                                  child: Icon(
-                                    kstarsfilled,
-                                    color: kamber,
-                                  )))
-                        ],
+                                  Positioned(
+                                      bottom: size.height / 5,
+                                      left: size.width / 1.5,
+                                      child: CircleAvatar(
+                                          radius: 30,
+                                          backgroundColor: kblack,
+                                          child: Icon(
+                                            kstarsfilled,
+                                            color: kamber,
+                                          )))
+                                ],
+                              );
+                            })),
                       );
-                    })),
-              )
+                    }
+                  })
             ],
           ),
         ));
@@ -313,101 +360,3 @@ class CustomTBorderPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
-
-/*
-
-
-FutureBuilder(
-          future: FirebaseFirestore.instance
-              .collection("user")
-              .where('phoneNumber', isNotEqualTo: '')
-              .get(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  color: kdominatgrey,
-                ),
-              );
-            } else if (snapshot.hasError) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  color: kRed,
-                ),
-              );
-            } else {
-              return
-
-
-
-
-
-
-
-
-
-
-GridView.count(
-                crossAxisCount: 1,
-               // crossAxisSpacing: 10,
-                mainAxisSpacing: 0,
-               // childAspectRatio: 1 / 1,
-                children:
-                    List.generate(snapshot.data!.docs.length, (index) {
-                  final userdata = snapshot.data!.docs[index];
-            
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AgentDetails(
-                              imageurl: userdata['photoUrl'],
-                              rating: '3',
-                              phoneNumber: userdata['phoneNumber'],
-                              email: userdata['email'],
-                              username: userdata['username'])));
-                    },
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: size.height / 8,
-                            width: size.width,
-                            decoration: BoxDecoration(
-                                color: kDominantTrans,
-                                borderRadius:
-                                    BorderRadius.circular(20)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Text(
-                                    userdata['username'],
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
-                                  Text(
-                                    userdata['phoneNumber'],
-                                  ),
-                                  Text(userdata['email'],
-                                      style: TextStyle(
-                                          color: isDarkMode
-                                              ? kdominatgrey
-                                              : klightwhite)),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                }),
-              );
- */
