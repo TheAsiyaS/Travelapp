@@ -19,8 +19,15 @@ class Drawerscreen extends StatelessWidget {
       'Favourite Places',
       'Saved Hotels',
       'Profile'
+          'Sign out'
     ];
-    final drwawerSubTitle = ['Hotels', 'Places', 'Hotels', 'Profile'];
+    final drwawerSubTitle = [
+      'Hotels',
+      'Places',
+      'Hotels',
+      'Profile',
+      'Sign out'
+    ];
     final drawerScreens = [
       const HotelBookedScreen(),
       const FavouritePlaces(),
@@ -30,7 +37,7 @@ class Drawerscreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kbottomSubDominant,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           ValueListenableBuilder(
               valueListenable: currentuserdata,
@@ -55,15 +62,20 @@ class Drawerscreen extends StatelessWidget {
                   ],
                 );
               }),
+          h30,
           SizedBox(
-            height: size.height / 2,
+            height: size.height / 2.6,
             width: size.width,
-            child: ListView.separated(
-                itemBuilder: (context, index) {
+            child: Column(
+              children: List.generate(drawerScreens.length * 2 - 1, (i) {
+                if (i.isEven) {
+                  final index = i ~/ 2;
                   return ListTile(
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => drawerScreens[index]));
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => drawerScreens[index]),
+                      );
                     },
                     title: Text(
                       drwawerTitle[index],
@@ -74,14 +86,26 @@ class Drawerscreen extends StatelessWidget {
                       style: const TextStyle(color: klightwhite),
                     ),
                   );
-                },
-                separatorBuilder: (context, index) {
-                  return const Divider(
-                    color: kDominantTrans,
-                  );
-                },
-                itemCount: drawerScreens.length),
+                } else {
+                  return const Divider(color: kDominantTrans);
+                }
+              }),
+            ),
           ),
+          Container(
+            color: kDominantcolor,
+            child: ListTile(
+              title: Text(
+                'Sign out',
+                style:
+                    const TextStyle(color: kwhite, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text('remove account'),
+            ),
+          ),
+          // SizedBox(
+          //   height: size.height / 15,
+          // ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
               'Longitude',

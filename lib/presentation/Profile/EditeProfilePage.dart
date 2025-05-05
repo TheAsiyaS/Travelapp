@@ -45,7 +45,6 @@ class EiteProfile extends StatelessWidget {
       'Email',
       'Phone Number',
       'Location',
-      
     ];
     final fieldplaceholder = [
       currentuserdata.value.username,
@@ -58,7 +57,6 @@ class EiteProfile extends StatelessWidget {
           ? "No number"
           : currentuserdata.value.phoneNumber,
       'Location',
-      
     ];
     final keyboardType = [
       TextInputType.name,
@@ -75,20 +73,16 @@ class EiteProfile extends StatelessWidget {
       kmail,
       kcall,
       kLocation,
-      
     ];
     return ChangeNotifierProvider<UsernameModel>(
         create: (context) => UsernameModel(),
         child: Scaffold(
-          endDrawer: Drawer(
-    child:Text('data') // Your drawer content here
-          ),
+          
           appBar: AppBar(
             foregroundColor: kwhite,
             title: const Text('Edit Profile'),
             centerTitle: true,
             backgroundColor: ktransparent,
-            
           ),
           extendBodyBehindAppBar: true,
           body: Consumer<UsernameModel>(builder: (context, model, _) {
