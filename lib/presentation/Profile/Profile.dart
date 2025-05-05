@@ -3,6 +3,7 @@ import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/Profile/EditeProfilePage.dart';
+import 'package:travelapp/presentation/Profile/profileimageLarge.dart';
 import 'package:travelapp/widgets/IconButton.dart';
 
 class Profile extends StatelessWidget {
@@ -34,23 +35,38 @@ class Profile extends StatelessWidget {
                         height: size.height / 2,
                         width: size.width,
                         decoration: BoxDecoration(
-                          color: kDominantTransdark,
-                          borderRadius: BorderRadius.circular(20)
-                        ),
+                            color: kDominantTransdark,
+                            borderRadius: BorderRadius.circular(20)),
                         child: Padding(
                           padding: const EdgeInsets.only(left: 10, right: 10),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Center(
-                                  child: CircleAvatar(
-                                radius: 60,
-                                backgroundImage: currentuserdata
-                                        .value.scondaryImage.isEmpty
-                                    ? const AssetImage('asset/noImage.jpg')
-                                        as ImageProvider<Object>?
-                                    : NetworkImage(
-                                        currentuserdata.value.scondaryImage),
+                                  child: GestureDetector(
+                                onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => const ProfileLarge()));  
+                                },
+                                child: CircleAvatar(
+                                  radius: 60,
+                                  backgroundImage: currentuserdata
+                                          .value.scondaryImage.isEmpty
+                                      ? const AssetImage('asset/noImage.jpg')
+                                          as ImageProvider<Object>?
+                                      : NetworkImage(
+                                          currentuserdata.value.scondaryImage),
+                                  child: Center(
+                                    child: CircleAvatar(
+                                      backgroundColor: kDominantTrans,
+                                      child: Icon(
+                                        Icons.fullscreen,
+                                        color: kwhite,
+                                        size: 30,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               )),
                               const Text(
                                 'Username',

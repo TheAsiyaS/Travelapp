@@ -80,21 +80,15 @@ class EiteProfile extends StatelessWidget {
     return ChangeNotifierProvider<UsernameModel>(
         create: (context) => UsernameModel(),
         child: Scaffold(
+          endDrawer: Drawer(
+    child:Text('data') // Your drawer content here
+          ),
           appBar: AppBar(
             foregroundColor: kwhite,
             title: const Text('Edit Profile'),
             centerTitle: true,
             backgroundColor: ktransparent,
-            actions: [
-              IconButtonWidget(
-                  onPressFunc: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const FlipAvatarPage()));
-                  },
-                  iconwidget: const Icon(
-                    ksetting,
-                  ))
-            ],
+            
           ),
           extendBodyBehindAppBar: true,
           body: Consumer<UsernameModel>(builder: (context, model, _) {
