@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 
 class NavButton extends StatelessWidget {
@@ -7,7 +8,8 @@ class NavButton extends StatelessWidget {
     required this.size,
     required this.text,
     required this.color,
-    required this.onPress, required this.width,
+    required this.onPress,
+    required this.width,
   });
 
   final Size size;
@@ -24,7 +26,7 @@ class NavButton extends StatelessWidget {
           onPress: onPress,
           buttonwidget: Text(
             text,
-            style: const TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18, color: kwhite),
           ),
           style: ElevatedButton.styleFrom(backgroundColor: color)),
     );

@@ -21,6 +21,7 @@ class SignIn extends StatelessWidget {
     final passwordController = TextEditingController();
 
     return Scaffold(
+      backgroundColor: kdominatgrey,
       body: Column(
         children: [
           Stack(
@@ -33,16 +34,12 @@ class SignIn extends StatelessWidget {
                   width: size.width,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
-                          image: NetworkImage(
-                              'https://media.bizj.us/view/img/12058731/12foleyhoagbrucemartin*xx4800-2700-0-250.jpg'),
+                          image: AssetImage('asset/company.jpeg'),
                           fit: BoxFit.cover)),
-                  child: Container(
-                    color: const Color.fromARGB(122, 34, 54, 55),
-                  ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: size.width / 10),
+                padding: EdgeInsets.only(left: size.width / 10,top: 10, ),
                 child: const CircleAvatar(
                   backgroundColor: kDominantcolor,
                   radius: 70,

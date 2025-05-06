@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/Home/DrawerScreens/FavouritePlace.dart';
@@ -19,14 +18,12 @@ class Drawerscreen extends StatelessWidget {
       'Favourite Places',
       'Saved Hotels',
       'Profile'
-          'Sign out'
     ];
     final drwawerSubTitle = [
       'Hotels',
       'Places',
       'Hotels',
       'Profile',
-      'Sign out'
     ];
     final drawerScreens = [
       const HotelBookedScreen(),
@@ -42,27 +39,37 @@ class Drawerscreen extends StatelessWidget {
           ValueListenableBuilder(
               valueListenable: currentuserdata,
               builder: (context, value, _) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage:
-                          NetworkImage(currentuserdata.value.photoUrl),
-                    ),
-                    h10,
-                    Text(
-                      currentuserdata.value.username,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          color: kwhite),
-                    ),
-                    h10,
-                  ],
+                return Container(
+                  decoration: BoxDecoration(
+                      color: kDominantcolor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(100),
+                          bottomLeft: Radius.circular(100))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: 50,
+                        backgroundImage:
+                            NetworkImage(currentuserdata.value.photoUrl),
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            currentuserdata.value.username,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                color: kwhite),
+                          ),
+                          Text(currentuserdata.value.name)
+                        ],
+                      ),
+                    ],
+                  ),
                 );
               }),
-          h30,
+         SizedBox(height: size.height/10,),
           SizedBox(
             height: size.height / 2.6,
             width: size.width,
@@ -124,3 +131,4 @@ class Drawerscreen extends StatelessWidget {
     );
   }
 }
+//infp
