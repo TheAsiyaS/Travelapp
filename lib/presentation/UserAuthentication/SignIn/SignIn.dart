@@ -38,8 +38,9 @@ class SignIn extends StatelessWidget {
                           fit: BoxFit.cover)),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(left: size.width / 10,top: 10, ),
+              Positioned(
+                bottom: 0,
+                left: size.width / 9,
                 child: const CircleAvatar(
                   backgroundColor: kDominantcolor,
                   radius: 70,
@@ -51,9 +52,7 @@ class SignIn extends StatelessWidget {
           Text(
             'Longitude',
             style: GoogleFonts.dancingScript(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-            ),
+                fontSize: 40, fontWeight: FontWeight.bold, color: kwhite),
           ),
           h20,
           Card(
@@ -63,6 +62,7 @@ class SignIn extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 20, left: 15),
                   child: CupertinotextfieldWidget(
+                    
                       controller: emailController,
                       placeholderText: 'Enter your e-mail adress....',
                       placeholderStyle: const TextStyle(color: klightwhite),
@@ -71,7 +71,7 @@ class SignIn extends StatelessWidget {
                       suffixWidget: h10,
                       keybodtype: TextInputType.name,
                       obscureText: false,
-                      style: const TextStyle(),
+                      style: const TextStyle(color: kwhite),
                       onchanged: (value) {},
                       onsubmitted: (value) {}),
                 ),
@@ -95,8 +95,8 @@ class SignIn extends StatelessWidget {
                             color: klightwhite,
                           )),
                       keybodtype: TextInputType.name,
-                      obscureText: false,
-                      style: const TextStyle(),
+                      obscureText: true,
+                      style: const TextStyle(color: kwhite),
                       onchanged: (value) {},
                       onsubmitted: (value) {}),
                 ),
