@@ -100,8 +100,9 @@ class AuthMethod {
   Future<void> uploadSecondaryImage({
     required Uint8List? file,
   }) async {
-    final docUser =
-        FirebaseFirestore.instance.collection('user').doc(currentuserdata.value.uid);
+    final docUser = FirebaseFirestore.instance
+        .collection('user')
+        .doc(currentuserdata.value.uid);
     String? photoUrl;
     if (file != null) {
       photoUrl = await StorageMethods().uploadImageToStorage(
@@ -116,8 +117,9 @@ class AuthMethod {
   Future<void> uploadProfileImage({
     required Uint8List? file,
   }) async {
-    final docUser =
-        FirebaseFirestore.instance.collection('user').doc(currentuserdata.value.uid);
+    final docUser = FirebaseFirestore.instance
+        .collection('user')
+        .doc(currentuserdata.value.uid);
     String? photoUrl;
     if (file != null) {
       photoUrl = await StorageMethods()
@@ -143,9 +145,20 @@ class AuthMethod {
         'username': username,
         'name': name,
         'email': email,
-        'bio':bio,
+        'bio': bio,
         'phoneNumber': phoneno,
       });
     } else {}
+  }
+}
+
+Future<bool> signOutUser() async {
+  try {
+    await FirebaseAuth.instance.signOut();
+    debugPrint('User signed out successfully.');
+    return true;
+  } catch (e) {
+    debugPrint('Error signing out: $e');
+    return false;
   }
 }

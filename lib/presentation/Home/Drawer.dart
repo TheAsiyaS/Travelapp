@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelapp/Domain/DB/Infrastructure/Auhentication/UserAuthentication.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/main.dart';
 import 'package:travelapp/presentation/Home/DrawerScreens/FavouritePlace.dart';
 import 'package:travelapp/presentation/Home/DrawerScreens/HotelSave.dart';
 import 'package:travelapp/presentation/Home/DrawerScreens/HotelBooked.dart';
 import 'package:travelapp/presentation/Profile/Profile.dart';
+import 'package:travelapp/presentation/UserAuthentication/SignIn/SignIn.dart';
 
 class Drawerscreen extends StatelessWidget {
   const Drawerscreen({super.key});
@@ -69,7 +71,9 @@ class Drawerscreen extends StatelessWidget {
                   ),
                 );
               }),
-         SizedBox(height: size.height/10,),
+          SizedBox(
+            height: size.height / 10,
+          ),
           SizedBox(
             height: size.height / 2.6,
             width: size.width,
@@ -102,6 +106,25 @@ class Drawerscreen extends StatelessWidget {
           Container(
             color: kDominantcolor,
             child: ListTile(
+              onTap: () async {
+                final result = await signOutUser();
+                if (result == true) {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => SignIn()),
+                      (route) => false);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: kDominantcolor,
+                      content: const Text(
+                        'Sign out failed. Please try again.',
+                        style: TextStyle(color: kwhite),
+                      ),
+                      duration: const Duration(seconds: 2),
+                    ),
+                  );
+                }
+              },
               title: Text(
                 'Sign out',
                 style:
@@ -110,9 +133,6 @@ class Drawerscreen extends StatelessWidget {
               subtitle: Text('remove account'),
             ),
           ),
-          // SizedBox(
-          //   height: size.height / 15,
-          // ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
               'Longitude',
