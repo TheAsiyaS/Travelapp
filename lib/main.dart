@@ -103,8 +103,7 @@ class SplashScreentoSignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       Future.delayed(const Duration(seconds: 3), () {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (ctx) {
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (ctx) {
           return const SignIn();
         }));
       });

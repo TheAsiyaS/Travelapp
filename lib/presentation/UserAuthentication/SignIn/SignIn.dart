@@ -49,20 +49,37 @@ class SignIn extends StatelessWidget {
               ),
             ],
           ),
-          Text(
-            'Longitude',
-            style: GoogleFonts.dancingScript(
-                fontSize: 40, fontWeight: FontWeight.bold, color: kwhite),
+          SizedBox(
+            height: size.height / 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'L',
+                style: GoogleFonts.greatVibes(color: kwhite, fontSize: 35),
+              ),
+              CircleAvatar(
+                radius: 30,
+                backgroundColor: ktransparent,
+                backgroundImage: AssetImage('asset/logo.png'),
+              ),
+              Text(
+                'ngitude',
+                style: GoogleFonts.greatVibes(color: kwhite, fontSize: 35),
+              ),
+            ],
           ),
           h20,
           Card(
             color: const Color.fromARGB(19, 1, 255, 230),
+            margin: EdgeInsets.all(10),
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20, left: 15),
+                  padding: const EdgeInsets.only(top: 30, left: 15),
                   child: CupertinotextfieldWidget(
-                    
                       controller: emailController,
                       placeholderText: 'Enter your e-mail adress....',
                       placeholderStyle: const TextStyle(color: klightwhite),
@@ -88,12 +105,8 @@ class SignIn extends StatelessWidget {
                       placeholderStyle: const TextStyle(color: klightwhite),
                       boxDecoration: const BoxDecoration(),
                       prefixWidget: h10,
-                      suffixWidget: IconButtonWidget(
-                          onPressFunc: () {},
-                          iconwidget: const Icon(
-                            Icons.visibility_outlined,
-                            color: klightwhite,
-                          )),
+                      suffixWidget:
+                          IconButtonWidget(onPressFunc: () {}, iconwidget: w2),
                       keybodtype: TextInputType.name,
                       obscureText: true,
                       style: const TextStyle(color: kwhite),
@@ -123,7 +136,10 @@ class SignIn extends StatelessWidget {
                   height: size.height / 9,
                 ),
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  const Text('Don\'t have an account?'),
+                  const Text(
+                    'Don\'t have an account?',
+                    style: TextStyle(color: kwhite),
+                  ),
                   TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
