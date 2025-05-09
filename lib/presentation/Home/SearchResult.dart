@@ -18,6 +18,16 @@ class SearchResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'The detected location may be inaccurate due to temporary technical issues.',
+            style: TextStyle(color: kwhite),
+          ),
+          duration: Duration(seconds: 10),
+          backgroundColor: kDominantcolor,
+        ),
+      );
       BlocProvider.of<HotelPlaceBloc>(context)
           .add(HotelPlaceEvent.getSearchPlaceDetails(searchQuery: querry));
     });
@@ -73,7 +83,7 @@ class SearchResult extends StatelessWidget {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => SearchItemDetailed(
                                 imageurl: data.largeImageUrl!,
-                                suburls: imagesUrl ,
+                                suburls: imagesUrl,
                                 price: '${data.imageHeight! / 5}',
                                 title: places[index % places.length],
                                 subtitle: '',
@@ -106,8 +116,8 @@ class SearchResult extends StatelessWidget {
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                               EdgeInsets.only(left:size.width/5),
+                                          padding: EdgeInsets.only(
+                                              left: size.width / 5),
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -150,10 +160,10 @@ class SearchResult extends StatelessWidget {
                                           ),
                                         ),
                                         RatingBar(
-                                      intialvalue: data.comments!,
-                                      height: size.height /6,
-                                      width: size.width / 5, 
-                                      scrolldirection: Axis.vertical),
+                                            intialvalue: data.comments!,
+                                            height: size.height / 6,
+                                            width: size.width / 5,
+                                            scrolldirection: Axis.vertical),
                                       ],
                                     ),
                                   ],

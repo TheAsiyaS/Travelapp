@@ -15,6 +15,7 @@ class OnsearchtimeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   
     final size = MediaQuery.of(context).size;
     final placeController = TextEditingController();
     ValueNotifier<String> searchvalue =
@@ -27,7 +28,7 @@ class OnsearchtimeScreen extends StatelessWidget {
     final searchplacesname = ['Dubai', 'India', 'maldives'];
     final searchplacesimage = [
       'https://lp-cms-production.imgix.net/features/2017/09/dubai-marina-skyline-2c8f1708f2a1.jpg',
-      'https://www.g20.org/content/dam/gtwenty/gtwenty_new/explore_india/Culture%20Heritage%20of%20India_1.jpg',
+      'https://thumbs.dreamstime.com/b/taj-mahal-mogul-art-architecture-agra-india-30334110.jpg',
       'https://media2.thrillophilia.com/images/photos/000/082/497/original/1675261154_shutterstock_2148766633.jpg?width=975&height=600'
     ];
     return Scaffold(

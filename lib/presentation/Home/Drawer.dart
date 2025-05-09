@@ -55,17 +55,25 @@ class Drawerscreen extends StatelessWidget {
                         backgroundImage:
                             NetworkImage(currentuserdata.value.photoUrl),
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            currentuserdata.value.username,
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: kwhite),
-                          ),
-                          Text(currentuserdata.value.name)
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              currentuserdata.value.username,
+                             
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: kwhite),
+                            ),
+                            Text(
+                              currentuserdata.value.name,
+                              style: TextStyle(color: kwhite),
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -130,7 +138,10 @@ class Drawerscreen extends StatelessWidget {
                 style:
                     const TextStyle(color: kwhite, fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('remove account'),
+              subtitle: Text(
+                'remove account',
+                style: TextStyle(color: klightwhite),
+              ),
             ),
           ),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
