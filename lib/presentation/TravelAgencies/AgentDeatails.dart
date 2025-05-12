@@ -5,7 +5,6 @@ import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
 import 'package:travelapp/presentation/Animation/Textanimaion.dart';
-import 'package:travelapp/widgets/IconButton.dart';
 import 'dart:math';
 import 'dart:ui';
 
@@ -44,7 +43,7 @@ class AgentDetails extends StatelessWidget {
             height: size.height / 2,
             width: size.width,
             decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [ktransparent, kdominatgrey])),
+                gradient: RadialGradient(colors: [ktransparent, kdominatgrey])),
             child: Row(
               children: [
                 SizedBox(
@@ -59,38 +58,81 @@ class AgentDetails extends StatelessWidget {
           ),
           Text(
             'contact now',
-            style: GoogleFonts.lora(fontSize: 25, fontWeight: FontWeight.w400),
+            style: GoogleFonts.lora(fontSize: 27, fontWeight: FontWeight.w500),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-               IconButtonWidget(
-                  onPressFunc: () {},
-                  iconwidget: const Icon(
-                    kcall,
-                    color: kDominantcolor,
-                  )),
-              Text(
-                'Phone Number: $phoneNumber',
-                style: const TextStyle(fontSize: 18),
+          Container(
+            height: size.height / 12,
+            width: size.width,
+            decoration: BoxDecoration(
+                color: kDominantcolor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50),
+                  bottomLeft: Radius.circular(50),
+                )),
+            child: GestureDetector(
+              onHorizontalDragUpdate: (details) {
+                int sensitivity = 8;
+                if (details.delta.dx > sensitivity) {
+                 //rigth
+                } else if (details.delta.dx < -sensitivity) {
+                  print('left');
+                }
+              },
+              child: Row(
+                children: [
+                  w10,
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: const Color.fromARGB(255, 120, 144, 146),
+                    child: Icon(
+                      kcall,
+                      color: klightwhite,
+                    ),
+                  ),
+                  w10,
+                  Text(
+                    'Phone Number: $phoneNumber',
+                    style: const TextStyle(
+                        fontSize: 18,
+                        color: kwhite,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
-             
-            ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'Email: $email ',
-                style: const TextStyle(fontSize: 18),
-              ),
-              IconButtonWidget(
-                  onPressFunc: () {},
-                  iconwidget: const Icon(
-                    kmail,
-                    color: kSubDominantcolor,
-                  )),
-            ],
+          h10,
+          Container(
+            height: size.height / 12,
+            width: size.width,
+            decoration: BoxDecoration(
+                color: kDominantcolor,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(50),
+                  bottomRight: Radius.circular(50),
+                )),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'Email: $email ',
+                  style: const TextStyle(
+                      fontSize: 18, color: kwhite, fontWeight: FontWeight.bold),
+                ),
+                w20,
+                CircleAvatar(
+                  radius: 30,
+                  backgroundColor: const Color.fromARGB(255, 120, 144, 146),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        kmail,
+                        color: klightwhite,
+                      )),
+                ),
+                w10,
+              ],
+            ),
           ),
           h10,
           const Text(
@@ -101,20 +143,6 @@ class AgentDetails extends StatelessWidget {
             'help customers find a suitable package holiday or plan independent travel. make bookings and payments using online computer systems. advise customers about passports, insurance, visas, vaccinations, tours and vehicle hire. inform customers of changes like cancelled flights.',
             style: subtextstyle,
           ),
-          const Divider(
-            color: kSubDominantcolor,
-          ),
-          const Row(
-            children: [
-              Text('Survice:',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-              Expanded(
-                  child: Text(
-                'A travel agent is a highly organized professional who is passionate about travel and helping others. They are focused on creating the best possible experiences, directly catered to their clients. They work with hotels, airlines, and',
-                style: subtextstyle,
-              )),
-            ],
-          )
         ],
       ),
     );
@@ -123,7 +151,7 @@ class AgentDetails extends StatelessWidget {
 
 class FanCardAnimation extends StatefulWidget {
   final String url;
-  FanCardAnimation({
+  const FanCardAnimation({
     super.key,
     required this.url,
   });
