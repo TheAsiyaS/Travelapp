@@ -64,14 +64,16 @@ class HotelSearchDetailed extends StatelessWidget {
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>  HotelDetailedWidget(
+                          builder: (context) => HotelDetailedWidget(
                             hotelid: data.id!,
-                            url: '',
-                            title: 'title',
-                            subtitle: 'subtitle',
-                            price: 'price',
+                            url: data.urls!.regular!,
+                            title: touristPlaces[index % touristPlaces.length],
+                            subtitle:
+                                touristPlaces[index % touristPlaces.length],
+                            price: '${data.likes! + 40}.23',
                             rating: 3,
-                            about: 'about',
+                            about:
+                                'Explore handpicked hotels tailored for your comfort and convenience. All listings include key details such as location, pricing, and amenities to help you choose the best stay.',
                           ),
                         ));
                       },

@@ -42,7 +42,7 @@ class Hotels extends StatelessWidget {
     }
     log('message');
     return Scaffold(
-      appBar: PreferredSize(
+      appBar: PreferredSize( 
           preferredSize: Size.fromHeight(size.height / 7),
           child: SimpleAppbar(
             size: size,

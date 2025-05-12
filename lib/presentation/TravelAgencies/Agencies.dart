@@ -9,6 +9,7 @@ import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/presentation/TravelAgencies/AgentDeatails.dart';
 import 'package:travelapp/widgets/ElevatedbuttonWidget.dart';
 
 class Agencies extends StatelessWidget {
@@ -252,22 +253,44 @@ class Agencies extends StatelessWidget {
                                                       data[index]['username'],
                                                       style: textstyle,
                                                     ),
-                                                    Text(data[index]['username']),
+                                                    Text(data[index]
+                                                        ['username']),
                                                     Text('user1234@gmail.com'),
                                                     Spacer(),
-                                                    Container(
-                                                      height: size.height / 20,
-                                                      width: size.width,
-                                                      color: kblack,
-                                                      child: Center(
-                                                          child: Text(
-                                                        'Know more',
-                                                        style: TextStyle(
-                                                            color: kwhite,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .bold),
-                                                      )),
+                                                    GestureDetector(
+                                                      onTap: () {
+                                                        Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                   AgentDetails(
+                                                                      imageurl:
+                                                                          data[index]['photoUrl'],
+                                                                      rating:
+                                                                          data[index]['phoneNumber'],
+                                                                      phoneNumber:
+                                                                           data[index]['phoneNumber'],
+                                                                      email:
+                                                                           data[index]['email'],
+                                                                      username:
+                                                                           data[index]['username'])),
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        height:
+                                                            size.height / 20,
+                                                        width: size.width,
+                                                        color: kblack,
+                                                        child: Center(
+                                                            child: Text(
+                                                          'Know more',
+                                                          style: TextStyle(
+                                                              color: kwhite,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold),
+                                                        )),
+                                                      ),
                                                     ),
                                                   ],
                                                 ),
