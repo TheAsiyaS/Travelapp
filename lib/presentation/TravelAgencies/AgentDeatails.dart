@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:travelapp/common/Icons.dart';
 import 'package:travelapp/common/Sizedboxes.dart';
 import 'package:travelapp/common/Styles.dart';
 import 'package:travelapp/common/colours.dart';
+import 'package:travelapp/presentation/Animation/Textanimaion.dart';
 import 'package:travelapp/widgets/IconButton.dart';
-import 'package:travelapp/widgets/RatingBar.dart';
 import 'dart:math';
 import 'dart:ui';
 
@@ -36,43 +37,44 @@ class AgentDetails extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: kdominatgrey,
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        //crossAxisAlignment: CrossAxisAlignment.start,
         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             height: size.height / 2,
             width: size.width,
-            color: kDominantcolor,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [ktransparent, kdominatgrey])),
             child: Row(
               children: [
                 SizedBox(
                   width: size.width / 2,
-                  height: size.height,
                   child: FanCardAnimation(
                     url: imageurl,
                   ),
-                )
+                ),
+                SizedBox(width: size.width / 2, child: AnimatedTextList()),
               ],
             ),
           ),
-          RatingBar(
-              intialvalue: 4,
-              height: size.height / 15,
-              width: size.width / 1.5,
-              scrolldirection: Axis.horizontal),
+          Text(
+            'contact now',
+            style: GoogleFonts.lora(fontSize: 25, fontWeight: FontWeight.w400),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+               IconButtonWidget(
+                  onPressFunc: () {},
+                  iconwidget: const Icon(
+                    kcall,
+                    color: kDominantcolor,
+                  )),
               Text(
                 'Phone Number: $phoneNumber',
                 style: const TextStyle(fontSize: 18),
               ),
-              IconButtonWidget(
-                  onPressFunc: () {},
-                  iconwidget: const Icon(
-                    kcall,
-                    color: kSubDominantcolor,
-                  )),
+             
             ],
           ),
           Row(
@@ -215,13 +217,15 @@ class _FanCardAnimationState extends State<FanCardAnimation>
       },
       child: Card(
         elevation: 6,
-       
         child: Container(
           width: 140,
           height: 180,
           decoration: BoxDecoration(
-              image: DecorationImage(image: NetworkImage(imageurl),fit: BoxFit.cover)),
-              child: Container(color: color,),
+              image: DecorationImage(
+                  image: NetworkImage(imageurl), fit: BoxFit.cover)),
+          child: Container(
+            color: color,
+          ),
         ),
       ),
     );
